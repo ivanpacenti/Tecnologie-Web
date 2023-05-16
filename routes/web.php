@@ -44,8 +44,12 @@ Route::view('/where', 'where')
 Route::view('/who', 'who')
         ->name('who');*/
 
-Route::view('/index', 'index')
-    ->name('index');
+Route::get('/index', function () {
+        return view('home');
+})-> name('index');
+
+// Route::view('/index', 'home')
+//     ->name('index');
 
 Route::view('/catalogo', 'catalogo')
     ->name('catalogo');

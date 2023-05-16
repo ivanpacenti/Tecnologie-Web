@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.footercontainer1{
+    background-color: rgb(50, 50, 50);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Lexend', sans-serif;
+    color: rgb(210, 210, 210);
+    height: 10rem;
+}
+
+.section{
+    display: flex;
+    border: 2px solid green;
+}

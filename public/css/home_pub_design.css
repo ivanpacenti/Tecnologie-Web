@@ -1,0 +1,84 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    background: #FFFFFF;
+    margin:0;
+    font-family: 'Lexend', sans-serif;
+}
+
+/* viene messo con un tot in percentuale di larghezza e di alteza 3 rem, i margini in automatico, e dal basso 1 rem */
+
+
+.container1{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+}
+
+@media (max-width: 850px) {
+    .container1 {
+        flex-direction: column;
+    }
+}
+
+.imgchisiamo{
+    position: relative;
+    flex: 1 0 10rem;
+    margin: 1rem 1rem 1rem 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgchisiamo img{
+    width: 65rem;
+    height: auto;
+}
+
+.chisiamo{
+    position: relative;
+    text-align: left;
+    flex:1 0 10rem;
+    margin: 1rem 1rem 1rem 0.5rem;
+}
+/* carosello */
+
+.wrapper{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-slide{
+    border-color: red;
+    border-style: solid;
+}
+
+.slide img{
+
+    width: 50rem;
+    height: 25rem;
+}
+
+.carousel{
+    display: none;
+}
+
+.next{
+    right: 0;
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
