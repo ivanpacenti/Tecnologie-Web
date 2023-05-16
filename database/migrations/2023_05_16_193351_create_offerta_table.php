@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('azienda', function (Blueprint $table) {
+        Schema::create('offerta', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('partitaIva');
-            $table->string('nome');
-            $table->string('posizione');
+            $table->string('modalità');
+            $table->string('immagine');
+            $table->string('luogoFruizione');
             $table->string('descrizione');
-            $table->string('tipologia');
-            $table->string('logo');
+            $table->date('dataInizio');
+            $table->date('dataFine');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('azienda');
+        Schema::dropIfExists('offerta');
     }
 };
