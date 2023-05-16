@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('azienda', function (Blueprint $table) {
             $table->string('nome');
+            $table->integer('dipendenti');
+            $table->increments('id');
+
         });
     }
 
