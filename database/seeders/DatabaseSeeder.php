@@ -64,19 +64,28 @@ class DatabaseSeeder extends Seeder {
                 'updated_at' => date("Y-m-d H:i:s")]
         ]);*/
         DB::table('azienda')->insert([
-            ['nome'=>'picciaaa','dipendenti'=>200],
-            ['nome'=>'barto','dipendenti'=>12],
-            ['nome'=>'silvestrini-menuccini','dipendenti'=>2],
+            ['partitaIva'=>'0101010101','posizione'=>'baraccola',
+            'nome'=>'Aethra','descrizione'=>'Telecommunications',
+            'tipologia'=>'Informatica','logo'=>'img/aethra.jpg'],
+            ['partitaIva'=>'02020202','posizione'=>'baraccola',
+            'nome'=>'Gimboldi','descrizione'=>'Telecommunications',
+            'tipologia'=>'Panificio','logo'=>'img/gimbo.jpg'],
+            ['partitaIva'=>'03030303','posizione'=>'senigallia',
+            'nome'=>'Ipercoop','descrizione'=>'il Maestrale',
+            'tipologia'=>'Cibo e tanta roba','logo'=>'img/iper.jpg']]
+        );
 
-
-        ]);
-        DB::table('azienda')->insert([
-
-            ['nome'=>'barto','dipendenti'=>12],
-            ['nome'=>'silvestrini-menuccini','dipendenti'=>2],
-
-        ]);
-
+        DB::table('offerta')->insert([
+            ['modalità'=>'online','immagine'=>'img/padreMaronno.png',
+                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica',
+                'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16'],
+            ['modalità'=>'online','immagine'=>'img/padreMaronno.png',
+                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica',
+                'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16'],
+            ['modalità'=>'online','immagine'=>'img/padreMaronno.png',
+                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica',
+                'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16']]
+        );
     }
 
 }
