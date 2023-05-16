@@ -63,7 +63,19 @@ class DatabaseSeeder extends Seeder {
                 'password' => Hash::make('adminadmin'), 'role' => 'admin', 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")]
         ]);*/
-        DB::table('azienda')->insert(['nome'=>'picciaaa']);
+        DB::table('azienda')->insert([
+            ['nome'=>'picciaaa','dipendenti'=>200],
+            ['nome'=>'barto','dipendenti'=>12],
+            ['nome'=>'silvestrini-menuccini','dipendenti'=>2],
+
+
+        ]);
+        DB::table('azienda')->insert([
+
+            ['nome'=>'barto','dipendenti'=>12],
+            ['nome'=>'silvestrini-menuccini','dipendenti'=>2],
+
+        ]);
 
     }
 
