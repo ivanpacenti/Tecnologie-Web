@@ -1,0 +1,208 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    background: #FFFFFF;
+    margin:0;
+
+    /*gradiente*/
+    /*background-image: linear-gradient(to bottom right, #BDE0FE,#FFC8DD);*/
+}
+/* header come è composto?? */
+/* viene messo con un tot in percentuale di larghezza e di alteza 3 rem, i margini in automatico, e dal basso 1 rem */
+
+
+/*
+    Questo header è un flexbox che contiene nav, logo e la searchbar. Si utilizza 'display: flex' per rendere la sezione un "container"
+    di tipo flex che ci permette di gestire ed organizzare meglio il layout di pagina. Anche le sezioni contenute dall'header sono
+    dei flexbox in modo tale da organizzare meglio i loro contenuti, es: .nav
+*/
+h1{
+    font-size: 3rem;
+    border: .1rem solid rgb(51, 255, 0);
+    display: flex;
+}
+
+header {
+    position: sticky;
+    font-family: 'Lexend', sans-serif;
+    top: 0;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    background: #593959;
+}
+
+/*
+    nav è un flexbox che contiene i vari link alle pagine raggiungibili da quella in cui ci si trova (.links)
+*/
+nav{
+    display: flex;
+    flex-grow: 2.3;
+    justify-content: flex-end;
+    align-items: center;
+    /*border: 2px solid rgb(51, 255, 0);*/
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+/*
+    .links è un flexbox che contiene i link che permettono di raggiungere altre pagine dalla barra di navigazione
+*/
+.links{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    /*border: 1px solid rgb(255, 26, 26);*/
+}
+
+/*
+    .logo è un flexbox che contiene il logo del sito
+*/
+.logo{
+    padding: 5px 0;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    float:left;
+    /*border: 2px solid red;*/
+}
+
+/*
+   .searchbar è un flexbox che contiene il la searchbar del sito
+*/
+.searchbar{
+    display: flex;
+    flex-grow: 4;
+    justify-content: flex-end;
+    /*border: 2px solid red;*/
+}
+
+/*
+   .searchbar input[] è la searchbar del sito effettiva
+*/
+.searchbar input[type=text] {
+    border-radius: 10rem;
+    display: flex;
+    flex-direction: row;
+    padding: .3rem 10%;
+    font-size: .9rem;
+}
+
+/*
+    li definisce gli elementi della lista di links
+*/
+li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0px solid blue;
+}
+
+/*
+    li a definisce come sono fatti i box in cui si trovano i links
+*/
+li a{
+    padding:1rem 1rem;
+    font-size: medium;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/*
+    li a:hover definisce come diventano gli elementi 'a' quando il cursore si trova su di essi
+*/
+li a:hover{
+    font-family: 'Lexend', sans-serif;
+    color:#593959;
+    background-color: #d4d4d4;
+    transition: 0.5s;
+}
+
+.container1
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-right: 1rem;
+    border-color: red;
+    border-style: solid;
+}
+@media (max-width: 850px) {
+    .container1 {
+        flex-direction: column;
+    }
+}
+.imgchisiamo
+{
+    float: left;
+    position: relative;
+
+    flex: 1 0 10rem;
+    margin: 1rem 1rem 1rem 1rem;
+    border-style: solid;
+    border-color: red;
+    align-items: center;
+    justify-content: center;
+}
+.imgchisiamo img
+{
+    width: 65rem;
+    height: auto;
+
+}
+.chisiamo
+{
+    float:right;
+    position: relative;
+    font-family: "Al Bayan";
+    text-align: justify;
+    flex:1 0 10rem;
+}
+/* carosello */
+
+.wrapper
+{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container-slide
+{
+    border-color: red;
+    border-style: solid;
+}
+.slide img
+{
+
+    width: 50rem;
+    height: 25rem;
+}
+.carousel
+{
+    display: none;
+}
+.next
+{
+    right: 0;
+}
+
+.fade
+{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}

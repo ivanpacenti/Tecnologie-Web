@@ -1,0 +1,96 @@
+header {
+    position: sticky;
+    font-family: 'Lexend', sans-serif;
+    top: 0;
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    background: #593959;
+}
+nav{
+    display: flex;
+    flex-grow: 2.3;
+    justify-content: flex-end;
+    align-items: center;
+    /*border: 2px solid rgb(51, 255, 0);*/
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+/*
+    .links è un flexbox che contiene i link che permettono di raggiungere altre pagine dalla barra di navigazione
+*/
+.links{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    /*border: 1px solid rgb(255, 26, 26);*/
+}
+
+/*
+    .logo è un flexbox che contiene il logo del sito
+*/
+.logo{
+    padding: 5px 0;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    float:left;
+    /*border: 2px solid red;*/
+}
+
+/*
+   .searchbar è un flexbox che contiene il la searchbar del sito
+*/
+.searchbar{
+    display: flex;
+    flex-grow: 4;
+    justify-content: flex-end;
+    /*border: 2px solid red;*/
+}
+
+/*
+   .searchbar input[] è la searchbar del sito effettiva
+*/
+.searchbar input[type=text] {
+    border-radius: 10rem;
+    display: flex;
+    flex-direction: row;
+    padding: .3rem 10%;
+    font-size: .9rem;
+}
+
+/*
+    li definisce gli elementi della lista di links
+*/
+li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0px solid blue;
+}
+
+/*
+    li a definisce come sono fatti i box in cui si trovano i links
+*/
+li a{
+    padding:1rem 1rem;
+    font-size: medium;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/*
+    li a:hover definisce come diventano gli elementi 'a' quando il cursore si trova su di essi
+*/
+li a:hover{
+    font-family: 'Lexend', sans-serif;
+    color:#593959;
+    background-color: #d4d4d4;
+    transition: 0.5s;
+}
