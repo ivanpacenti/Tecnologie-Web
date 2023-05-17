@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Azienda;
 use App\Models\Catalog;
 use App\Models\Offerta;
 
@@ -30,6 +31,7 @@ class PublicController
     public function visualizzaCatalogo()
     {
         $offerte = Offerta::all();
-        return view('catalogo')->with('offerte', $offerte);
+        $aziende=Azienda::all();
+        return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
 }
