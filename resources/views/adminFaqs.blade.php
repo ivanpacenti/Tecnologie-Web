@@ -2,6 +2,7 @@
 @section('title','PaginaAdmin')
 
 @extends('layouts.adminLayout')
+
 @section('content')
 <body>
     @isset($faqs)
@@ -9,12 +10,12 @@
             <div class="main-box">
                 <div class="upper-box">
                     <h3>Domanda:</h3>
-                    <h5>{{$Faqs->domanda}}</h5>
+                    <h5>{{$faq->domanda}}</h5>
                 </div>
 
             <div class="inner-box">
-                <h5>{{$Faqs->risposta}}</h5>
-                <h6>{{$Faqs->risposta}}</h6>
+                <h5>Risposta:</h5>
+                <h6>{{$faq->risposta}}</h6>
 
         </div>
     </div>

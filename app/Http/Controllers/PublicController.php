@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Catalog;
 use App\Models\Offerta;
 use App\Models\Faq;
 
@@ -36,6 +35,7 @@ class PublicController
     public function VisualizzaFaq()
     {
         $faqs = faq::all();
-        return view('adminFaqs')->with('faq', $faqs);
+        //dd($faqs);
+        return view('adminFaqs')->with('faqs', $faqs);
     }
 }
