@@ -86,6 +86,10 @@ class DatabaseSeeder extends Seeder {
                 'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica',
                 'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16']]
         );
+        DB::table('faqs')->insert([
+                ['domanda'=>'Posso comperare un coupon senza registrarmi al sito?','risposta'=>'No, è necessario prima registrarsi al nostro sito,e poi accedere tramite il login'],
+                ['domanda'=>'Posso comprare più volte lo stesso Coupon??','risposta'=>'No, è possibile comprare solamente una volta lo stesso coupon'],
+                ['domanda'=>'Serve il kyc per prendere un coupon?','risposta'=>'No, servirà solo registrarsi al sito']]
+        );
     }
-
 }
