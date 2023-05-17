@@ -42,6 +42,10 @@ class DatabaseSeeder extends Seeder {
                 'tipologia' => $faker->companySuffix(),
                 'logo' => $faker->imageUrl(),
             ]);
+
+        }
+        for($i=0;$i<10;$i++)
+        {
             Emissione::create([
                 'azienda'=>rand(1,10),
                 'offerta'=>rand(1,10),

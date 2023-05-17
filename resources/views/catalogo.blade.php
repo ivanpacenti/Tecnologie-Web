@@ -4,25 +4,16 @@
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
-
+        @isset($aziende)
         <div class="checkboxprincipal">
             <div class="checktitle">Filtra per azienda</div>
-            <label class="containercheck">One
+            @foreach($aziende as $azienda)
+            <label class="containercheck">{{$azienda->nome}}
                 <input type="checkbox">
                 <span class="checkmark"></span>
             </label>
-            <label class="containercheck">Two
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <label class="containercheck">Three
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <label class="containercheck">Four
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
+            @endforeach
+            @endisset
         </div>
 
         <div class="container">

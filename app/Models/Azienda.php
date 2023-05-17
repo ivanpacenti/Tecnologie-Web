@@ -10,4 +10,5 @@ class Azienda extends Model
     protected $table='aziendas';
     protected $primaryKey = 'id';
     public $timestamps = false;
+    protected $fillable=['nome','descrizione'];
 }
