@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Catalog;
 use App\Models\Offerta;
 
-class PublicControllers
+class PublicController
 {
     // protected $_catalogModel;
 
@@ -22,4 +22,8 @@ class PublicControllers
 
     // }*/
 
+    public function showCatalog() {
+        $offerte = Offerta::all();
+         return view('catalogo', ['offerta' => $offerte]);
+     }
 }
