@@ -4,10 +4,10 @@
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
-    
+
         <div class="checkboxprincipal">
             <div class="checktitle">Filtra per azienda</div>
-            
+
             <label class="containercheck">One
                 <input type="checkbox">
                 <span class="checkmark"></span>
@@ -59,7 +59,7 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             Coupon 2*3
-                            
+
                         </div>
 
                         <div class="price">
@@ -75,7 +75,7 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             Coupon 2*3
-                            
+
                         </div>
 
                         <div class="price">
@@ -91,7 +91,7 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             Coupon 2*3
-                            
+
                         </div>
 
                         <div class="price">
@@ -107,7 +107,7 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             Coupon 2*3
-                            
+
                         </div>
 
                         <div class="price">
@@ -123,7 +123,7 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             Coupon 2*3
-                            
+
                         </div>
 
                         <div class="price">
@@ -139,7 +139,7 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             Coupon 2*3
-                            
+
                         </div>
 
                         <div class="price">
@@ -155,7 +155,7 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             Coupon 2*3
-                            
+
                         </div>
 
                         <div class="price">
@@ -171,7 +171,7 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             Coupon 2*3
-                            
+
                         </div>
 
                         <div class="price">
@@ -180,7 +180,7 @@
                     </div>
                 </div>
             </div> -->
-            
+
         </div>
 
 @endsection('content')

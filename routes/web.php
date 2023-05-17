@@ -56,15 +56,16 @@ Route::view('/who', 'who')
 Route::get('/catalogotest', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 
 
-/*  Rotte aggiunte da Breeze
+//  Rotte aggiunte da Breeze
 
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 */
+
 require __DIR__.'/auth.php';
