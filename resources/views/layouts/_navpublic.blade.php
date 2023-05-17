@@ -20,6 +20,7 @@
             <li><a href="{{route('catalogo')}}">Catalogo</a></li>
             <li><a href="registrazione.html">Registrati</a></li>
             <li><a href="./login.html">Login</a></li>
+            <li><a href="{{route('admin')}}">admin</a></li>
         </div>
     </nav>
 </html>

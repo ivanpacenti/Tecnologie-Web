@@ -5,7 +5,6 @@
         <script src="js/scriptHome.js" async></script>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/home_pub_design.css') }}" >
-        <title>Home | @yield('title', 'Coupon')</title>
     </head>
 
     <body>
