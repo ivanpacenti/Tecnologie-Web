@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder {
                 'password' => Hash::make('adminadmin'), 'role' => 'admin', 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")]
         ]);*/
-        DB::table('azienda')->insert([
+        DB::table('aziendas')->insert([
             ['partitaIva'=>'0101010101','posizione'=>'baraccola',
             'nome'=>'Aethra','descrizione'=>'Telecommunications',
             'tipologia'=>'Informatica','logo'=>'img/aethra.jpg'],
@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder {
             'tipologia'=>'Cibo e tanta roba','logo'=>'img/iper.jpg']]
         );
 
-        DB::table('offerta')->insert([
+        DB::table('offertas')->insert([
             ['modalità'=>'online','immagine'=>'img/padreMaronno.png',
                 'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica',
                 'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16'],

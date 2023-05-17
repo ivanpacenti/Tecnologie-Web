@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('offerta', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('modalità');
-            $table->string('immagine');
-            $table->string('luogoFruizione');
-            $table->string('descrizione');
-            $table->date('dataInizio');
-            $table->date('dataFine');
+        Schema::create('faqs', function (Blueprint $table) {
+            $table->bigIncrements('faqId')->unsigned()->unique();;
+            $table->string('domanda', 500);
+            $table->string('risposta', 500);
+            $table->timestamps();
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offerta');
+        Schema::dropIfExists('faqs');
     }
 };
