@@ -3,6 +3,7 @@
 use App\Models\Offerta;
 use App\Models\Pacchetto;
 use App\Models\Azienda;
+use App\Models\Emissione;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
@@ -40,6 +41,10 @@ class DatabaseSeeder extends Seeder {
                 'posizione' => $faker->streetAddress(),
                 'tipologia' => $faker->companySuffix(),
                 'logo' => $faker->imageUrl(),
+            ]);
+            Emissione::create([
+                'azienda'=>rand(1,10),
+                'offerta'=>rand(1,10),
             ]);
         }
         /*
