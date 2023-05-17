@@ -32,7 +32,7 @@ Route::get('/admin', [AdminController::class, 'index'])
         ->name('admin');
 
 Route::get('/admin/newproduct', [AdminController::class, 'addProduct'])
-        ->name('newproduct');
+        ->name('newproduct');;
 
 Route::post('/admin/newproduct', [AdminController::class, 'storeProduct'])
         ->name('newproduct.store');
