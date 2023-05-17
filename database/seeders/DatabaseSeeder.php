@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Offerta;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class DatabaseSeeder extends Seeder {
 
@@ -12,6 +14,18 @@ class DatabaseSeeder extends Seeder {
 
 
     public function run() {
+        $faker = Faker::create();
+        for ($i = 0; $i < 10; $i++) {
+            $stringa_immagine='img/immagine'.$i;
+            Offerta::create([
+                'descrizione' => $faker->sentence(),
+                'immagine' => $faker->imageUrl(),
+                'modalità' => $faker->name(),
+                'luogoFruizione' => $faker->address(),
+                'dataInizio' => $faker->date(),
+                'dataFine' => $faker->date(),
+            ]);
+        }
         /*
         DB::table('category')->insert([
             ['catId' => 1, 'name' => 'Computer', 'parId' => 0, 'desc' => 'Desktop, Laptop, Netbook'],
@@ -74,7 +88,7 @@ class DatabaseSeeder extends Seeder {
             'nome'=>'Ipercoop','descrizione'=>'il Maestrale',
             'tipologia'=>'Cibo e tanta roba','logo'=>'img/iper.jpg']]
         );
-
+        /* CI SONO ABILITATE LE OFFERTE FAKE
         DB::table('offertas')->insert([
             ['modalità'=>'online','immagine'=>'img/immagine_1.jpeg',
                 'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica1',
@@ -85,7 +99,7 @@ class DatabaseSeeder extends Seeder {
             ['modalità'=>'online','immagine'=>'img/immagine_3.jpg',
                 'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica3',
                 'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16']]
-        );
+        );*/
         DB::table('faqs')->insert([
                 ['domanda'=>'Posso comperare un coupon senza registrarmi al sito?','risposta'=>'No, è necessario prima registrarsi al nostro sito,e poi accedere tramite il login'],
                 ['domanda'=>'Posso comprare più volte lo stesso Coupon??','risposta'=>'No, è possibile comprare solamente una volta lo stesso coupon'],
