@@ -11,8 +11,6 @@ class CatalogoController extends Controller
     public function visualizzaCatalogo()
     {
         $offerte = Offerta::all();
-        //dd($offerte);
-        //return view('catalogo', ['offertas' => $offerte]);
-         return view('catalogo')->with($offerte);
+        return view('catalogo')->with('offerte', $offerte);
     }
 }

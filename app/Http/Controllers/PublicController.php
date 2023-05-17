@@ -22,8 +22,14 @@ class PublicController
 
     // }*/
 
-    public function showCatalog() {
+    // public function showCatalog() {
+    //     $offerte = Offerta::all();
+    //      return view('catalogo', ['offerta' => $offerte]);
+    //  }
+
+    public function visualizzaCatalogo()
+    {
         $offerte = Offerta::all();
-         return view('catalogo', ['offerta' => $offerte]);
-     }
+        return view('catalogo')->with('offerte', $offerte);
+    }
 }

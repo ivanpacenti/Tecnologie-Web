@@ -30,20 +30,20 @@
 
             <div class="container2">
             @isset($offerte)
-                <h1>supa1<h1>
                 @foreach($offerte as $offerta)
-                <h1>supa2<h1>
                 <div class="containerCoupon">
                     <div class="image">
                         <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
                     </div>
                     <div class="containerCoupon2">
                         <div class="description">
-                            {{$offerta->descrizione}}
+                            <div class="testocard">
+                                {{$offerta->descrizione}}
+                            </div>
                         </div>
 
                         <div class="price">
-                            funzionante
+                            <p>prezzo<p>
                         </div>
                     </div>
                 </div>

@@ -53,7 +53,7 @@ Route::view('/who', 'who')
  Route::view('/index', 'home')
     ->name('index');
 
-Route::get('/catalogotest', [CatalogoController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
+Route::get('/catalogotest', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 
 
 /*  Rotte aggiunte da Breeze
