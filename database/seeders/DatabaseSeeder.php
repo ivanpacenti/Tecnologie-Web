@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Offerta;
+use App\Models\Pacchetto;
+use App\Models\Azienda;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
@@ -14,9 +16,9 @@ class DatabaseSeeder extends Seeder {
 
 
     public function run() {
+        /* generatore offerte fake*/
         $faker = Faker::create();
         for ($i = 0; $i < 10; $i++) {
-            $stringa_immagine='img/immagine'.$i;
             Offerta::create([
                 'descrizione' => $faker->sentence(),
                 'immagine' => $faker->imageUrl(),
@@ -24,6 +26,20 @@ class DatabaseSeeder extends Seeder {
                 'luogoFruizione' => $faker->address(),
                 'dataInizio' => $faker->date(),
                 'dataFine' => $faker->date(),
+            ]);
+            Pacchetto::create([
+                'descrizione' => $faker->sentence(),
+                'immagine' => $faker->imageUrl(),
+                'modalità' => $faker->name(),
+                'luogoFruizione' => $faker->address(),
+            ]);
+            Azienda::create([
+                'partitaIva' => $faker->postcode(),
+                'nome' => $faker->company(),
+                'descrizione' => $faker->sentence(),
+                'posizione' => $faker->streetAddress(),
+                'tipologia' => $faker->companySuffix(),
+                'logo' => $faker->imageUrl(),
             ]);
         }
         /*
@@ -76,7 +92,7 @@ class DatabaseSeeder extends Seeder {
             ['name' => 'Mario', 'surname' => 'Rossi', 'email' => 'mario@rossi.it', 'username' => 'adminadmin',
                 'password' => Hash::make('adminadmin'), 'role' => 'admin', 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")]
-        ]);*/
+        ]);
         DB::table('aziendas')->insert([
             ['partitaIva'=>'0101010101','posizione'=>'baraccola',
             'nome'=>'Aethra','descrizione'=>'Telecommunications',

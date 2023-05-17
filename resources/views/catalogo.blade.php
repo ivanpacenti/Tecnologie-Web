@@ -40,9 +40,6 @@
                             </div>
                         </div>
 
-                        <div class="price">
-                            <p>prezzo<p>
-                        </div>
                     </div>
                 </div>
                 @endforeach

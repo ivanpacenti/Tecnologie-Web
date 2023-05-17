@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('aziendas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('partitaIva',11);
-            $table->string('nome',100);
-            $table->string('posizione',100);
-            $table->string('descrizione',200);
-            $table->string('tipologia',100);
-            $table->string('logo',50);
+            $table->string('nome');
+            $table->string('posizione',);
+            $table->string('descrizione',);
+            $table->string('tipologia',);
+            $table->string('logo');
         });
     }
 
