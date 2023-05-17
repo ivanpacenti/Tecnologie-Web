@@ -55,12 +55,15 @@ Route::view('/who', 'who')
 
 Route::get('/catalogotest', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 
+Route::view('/amministratore', 'admin')
+    ->name('admin');
 
 //  Rotte aggiunte da Breeze
 
 Route::get('/', function () {
     return view('welcome');
 });
+
 /*
 Route::get('/dashboard', function () {
     return view('dashboard');
