@@ -29,23 +29,24 @@
         <div class="container">
 
             <div class="container2">
-
+            @isset($offerta)
+                @foreach($offerte as $offerta)
                 <div class="containerCoupon">
                     <div class="image">
-                        <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
+                        <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
                     </div>
                     <div class="containerCoupon2">
                         <div class="description">
-                            Coupon 2*3
-                            
+                            {{$offerta->descrizione}}
                         </div>
 
                         <div class="price">
-                            prezzo scontato
+                            funzionante
                         </div>
                     </div>
                 </div>
-
+                @endforeach
+            @endisset()
                 <div class="containerCoupon">
                     <div class="image">
                         <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>

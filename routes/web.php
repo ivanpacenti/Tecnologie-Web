@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OffertaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,15 +45,15 @@ Route::view('/where', 'where')
 Route::view('/who', 'who')
         ->name('who');*/
 
-Route::get('/index', function () {
-        return view('home');
-})-> name('index');
+// Route::get('/index', function () {
+//         return view('home');
+// })-> name('index');
 
-// Route::view('/index', 'home')
-//     ->name('index');
+ Route::view('/index', 'home')
+    ->name('index');
 
-Route::view('/catalogo', 'catalogo')
-    ->name('catalogo');
+Route::get('/catalogotest', [CatalogoController::class, 'visualizzaCatalogo'])->name('catalogo'); //test non funzionante
+
 
 /*  Rotte aggiunte da Breeze
 
