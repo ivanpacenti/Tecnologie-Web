@@ -6,6 +6,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OffertaController;
+use App\Http\Controllers\FaqsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,10 +51,15 @@ Route::view('/who', 'who')
 //         return view('home');
 // })-> name('index');
 
- Route::view('/index', 'home')
+Route::view('/index', 'home')
     ->name('index');
 
+
 Route::get('/catalogotest', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
+
+// prova per visualizzazione Faqs da parte admin
+Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('Faq');
+
 
 Route::view('/amministratore', 'admin')
     ->name('admin');
