@@ -7,7 +7,6 @@
 
         <div class="checkboxprincipal">
             <div class="checktitle">Filtra per azienda</div>
-
             <label class="containercheck">One
                 <input type="checkbox">
                 <span class="checkmark"></span>
@@ -27,9 +26,8 @@
         </div>
 
         <div class="container">
-
-            <div class="container2">
             @isset($offerte)
+            <div class="container2">
                 @foreach($offerte as $offerta)
                 <div class="containerCoupon">
                     <div class="image">

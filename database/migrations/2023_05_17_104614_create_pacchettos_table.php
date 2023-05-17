@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
             Schema::create('pacchettos', function (Blueprint $table) {
-                $table->increments('Pacchettoid');
+                $table->increments('id');
                 $table->string('descrizione');
                 $table->string('luogoFruizione');
                 $table->string('modalità');

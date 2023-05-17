@@ -523,7 +523,7 @@ class ComposerStaticInit59e1d768d1b029a16a326df56eaf2fd2
         'App\\Http\\Controllers\\Auth\\RegisteredUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisteredUserController.php',
         'App\\Http\\Controllers\\CatalogoController' => __DIR__ . '/../..' . '/app/Http/Controllers/CatalogoController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\PublicControllers' => __DIR__ . '/../..' . '/app/Http/Controllers/PublicControllers.php',
+        'App\\Http\\Controllers\\PublicController' => __DIR__ . '/../..' . '/app/Http/Controllers/PublicController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',

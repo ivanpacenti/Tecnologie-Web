@@ -76,14 +76,14 @@ class DatabaseSeeder extends Seeder {
         );
 
         DB::table('offertas')->insert([
-            ['modalità'=>'online','immagine'=>'img/immagine_2.jpg',
-                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica',
+            ['modalità'=>'online','immagine'=>'img/immagine_1.jpeg',
+                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica1',
                 'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16'],
             ['modalità'=>'online','immagine'=>'img/immagine_2.jpg',
-                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica',
+                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica2',
                 'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16'],
             ['modalità'=>'online','immagine'=>'img/immagine_3.jpg',
-                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica',
+                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica3',
                 'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16']]
         );
         DB::table('faqs')->insert([

@@ -13,7 +13,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisteredUserController' => $baseDir . '/app/Http/Controllers/Auth/RegisteredUserController.php',
     'App\\Http\\Controllers\\CatalogoController' => $baseDir . '/app/Http/Controllers/CatalogoController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
-    'App\\Http\\Controllers\\PublicControllers' => $baseDir . '/app/Http/Controllers/PublicControllers.php',
+    'App\\Http\\Controllers\\PublicController' => $baseDir . '/app/Http/Controllers/PublicController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',

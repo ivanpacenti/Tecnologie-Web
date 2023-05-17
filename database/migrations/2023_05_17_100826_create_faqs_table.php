@@ -14,10 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('faqs', function (Blueprint $table) {
-            $table->bigIncrements('faqId')->unsigned()->unique();;
+            $table->increments('id');
             $table->string('domanda', 500);
             $table->string('risposta', 500);
-            $table->timestamps();
         });
     }
 
