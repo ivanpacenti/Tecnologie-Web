@@ -93,7 +93,7 @@ class PublicController
         $faq->risposta = $req->risposta;
         $faq->save();
 
-        return redirect()->action([PublicController::class, 'salvafaq']);
+        return redirect()->action([PublicController::class, 'VisualizzaFaq']);
     }
 
 
