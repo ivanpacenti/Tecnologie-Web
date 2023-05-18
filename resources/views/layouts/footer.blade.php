@@ -26,7 +26,7 @@
                 <div class="faqs">
                     <div class="container-faqs">
                         <h2 class="h2"> FAQ'S </h2>
-                        <p> Visualizza qui le domande più frequenti</p>
+                        <p> Visualizza qui le domande più frequenti:</p>
                     </div>
                 </div>
             </div>
