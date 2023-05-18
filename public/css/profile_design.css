@@ -4,39 +4,71 @@ body{
     font-family: 'Lexend', sans-serif;
 }
 
+/* 'titolo' definisce il titolo "Dettagli utente" */
 .titolo{
     padding: 0;
-    font-size: 70px;
+    font-size: 65px;
     font-weight: bold;
     padding-bottom: 20px;
     background-color: rgb(217, 217, 217);
     /* border: 1px solid red; */
 }
 
+/* definisce il container principale */
 .container1{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin: 70px 200px;
-    gap:20px;
-    height: 600px;
+    gap:25px;
+    /* height: 600px; */
     /* width: 70%; */
     padding: 10px 100px;
-    border: 3px solid rgb(80, 80, 80);
+    border: 2px solid rgb(80, 80, 80);
     border-radius: 20px;
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
     background-color: rgb(217, 217, 217);
     color: rgb(80, 80, 80);
 }
 
+/* definisce i container in cui si trovano i campi */
 .containerfield{
     display: flex;
     align-items: center;
     justify-content: left;
     padding: 3px;
-    width: 200px;
+    width: 350px;
     height: 30px;
-    border: 1px solid rgb(80, 80, 80);
+    background-color: rgb(235, 235, 235);
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
     border-radius: 10px;
+}
+
+/* definisce il container in cui si trova l'immagine profilo */
+.imagecontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid rgb(80, 80, 80); */
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
+    border-radius: 50%;
+}
+
+/* definisce il bottone  */
+.edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lexend', sans-serif;
+    height: 60px;
+    width: 400px;
+    padding: 3px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px; 
+    border: 0;
+    color: whitesmoke;
+    background-color: brown;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2)
 }
