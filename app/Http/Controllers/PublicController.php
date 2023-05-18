@@ -35,7 +35,10 @@ class PublicController
         $aziende=Azienda::all();
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
+
+
     public function VisualizzaFaq()
+//  Questa è una funzione per visualizzare le faq,
     {
         $faqs = faq::all();
         //dd($faqs);
