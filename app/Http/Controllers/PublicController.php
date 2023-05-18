@@ -6,6 +6,7 @@ use App\Models\Azienda;
 use App\Models\Catalog;
 use App\Models\Faq;
 use App\Models\Offerta;
+use http\Env\Request;
 
 class PublicController
 {
@@ -66,13 +67,15 @@ class PublicController
         return view('faqsedit',['faq'=>$faq]);
 
     }
-    public function modificaFaq($id)
-// funzione che serve per visualizzare una sola faq, quella cliccata,
-// serve per vederla nella form, poi verrà implemenetato l'update su una funzione seguente
-    {
-        $faq = faq::find($id);
-        return view('faqsedit',['faq'=>$faq]);
 
+    public function modificaFaq(Request $req)
+// funzione che serve per modificare  una sola faq
+    {
+        $faq= faq::find($req->id);
+        $faq->domanda=$req->domanda;
+        $faq->risposta=$req->risposta;
+        $faq->save();
+        return view('adminView.adminFaqs');
     }
 
 }
