@@ -37,7 +37,7 @@
         nome
     </div>
 
-    <button class="edit">Modifica dati personali</div>
+    <button class="edit">Modifica dati personali</button>
 </div>
 
 @endsection('content')
