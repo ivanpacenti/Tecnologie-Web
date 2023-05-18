@@ -11,9 +11,7 @@ class Faq extends Model
     protected $table ='Faqs'; // nome della tabella nel Db
     protected $primaryKey ='id';
     public $timestamps = false; // per poter modificare
-    protected $fillable =['domanda', 'risposta'];
+    protected $fillable = ['domanda', 'risposta'];
 
-    public function getdescription(){
 
-    }
 }

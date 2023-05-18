@@ -75,7 +75,7 @@ class PublicController
         $faq->domanda=$req->domanda;
         $faq->risposta=$req->risposta;
         $faq->save();
-        return view('index');
+        return redirect()->action([PublicController::class, 'VisualizzaFaq']);
     }
 
 }
