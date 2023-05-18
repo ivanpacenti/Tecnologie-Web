@@ -47,8 +47,8 @@ class DatabaseSeeder extends Seeder {
         for($i=0;$i<10;$i++)
         {
             Emissione::create([
-                'azienda'=>rand(1,10),
-                'offerta'=>rand(1,10),
+                'azienda'=>$i+1,
+                'offerta'=>$i+1,
             ]);
         }
         /*

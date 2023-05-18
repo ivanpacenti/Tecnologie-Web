@@ -34,13 +34,6 @@ class PublicController
     {
         $offerte = Offerta::all();
         $aziende=Azienda::all();
-        $emissioni=Emissione::all();
-        $nomeazienda='Skiles and Sons';
-        $offerte_filtrate=Offerta::whereHas('azienda',function ($query) use ($nomeazienda)
-        {
-            $query->where('nome',$nomeazienda);
-        })->get();
-        $offerte_emesse = Offerta::with('emissione')->get();
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
 
