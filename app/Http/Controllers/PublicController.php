@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Azienda;
 use App\Models\Catalog;
+use App\Models\Faq;
 use App\Models\Offerta;
 
 class PublicController
@@ -33,5 +34,11 @@ class PublicController
         $offerte = Offerta::all();
         $aziende=Azienda::all();
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
+    }
+    public function VisualizzaFaq()
+    {
+        $faqs = faq::all();
+        //dd($faqs);
+        return view('adminFaqs')->with('faqs', $faqs);
     }
 }
