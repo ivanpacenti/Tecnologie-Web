@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
+     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" > 
 </head>
 
 <body>
