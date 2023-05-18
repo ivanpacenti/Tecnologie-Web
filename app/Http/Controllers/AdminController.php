@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers; 
+namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Faq;
 use App\Models\Resources\Product;
 use App\Http\Requests\NewProductRequest;
 
@@ -24,6 +25,15 @@ class AdminController extends Controller {
         return view('product.insert')
                         ->with('cats', $prodCats);
     }
+//DA TOGLIERE QUANDO METTEREMO IL LOGIN
+//    public function VisualizzaFaq()
+////  Questa è una funzione per visualizzare le faq,
+//    {
+//        $faqs = faq::all();
+//        //dd($faqs);
+//        return view('adminView.adminFaqs')->with('faqs', $faqs);
+//    }
+
 
     public function storeProduct(NewProductRequest $request) {
 

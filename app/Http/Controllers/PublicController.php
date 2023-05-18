@@ -37,6 +37,9 @@ class PublicController
     }
 
 
+
+// DA SPOSTARE TUTTO QUANDO METTEREMO L'AUTENTICAZIONE
+
     public function VisualizzaFaq()
 //  Questa è una funzione per visualizzare le faq,
     {
