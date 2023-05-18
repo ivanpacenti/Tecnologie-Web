@@ -42,6 +42,6 @@ class PublicController
     {
         $faqs = faq::all();
         //dd($faqs);
-        return view('adminFaqs')->with('faqs', $faqs);
+        return view('adminView.adminFaqs')->with('faqs', $faqs);
     }
 }
