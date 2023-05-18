@@ -12,8 +12,9 @@
 {{--                contenitore per ogni singola faq--}}
                 <h2> Faq numero:{{$faq->id}} </h2>
                 <div class="buttons-container">
-                    <button class="bottoneModifica">Modifica</button>
-                    <a href="{{"delete/".$faq['id']}}"> Delete</a>
+                    <a href="{{"edit/".$faq['id']}}"> Modifica</a>
+{{--                    <button class="bottoneModifica">Modifica</button>--}}
+                    <a href="{{"delete/".$faq['id']}}"> Elimina</a>
                 </div>
                 <div class="upper-box">
                     <h2>Domanda:</h2>
