@@ -55,7 +55,7 @@ class PublicController
         $faq = Faq::find($id);
         $faq->delete();
 
-        return redirect('VisualizzaFaq');
+        return redirect('adminView.adminFaqs');
     }
 
 }

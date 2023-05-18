@@ -65,7 +65,7 @@ Route::view('/amministratore', 'admin')
 // prova per visualizzazione Faqs da parte admin
 Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('adminFaqs');
 
-Route::get('/elimina/{id}', [PublicController::class,'deleteFaq'])->name('elimina-faq');
+Route::get('/delete/{id}', [PublicController::class,'deleteFaq'])->name('elimina-faq');
 
 
 
