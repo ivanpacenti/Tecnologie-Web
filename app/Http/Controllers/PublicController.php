@@ -47,4 +47,15 @@ class PublicController
         //dd($faqs);
         return view('adminView.adminFaqs')->with('faqs', $faqs);
     }
+
+    public function deleteFaq($id)
+//  Questa è una funzione per eliminare le faq,
+    {
+        // Utilizza l'ID per eliminare la FAQ corrispondente
+        $faq = Faq::findOrFail($id);
+        $faq->delete();
+
+        return redirect()->back()->with('success', 'Faq eliminata con successo');
+    }
+
 }
