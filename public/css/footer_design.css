@@ -9,8 +9,19 @@
     color: rgb(210, 210, 210);
     height: 10rem;
 }
-
+.faqs{
+    background-color: rgb(50, 50, 50);
+    text-align: left;
+    justify-content: space-around;
+    font-family: 'Lexend', sans-serif;
+    color: rgb(210, 210, 210);
+    height: 10rem;
+}
 .section{
     display: flex;
+    border: 2px solid green;
+}
+.container-faqs{
+    display: compact;
     border: 2px solid green;
 }

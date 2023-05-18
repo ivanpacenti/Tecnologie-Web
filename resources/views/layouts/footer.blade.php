@@ -6,8 +6,8 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/footer_design.css') }}" >
     </head>
-  
-    <footer>
+
+    <br>
         <div class="footercontainer1">
             <div class="section">
                 CHI SIAMO
@@ -20,7 +20,15 @@
             <div class="section">
                 CONTATTACI
             </div>
-        </div>
-    </footer>
+            </div>
 
+            <div>
+                <div class="faqs">
+                    <div class="container-faqs">
+                        <h2 class="h2"> FAQ'S </h2>
+                        <p> Visualizza qui le domande più frequenti</p>
+                    </div>
+                </div>
+            </div>
+    </footer>
 </html>
