@@ -18,8 +18,8 @@
         <li><a href="{{route('catalogo')}}">Catalogo</a></li>
         <li><a href="">Aziende</a></li>
         <li><a href="">Statistiche</a></li>
+        <li><a href="{{route('adminFaqs')}}">GestioneFaq</a></li>
         <li><a href="">GestioneStaff</a></li>
-        <li><a href="">GestioneFaq</a></li>
     </div>
 </nav>
 </html>

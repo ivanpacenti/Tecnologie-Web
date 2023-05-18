@@ -58,7 +58,7 @@ Route::view('/index', 'home')
 Route::get('/catalogotest', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 
 // prova per visualizzazione Faqs da parte admin
-Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('Faq');
+Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('adminFaqs');
 
 
 Route::view('/amministratore', 'admin')
