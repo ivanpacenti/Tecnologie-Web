@@ -66,9 +66,13 @@ body{
     padding: 3px;
     margin-top: 20px;
     margin-bottom: 30px;
-    border-radius: 10px; 
-    border: 0;
+    border-radius: 10px;
     color: whitesmoke;
-    background-color: brown;
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2)
+    background-color: #996060;
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
+}
+
+.edit:hover{
+    background-color: #38562d;
+    color: #bebebe;
 }
