@@ -9,4 +9,12 @@ class Emissione extends Model
 {
     protected $table='emissiones';
     public $timestamps = false;
+    public function azienda()
+    {
+        return $this->belongsTo(Azienda::class, 'azienda', 'id');
+    }
+    public function offerta()
+    {
+        return $this->belongsTo(Offerta::class, 'offerta', 'id');
+    }
 }

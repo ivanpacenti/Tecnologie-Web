@@ -4,13 +4,17 @@
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
+    <script src="js/filtroAziende.js" async></script>
+
         @isset($aziende)
         <div class="checkboxprincipal">
             <div class="checktitle">Filtra per azienda</div>
             @foreach($aziende as $azienda)
             <label class="containercheck">{{$azienda->nome}}
-                <input type="checkbox">
-                <span class="checkmark"></span>
+                <input class ="check" type="checkbox"  id="{{$azienda->nome}}">
+                <span class="checkmark">
+
+                </span>
             </label>
             @endforeach
             @endisset
@@ -20,8 +24,8 @@
             @isset($offerte)
             <div class="container2">
                 @foreach($offerte as $offerta)
-                <div class="containerCoupon">
-                    <div class="image">
+                <div class="containerCoupon" id="{{$aziende->find($offerta->emissione->azienda)->nome}}">
+                    <div class="image">{{$aziende->find($offerta->emissione->azienda)->nome}}
                         <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
                     </div>
                     <div class="containerCoupon2">
@@ -30,14 +34,13 @@
                                 {{$offerta->descrizione}}
                             </div>
                         </div>
-
                     </div>
                 </div>
                 @endforeach
-
             @else
             <h1>supa di più<h1>
-            @endisset()
+            @endisset
+
                 <!-- <div class="containerCoupon">
                     <div class="image">
                         <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>

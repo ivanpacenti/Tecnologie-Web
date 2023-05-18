@@ -15,7 +15,13 @@ class Offerta extends Model
 
     protected $fillable = ['descrizione', 'immagine']; // Campi della tabella che possono essere assegnati in modo massivo
 
-    public function getdescription(){
-
+    public function azienda()
+    {
+        return $this->hasManyThrough(Azienda::class, Emissione::class, 'offerta', 'id', 'id', 'azienda');
     }
+    public function emissione()
+    {
+        return $this->hasOne(Emissione::class, 'offerta');
+    }
+
 }

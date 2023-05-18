@@ -13,7 +13,6 @@ class CatalogoController extends Controller
     {
         $offerte = Offerta::all();
         $aziende = Azienda::all();
-
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
 
