@@ -10,7 +10,7 @@
      * 'edit' è un button che collega ad una pannlelo per la modifica dei dati personali (da implementare)-->
 <div class="container1">
     <div class="titolo">
-        Dettagli utente
+        Benvenuto nel tuo profilo!
     </div>
     <div class="imagecontainer">
         <img src="img/shop.jpg" alt="immagine coupon" style="border-radius: 50%;" width=150px height=150px>

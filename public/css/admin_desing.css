@@ -1,20 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
-    background: #FFFFFF;
-    margin:0;
+    margin: 0;
     font-family: 'Lexend', sans-serif;
 }
 
 h1{
-    font-size: 3rem;
-    border: .1rem solid rgb(51, 255, 0);
-    display: flex;
-    background-color: wheat;
-}
-
-body{
-    font-family: 'Lexend', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 .container h1{
@@ -55,4 +48,97 @@ details[open] summary:after{
 
 details[open] div{
     padding: .5em 2em;
+}
+
+/*+---------------------------------------------------+
+  | SEZIONE RELATIVA AL CSS DELLA GESTIONE DELLE FAQs |
+  +---------------------------------------------------+*/
+
+/*container principale della pagina*/
+.maincontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 70px 200px;
+    gap:25px;
+    /* height: 600px; */
+    /* width: 70%; */
+    padding: 50px 100px;
+    border: 2px solid rgb(80, 80, 80);
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
+    background-color: rgb(217, 217, 217);
+    color: rgb(80, 80, 80);
+}
+
+/*contenitore di ogni faq*/
+.main-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 700px;
+    padding: 30px;
+    gap:25px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
+
+}
+
+/*contenitori delle rispettive 'domanda' e 'risposta'*/
+.upper-box, .inner-box{
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid #4B4B4BFF;
+    width: 500px;
+}
+
+/*modifica dei testi <h2> soltanto nei box inner e upper*/
+.inner-box h2, .upper-box h2{
+    color: #762c2c;
+}
+
+/*contenitore dei bottoni*/
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/*definizione dei bottoni modifica, elimina e aggiungi*/
+a.buttonbar, a.buttonbar-add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 15px;
+    color: #eeeeee;
+    background-color: #762c2c;
+    height: 30px;
+    width: 100px;
+    transition: width 0.3s ease, height 0.7s ease, opacity 0.8s ease, background-color 1s, color 1s; /*transizione dei bottoni che avviene al passaggio del cursore*/
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+}
+
+/*definizione dei bottoni modifica, elimina e aggiungi al passaggio del cursore*/
+a.buttonbar:hover, a.buttonbar-add:hover{
+    width: 300px;
+    background-color: whitesmoke;
+    color: #762c2c;
+}
+
+/*definizione grandezza del bottone di aggiunta fatta separatamente perchè differisce dagli altri bottoni soltanto per questo*/
+a.buttonbar-add{
+    width: 200px;
+    height: 50px;
+}
+
+/*definizione del bottone aggiungi al passaggio del cursore che differisce soltanto in grandezza dagli altri due*/
+a.buttonbar-add:hover{
+    width: 400px;
+    height: 50px;
 }

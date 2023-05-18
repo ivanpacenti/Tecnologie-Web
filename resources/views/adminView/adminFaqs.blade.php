@@ -4,36 +4,36 @@
 @extends('layouts.adminLayout')
 
 @section('content')
+
+<link rel="stylesheet" type="text/css" href="{{ asset('css/admin_design.css') }}" >
+
 <body>
-
-<a href="{{"faqsadd"}}"> aggiungi una faq</a>
-
-    @isset($faqs)
-        @foreach($faqs as $faq)
-            <div class="main-box">
-{{--                contenitore per ogni singola faq--}}
-                <h2> Faq numero:{{$faq->id}} </h2>
-                <div class="buttons-container">
-                    <a href="{{"edit/".$faq['id']}}"> Modifica</a>
-{{--                    <button class="bottoneModifica">Modifica</button>--}}
-                    <a href="{{"delete/".$faq['id']}}"> Elimina</a>
+    <div class="maincontainer">
+        <h1>Benvenuto nella pagina di gestione delle FAQ</h1>
+        <a href="{{"faqsadd"}}" class="buttonbar-add"> Aggiungi una FAQ</a>
+        @isset($faqs)
+            @foreach($faqs as $faq)
+                <div class="main-box"> {{--contenitore per ogni singola faq--}}
+                    <h2> FAQ numero: {{$faq->id}} </h2>
+                    <div class="buttons-container">
+                        <a href="{{"edit/".$faq['id']}}" class="buttonbar"> Modifica</a> {{--<button class="bottoneModifica">Modifica</button>--}}
+                        <a href="{{"delete/".$faq['id']}}" class="buttonbar"> Elimina</a> {{--<button class="bottoneModifica">Modifica</button>--}}
+                    </div>
+                    <div class="upper-box">
+                        <h2>Domanda:</h2>
+                        <h4>{{$faq->domanda}}</h4>
+                    </div>
+                    <div class="inner-box">
+                        <h2>Risposta:</h2>
+                        <h4>{{$faq->risposta}}</h4>
+                    </div>
                 </div>
-                <div class="upper-box">
-                    <h2>Domanda:</h2>
-                    <h4>{{$faq->domanda}}</h4>
+            @endforeach
+        @else
+            <h1>Non ci sono Faq </h1>
+            <button class="Aggiungi">Aggiungine una Faq</button>
+        @endisset()
 
-                </div>
-            <div class="inner-box">
-                <h5>Risposta:</h5>
-                <h6>{{$faq->risposta}}</h6>
-
-        </div>
     </div>
 </body>
-        @endforeach
-    @else
-        <h1>Non ci sono Faq </h1>
-        <button class="Aggiungi">Aggiungine una Faq</button>
-    @endisset()
-
 @endsection('content')
