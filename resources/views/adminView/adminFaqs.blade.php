@@ -5,7 +5,9 @@
 
 @section('content')
 <body>
-<button class="AggiungiFaq">Aggiungi una faq</button>
+
+<a href="{{"faqsCreate"}}"> aggiungi una faq</a>
+
     @isset($faqs)
         @foreach($faqs as $faq)
             <div class="main-box">

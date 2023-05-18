@@ -60,7 +60,7 @@ Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('
 Route::view('/amministratore', 'admin')
     ->name('admin');
 
-//QUESTA è LA PARTE DELL'ADMIN
+//QUESTA è LA PARTE DELL'ADMIN( sono funzionalità a lui riservate), una volta fatta la aprte admin verranno implementate
 
 // prova per visualizzazione Faqs da parte admin
 Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('adminFaqs');
@@ -68,9 +68,10 @@ Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('admi
 Route::get('/delete/{id}', [PublicController::class,'deleteFaq'])->name('elimina-faq');
 // possibilità di modificare le faq, in questa ne vedi solo una e scegli, nella rotta seguente modificherai la faq
 Route::get('/edit/{id}', [PublicController::class,'visualizza1Faq']);
-
 // in questa rotta avviene la vera e propria modifica
 Route::post('/edit', [PublicController::class,'modificaFaq'])->name('edit');
+// in questa rotta vai ad aggiungere una faq
+Route::post('/faqsadd', [PublicController::class, 'salvafaq'])->name('salvafaq');
 
 //Route::post('/adminFaqs', 'admin')
 //    ->name('admin');

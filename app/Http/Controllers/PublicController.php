@@ -85,5 +85,16 @@ class PublicController
         $faq->save();
         return redirect()->action([PublicController::class, 'VisualizzaFaq']);
     }
+    public function salvafaq(Request $req)
+        // funzione per salvare una faq all'interno del db
+    {
+        $faq = new Faq();
+        $faq->domanda = $req->domanda;
+        $faq->risposta = $req->risposta;
+        $faq->save();
+
+        return redirect()->action([PublicController::class, 'salvafaq']);
+    }
+
 
 }
