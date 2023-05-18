@@ -9,6 +9,15 @@
 
 <body>
 <header>
+    <!-- @if(login=admin)
+        @include('layouts/_navadmin')
+    @elseif(login=staff)
+        @include('layouts/_navstaff')
+    @elseif(login=utente)
+        @include('layouts/_navutente')
+    @endif
+    Idea per la realizzazione di un unico 'user/profile' in cui, in base al tipo di accesso, viene visualizzato un determinato header da definire-->
+
     @include('layouts/_navadmin')
 </header>
 
