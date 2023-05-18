@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App\Models\Azienda;
 use App\Models\Catalog;
 use App\Models\Faq;
 use App\Models\Offerta;
-use http\Env\Request;
 
 class PublicController
 {
@@ -59,7 +58,7 @@ class PublicController
         return redirect()->back()->with('success', 'Faq eliminata con successo');
     }
 
-    public function visualiiza1Faq($id)
+    public function visualizza1Faq($id)
 // funzione che serve per visualizzare una sola faq, quella cliccata,
 // serve per vederla nella form, poi verrà implemenetato l'update su una funzione seguente
     {
@@ -75,7 +74,8 @@ class PublicController
         $faq->domanda=$req->domanda;
         $faq->risposta=$req->risposta;
         $faq->save();
-        return view('adminView.adminFaqs');
+        dd($faq);
+        return view('index');
     }
 
 }

@@ -452,7 +452,7 @@ class Command
             } catch (\ReflectionException $e) {
                 throw new ReflectionException(
                     $e->getMessage(),
-                    (int) $e->getCode(),
+                    $e->getCode(),
                     $e
                 );
             }
@@ -522,7 +522,7 @@ class Command
         } catch (\ReflectionException $e) {
             throw new ReflectionException(
                 $e->getMessage(),
-                (int) $e->getCode(),
+                $e->getCode(),
                 $e
             );
             // @codeCoverageIgnoreEnd
@@ -568,16 +568,29 @@ class Command
                 $this->exitWithErrorMessage($t->getMessage());
             }
 
-            $this->exitWithErrorMessage(
-                sprintf(
-                    'Error in bootstrap script: %s:%s%s%s%s',
+            $message = sprintf(
+                'Error in bootstrap script: %s:%s%s%s%s',
+                get_class($t),
+                PHP_EOL,
+                $t->getMessage(),
+                PHP_EOL,
+                $t->getTraceAsString()
+            );
+
+            while ($t = $t->getPrevious()) {
+                $message .= sprintf(
+                    '%s%sPrevious error: %s:%s%s%s%s',
+                    PHP_EOL,
+                    PHP_EOL,
                     get_class($t),
                     PHP_EOL,
                     $t->getMessage(),
                     PHP_EOL,
-                    $t->getTraceAsString()
-                )
-            );
+                    $t->getTraceAsString(),
+                );
+            }
+
+            $this->exitWithErrorMessage($message);
         }
     }
 
@@ -641,6 +654,16 @@ class Command
     {
         $this->printVersionString();
 
+        $this->warnAboutConflictingOptions(
+            'listGroups',
+            [
+                'filter',
+                'groups',
+                'excludeGroups',
+                'testsuite',
+            ]
+        );
+
         print 'Available test group(s):' . PHP_EOL;
 
         $groups = $suite->getGroups();
@@ -672,6 +695,16 @@ class Command
     {
         $this->printVersionString();
 
+        $this->warnAboutConflictingOptions(
+            'listSuites',
+            [
+                'filter',
+                'groups',
+                'excludeGroups',
+                'testsuite',
+            ]
+        );
+
         print 'Available test suite(s):' . PHP_EOL;
 
         foreach ($this->arguments['configurationObject']->testSuite() as $testSuite) {
@@ -695,6 +728,15 @@ class Command
     {
         $this->printVersionString();
 
+        $this->warnAboutConflictingOptions(
+            'listTests',
+            [
+                'filter',
+                'groups',
+                'excludeGroups',
+            ]
+        );
+
         $renderer = new TextTestListRenderer;
 
         print $renderer->render($suite);
@@ -712,6 +754,15 @@ class Command
     private function handleListTestsXml(TestSuite $suite, string $target, bool $exit): int
     {
         $this->printVersionString();
+
+        $this->warnAboutConflictingOptions(
+            'listTestsXml',
+            [
+                'filter',
+                'groups',
+                'excludeGroups',
+            ]
+        );
 
         $renderer = new XmlTestListRenderer;
 
@@ -904,5 +955,63 @@ class Command
         }
 
         return null;
+    }
+
+    /**
+     * @psalm-param "listGroups"|"listSuites"|"listTests"|"listTestsXml"|"filter"|"groups"|"excludeGroups"|"testsuite" $key
+     * @psalm-param list<"listGroups"|"listSuites"|"listTests"|"listTestsXml"|"filter"|"groups"|"excludeGroups"|"testsuite"> $keys
+     */
+    private function warnAboutConflictingOptions(string $key, array $keys): void
+    {
+        $warningPrinted = false;
+
+        foreach ($keys as $_key) {
+            if (!empty($this->arguments[$_key])) {
+                printf(
+                    'The %s and %s options cannot be combined, %s is ignored' . PHP_EOL,
+                    $this->mapKeyToOptionForWarning($_key),
+                    $this->mapKeyToOptionForWarning($key),
+                    $this->mapKeyToOptionForWarning($_key)
+                );
+
+                $warningPrinted = true;
+            }
+        }
+
+        if ($warningPrinted) {
+            print PHP_EOL;
+        }
+    }
+
+    /**
+     * @psalm-param "listGroups"|"listSuites"|"listTests"|"listTestsXml"|"filter"|"groups"|"excludeGroups"|"testsuite" $key
+     */
+    private function mapKeyToOptionForWarning(string $key): string
+    {
+        switch ($key) {
+            case 'listGroups':
+                return '--list-groups';
+
+            case 'listSuites':
+                return '--list-suites';
+
+            case 'listTests':
+                return '--list-tests';
+
+            case 'listTestsXml':
+                return '--list-tests-xml';
+
+            case 'filter':
+                return '--filter';
+
+            case 'groups':
+                return '--group';
+
+            case 'excludeGroups':
+                return '--exclude-group';
+
+            case 'testsuite':
+                return '--testsuite';
+        }
     }
 }
