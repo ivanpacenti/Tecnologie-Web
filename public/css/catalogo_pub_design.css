@@ -97,9 +97,6 @@ al disotto per colonna*/
     font-size: 13px;
     justify-content: center;
     align-items: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     padding: 2px;
     border: 1px solid violet;
@@ -121,7 +118,8 @@ al disotto per colonna*/
     padding: 5px;
     margin-top: 1rem;
     left:1rem;
-    width: 12%;
+    width: 20%;
+    height: 400px;
     position: absolute;
     display: flex;
     align-items: left;
@@ -150,7 +148,7 @@ al disotto per colonna*/
     height: 15px;
     width: 15px;
     background-color: #eee;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 
   /* On mouse-over, add a grey background color */
