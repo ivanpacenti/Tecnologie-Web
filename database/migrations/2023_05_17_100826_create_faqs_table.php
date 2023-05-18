@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('domanda', 500);
-            $table->string('risposta', 500);
+            $table->string('domanda')->nullable();
+            $table->string('risposta')->nullable();
         });
     }
 

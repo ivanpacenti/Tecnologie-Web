@@ -63,6 +63,7 @@ class PublicController
 // serve per vederla nella form, poi verrà implemenetato l'update su una funzione seguente
     {
         $faq = faq::find($id);
+        //dd($faq);
         return view('faqsedit',['faq'=>$faq]);
 
     }
@@ -74,7 +75,6 @@ class PublicController
         $faq->domanda=$req->domanda;
         $faq->risposta=$req->risposta;
         $faq->save();
-        dd($faq);
         return view('index');
     }
 
