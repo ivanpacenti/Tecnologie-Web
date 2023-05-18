@@ -57,12 +57,20 @@ Route::view('/index', 'home')
 
 Route::get('/catalogotest', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 
+Route::view('/amministratore', 'admin')
+    ->name('admin');
+
+//QUESTA è LA PARTE DELL'ADMIN
+
 // prova per visualizzazione Faqs da parte admin
 Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('adminFaqs');
 
+Route::get('/delete/{id}', [PublicController::class,'deleteFaq'])->name('elimina-faq');
 
-Route::view('/amministratore', 'admin')
-    ->name('admin');
+
+
+//Route::post('/adminFaqs', 'admin')
+//    ->name('admin');
 
 //  Rotte aggiunte da Breeze
 

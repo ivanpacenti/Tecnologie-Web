@@ -13,7 +13,7 @@
                 <h2> Faq numero:{{$faq->id}} </h2>
                 <div class="buttons-container">
                     <button class="bottoneModifica">Modifica</button>
-                    <button class="bottoneModifica">Elimina</button>
+                    <a href="{{"delete/".$faq['id']}}"> Delete</a>
                 </div>
                 <div class="upper-box">
                     <h2>Domanda:</h2>
