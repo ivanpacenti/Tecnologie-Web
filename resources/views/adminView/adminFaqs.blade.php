@@ -13,11 +13,7 @@
                 <h2> Faq numero:{{$faq->id}} </h2>
                 <div class="buttons-container">
                     <button class="bottoneModifica">Modifica</button>
-                    <form action="{{ route('eliminaFaq', ['id' => $faq->id]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="bottoneModifica">Elimina</button>
-                    </form>
+                    <a href="{{"delete/".$faq['id']}}"> Delete</a>
                 </div>
                 <div class="upper-box">
                     <h2>Domanda:</h2>

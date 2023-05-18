@@ -52,10 +52,10 @@ class PublicController
 //  Questa è una funzione per eliminare le faq,
     {
         // Utilizza l'ID per eliminare la FAQ corrispondente
-        $faq = Faq::findOrFail($id);
+        $faq = Faq::find($id);
         $faq->delete();
 
-        return redirect()->back()->with('success', 'Faq eliminata con successo');
+        return redirect('VisualizzaFaq');
     }
 
 }
