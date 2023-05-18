@@ -55,7 +55,7 @@ Route::view('/index', 'home')
     ->name('index');
 
 
-Route::get('/catalogotest', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
+Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 
 Route::view('/amministratore', 'admin')
     ->name('admin');
@@ -64,10 +64,10 @@ Route::view('/amministratore', 'admin')
 
 // prova per visualizzazione Faqs da parte admin
 Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('adminFaqs');
-
+// possibilità di fare la delete delle faq
 Route::get('/delete/{id}', [PublicController::class,'deleteFaq'])->name('elimina-faq');
-
-
+// possibilità di modificare le faq
+Route::get('/edit/{id}', [PublicController::class,'mostraFaq'])->name('mostraFaq');
 
 //Route::post('/adminFaqs', 'admin')
 //    ->name('admin');
