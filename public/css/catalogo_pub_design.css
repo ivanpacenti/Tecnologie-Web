@@ -94,12 +94,14 @@ al disotto per colonna*/
 .containercheck {
     display: flex;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 13px;
     justify-content: center;
+    align-items: center;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    padding: 2px;
     border: 1px solid violet;
   }
 
@@ -116,13 +118,13 @@ al disotto per colonna*/
   }
 
   .checkboxprincipal{
+    padding: 5px;
     margin-top: 1rem;
     left:1rem;
-    float: left;
     width: 12%;
-    position: fixed;
+    position: absolute;
     display: flex;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
     justify-content: space-between;
     background-color: #d4d4d4;
