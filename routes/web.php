@@ -67,7 +67,7 @@ Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('admi
 // possibilità di fare la delete delle faq
 Route::get('/delete/{id}', [PublicController::class,'deleteFaq'])->name('elimina-faq');
 // possibilità di modificare le faq
-Route::get('/edit/{id}', [PublicController::class,'mostraFaq'])->name('mostraFaq');
+Route::get('/edit/{id}', [PublicController::class,'visualiiza1Faq'])->name('modificaFaq');
 
 //Route::post('/adminFaqs', 'admin')
 //    ->name('admin');

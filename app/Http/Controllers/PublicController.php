@@ -58,4 +58,21 @@ class PublicController
         return redirect()->back()->with('success', 'Faq eliminata con successo');
     }
 
+    public function visualiiza1Faq($id)
+// funzione che serve per visualizzare una sola faq, quella cliccata,
+// serve per vederla nella form, poi verrà implemenetato l'update su una funzione seguente
+    {
+        $faq = faq::find($id);
+        return view('faqsedit',['faq'=>$faq]);
+
+    }
+    public function modificaFaq($id)
+// funzione che serve per visualizzare una sola faq, quella cliccata,
+// serve per vederla nella form, poi verrà implemenetato l'update su una funzione seguente
+    {
+        $faq = faq::find($id);
+        return view('faqsedit',['faq'=>$faq]);
+
+    }
+
 }
