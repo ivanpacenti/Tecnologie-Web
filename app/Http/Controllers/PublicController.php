@@ -93,4 +93,10 @@ class PublicController
         $offerta = Offerta::find($id);
         return view('offerdetail',['offerta'=>$offerta]);
     }
+
+    public function vis(){
+        $faqs = faq::all();
+        //dd($faqs);
+        return view('publicView.publicFaqs')->with('faqs', $faqs);
+    }
 }

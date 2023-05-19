@@ -76,6 +76,8 @@ Route::get('/edit/{id}', [PublicController::class,'visualizza1Faq'])->name('edit
 Route::post('/edit', [PublicController::class,'modificaFaq'])->name('edit');
 // in questa rotta vai ad aggiungere una faq
 Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
+//rotta che visualizza tutta la lista delle faq
+Route::get('/visualizza_listafaq', [PublicController::class, 'list_all'])-> name('visualizza_listafaq');
 
 //  Rotte aggiunte da Breeze
 
