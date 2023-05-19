@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('username',20);
             $table->string('password');
-            $table->string('role',10)->default('user');
+            $table->string('role',10)->default('user')->nullable();
             $table->integer('età');
             $table->boolean('membroSenior')->default(false);
             $table->integer('livelloAccesso');
