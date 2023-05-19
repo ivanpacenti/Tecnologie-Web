@@ -21,10 +21,12 @@
     display: flex;
     border: 2px solid green;
 }
+
 .container-faqs {
     display: compact;
     border: 2px solid blue;
 }
+
 .addOtherF{
     display: flex;
     text-align: center;
@@ -41,9 +43,12 @@
     cursor: pointer;
 }
 .addOtherF:hover{
+    width: 200px;
     background-color: #0b4182;
     color: #44aae1;
 }
+
+
 
 
 
