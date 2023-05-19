@@ -69,15 +69,11 @@ Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('admi
 // possibilità di fare la delete delle faq
 Route::get('/delete/{id}', [PublicController::class,'deleteFaq'])->name('elimina-faq');
 // possibilità di modificare le faq, in questa ne vedi solo una e scegli, nella rotta seguente modificherai la faq
-Route::get('/edit/{id}', [PublicController::class,'visualizza1Faq']);
+Route::get('/edit/{id}', [PublicController::class,'visualizza1Faq'])->name('editid');
 // in questa rotta avviene la vera e propria modifica
 Route::post('/edit', [PublicController::class,'modificaFaq'])->name('edit');
 // in questa rotta vai ad aggiungere una faq
 Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
-// commento
-//Route::post('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
-//Route::post('/adminFaqs', 'admin')
-//    ->name('admin');
 
 //  Rotte aggiunte da Breeze
 
