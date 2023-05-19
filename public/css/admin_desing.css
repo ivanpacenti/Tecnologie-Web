@@ -55,7 +55,7 @@ details[open] div{
   +---------------------------------------------------+*/
 
 /*container principale della pagina*/
-.maincontainer{
+.maincontainer, .form{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +65,6 @@ details[open] div{
     /* height: 600px; */
     /* width: 70%; */
     padding: 50px 100px;
-    border: 2px solid rgb(80, 80, 80);
     border-radius: 20px;
     box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
     background-color: rgb(217, 217, 217);
@@ -109,7 +108,7 @@ details[open] div{
 }
 
 /*definizione dei bottoni modifica, elimina e aggiungi*/
-a.buttonbar, a.buttonbar-add{
+a.buttonbar, a.buttonbar-add, .formbutton{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,7 +124,7 @@ a.buttonbar, a.buttonbar-add{
 }
 
 /*definizione dei bottoni modifica, elimina e aggiungi al passaggio del cursore*/
-a.buttonbar:hover, a.buttonbar-add:hover{
+a.buttonbar:hover, a.buttonbar-add:hover, .formbutton:hover{
     width: 300px;
     background-color: whitesmoke;
     color: #762c2c;
@@ -142,24 +141,48 @@ a.buttonbar-add:hover{
     width: 400px;
     height: 50px;
 }
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-.form-box{
-    display: flex;
-    flex-direction: column;
-    border: 2px solid green;
-    padding: 3px;
-}
-.form input[type="text"]{
+
+/*.form{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    flex-direction: column;
+    gap: 25px;
+    padding: 50px;
+    margin: 50px 100px;
+    border-radius: ;
+    border: 1px solid blue;
+}*/
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.form-label {
+    display: flex;
+    margin-bottom: 15px;
+    font-size: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    font-family: 'Lexend', sans-serif;
+    transition: width 0.5s ease, height 0.7s ease;
+}
+
+.form-input:hover{
+    width: 400px;
+    height: 60px;
+}
+
+.formbutton{
+    font-family: 'Lexend', sans-serif;
+}
+
+
