@@ -66,7 +66,6 @@ class PublicController
         $faq = faq::find($id);
         //dd($faq);
         return view('adminView.faqsedit',['faq'=>$faq]);
-
     }
 
     public function modificaFaq(Request $req)
