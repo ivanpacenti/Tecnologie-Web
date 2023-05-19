@@ -65,7 +65,7 @@ class PublicController
     {
         $faq = faq::find($id);
         //dd($faq);
-        return view('faqsedit',['faq'=>$faq]);
+        return view('adminView.faqsedit',['faq'=>$faq]);
 
     }
 
@@ -86,6 +86,6 @@ class PublicController
         $faq->domanda = $req->domanda;
         $faq->risposta = $req->risposta;
         $faq->save();
-        return view('faqsedit',['faq'=>$faq]);
+        return view('adminView.faqsedit',['faq'=>$faq]);
     }
 }
