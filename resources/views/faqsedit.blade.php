@@ -1,9 +1,23 @@
+@extends('layouts.adminLayout')
 
+@section('title','PaginaAdmin|Edit FAQ')
 
-<form method="post" action="{{ route('edit')}}" >
-    @csrf
-    <input type="text" name="id" placeholder="Input id" value="{{$faq['id']}}"> <br><br>
-    <input type="text" name="domanda" placeholder="inserisci domanda" value="{{$faq['domanda']}}"> <br><br>
-    <input type="text" name="risposta" placeholder="inserisci risposta" value="{{$faq['risposta']}}"> <br><br>
-    <button type="submit"> AGGIORNA </button>
-</form>
+@section('content')
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_design.css') }}" >
+<div class="maincontainer">
+    <form class="form" method="post" action="{{ route('edit')}}" >
+        @csrf
+        <div class="form-box">
+            <input type="text" name="id" placeholder="Input id" value="{{$faq['id']}}">
+        </div>
+        <div class="form-box">
+            <input type="text" name="domanda" placeholder="Inserisci domanda" value="{{$faq['domanda']}}">
+        </div>
+        <div class="form-box">
+            <input type="text" name="risposta" placeholder="Inserisci risposta" value="{{$faq['risposta']}}">
+        </div>
+            <button type="submit"> AGGIORNA </button>
+    </form>
+</div>
+@endsection('content')

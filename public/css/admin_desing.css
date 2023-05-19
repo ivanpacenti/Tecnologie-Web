@@ -142,3 +142,24 @@ a.buttonbar-add:hover{
     width: 400px;
     height: 50px;
 }
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.form-box{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid green;
+    padding: 3px;
+}
+.form input[type="text"]{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
