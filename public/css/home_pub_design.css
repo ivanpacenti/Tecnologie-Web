@@ -84,20 +84,45 @@ body {
 }
 
 /*SEZIONE RELATIVA ALLA PAGINA DETTAGLIO OFFERTA*/
+
 .product-details{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    /*flex-direction: column;*/
+    flex-wrap: wrap;
     margin: 50px 200px;
     border: 2px solid yellow;
     border-radius: 20px;
+    gap: 30px;
+    background-color: #eeeeee;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.38);
 }
 
-.descrizione, .modalita{
+.leftcontainer, .rightcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.descrizione, .modalita, .id, .luogofruizione, .dataFine, .dataInizio{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 50px 200px;
+    width: 100px;
+    border: 1px solid red;
+}
+
+.product-detailsimg img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-detailsimg{
+    min-width: 300px;
+    max-width: 600px;
+    margin: 0 auto;
 }
