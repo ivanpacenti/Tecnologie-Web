@@ -7,7 +7,7 @@ use App\Models\Azienda;
 use App\Models\Catalog;
 use App\Models\Faq;
 use App\Models\Offerta;
-
+use Illuminate\Support\Facades\Route;
 class PublicController
 {
     // protected $_catalogModel;
@@ -78,6 +78,7 @@ class PublicController
         $faq->save();
         return redirect()->action([PublicController::class, 'VisualizzaFaq']);
     }
+
     public function salvafaq(Request $req)
         // funzione per salvare una faq all'interno del db
     {
@@ -85,9 +86,6 @@ class PublicController
         $faq->domanda = $req->domanda;
         $faq->risposta = $req->risposta;
         $faq->save();
-
-        return redirect()->action([PublicController::class, 'VisualizzaFaq']);
+        return view('faqsedit',['faq'=>$faq]);
     }
-
-
 }

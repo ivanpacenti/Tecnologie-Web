@@ -73,7 +73,7 @@ Route::post('/edit', [PublicController::class,'modificaFaq'])->name('edit');
 // in questa rotta vai ad aggiungere una faq
 Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
 // commento
-//Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
+//Route::post('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
 //Route::post('/adminFaqs', 'admin')
 //    ->name('admin');
 
