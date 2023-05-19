@@ -16,6 +16,4 @@ class CatalogoController extends Controller
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
 
-
-
 }

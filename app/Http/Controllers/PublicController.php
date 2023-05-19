@@ -88,10 +88,9 @@ class PublicController
         return view('adminView.faqsedit',['faq'=>$faq]);
     }
 
-   /* public function Visualizza_ListaFaq(){
-        $faqs = faq::all();
-        //dd($faqs);
-        return view('publicView.publicFaqs')->with('faqs', $faqs);
-    }*/
-
+    public function visualizzaDettagliOfferta($id)
+    {
+        $offerta = Offerta::find($id);
+        return view('offerdetail',['offerta'=>$offerta]);
+    }
 }
