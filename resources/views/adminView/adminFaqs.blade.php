@@ -10,7 +10,7 @@
 <body>
     <div class="maincontainer">
         <h1>Benvenuto nella pagina di gestione delle FAQ</h1>
-        <a href="{{"faqsadd"}}" class="buttonbar-add"> Aggiungi una FAQ</a>
+        <a href="{{route("faqsCreate")}}" class="buttonbar-add"> Aggiungi una FAQ</a>
         @isset($faqs)
             @foreach($faqs as $faq)
                 <div class="main-box"> {{--contenitore per ogni singola faq--}}

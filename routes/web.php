@@ -71,8 +71,9 @@ Route::get('/edit/{id}', [PublicController::class,'visualizza1Faq']);
 // in questa rotta avviene la vera e propria modifica
 Route::post('/edit', [PublicController::class,'modificaFaq'])->name('edit');
 // in questa rotta vai ad aggiungere una faq
-Route::post('/faqsadd', [PublicController::class, 'salvafaq'])->name('salvafaq');
-
+Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
+// commento
+//Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
 //Route::post('/adminFaqs', 'admin')
 //    ->name('admin');
 
