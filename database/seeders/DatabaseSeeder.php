@@ -125,11 +125,25 @@ class DatabaseSeeder extends Seeder {
                 'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica3',
                 'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16']]
         );*/
+
         DB::table('faqs')->insert([
                 ['domanda'=>'Posso comperare un coupon senza registrarmi al sito?','risposta'=>'No, è necessario prima registrarsi al nostro sito,e poi accedere tramite il login'],
                 ['domanda'=>'Posso comprare più volte lo stesso Coupon??','risposta'=>'No, è possibile comprare solamente una volta lo stesso coupon'],
                 ['domanda'=>'Serve il kyc per prendere un coupon?','risposta'=>'No, servirà solo registrarsi al sito'],
                 ['domanda'=>'Cosa devo far vedere al commerciante','risposta'=>'il foglio stampato']]
+        );
+
+            DB::table('users')->insert([
+                    ['name'=>'utente ','surname'=>'di prova','email'=>'emailutente@gmail.com','username'=>'useruser'
+                        ,'password'=>Hash::make('z4Yt6alv'),'role' => 'user','età'=>30
+                        ,'livelloAccesso'=>1,'genere'=>'femmina','telefono'=>'+39 02 1234567'],
+                    ['name'=>'staff ','surname'=>'DI PROVA','email'=>'emailstaff@gmail.com','username'=>'staffstaff'
+                        ,'password'=>Hash::make('z4Yt6alv'),'role'=>'staff','età'=>20
+                        ,'livelloAccesso'=>2,'genere'=>'maschio','telefono'=>'+391010109'],
+                    ['name'=>'admin','surname'=>'di prova','email'=>'emailadmin@gmail.com','username'=>'adminadmin'
+                        ,'password'=>Hash::make('z4Yt6alv'),'role'=>'admin','età'=>90
+                        ,'livelloAccesso'=>3,'genere'=>'femmina','telefono'=>'+39 2020201'],
+                    ]
         );
     }
 }
