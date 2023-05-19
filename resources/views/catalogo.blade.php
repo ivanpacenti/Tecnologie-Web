@@ -31,7 +31,7 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             <div class="testocard">
-                                {{$offerta->descrizione}}
+                                <a href="{{route('offerdetail', ['id' => $offerta->id])}}">{{$offerta->descrizione}}</a>
                             </div>
                         </div>
                     </div>

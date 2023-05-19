@@ -66,7 +66,6 @@ class PublicController
         $faq = faq::find($id);
         //dd($faq);
         return view('adminView.faqsedit',['faq'=>$faq]);
-
     }
 
     public function modificaFaq(Request $req)
@@ -87,5 +86,11 @@ class PublicController
         $faq->risposta = $req->risposta;
         $faq->save();
         return view('adminView.faqsedit',['faq'=>$faq]);
+    }
+
+    public function visualizzaDettagliOfferta($id)
+    {
+        $offerta = Offerta::find($id);
+        return view('offerdetail',['offerta'=>$offerta]);
     }
 }

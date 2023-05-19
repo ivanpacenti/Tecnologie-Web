@@ -62,6 +62,8 @@ Route::view('/amministratore', 'admin')
 Route::view('/profilepage', 'profilepage')
     ->name('profilepage');
 
+Route::get('/offerta/{id}', [PublicController::class,'visualizzaDettagliOfferta'])->name('offerdetail');
+
 //QUESTA è LA PARTE DELL'ADMIN( sono funzionalità a lui riservate), una volta fatta la aprte admin verranno implementate
 
 // prova per visualizzazione Faqs da parte admin
