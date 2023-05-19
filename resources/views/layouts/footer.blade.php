@@ -28,7 +28,7 @@
                     <div class="container-faqs">
                         <h1>FAQ'S</h1>
                         <p> Visualizza qui le domande più frequenti:</p>
-                        <a href="{{route("faqsCreate")}}" class="addOtherF"> Visualizza altro</a>
+                        <a href="{{route("visualizza_listafaq")}}" class="addOtherF"> Visualizza altro</a>
 
                           @isset($faqs)
                                @foreach($faqs as $faq)

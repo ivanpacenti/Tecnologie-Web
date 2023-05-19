@@ -87,4 +87,11 @@ class PublicController
         $faq->save();
         return view('adminView.faqsedit',['faq'=>$faq]);
     }
+
+   /* public function Visualizza_ListaFaq(){
+        $faqs = faq::all();
+        //dd($faqs);
+        return view('publicView.publicFaqs')->with('faqs', $faqs);
+    }*/
+
 }
