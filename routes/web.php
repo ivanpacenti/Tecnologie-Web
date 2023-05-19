@@ -54,11 +54,13 @@ Route::view('/who', 'who')
 Route::view('/index', 'home')
     ->name('index');
 
-
 Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 
 Route::view('/amministratore', 'admin')
     ->name('admin');
+
+Route::view('/profilepage', 'profilepage')
+    ->name('profilepage');
 
 //QUESTA è LA PARTE DELL'ADMIN( sono funzionalità a lui riservate), una volta fatta la aprte admin verranno implementate
 
@@ -79,18 +81,12 @@ Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCrea
 
 //  Rotte aggiunte da Breeze
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
-
-Route::view('/profilepage', 'profilepage')
-    ->name('profilepage');
-
-/*
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');*/
 
-*/
 
 require __DIR__.'/auth.php';
