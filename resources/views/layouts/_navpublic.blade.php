@@ -36,6 +36,7 @@
                     {{ csrf_field() }}
                 </form>
             @endauth
+
             {{-- si attiva solamente quando l'utente non è loggato--}}
             @guest
                 <li><a href="{{ route('login') }}" class="highlight" title="Accedi all'area riservata del sito">login</a></li>
