@@ -4,25 +4,8 @@
 
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
-    <script src="js/1filtroAziende.js" async></script>
-        @isset($aziende)
-
-            <form action="{{ route('filtroOfferte') }}" method="POST">
-                @csrf
-                <div class="checkboxprincipal">
-                <div class="checktitle">Filtra per azienda</div>
-                @foreach($aziende as $azienda)
-                <label class="containercheck">{{$azienda->nome}}
-                    <input class ="check" type="checkbox" value="{{ $azienda->id }}"  name="aziende_selezionate[]">
-                    <span class="checkmark">
-                    </span>
-
-                </label>
-            @endforeach
-                    <button type="submit">Filtra</button>
-            @endisset
-                </div>
-            </form>
+    <script src="{{asset('js/rigeneraVista.js')}}" async></script>
+@include('listaAziende')
         <div class="container">
             @isset($offerte)
             <div class="container2">
@@ -34,7 +17,7 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             <div class="testocard">
-
+                            <p>{{$offerta->descrizione}}</p>
                             </div>
                         </div>
                     </div>

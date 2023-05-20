@@ -48,14 +48,39 @@ class PublicController
         $aziendeSelezionate = $request->input('aziende_selezionate');
 
         // Ottenere gli ID delle aziende selezionate dal database
-        $aziende = Azienda::whereIn('id', $aziendeSelezionate)->get();
+        $aziende=Azienda::all();
 
         // Filtrare le offerte in base agli ID delle aziende selezionate
         $offerte = Offerta::whereIn('id', $aziendeSelezionate)->get();
 
         // Passare le offerte alla vista o eseguire altre operazioni
-        return view('filtroOfferte')->with('offerte', $offerte)->with('aziende',$aziende);
+        return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
+    public function filtraggioAziende2_test(Request $request)
+    {
+        $aziendeSelezionate = $request->input('aziende');
+
+        // Esegui la query per ottenere le offerte delle aziende selezionate
+        $offerte = Offerta::whereIn('azienda', $aziendeSelezionate)->get();
+
+        // Restituisci la vista con le offerte filtrate
+        return view('catalogo', ['offerte' => $offerte]);
+    }
+    public function filtraggioAziende_test(Request $request)
+    {
+        $idAziendeSelezionate = $request->input('id_aziende_selezionate');
+
+        // Applica il filtraggio dei dati in base ai nomi delle aziende selezionate
+        $aziende = Azienda::whereIn('id', $idAziendeSelezionate)->get();
+        // Esempio di query
+        $offerteFiltrate = Offerta::whereIn('id', $idAziendeSelezionate)->get();
+
+        // Restituisci i risultati filtrati come risposta JSON
+        return response()->json(['offerte' => $offerteFiltrate]);
+        //return view('catalogo')->with('offerte', $offerteFiltrate)->with('aziende',$aziende);
+
+    }
+
 
     public function vis(){
         $faqs = faq::all();
