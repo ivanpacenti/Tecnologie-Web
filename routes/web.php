@@ -44,6 +44,8 @@ Route::view('/index', 'home')
     ->name('index');
 
 Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
+Route::post('/filtroOfferte', [PublicController::class, 'filtroOfferte'])->name('filtroOfferte');
+
 
 
 

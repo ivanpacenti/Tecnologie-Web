@@ -43,6 +43,20 @@ class PublicController
         return view('offerdetail',['offerta'=>$offerta]);
     }
 
+    public function filtroOfferte(Request $request)
+    {
+        $aziendeSelezionate = $request->input('aziende_selezionate');
+
+        // Ottenere gli ID delle aziende selezionate dal database
+        $aziende = Azienda::whereIn('id', $aziendeSelezionate)->get();
+
+        // Filtrare le offerte in base agli ID delle aziende selezionate
+        $offerte = Offerta::whereIn('id', $aziendeSelezionate)->get();
+
+        // Passare le offerte alla vista o eseguire altre operazioni
+        return view('filtroOfferte')->with('offerte', $offerte)->with('aziende',$aziende);
+    }
+
     public function vis(){
         $faqs = faq::all();
         //dd($faqs);

@@ -1,46 +1,68 @@
 // Aggiungi un evento di ascolto ai checkbox
 var checkboxes = document.querySelectorAll('.check');
-
 checkboxes.forEach(function(checkbox) {
     checkbox.addEventListener('change', handleCheckboxChange);
-
 });
-
-
-
 
 // Funzione per gestire il cambio di stato dei checkbox
 function handleCheckboxChange() {
-    var checkboxId = this.id;
-    var isChecked = this.checked;
+    var checkboxesSelezionati = document.querySelectorAll('.check:checked');
+    var nomiAziendeSelezionate = [];
 
-    // Seleziona tutti i div filtrabili
-    var divsFiltrabili = document.querySelectorAll('.containerCoupon');
-
-    // Verifica se almeno un checkbox è selezionato
-    var isAnyCheckboxChecked = Array.from(checkboxes).some(function(checkbox) {
-        return checkbox.checked;
+    checkboxesSelezionati.forEach(function(checkbox) {
+        nomiAziendeSelezionate.push(checkbox.id);
+        //inviaRichiestaAlServer(nomiAziendeSelezionate);
     });
 
-    // Se nessun checkbox è selezionato, mostra tutti i div
-    if (!isAnyCheckboxChecked) {
-        divsFiltrabili.forEach(function(div) {
-            div.style.display = 'block';
+    // Invia i nomi delle aziende selezionate al server tramite una richiesta AJAX
+   inviaRichiestaAlServer(nomiAziendeSelezionate);
+    //for (var i=0;i<nomiAziendeSelezionate.length;i++) document.write(nomiAziendeSelezionate[i]);
+}
+
+// Funzione per inviare una richiesta al server
+function inviaRichiestaAlServer(nomiAziendeSelezionate) {
+    var url = '/updateCatalogo'; // URL della rotta nel tuo controller che gestisce la richiesta
+    var data = { nomi_aziende_selezionate: nomiAziendeSelezionate };
+
+    // Esegui una richiesta AJAX
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify(data)
+    })
+        .then(function(response) {
+            return response.json();
+
+        })
+        .then(function(data) {
+            // Gestisci la risposta dal server, ad esempio aggiorna la vista con le nuove offerte
+            aggiornaVistaOfferte(data.offerte);
+
+        })
+        .catch(function(error) {
+            console.error('Si è verificato un errore:', error);
         });
-        return;
+}
+
+// Funzione per aggiornare la vista delle offerte
+
+function aggiornaVistaOfferte(offerte) {
+    var containerOfferte = document.getElementById('containerCoupon');
+
+    // Rimuovi tutte le offerte presenti nel container
+    while (containerOfferte.firstChild) {
+        containerOfferte.firstChild.remove();
     }
 
-    // Itera sui div filtrabili e controlla se devono essere mostrati o nascosti
-    divsFiltrabili.forEach(function(div) {
-        var divId = div.id;
-
-        if (isChecked && checkboxId === divId) {
-            // Mostra il div se il checkbox è selezionato e il suo id corrisponde al divId
-            div.style.display = 'block';
-        } else {
-            // Nascondi il div se il checkbox non è selezionato o il suo id non corrisponde al divId
-            div.style.display = 'none';
-        }
+    // Aggiungi le nuove offerte al container
+    offerte.forEach(function(offerta) {
+        var offertaDiv = document.createElement('div');
+        offertaDiv.classList.add('offerta');
+        offertaDiv.textContent = offerta.titolo;
+        containerOfferte.appendChild(offertaDiv);
     });
-
 }
+
