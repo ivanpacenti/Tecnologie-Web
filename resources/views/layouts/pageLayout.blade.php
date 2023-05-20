@@ -2,7 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
          <meta charset="utf-8">
-         {{--<link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >--}}
     </head>
 
     <body>
@@ -15,6 +14,9 @@
             @endcan
             @can('isAdmin')
                 @include('layouts/_navadmin')
+            @endcan
+            @can('isStaff')
+                @include('layouts/_navstaff')
             @endcan
         </header>
 

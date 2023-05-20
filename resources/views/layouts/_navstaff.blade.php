@@ -1,5 +1,5 @@
 {{--NAVBAR DELL'ADMIN--}}
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <html>
 <head>
@@ -16,11 +16,13 @@
     <div class="links">
         <li><a href="{{route('index')}}">Home</a></li>
         <li><a href="{{route('catalogo')}}">Catalogo</a></li>
-        <li><a href="{{ route('admin') }}" class="highlight" title="Profilo">Profilo</a></li>
-        <li><a href="{{ route('adminAziende') }}">Aziende</a></li>
-        <li><a href="">Statistiche</a></li>
-        <li><a href="{{route('adminFaqs')}}">GestioneFaq</a></li>
-        <li><a href="">GestioneStaff</a></li>
+        <li><a href="{{ route('staff') }}" class="highlight" title="Profilo">Profilo</a></li>
+
+{{--        @can('isMembroSenior')--}}
+{{--            <li><a href="{{route('')}}">crudPacchetti</a></li>--}}
+{{--        @endcan--}}
+        <li><a href="">crudPromozioni</a></li>
+
         @auth
             <li><a href="" class="highlight" title="Logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

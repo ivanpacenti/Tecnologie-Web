@@ -36,7 +36,7 @@
 
             {{-- si attiva solamente quando l'utente non è loggato--}}
             @guest
-                <li><a href="registrazione.html" title="Resgistrati al sito">Registrati</a></li>
+                <li><a href="{{ route('register') }}" title="Resgistrati al sito">Registrati</a></li>
                 <li><a href="{{ route('login') }}" class="highlight" title="Accedi all'area riservata del sito">Login</a></li>
             @endguest
         </div>

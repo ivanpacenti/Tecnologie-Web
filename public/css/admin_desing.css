@@ -10,6 +10,10 @@ h1{
     text-align: center;
 }
 
+h4{
+    text-align: center;
+}
+
 .container h1{
     color: #fff;
     text-align: center;
@@ -143,18 +147,6 @@ a.buttonbar-add:hover{
 }
 
 /*SEZIONE RELATIVA AL FORM DI MODIFICA DELLE FAQ */
-
-/*.form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 25px;
-    padding: 50px;
-    margin: 50px 100px;
-    border-radius: ;
-    border: 1px solid blue;
-}*/
 
 .form-group {
     display: flex;
