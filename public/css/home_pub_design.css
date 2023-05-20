@@ -126,3 +126,42 @@ body {
     max-width: 600px;
     margin: 0 auto;
 }
+
+/*SEZIONE RELATIVA A LOGIN E REGISTRAZIONE*/
+/*.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    padding: 50px;
+    margin: 50px 100px;
+    border-radius: ;
+    border: 1px solid blue;
+}*/
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-label {
+    display: flex;
+    margin-bottom: 15px;
+    font-size: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    font-family: 'Lexend', sans-serif;
+}
+
+.formbutton{
+    width: 300px;
+    font-family: 'Lexend', sans-serif;
+}

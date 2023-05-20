@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
 
 <h1>BEENVENUTO NELLA SEZIONE PER AGGIUNGERE UNA FAQ</h1>
 

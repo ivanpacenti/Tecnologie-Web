@@ -3,21 +3,21 @@
 @section('title', 'Login')
 
 @section('content')
-    <div class="static">
-        <h3>Login</h3>
-        <p>inserisci qui i tuoi dati </p>
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/home_pub_design.css') }}">
         <div class="container-contact">
             <div class="wrap-contact1">
-                {{ Form::open(array('route' => 'login', 'class' => 'contact-form')) }}
+                {{ Form::open(array('route' => 'login', 'class' => 'form')) }}
 
-                <div  class="wrap-input">
+                <div  class="form-group">
+                    <h3>Login</h3>
+                    <p>inserisci qui i tuoi dati </p>
                     <p> Se non hai già un account <a  href="{{ route('register') }}">registrati</a></p>
                 </div>
-                <div  class="wrap-input">
+                <div  class="form-group">
                     {{--                 LARAVEL collective--}}
-                    {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
-                    {{ Form::text('username', '', ['class' => 'input','id' => 'username']) }}
+                    {{ Form::label('username', 'Nome Utente'/*, ['class' => 'label-input']*/) }}
+                    {{ Form::text('username', '', ['class' => 'form-input','id' => 'username']) }}
                     @if ($errors->first('username'))
                         <ul class="errors">
                             @foreach ($errors->get('username') as $message)
@@ -27,9 +27,9 @@
                     @endif
                 </div>
 
-                <div  class="wrap-input">
-                    {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
-                    {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
+                <div  class="form-group">
+                    {{ Form::label('password', 'Password'/*, ['class' => 'label-input']*/) }}
+                    {{ Form::password('password', ['class' => 'form-input', 'id' => 'password']) }}
                     @if ($errors->first('password'))
                         <ul class="errors">
                             @foreach ($errors->get('password') as $message)
@@ -39,13 +39,11 @@
                     @endif
                 </div>
 
-                <div class="container-form-btn">
-                    {{ Form::submit('Login', ['class' => 'form-btn1']) }}
+                <div class="form-group">
+                    {{ Form::submit('Login', ['class' => 'form-button']) }}
                 </div>
 
                 {{ Form::close() }}
             </div>
         </div>
-
-    </div>
 @endsection

@@ -4,8 +4,8 @@
 @extends('layouts.pageLayout')
 
 @section('content')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
     <div class="Wrapper">
-
         <h1>
             BENVENUTO NELLA SEZIONE RISERVATA DEL SITO
         </h1>

@@ -4,10 +4,8 @@
 @extends('layouts.pageLayout')
 
 @section('content')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_design.css') }}">
-
-    <body>
     <div class="maincontainer">
         <h1>Benvenuto nella pagina di gestione delle FAQ</h1>
         <a href="{{route("faqsCreate")}}" class="buttonbar-add"> Aggiungi una FAQ</a>
@@ -39,5 +37,4 @@
         @endisset()
 
     </div>
-    </body>
 @endsection('content')
