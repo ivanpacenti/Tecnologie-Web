@@ -41,6 +41,8 @@ class AuthenticatedSessionController extends Controller {
                 break;
             case 'user': return redirect()->route('user');
                 break;
+            case 'staff': return redirect()->route('staff');
+                break;
             default: return redirect('/index');
         }
     }

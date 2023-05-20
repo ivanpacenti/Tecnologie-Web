@@ -15,6 +15,9 @@
             @can('isAdmin')
                 @include('layouts/_navadmin')
             @endcan
+            @can('isStaff')
+                @include('layouts/_navadmin')
+            @endcan
         </header>
 
         <main>

@@ -7,6 +7,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\OffertaController;
 use App\Http\Controllers\FaqsController;
+use App\Http\Controllers\StaffController;
+use App\Models\Resources\Staff;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,7 +99,22 @@ Route::view('/amministratore', 'admin')
     ->name('admin')->middleware('can:isAdmin');;
 
 
-// prima di arrivare al  controller
+    /*
+|--------------------------------------------------------------------------
+| ROTTE PER LO STAFF
+|--------------------------------------------------------------------------
+|
+|
+|
+|
+|
+|
+
+*/
+
+Route::get('/staff', [StaffController::class, 'staff'])
+    ->name('staff');
+
 //  Rotte aggiunte da Breeze
 
 /*Route::get('/', function () {
