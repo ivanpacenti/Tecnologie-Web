@@ -4,7 +4,7 @@ use App\Http\Controllers\CatalogoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\userController;
 use App\Http\Controllers\OffertaController;
 use App\Http\Controllers\FaqsController;
 
@@ -79,6 +79,17 @@ Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCrea
 //rotta che visualizza tutta la lista delle faq
 Route::get('/visualizza_listafaq', [PublicController::class, 'list_all'])-> name('visualizza_listafaq');
 
+
+
+//ROTTE PER L'USER
+
+
+Route::get('/user', [userController::class, 'index'])
+    ->name('user')->middleware('can:isUser');// controllo dell'autenticazione a livello di rotta, se non èl'user non parte la rotta
+
+
+
+// prima di arrivare al  controller
 //  Rotte aggiunte da Breeze
 
 /*Route::get('/', function () {

@@ -16,11 +16,16 @@
     </div>
     <nav>
         <div class="links">
-            <li><a href="{{route('index')}}">Home</a></li>
-            <li><a href="{{route('catalogo')}}">Catalogo</a></li>
-            <li><a href="registrazione.html">Registrati</a></li>
-            <li><a href="./login.html">Login</a></li>
+            <li><a href="{{route('index')}}" title="Home del sito">Home</a></li>
+            <li><a href="{{route('catalogo')}}" title="Catalogo delle offerte">Catalogo</a></li>
+            <li><a href="registrazione.html" title="Resgistrati al sito">Registrati</a></li>
             <li><a href="{{route('admin')}}">admin</a></li>
+            {{--    nell'ipotesi non ci sia un utente loggato va generato a valle dell'utente loggato va generata l'acnora di login, e quindi @guest è vera se non c'è un utente
+            loggato all'atto della visualizzazione, e facciamo apparire la nostra ancora che attiva la rotta login e che è associata alla parola accedi e quindi utilizzando queste direttive attivo
+            una navbar dinamica--}}
+            @guest
+                <li><a href="{{ route('login') }}" class="highlight" title="Accedi all'area riservata del sito">login</a></li>
+            @endguest
         </div>
     </nav>
 </html>
