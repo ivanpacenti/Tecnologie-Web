@@ -23,33 +23,39 @@
         <div class="imagecontainer">
             <img src="img/shop.jpg" alt="immagine coupon" style="border-radius: 50%;" width=150px height=150px>
         </div>
-        <div class="containerfield">
-            {{ Auth::user()->name }}
+        <div class="container2">
+            <div class="leftcontainer">
+                <div class="containerfield">
+                    {{ Auth::user()->name }}
+                </div>
+                <div class="containerfield">
+                    {{ Auth::user()->surname }}
+                </div>
+                <div class="containerfield">
+                    {{ Auth::user()->email }}
+                </div>
+                <div class="containerfield">
+                    password
+                </div>
+            </div>
+            <div class="rightcontainer">
+                <div class="containerfield">
+                    {{ Auth::user()->username }}
+                </div>
+                <div class="containerfield">
+                    {{ Auth::user()->role }}
+                </div>
+                <div class="containerfield">
+                    {{ Auth::user()->età }}
+                </div>
+                <div class="containerfield">
+                    {{ Auth::user()->genere }}
+                </div>
+            </div>
         </div>
-        <div class="containerfield">
-            {{ Auth::user()->surname }}
-        </div>
-        <div class="containerfield">
-            {{ Auth::user()->email }}
-        </div>
-        <div class="containerfield">
-            password
-        </div>
-        <div class="containerfield">
-            {{ Auth::user()->username }}
-        </div>
-        <div class="containerfield">
-            {{ Auth::user()->role }}
-        </div>
-        <div class="containerfield">
-            {{ Auth::user()->età }}
-        </div>
-        <div class="containerfield">
-            {{ Auth::user()->genere }}
-        </div>
-        <div class="containerfield">
-            {{ Auth::user()->telefono }}
-        </div>
+            <div class="containerfield">
+                {{ Auth::user()->telefono }}
+            </div>
         <button class="edit">Modifica dati personali</button>
     </div>
 
