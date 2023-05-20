@@ -1,11 +1,11 @@
 {{--NAVBAR DELL'ADMIN--}}
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <html>
 <head>
     <script src="js/scriptHome.js" async></script>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/nav_admin_design.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/nav_design.css') }}" >
 </head>
 
 <div class="logo">

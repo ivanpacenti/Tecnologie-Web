@@ -18,18 +18,15 @@
         <div class="links">
             <li><a href="{{route('index')}}" title="Home del sito">Home</a></li>
             <li><a href="{{route('catalogo')}}" title="Catalogo delle offerte">Catalogo</a></li>
-            <li><a href="registrazione.html" title="Resgistrati al sito">Registrati</a></li>
-
-            <li><a href="{{route('admin')}}">admin</a></li>
-
 
             {{-- si attiva quando l'utente è loggato--}}
             @can('isUser')
-                <li><a href="{{ route('user') }}" class="highlight" title="Home User">Home User</a></li>
+                <li><a href="{{ route('user') }}" class="highlight" title="Profilo">Profilo</a></li>
             @endcan
-
-
-{{--            si attiva con qualsiasi utente loggato sia admin che utente che staff --}}
+            @can('isAdmin')
+                <li><a href="{{ route('admin') }}" class="highlight" title="Profilo">Profilo</a></li>
+            @endcan
+            {{-- si attiva con qualsiasi utente loggato sia admin che utente che staff --}}
             @auth
                 <li><a href="" class="highlight" title="Logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -39,7 +36,8 @@
 
             {{-- si attiva solamente quando l'utente non è loggato--}}
             @guest
-                <li><a href="{{ route('login') }}" class="highlight" title="Accedi all'area riservata del sito">login</a></li>
+                <li><a href="registrazione.html" title="Resgistrati al sito">Registrati</a></li>
+                <li><a href="{{ route('login') }}" class="highlight" title="Accedi all'area riservata del sito">Login</a></li>
             @endguest
         </div>
     </nav>

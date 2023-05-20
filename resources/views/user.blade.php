@@ -2,14 +2,6 @@
 
 @section('title','Profile Page')
 
-
-    dscivwoeqgfhnqweiofgn
-    <div class="static">
-        <h3>Area Utente</h3>
-        <p>Benvenuto {{ Auth::user()->name }} {{ Auth::user()->surname }}</p>
-        <p>Seleziona la funzione da attivare</p>
-    </div>
-
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/profile_design.css') }}" >
     <!-- questo container contiene tutti i campi presenti nel pannello ed è di tipo felx in modo tale da organizzare meglio le cose
