@@ -24,27 +24,32 @@
             <img src="img/shop.jpg" alt="immagine coupon" style="border-radius: 50%;" width=150px height=150px>
         </div>
         <div class="containerfield">
-            nome
+            {{ Auth::user()->name }}
         </div>
         <div class="containerfield">
-            cognome
+            {{ Auth::user()->surname }}
         </div>
         <div class="containerfield">
-            email
+            {{ Auth::user()->email }}
         </div>
         <div class="containerfield">
             password
         </div>
         <div class="containerfield">
-            nome
+            {{ Auth::user()->username }}
         </div>
         <div class="containerfield">
-            nome
+            {{ Auth::user()->role }}
         </div>
         <div class="containerfield">
-            nome
+            {{ Auth::user()->età }}
         </div>
-
+        <div class="containerfield">
+            {{ Auth::user()->genere }}
+        </div>
+        <div class="containerfield">
+            {{ Auth::user()->telefono }}
+        </div>
         <button class="edit">Modifica dati personali</button>
     </div>
 
