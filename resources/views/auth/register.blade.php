@@ -3,6 +3,7 @@
 @section('title', 'Registrazione')
 
 @section('content')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/home_pub_design.css') }}">
     <div class="static">
         <h3>Registrazione</h3>
         <p>Utilizza questa form per registrarti al sito</p>

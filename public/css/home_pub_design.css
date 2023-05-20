@@ -139,6 +139,21 @@ body {
     border-radius: ;
     border: 1px solid blue;
 }*/
+.maincontainer, .form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 70px 200px;
+    gap:25px;
+    /* height: 600px; */
+    /* width: 70%; */
+    padding: 50px 100px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
+    background-color: rgb(217, 217, 217);
+    color: rgb(80, 80, 80);
+}
 
 .form-group {
     display: flex;
@@ -158,10 +173,11 @@ body {
     border-radius: 10px;
     border: none;
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    background-color: white;
     font-family: 'Lexend', sans-serif;
 }
 
-.formbutton{
+.form-button{
     width: 300px;
     font-family: 'Lexend', sans-serif;
 }
