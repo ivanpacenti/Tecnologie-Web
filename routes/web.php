@@ -48,8 +48,7 @@ Route::view('/index', 'home')
 
 Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 
-Route::view('/amministratore', 'admin')
-    ->name('admin');
+
 
 Route::view('/profilepage', 'profilepage')
     ->name('profilepage');
@@ -79,6 +78,8 @@ Route::get('/visualizza_listafaq', [PublicController::class, 'list_all'])-> name
 Route::get('/user', [userController::class, 'index'])
     ->name('user')->middleware('can:isUser');// controllo dell'autenticazione a livello di rotta, se non è l'user non parte la rotta
 
+Route::view('/amministratore', 'admin')
+    ->name('admin')->middleware('can:isAdmin');;
 
 
 // prima di arrivare al  controller
