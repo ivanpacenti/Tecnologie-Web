@@ -57,6 +57,11 @@ Route::view('/profilepage', 'profilepage')
 
 Route::get('/offerta/{id}', [PublicController::class,'visualizzaDettagliOfferta'])->name('offerdetail');
 
+//ROTTE PER LA VISUALIZZAZIONE DELLE FAQ
+Route::view('/Faq', 'publicFaqs')
+    ->name('Faq');
+Route::get('/Faq',[PublicController::class, 'vis'])->name('visualizza_listaFaq');
+
 //QUESTA è LA PARTE DELL'ADMIN( sono funzionalità a lui riservate), una volta fatta la aprte admin verranno implementate
 
 
@@ -67,8 +72,7 @@ Route::post('/edit', [PublicController::class,'modificaFaq'])->name('edit');
 // in questa rotta vai ad aggiungere una faq
 Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
 //rotta che visualizza tutta la lista delle faq
-Route::get('/visualizza_listafaq', [PublicController::class, 'list_all'])-> name('visualizza_listafaq');
-
+Route::get('/Faq', [PublicController::class, 'vis'])-> name('visualizza_listafaq');
 
 //ROTTE DELL'ADMIN
 /*
@@ -117,6 +121,8 @@ Route::view('/amministratore', 'admin')
 Route::get('/staff', [StaffController::class, 'staff'])
     ->name('staff');
 
+
+// prima di arrivare al  controller
 //  Rotte aggiunte da Breeze
 
 /*Route::get('/', function () {

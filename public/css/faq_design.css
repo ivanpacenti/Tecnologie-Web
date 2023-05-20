@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html, body {
+    margin: 0;
+    font-family: 'Lexend', sans-serif;
+    color: rgb(210, 210, 210);
+}
+
+/* Stile per il contenitore principale della pagina */
+/*.container {
+    color: rgb(210, 210, 210);
+    text-align: center;
+}*/
+
+/* Stile per l'intestazione della pagina */
+header {
+   /* background-color: #f2f2f2;*/
+    /*padding: 10px;*/
+    /*text-align: center;*/
+    position: relative;
+    font-family: 'Lexend', sans-serif;
+    top: 0;
+    height: 55px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    background-color: #762c2c;
+}
+
+/* Stile per il contenuto principale della pagina */
+/*.main-content {
+    margin-top: 10px;
+}*/
+
+/* Stile per il piè di pagina della pagina */
+/*.maincontainer2{
+    background-color: rgb(50, 50, 50);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Lexend', sans-serif;
+    color: rgb(210, 210, 210);
+    height: 10rem;
+}*/
+.faq_cont{
+    background-color: rgb(50, 50, 50);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Lexend', sans-serif;
+    color: rgb(94, 24, 37);
+    height: 10rem;
+}
+
+.questions-box{
+
+}
+.answers-box{
+
+}
+
+.listaFaq_cont{
+
+}
+.contenitore{
+
+}
+

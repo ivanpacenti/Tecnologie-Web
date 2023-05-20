@@ -83,8 +83,11 @@ class PublicController
 
 
     public function vis(){
-        $faqs = faq::all();
+        $faqs = Faq::all();
         //dd($faqs);
-        return view('publicView.publicFaqs')->with('faqs', $faqs);
+        //return view('publicView.publicFaqs')->with('faqs', $faqs);
+        //return view('layouts.publicFaqs')->with('faqs', $faqs);
+        //return view('Faq', compact('faqs'));
+        return view('layouts.publicFaqs', ['faqs' => $faqs]);
     }
 }
