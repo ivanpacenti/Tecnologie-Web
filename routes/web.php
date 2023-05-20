@@ -83,7 +83,8 @@ Route::get('/visualizza_listafaq', [PublicController::class, 'list_all'])-> name
 
 */
 //
-Route::get('/adminFaqs', [AdminController::class, 'VisualizzaFaq'])->name('adminFaqs');;
+Route::get('/adminAziende', [AdminController::class, 'VisualizzaAziende'])->name('adminAziende');
+Route::get('/adminFaqs', [AdminController::class, 'VisualizzaFaq'])->name('adminFaqs');
 Route::get('/delete/{id}', [AdminController::class,'deleteFaq'])->name('elimina-faq');
 Route::get('/edit/{id}', [AdminController::class,'visualizza1Faq'])->name('editid');
 Route::post('/edit', [AdminController::class,'modificaFaq'])->name('edit');

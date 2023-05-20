@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Azienda;
 use App\Models\Faq;
 use App\Models\Resources\Product;
 use App\Http\Requests\NewProductRequest;
@@ -73,6 +74,13 @@ class AdminController extends Controller {
         $faq->risposta = $req->risposta;
         $faq->save();
         return view('adminView.faqsedit',['faq'=>$faq]);
+    }
+
+    public function VisualizzaAziende()
+    {
+        $aziende= Azienda::all();
+        //dd($faqs);
+        return view('adminView.adminAziende')->with('aziende', $aziende);
     }
 
     public function storeProduct(NewProductRequest $request) {

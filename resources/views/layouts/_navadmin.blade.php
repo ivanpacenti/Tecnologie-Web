@@ -17,7 +17,7 @@
         <li><a href="{{route('index')}}">Home</a></li>
         <li><a href="{{route('catalogo')}}">Catalogo</a></li>
         <li><a href="{{ route('admin') }}" class="highlight" title="Profilo">Profilo</a></li>
-        <li><a href="">Aziende</a></li>
+        <li><a href="{{ route('adminAziende') }}">Aziende</a></li>
         <li><a href="">Statistiche</a></li>
         <li><a href="{{route('adminFaqs')}}">GestioneFaq</a></li>
         <li><a href="">GestioneStaff</a></li>

@@ -6,15 +6,22 @@
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
-    <h1> sezione CRUD delle aziende</h1>
-    <h4> Parte riservata all'amministratore</h4>
-    <div class="contenitore">
-        qui ci sarà una form
-        <div class="logo"> qui ci va il logo della azienda</div>
-        <div class="logo"> qui ci va il logo della azienda</div>
-        <div class="logo"> qui ci va il logo della azienda</div>
-        <div class="logo"> qui ci va il logo della azienda</div>
-        <div class="logo"> qui ci va il logo della azienda</div>
-    </div>
+    <h1> Benvenuto!</h1>
+    <h4> Da qui puoi gestire le aziende</h4>
 
+    <div class="maincontainer">
+        <a {{--href="{{route("agencyCreate")}}"--}} class="buttonbar-add">Aggiungi un' azienda</a>
+        @isset($aziende)
+            @foreach($aziende as $azienda)
+
+                <div class="main-box-az"> {{--contenitore per ogni singola azienda--}}
+                    <h2> Azienda numero: {{$azienda->id}} </h2>
+                </div>
+
+            @endforeach
+        @else
+            <h1>Non ci sono aziende </h1>
+            <button class="Aggiungi">Aggiungine una nuova azienda</button>
+        @endisset()
+    </div>
 @endsection('content')
