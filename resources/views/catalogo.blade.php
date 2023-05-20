@@ -1,9 +1,9 @@
-@extends('layouts.public')
+@extends('layouts.pageLayout')
 
 @section('title','Catalogo')
 
 @section('content')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
+<link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
     <script src="js/filtroAziende.js" async></script>
 
         @isset($aziende)

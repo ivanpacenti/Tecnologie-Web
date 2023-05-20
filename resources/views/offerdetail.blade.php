@@ -1,9 +1,10 @@
 @section('title','Dettagli Offerta')
 
-@extends('layouts.public')
+@extends('layouts.pageLayout')
 
 @section('content')
 
+<link rel="stylesheet" type="text/css" href="{{ asset('css/home_pub_design.css') }}" >
 <body>
     <div class="product-details">
         <div class="leftcontainer">

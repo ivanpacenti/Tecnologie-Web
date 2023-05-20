@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.pageLayout')
 
 @section('title','Profile Page')
 

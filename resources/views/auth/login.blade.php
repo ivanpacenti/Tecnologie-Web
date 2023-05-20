@@ -1,6 +1,6 @@
-@extends('layouts.public')
+@extends('layouts.pageLayout')
 
-@section('title', 'Registrazione')
+@section('title', 'Login')
 
 @section('content')
     <div class="static">

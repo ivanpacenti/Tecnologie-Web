@@ -1,8 +1,9 @@
-@extends('layouts.public')
+@extends('layouts.pageLayout')
 
 @section('title','Home')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/home_pub_design.css') }}" >
     <div class="wrapper">
         <div class="container1">
             <div class="imgchisiamo">
