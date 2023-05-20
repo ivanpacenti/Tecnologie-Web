@@ -18,6 +18,11 @@ use App\Http\Controllers\FaqsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
+
 /*
 Route::get('/', [PublicController::class, 'showCatalog1'])
         ->name('catalog1');
@@ -72,7 +77,7 @@ Route::get('/visualizza_listafaq', [PublicController::class, 'list_all'])-> name
 
 
 Route::get('/user', [userController::class, 'index'])
-    ->name('user')->middleware('can:isUser');// controllo dell'autenticazione a livello di rotta, se non èl'user non parte la rotta
+    ->name('user')->middleware('can:isUser');// controllo dell'autenticazione a livello di rotta, se non è l'user non parte la rotta
 
 
 
