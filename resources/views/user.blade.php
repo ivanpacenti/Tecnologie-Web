@@ -1,6 +1,5 @@
-
+@extends('layouts._navuser')
 @section('title', 'Area User')
-
 
     dscivwoeqgfhnqweiofgn
     <div class="static">

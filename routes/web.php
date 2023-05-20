@@ -36,20 +36,7 @@ Route::get('/admin/newproduct', [AdminController::class, 'addProduct'])
 
 Route::post('/admin/newproduct', [AdminController::class, 'storeProduct'])
         ->name('newproduct.store');
-
-Route::get('/user', [UserController::class, 'index'])
-        ->name('user')->middleware('can:isUser');
-
-
-Route::view('/where', 'where')
-        ->name('where');
-
-Route::view('/who', 'who')
-        ->name('who');*/
-
-// Route::get('/index', function () {
-//         return view('home');
-// })-> name('index');
+*/
 
 Route::view('/index', 'home')
     ->name('index');
