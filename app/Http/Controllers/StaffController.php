@@ -10,9 +10,9 @@ use App\Models\Resources\Staff;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller {
-    protected $_staffModel;
+   // protected $_staffModel;
     public function __construct() {
-     //   $this->_staffModel = new Staff();
+       // $this->_staffModel = new Staff();
         $this->middleware('can:isStaff');
     }
     public function staff() {
