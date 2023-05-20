@@ -159,19 +159,20 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 1px solid green;
 }
 
 .form-label {
     display: flex;
     margin-bottom: 15px;
-    font-size: 5px;
 }
 
 .form-input {
-    width: 100%;
+    width: 300px;
     padding: 8px;
     border-radius: 10px;
     border: none;
+
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
     background-color: white;
     font-family: 'Lexend', sans-serif;
@@ -179,5 +180,13 @@ body {
 
 .form-button{
     width: 300px;
+    height: 60px;
+    border-radius: 15px;
     font-family: 'Lexend', sans-serif;
+}
+
+.errors{
+    color: red;
+    font-size: x-small;
+    margin-left: 0;
 }
