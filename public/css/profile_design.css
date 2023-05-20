@@ -82,3 +82,18 @@ body{
     opacity: 1;
 }
 
+.container2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap:25px;
+}
+.leftcontainer, .rightcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:25px;
+}
+
