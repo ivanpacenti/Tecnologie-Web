@@ -20,9 +20,6 @@ use App\Http\Controllers\FaqsController;
 */
 
 
-
-
-
 /*
 Route::get('/', [PublicController::class, 'showCatalog1'])
         ->name('catalog1');
@@ -57,10 +54,7 @@ Route::get('/offerta/{id}', [PublicController::class,'visualizzaDettagliOfferta'
 
 //QUESTA è LA PARTE DELL'ADMIN( sono funzionalità a lui riservate), una volta fatta la aprte admin verranno implementate
 
-// prova per visualizzazione Faqs da parte admin
-Route::get('/adminFaqs', [PublicController::class, 'VisualizzaFaq'])->name('adminFaqs');
-// possibilità di fare la delete delle faq
-Route::get('/delete/{id}', [PublicController::class,'deleteFaq'])->name('elimina-faq');
+
 // possibilità di modificare le faq, in questa ne vedi solo una e scegli, nella rotta seguente modificherai la faq
 Route::get('/edit/{id}', [PublicController::class,'visualizza1Faq'])->name('editid');
 // in questa rotta avviene la vera e propria modifica
@@ -71,6 +65,25 @@ Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCrea
 Route::get('/visualizza_listafaq', [PublicController::class, 'list_all'])-> name('visualizza_listafaq');
 
 
+//ROTTE DELL'ADMIN
+/*
+|--------------------------------------------------------------------------
+| ROTTE PER L'ADMIN
+|--------------------------------------------------------------------------
+|   QUI SI TROVANO LE ROTTE PER GESTIRE IL CRUD DELLE FAQ
+|   LA PRIMA VISUALIZZA
+|   SECONDA FA L'ELIMINAZIONE
+|   TERZA FA LA VISUALIZZAZIONE DI UNA FAQ
+|   QUARTA FA LA MODIFICA
+|   QUINTA FA IL SALVATAGGIO DI UNA NUOVA FAQ
+
+*/
+//
+Route::get('/adminFaqs', [AdminController::class, 'VisualizzaFaq'])->name('adminFaqs');;
+Route::get('/delete/{id}', [AdminController::class,'deleteFaq'])->name('elimina-faq');
+Route::get('/edit/{id}', [AdminController::class,'visualizza1Faq'])->name('editid');
+Route::post('/edit', [AdminController::class,'modificaFaq'])->name('edit');
+Route::get('/faqsCreate', [AdminController::class, 'salvafaq'])->name('faqsCreate');
 
 //ROTTE PER L'USER
 

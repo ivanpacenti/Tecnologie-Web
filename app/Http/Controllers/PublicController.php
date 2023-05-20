@@ -37,57 +37,6 @@ class PublicController
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
 
-
-
-// DA SPOSTARE TUTTO QUANDO METTEREMO L'AUTENTICAZIONE
-
-    public function VisualizzaFaq()
-//  Questa è una funzione per visualizzare le faq,
-    {
-        $faqs = faq::all();
-        //dd($faqs);
-        return view('adminView.adminFaqs')->with('faqs', $faqs);
-    }
-
-    public function deleteFaq($id)
-//  Questa è una funzione per eliminare le faq,
-    {
-        // Utilizza l'ID per eliminare la FAQ corrispondente
-        $faq = Faq::find($id);
-        $faq->delete();
-
-        return redirect()->back()->with('success', 'Faq eliminata con successo');
-    }
-
-    public function visualizza1Faq($id)
-// funzione che serve per visualizzare una sola faq, quella cliccata,
-// serve per vederla nella form, poi verrà implemenetato l'update su una funzione seguente
-    {
-        $faq = faq::find($id);
-        //dd($faq);
-        return view('adminView.faqsedit',['faq'=>$faq]);
-    }
-
-    public function modificaFaq(Request $req)
-// funzione che serve per modificare  una sola faq
-    {
-        $faq= faq::find($req->id);
-        $faq->domanda=$req->domanda;
-        $faq->risposta=$req->risposta;
-        $faq->save();
-        return redirect()->action([PublicController::class, 'VisualizzaFaq']);
-    }
-
-    public function salvafaq(Request $req)
-        // funzione per salvare una faq all'interno del db
-    {
-        $faq = new Faq();
-        $faq->domanda = $req->domanda;
-        $faq->risposta = $req->risposta;
-        $faq->save();
-        return view('adminView.faqsedit',['faq'=>$faq]);
-    }
-
     public function visualizzaDettagliOfferta($id)
     {
         $offerta = Offerta::find($id);
