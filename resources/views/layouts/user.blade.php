@@ -2,31 +2,29 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <title>LaProj5 | @yield('title', 'Catalogo')</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
 </head>
+
 <body>
-<div id="wrapper">
-    <div id="header">
-        <div id="logo">
-            <h1><a href="">ACME S.p.A </a></h1>
-            <p>i migliori prodotti alla portata di un click</p>
-        </div>
-    </div>
+<header>
+    {{--    <!-- @if(login=admin)--}}
+    {{--        @include('layouts/_navadmin')--}}
+    {{--    @elseif(login=staff)--}}
+    {{--        @include('layouts/_navstaff')--}}
+    {{--    @elseif(login=utente)--}}
+    {{--        @include('layouts/_navutente')--}}
+    {{--    @endif--}}
+    {{--    Idea per la realizzazione di un unico 'user/profile' in cui, in base al tipo di accesso, viene visualizzato un determinato header da definire-->--}}
 
-    <!-- end #header -->
-    <div id="menu">
-        @include('layouts/_navuser')
-    </div>
+    @include('layouts/_navuser')
+</header>
 
-    <!-- end #menu -->
-    <div id="page">
-        <div id="page-bgtop">
-            <div id="page-bgbtm">
-                @yield('content')
-                <div style="clear: both;">&nbsp;</div>
-            </div>
-        </div>
-    </div>
+<main>
+    @yield('content')
+</main>
 
+<footer>
+    @include('layouts/footer')
+</footer>
 </body>
 </html>
