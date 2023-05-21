@@ -29,7 +29,7 @@
                     <div class="buttonslot"> {{--contenitore per i bottoni--}}
                         <a {{--href="{{"edit/".$faq['id']}}"--}} class="buttonbar2">
                             Modifica</a>
-                        <a {{--href="{{"delete/".$faq['id']}}"--}} class="buttonbar2">
+                        <a href="{{"deleteagency/".$azienda['id']}}" class="buttonbar2">
                             Elimina</a>
                     </div>
                 </div>

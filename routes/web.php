@@ -96,6 +96,7 @@ Route::post('/edit', [AdminController::class,'modificaFaq'])->name('edit');
 Route::get('/faqsCreate', [AdminController::class, 'salvafaq'])->name('faqsCreate');
 Route::view('/amministratore', 'admin')
     ->name('admin')->middleware('can:isAdmin');
+Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name('elimina-azienda');
 
 /*
 |--------------------------------------------------------------------------

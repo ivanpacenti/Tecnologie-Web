@@ -20,9 +20,9 @@ return new class extends Migration
 
         Schema::table('emissiones', function (Blueprint $table) {
             $table->foreign('offerta')->references('id')
-                ->on('offertas');
+                ->on('offertas')->onDelete('CASCADE');
             $table->foreign('azienda')->references('id')
-                ->on('aziendas');
+                ->on('aziendas')->onDelete('CASCADE');
         });
     }
 

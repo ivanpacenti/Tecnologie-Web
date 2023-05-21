@@ -106,4 +106,12 @@ class AdminController extends Controller {
         ;
     }
 
+
+    //SEZIONE RELATIVA AL CRUD DELLE AZIENDE
+    public function deleteAgency($id)
+    {
+        $azienda = Azienda::find($id);
+        $azienda->delete();
+        return redirect()->back()->with('success', 'Azienda eliminata con successo');
+    }
 }
