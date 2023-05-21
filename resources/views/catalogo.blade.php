@@ -5,59 +5,8 @@
 @section('content')
     @csrf
     <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
-    <script src="{{asset('js/1rigeneraVista.js')}}" async></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{asset('js/rigeneraVista.js')}}" async></script>
 
-    <script>
-
-        $(document).ready(function() {
-            $(".check").on('click', function() {
-                // Ottieni l'ID dell'azienda selezionata
-
-                var aziendaId = $(this).attr('id');
-
-                // Verifica lo stato della checkbox
-                var isChecked = $(this).prop('checked');
-
-                var data={azienda_id: aziendaId}
-                console.log(data)
-
-                // Invia una richiesta AJAX solo se la checkbox è selezionata
-                if (isChecked) {
-                    // Invia una richiesta AJAX per ottenere le offerte filtrate
-                    $.ajax({
-                        url: '/laraProj5/public/filtroOfferte', // Sostituisci con l'URL corretto per il tuo endpoint di filtraggio
-                        type: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            "X-CSRF-Token": document.querySelector('input[name=_token]').value
-                        },
-                        data: { data },
-                        success: function(response) {
-
-                            // Agungi un nuovo div per le offerte filtrate
-                            $('.container').html(JSON.stringify(response));
-                            var offerteFiltrateDiv = $('<div>').attr('id', 'offerte-filtrate');
-                            offerteFiltrateDiv.html(response);
-
-                            // Rimuovi il vecchio div delle offerte filtrate, se presente
-
-
-                            // Aggiungi il nuovo div delle offerte filtrate al div principale
-                            $('#div-offerte').append(offerteFiltrateDiv);
-                        },
-                        error: function(xhr) {
-                            // Gestisci eventuali errori
-                        }
-                    });
-
-                } else {
-                    // Se la checkbox viene deselezionata, rimuovi il div delle offerte filtrate
-                    $('#offerte-filtrate').remove();
-                }
-            });
-        });
-    </script>
 
 
     @isset($aziende)
