@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body{
+    margin: 0;
     font-family: 'Lexend', sans-serif;
 }
 
@@ -72,6 +73,7 @@ body{
     box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.2);
     opacity: 0.2;
     transition: width 0.3s ease, height 0.7s ease, opacity 0.8s ease;
+    text-decoration: none;
 }
 
 .edit:hover{
