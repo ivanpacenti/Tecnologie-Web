@@ -7,7 +7,7 @@
 
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_design.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/profile_design.css') }}">
 
     {!! Form::model($User, ['route' => ['editx', $User['id']], 'class' => 'form']) !!}
     {!! Form::token() !!}
