@@ -22,11 +22,11 @@ return new class extends Migration
             $table->string('username',20);
             $table->string('password');
             $table->string('role',10)->default('user')->nullable();
-            $table->integer('età');
+            $table->integer('età')->nullable();
             $table->boolean('membroSenior')->default(false);
-            $table->integer('livelloAccesso');
-            $table->enum('genere', ['Maschio', 'Femmina', 'Altro']);
-            $table->string('telefono');
+            $table->integer('livelloAccesso')->nullable();
+            $table->enum('genere', ['Maschio', 'Femmina', 'Altro'])->nullable();
+            $table->string('telefono')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
