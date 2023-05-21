@@ -48,9 +48,7 @@
             <div class="containerfield">
                 {{ Auth::user()->telefono }}
             </div>
-        <a href="{{ route('editUser', ['id' => Auth::user()->id]) }}"  class="edit">
-            <button>Modifica dati personali</button>
-        </a>
+        <a href="{{ route('editUser', ['id' => Auth::user()->id]) }}"  class="edit">Modifica dati personali</a>
     </div>
 
 @endsection('content')
