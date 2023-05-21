@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/*All'interno dei file CSS viene utilizzato il display:flex, attributo che definisce un contenitore di tipo flex. E' comodo utilizzare i flexbox perchè sono modellabili e
+facilmente adattabili agli spazi in cui si trovano. In questo file vengono solitamente definiti relativamente alla grandezza della pagina o dei vari contenitori che li contengono
+e questo comporta due vantaggi: il primo è che il sito è abbastanza responsive e il secondo è la facilità di gestione dei contenitori.
+Ad esempio, nel file 'admin_design', viene utilizzato molto il .maincontainer che è un flexbox che contiene tutti gli oggetti che si trovano nelle pagine della sezione admin.
+Nel nostro caso viene utilizzato come pannello principale che permette di organizzare gli elementi all'interno di esso e di conseguenza all'interno della pagina senza ricorrere
+all'utilizzo di px o rem per il posizionamento dei vari container.*/
+
 body {
     margin: 0;
     font-family: 'Lexend', sans-serif;
@@ -58,12 +65,12 @@ details[open] div{
   | SEZIONE RELATIVA AL CSS DELLA GESTIONE DELLE FAQs |
   +---------------------------------------------------+*/
 
-/*container principale della pagina*/
+/*container principale utilizzato nelle varie pagine*/
 .maincontainer, .form{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    align-items: center; /* allineamento centrale (asse y) degli elementi contenuti nel container */
+    justify-content: center; /* allineamento centrale (asse x) degli elementi contenuti nel container */
+    flex-direction: column; /*indica in quale direzione vengono disposti gli elementi; di default è settata su row, in questo caso viene utilizzata column per disporli in colonna*/
     margin: 70px 200px;
     gap:25px;
     /* height: 600px; */
@@ -189,6 +196,7 @@ a.buttonbar-add:hover{
  | SEZIONE RELATIVA ALLA VISUALIZZAZIONE DELLE AZIENDE |
  +-----------------------------------------------------+*/
 
+/*box principale in cui si trovano i dati di una singola azienda*/
 .main-box-az{
     display: flex;
     justify-content: flex-start;
@@ -202,6 +210,7 @@ a.buttonbar-add:hover{
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
 }
 
+/*box nel quale viene inserita l'immagine o logo di una determinata azienda*/
 .imgslot{
     width: 300px;
     height: 95%;
@@ -212,12 +221,14 @@ a.buttonbar-add:hover{
     border-radius: 15px;
 }
 
+/*box nel quale vengono inserite tutte le informazioni di una determinata azienda*/
 .textslot{
     flex-grow: 2;
     width: 350px;
     border: 1px solid darkslategray;
 }
 
+/*box nel quale vengono inseriti i bottoni di modifica ed eliminazione di una singola azienda*/
 .buttonslot{
     display: flex;
     flex-direction: column;
@@ -228,6 +239,8 @@ a.buttonbar-add:hover{
     gap: 30px;
     flex-grow: 1;
 }
+
+/*definizione dei bottoni modifica ed elimina*/
 a.buttonbar2{
     display: flex;
     align-items: center;
@@ -243,6 +256,7 @@ a.buttonbar2{
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
 }
 
+/*definizione dei bottoni al passaggio del cursore*/
 a.buttonbar2:hover{
     height: 60px;
     background-color: whitesmoke;
