@@ -9,7 +9,8 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    protected $primaryKey ='id';
+    public $timestamps = false; // per poter modificare
     /**
      * The attributes that are mass assignable.
      *
@@ -42,7 +43,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     public function hasRole($role) {
         $role = (array)$role;
         return in_array($this->role, $role);

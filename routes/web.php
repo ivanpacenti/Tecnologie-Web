@@ -66,11 +66,11 @@ Route::get('/Faq',[PublicController::class, 'vis'])->name('visualizza_listaFaq')
 
 
 // possibilità di modificare le faq, in questa ne vedi solo una e scegli, nella rotta seguente modificherai la faq
-Route::get('/edit/{id}', [PublicController::class,'visualizza1Faq'])->name('editid');
-// in questa rotta avviene la vera e propria modifica
-Route::post('/edit', [PublicController::class,'modificaFaq'])->name('edit');
-// in questa rotta vai ad aggiungere una faq
-Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
+//Route::get('/edit/{id}', [PublicController::class,'visualizza1Faq'])->name('editid');
+//// in questa rotta avviene la vera e propria modifica
+//Route::post('/edit', [PublicController::class,'modificaFaq'])->name('edit');
+//// in questa rotta vai ad aggiungere una faq
+//Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
 //rotta che visualizza tutta la lista delle faq
 Route::get('/Faq', [PublicController::class, 'vis'])-> name('visualizza_listafaq');
 
@@ -94,16 +94,27 @@ Route::get('/delete/{id}', [AdminController::class,'deleteFaq'])->name('elimina-
 Route::get('/edit/{id}', [AdminController::class,'visualizza1Faq'])->name('editid');
 Route::post('/edit', [AdminController::class,'modificaFaq'])->name('edit');
 Route::get('/faqsCreate', [AdminController::class, 'salvafaq'])->name('faqsCreate');
+Route::view('/amministratore', 'admin')
+    ->name('admin')->middleware('can:isAdmin');
 
-//ROTTE PER L'USER
+/*
+|--------------------------------------------------------------------------
+| ROTTE PER L'USER
+|--------------------------------------------------------------------------
+|
+|
+|
+|
+|
+|
 
+*/
 
 Route::get('/user', [userController::class, 'index'])
     ->name('user')->middleware('can:isUser');// controllo dell'autenticazione a livello di rotta, se non è l'user non parte la rotta
 
-Route::view('/amministratore', 'admin')
-    ->name('admin')->middleware('can:isAdmin');;
-
+Route::get('/editUser/{id}', [userController::class,'Visualizza1Utente'])->name('editUser');
+Route::post('/edit', [userController::class,'modificaUtente'])->name('edit');
 
     /*
 |--------------------------------------------------------------------------
