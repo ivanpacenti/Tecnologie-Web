@@ -43,7 +43,7 @@ class PublicController
         return view('offerdetail',['offerta'=>$offerta]);
     }
 
-    public function filtroOfferte(Request $request)
+    public function filtroOfferte_1(Request $request)
     {
         $aziendeSelezionate = $request->input('aziende_selezionate');
 
@@ -66,6 +66,21 @@ class PublicController
         // Restituisci la vista con le offerte filtrate
         return view('catalogo', ['offerte' => $offerte]);
     }
+    public function filtroOfferte(Request $request)
+    {
+       // $aziendaId = $request->input('azienda_id');
+        //$az=Azienda::where('id',$aziendaId)->get();
+/*
+        $offertaId=Emissione::select('offerta')->where('azienda',$aziendaId)->get();
+        // Effettua la query per ottenere le offerte filtrate
+        $offerte = Offerta::where('id', $offertaId)->get();
+*/
+        // Restituisci la vista parziale con le offerte filtrate
+        //return view('catalogo', ['offerte' => $offerte]);
+        return response()->json(['offerte' => $request]);
+    }
+
+
     public function filtraggioAziende_test(Request $request)
     {
         $idAziendeSelezionate = $request->input('id_aziende_selezionate');
