@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 /*All'interno dei file CSS viene utilizzato il display:flex, attributo che definisce un contenitore di tipo flex. E' comodo utilizzare i flexbox perchè sono modellabili e
 facilmente adattabili agli spazi in cui si trovano. In questo file vengono solitamente definiti relativamente alla grandezza della pagina o dei vari contenitori che li contengono
 e questo comporta due vantaggi: il primo è che il sito è abbastanza responsive e il secondo è la facilità di gestione dei contenitori.
@@ -135,7 +134,7 @@ a.buttonbar, a.buttonbar-add, .formbutton{
 }
 
 /*definizione dei bottoni modifica, elimina e aggiungi al passaggio del cursore*/
-a.buttonbar:hover, a.buttonbar-add:hover, .formbutton:hover{
+a.buttonbar:hover, a.buttonbar-add:hover,{
     width: 300px;
     background-color: whitesmoke;
     color: #762c2c;
@@ -152,45 +151,6 @@ a.buttonbar-add:hover{
     width: 400px;
     height: 50px;
 }
-
-
-
-/*+-------------------------------------------------+
-  | SEZIONE RELATIVA AL FORM DI MODIFICA DELLE FAQS |
-  +-------------------------------------------------+*/
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.form-label {
-    display: flex;
-    margin-bottom: 15px;
-    font-size: 5px;
-}
-
-.form-input {
-    width: 100%;
-    padding: 8px;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
-    font-family: 'Lexend', sans-serif;
-    transition: width 0.5s ease, height 0.7s ease;
-}
-
-.form-input:hover{
-    width: 400px;
-    height: 60px;
-}
-
-.formbutton{
-    font-family: 'Lexend', sans-serif;
-}
-
-
 
 /*+----------------------------------------------------+
  | SEZIONE RELATIVA ALLA VISUALIZZAZIONE DELLE AZIENDE |

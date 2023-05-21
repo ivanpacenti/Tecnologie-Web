@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Lexend', sans-serif;
+}
+
+h1{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+}
+
+.container h1{
+    color: #fff;
+    text-align: center;
+}
+
+.form{
+    display: flex;
+    align-items: center; /* allineamento centrale (asse y) degli elementi contenuti nel container */
+    justify-content: center; /* allineamento centrale (asse x) degli elementi contenuti nel container */
+    flex-direction: column; /*indica in quale direzione vengono disposti gli elementi; di default è settata su row, in questo caso viene utilizzata column per disporli in colonna*/
+    margin: 70px 200px;
+    gap:25px;
+    /* height: 600px; */
+    /* width: 70%; */
+    padding: 50px 100px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
+    background-color: rgb(217, 217, 217);
+    color: rgb(80, 80, 80);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-label {
+    display: flex;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    font-family: 'Lexend', sans-serif;
+    transition: width 0.5s ease, height 0.7s ease;
+}
+
+.formbutton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 15px;
+    color: #eeeeee;
+    background-color: #762c2c;
+    height: 30px;
+    width: 100px;
+    font-family: 'Lexend', sans-serif;
+    border: none;
+    transition: width 0.3s ease, height 0.7s ease, opacity 0.8s ease, background-color 1s, color 1s; /*transizione dei bottoni che avviene al passaggio del cursore*/
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+}
+
+.formbutton:hover{
+    width: 300px;
+    background-color: whitesmoke;
+    color: #762c2c;
+}

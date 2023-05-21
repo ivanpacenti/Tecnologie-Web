@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_design.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/form_design.css') }}">
 
     {!! Form::model($faq, ['route' => ['edit', $faq['id']], 'class' => 'form']) !!}
     {!! Form::token() !!}

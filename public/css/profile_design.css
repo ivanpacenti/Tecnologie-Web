@@ -1,9 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-body{
+body {
     margin: 0;
     font-family: 'Lexend', sans-serif;
 }
+
+h1{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+}
+
 
 /* 'titolo' definisce il titolo "Dettagli utente" */
 .titolo{
@@ -98,4 +108,6 @@ body{
     flex-direction: column;
     gap:25px;
 }
+
+
 
