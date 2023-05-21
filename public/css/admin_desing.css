@@ -134,7 +134,7 @@ a.buttonbar, a.buttonbar-add, .formbutton{
 }
 
 /*definizione dei bottoni modifica, elimina e aggiungi al passaggio del cursore*/
-a.buttonbar:hover, a.buttonbar-add:hover,{
+a.buttonbar:hover, a.buttonbar-add:hover{
     width: 300px;
     background-color: whitesmoke;
     color: #762c2c;

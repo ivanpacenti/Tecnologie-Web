@@ -3,6 +3,7 @@
 @section('title','home')
 
 @section('content')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/home_pub_design.css') }}" >
     <div class="wrapper">
         <div class="container1">
             <div class="imgchisiamo">
