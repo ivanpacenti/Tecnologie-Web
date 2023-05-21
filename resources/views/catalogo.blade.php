@@ -17,7 +17,7 @@
                 <div class="checktitle">Filtra per azienda</div>
                 @foreach($aziende as $azienda)
                     <label class="containercheck">{{$azienda->nome}}
-                        <input class ="check" type="checkbox" value="{{ $azienda->id }}" id="{{ $azienda->id }}" name="aziende_selezionate[]">
+                        <input class ="check" type="checkbox" value="{{ $azienda->id }}" id="{{ $azienda->id }}" name="aziende_selezionate[]" onclick="checkClick()">
                         <span class="checkmark">
                     </span>
                     </label>
@@ -44,5 +44,6 @@
                 @endforeach
             @else
             <h1>supa di più<h1>
+
             @endisset
 @endsection
