@@ -1,3 +1,5 @@
+{{--quesa pagina contiene la form della registrazione--}}
+
 @extends('layouts.pageLayout')
 
 @section('title', 'Registrazione')
@@ -44,6 +46,35 @@
     </div>
 
     <div  class="form-group">
+        {{ Form::label('età', 'età', ['class' => 'form-label']) }}
+        {{ Form::text('età', '', ['class' => 'form-input','id' => 'età']) }}
+        @if ($errors->first('età'))
+            <ul class="errors">
+                @foreach ($errors->get('età') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+    <div  class="form-group">
+        {{ Form::label('telefono', 'telefono', ['class' => 'form-label']) }}
+        {{ Form::text('telefono', '', ['class' => 'form-input','id' => 'telefono']) }}
+        @if ($errors->first('telefono'))
+            <ul class="errors">
+                @foreach ($errors->get('telefono') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+
+    <div  class="form-group">
+        {{ Form::label('genere', 'genere', ['class' => 'form-label']) }}
+        {{ Form::text('genere', '', ['class' => 'form-input','id' => 'genere']) }}
+    </div>
+
+
+    <div  class="form-group">
         {{ Form::label('username', 'Nome Utente', ['class' => 'form-label']) }}
         {{ Form::text('username', '', ['class' => 'form-input','id' => 'username']) }}
         @if ($errors->first('username'))
@@ -54,6 +85,7 @@
             </ul>
         @endif
     </div>
+
 
     <div  class="form-group">
         {{ Form::label('password', 'Password', ['class' => 'form-label']) }}

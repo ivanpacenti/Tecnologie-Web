@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('età')->nullable();
             $table->boolean('membroSenior')->default(false);
             $table->integer('livelloAccesso')->nullable();
-            $table->enum('genere', ['Maschio', 'Femmina', 'Altro'])->nullable();
+            $table->string('genere')->nullable();
             $table->string('telefono')->nullable();
             $table->rememberToken();
             $table->timestamps();
