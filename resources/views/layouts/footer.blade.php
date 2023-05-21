@@ -2,11 +2,11 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <html>
 
-    <head>
-        <script src="js/scriptHome.js" async></script>
+
+
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/footer_design.css') }}" >
-    </head>
+
     <br>
         <div class="footercontainer1">
             <div class="section">
@@ -34,7 +34,7 @@
                 </div>
             </div>
 </body>
-    </footer>
+
 </html>
 
 
