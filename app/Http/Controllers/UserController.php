@@ -24,9 +24,17 @@ class userController extends Controller {
         return view('UserView.editUser', ['User' => $User]);
     }
     public function modificaUtente(Request $req)
-// funzione che serve per modificare  una sola faq
-
     {
+
+// funzione che serve per modificare  UN UTENTE
+     $req->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'età' => ['required', 'integer', 'between:0,100'],
+
+        ]);
+
         $User= User::find($req->id);
         $User->name=$req->name;
         $User->email=$req->email;
