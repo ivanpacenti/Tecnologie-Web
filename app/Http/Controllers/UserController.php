@@ -25,9 +25,15 @@ class userController extends Controller {
     }
     public function modificaUtente(Request $req)
 // funzione che serve per modificare  una sola faq
+
     {
         $User= User::find($req->id);
+        $User->name=$req->name;
         $User->email=$req->email;
+        $User->surname=$req->surname;
+        $User->password=$req->password;
+        $User->età=$req->età;
+
         //dd($User);
         $User->save();
 
