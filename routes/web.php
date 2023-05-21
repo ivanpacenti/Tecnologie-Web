@@ -114,7 +114,7 @@ Route::get('/user', [userController::class, 'index'])
     ->name('user')->middleware('can:isUser');// controllo dell'autenticazione a livello di rotta, se non è l'user non parte la rotta
 
 Route::get('/editUser/{id}', [userController::class,'Visualizza1Utente'])->name('editUser');
-Route::post('/edit', [userController::class,'modificaUtente'])->name('edit');
+Route::post('/editUser', [userController::class,'modificaUtente'])->name('editx');
 
     /*
 |--------------------------------------------------------------------------

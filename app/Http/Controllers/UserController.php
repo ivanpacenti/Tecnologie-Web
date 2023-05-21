@@ -20,18 +20,18 @@ class userController extends Controller {
     public function Visualizza1Utente($id)
     {
         $User = User::find($id);
+        //dd($User);
         return view('UserView.editUser', ['User' => $User]);
     }
     public function modificaUtente(Request $req)
 // funzione che serve per modificare  una sola faq
     {
         $User= User::find($req->id);
-//        dd($User);
         $User->email=$req->email;
+        //dd($User);
         $User->save();
 
-        Route::view('/profilepage', 'profilepage')
-            ->name('profilepage');
+        return view('user');
     }
 
 }
