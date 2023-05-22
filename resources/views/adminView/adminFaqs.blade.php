@@ -2,7 +2,7 @@
 @section('title','PaginaAdmin')
 
 @extends('layouts.pageLayout')
-
+{{--dobbiamo pensare come gestire le faq che sono vuote--}}
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
 
