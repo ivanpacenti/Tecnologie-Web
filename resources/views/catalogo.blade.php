@@ -27,20 +27,19 @@
             @isset($offerte)
             <div class="container2">
                 @foreach($offerte as $offerta)
-                <div class="containerCoupon" id="{{$aziende->find($offerta->emissione->azienda)->nome}}">
-                    <div class="image">{{$aziende->find($offerta->emissione->azienda)->nome}}
-                        <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px" width=90% height=90%>
+                <div class="product-card" id="{{$aziende->find($offerta->emissione->azienda)->nome}}">
+                    <div class="image-container">
+                        <img src="{{asset('img/lacoste_logo.jpeg')}}" alt="Immagine prodotto">
+                        @auth
+                        <span class="discount">-30%</span>
+                        @endauth
                     </div>
-                    <div class="containerCoupon2">
-                        <div class="description">
-                            <div class="testocard">
-                            <p>
-                                <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}">{{$offerta->descrizione}}</a>
-                            </p>
-                            </div>
-                        </div>
+                    <div class="description">
+                        <p>{{$offerta->descrizione}}</p>
                     </div>
+                    <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}" class="btn">Visualizza</a>
                 </div>
+
                 @endforeach
             @else
             <h1>Ci dispiace non ci sono offerte al momento<h1>
