@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\userController;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -54,10 +55,12 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+
         event(new Registered($user));
 
         Auth::login($user);
 
-        return view(RouteServiceProvider::HOME);
+        return redirect()->action([userController::class, 'index']);
+        /*return view(RouteServiceProvider::HOME);*/
     }
 }

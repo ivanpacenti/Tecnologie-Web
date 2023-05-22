@@ -114,22 +114,24 @@ class AdminController extends Controller {
         return redirect()->action([AdminController::class, 'index']);
         ;
     }
-    public function deleteUser($id)
-//  Questa è una funzione per eliminare le faq,
-    {
-        // Utilizza l'ID per eliminare la FAQ corrispondente
-        $faq = Faq::find($id);
-        $faq->delete();
 
-        return redirect()->back()->with('success', 'Faq eliminata con successo');
-    }
 
     public function visualizzaUtente()
-//  Questa è una funzione per visualizzare le faq,
+//  Questa è una funzione per visualizzazione degli utenti
     {
         $Users = User::all();
 //        dd($User);
         return view('adminView.visualizzaUtente')->with('Users', $Users);
+    }
+
+    public function deleteUser($id)
+//  Questa è una funzione per eliminare le faq,
+    {
+        // Utilizza l'ID per eliminare la FAQ corrispondente
+        $User = User::find($id);
+        $User->delete();
+
+        return redirect()->back()->with('success', 'utente eliminato con successo');
     }
 
     //SEZIONE RELATIVA AL CRUD DELLE AZIENDE
