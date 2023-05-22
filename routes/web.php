@@ -85,10 +85,11 @@ Route::get('/Faq', [PublicController::class, 'vis'])-> name('visualizza_listafaq
 |   TERZA FA LA VISUALIZZAZIONE DI UNA FAQ
 |   QUARTA FA LA MODIFICA
 |   QUINTA FA IL SALVATAGGIO DI UNA NUOVA FAQ
+|   SESTA ELIMINAZIONE MEMBRO UTENTE
 
 */
 //
-Route::get('/adminAziende', [AdminController::class, 'VisualizzaAziende'])->name('adminAziende');
+
 Route::get('/adminFaqs', [AdminController::class, 'VisualizzaFaq'])->name('adminFaqs');
 Route::get('/delete/{id}', [AdminController::class,'deleteFaq'])->name('elimina-faq');
 Route::get('/edit/{id}', [AdminController::class,'visualizza1Faq'])->name('editid');
@@ -96,6 +97,8 @@ Route::post('/edit', [AdminController::class,'modificaFaq'])->name('edit');
 Route::get('/faqsCreate', [AdminController::class, 'salvafaq'])->name('faqsCreate');
 Route::view('/amministratore', 'admin')
     ->name('admin')->middleware('can:isAdmin');
+Route::get('/deleteUser/{id}', [AdminController::class,'deleteFaq'])->name('elimina-faq');
+Route::get('/adminAziende', [AdminController::class, 'VisualizzaAziende'])->name('adminAziende');
 Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name('elimina-azienda');
 
 /*

@@ -111,7 +111,15 @@ class AdminController extends Controller {
         return redirect()->action([AdminController::class, 'index']);
         ;
     }
+    public function deleteUser($id)
+//  Questa è una funzione per eliminare le faq,
+    {
+        // Utilizza l'ID per eliminare la FAQ corrispondente
+        $faq = Faq::find($id);
+        $faq->delete();
 
+        return redirect()->back()->with('success', 'Faq eliminata con successo');
+    }
 
     //SEZIONE RELATIVA AL CRUD DELLE AZIENDE
     public function deleteAgency($id)
