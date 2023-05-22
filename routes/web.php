@@ -98,6 +98,8 @@ Route::get('/faqsCreate', [AdminController::class, 'salvafaq'])->name('faqsCreat
 Route::view('/amministratore', 'admin')
     ->name('admin')->middleware('can:isAdmin');
 Route::get('/visualizzaUtente', [AdminController::class,'visualizzaUtente'])->name('visualizzaUtente');
+Route::get('/deleteUser/{id}', [AdminController::class,'deleteUser'])->name('deleteUser');
+
 
 Route::get('/adminAziende', [AdminController::class, 'VisualizzaAziende'])->name('adminAziende');
 Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name('elimina-azienda');

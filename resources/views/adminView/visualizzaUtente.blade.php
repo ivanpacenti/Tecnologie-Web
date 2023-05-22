@@ -9,10 +9,10 @@
         @isset($Users)
             @foreach($Users as $User)
                 @if(str_contains($User->role, 'user'))
-                    <div class="main-box"> {{--contenitore per ogni singola faq--}}
+                    <div class="main-box"> {{--contenitore per ogni singolo utente--}}
                         <h2> Utente numero: {{$User->id}} </h2>
                         <div class="buttons-container">
-                            <a href="{{"delete/".$User['id']}}" class="buttonbar">
+                            <a href="{{"deleteUser/".$User['id']}}" class="buttonbar">
                                 Elimina</a> {{--<button class="bottoneModifica">Modifica</button>--}}
                         </div>
                         <div class="upper-box">
@@ -29,11 +29,9 @@
                         </div>
                     </div>
                 @endif
+
             @endforeach
-        @else
-            <h1>Non ci sono Utenti </h1>
         @endisset()
 
     </div>
-
 @endsection('content')
