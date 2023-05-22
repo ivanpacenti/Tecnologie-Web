@@ -160,7 +160,9 @@ Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupo
 //Route::get('/staff/crudPromozioni', [StaffController::class, 'modifyCoupon'])->name('crudPromozioni');
 //Route::get('/staff/crudPromozioni', [StaffController::class, 'deleteCoupon'])->name('crudPromozioni');
 //Route::get('/staff/crudPromozioni', [StaffController::class, 'createCoupon'])->name('crudPromozioni');
-Route::view('/staff/crudPromozioni/modifica', 'editPromo') -> name('modificaP');
+
+//DA CAMBIARE PERCHè NON FA FUNZIONARE LE ROTTE
+Route::view('/staff/crudPromozioni/modifica', 'editPromo') -> name('1modificaP');
 Route::get('/staff/crudPromozione/modifica', [StaffController::class, 'modifyCoupon']) ->name('modificaP');
 
 require __DIR__.'/auth.php';

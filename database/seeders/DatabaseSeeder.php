@@ -47,10 +47,11 @@ class DatabaseSeeder extends Seeder {
         for($i=0;$i<10;$i++)
         {
             Emissione::create([
-                'azienda'=>$i+1,
+                'azienda'=>1,
                 'offerta'=>$i+1,
             ]);
         }
+
         /*
         DB::table('category')->insert([
             ['catId' => 1, 'name' => 'Computer', 'parId' => 0, 'desc' => 'Desktop, Laptop, Netbook'],
@@ -132,7 +133,7 @@ class DatabaseSeeder extends Seeder {
                 ['domanda'=>'Serve il kyc per prendere un coupon?','risposta'=>'No, servirà solo registrarsi al sito'],
                 ['domanda'=>'Cosa devo far vedere al commerciante','risposta'=>'il foglio stampato']]
         );
-
+            /*
             DB::table('users')->insert([
                     ['name'=>'utente ','surname'=>'di prova','email'=>'emailutente@gmail.com','username'=>'useruser'
                         ,'password'=>Hash::make('z4Yt6alv'),'role' => 'user','età'=>30
@@ -144,6 +145,6 @@ class DatabaseSeeder extends Seeder {
                         ,'password'=>Hash::make('z4Yt6alv'),'role'=>'admin','età'=>90
                         ,'livelloAccesso'=>3,'genere'=>'femmina','telefono'=>'+39 2020201'],
                     ]
-        );
+        );*/
     }
 }
