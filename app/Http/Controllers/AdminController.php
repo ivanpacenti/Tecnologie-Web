@@ -61,6 +61,11 @@ class AdminController extends Controller {
     public function modificaFaq(Request $req)
 // funzione che serve per modificare  una sola faq
     {
+        $req->validate([
+            'domanda' => ['required', 'string', 'max:255'],
+            'risposta' => ['required', 'string', 'max:255'],
+        ]);
+
         $faq= faq::find($req->id);
         $faq->domanda=$req->domanda;
         $faq->risposta=$req->risposta;
@@ -71,6 +76,7 @@ class AdminController extends Controller {
     public function salvafaq(Request $req)
         // funzione per salvare una faq all'interno del db
     {
+
         $faq = new Faq();
         $faq->domanda = $req->domanda;
         $faq->risposta = $req->risposta;
