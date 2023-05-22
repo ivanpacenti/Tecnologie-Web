@@ -36,14 +36,16 @@
                     <div class="containerCoupon2">
                         <div class="description">
                             <div class="testocard">
-                            <p>{{$offerta->descrizione}}</p>
+                            <p>
+                                <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}">{{$offerta->descrizione}}</a>
+                            </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 @endforeach
             @else
-            <h1>supa di più<h1>
+            <h1>Ci dispiace non ci sono offerte al momento<h1>
 
             @endisset
 @endsection
