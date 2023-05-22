@@ -13,19 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('gestiones', function (Blueprint $table) {
+        Schema::create('assegnaziones', function (Blueprint $table) {
             $table->string('utente');
-            $table->integer('faq')->unsigned();
-
-
+            $table->integer('azienda')->unsigned();
         });
 
-        Schema::table('gestiones', function (Blueprint $table) {
-            $table->foreign('faq')->references('id')
-                ->on('faqs');
+        Schema::table('assegnaziones', function (Blueprint $table) {
+            $table->foreign('azienda')->references('id')
+                ->on('aziendas');
             $table->foreign('utente')->references('username')
-                ->on('utentes');
-            });
+                ->on('users');
+        });
     }
 
     /**
@@ -35,6 +33,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gestiones');
+        Schema::dropIfExists('assegnaziones');
     }
 };
+

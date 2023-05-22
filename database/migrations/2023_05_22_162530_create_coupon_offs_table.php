@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreign('offerta')->references('id')
                 ->on('offertas');
             $table->foreign('utente')->references('username')
-                ->on('utentes');
+                ->on('users');
         });
     }
 

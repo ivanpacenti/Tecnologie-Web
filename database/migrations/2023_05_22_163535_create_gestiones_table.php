@@ -13,19 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('coupon_pacs', function (Blueprint $table) {
+        Schema::create('gestiones', function (Blueprint $table) {
             $table->string('utente');
-            $table->integer('pacchetto')->unsigned();
-            $table->increments('id');
-            $table->date('dataAcquisto');
-            $table->integer('sconto_agg');
+            $table->integer('faq')->unsigned();
+
+
         });
 
-        Schema::table('coupon_pacs', function (Blueprint $table) {
-            $table->foreign('pacchetto')->references('id')
-                ->on('pacchettos');
+        Schema::table('gestiones', function (Blueprint $table) {
+            $table->foreign('faq')->references('id')
+                ->on('faqs');
             $table->foreign('utente')->references('username')
-                ->on('utentes');
+                ->on('users');
         });
     }
 
@@ -36,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coupon_pacs');
-    }
+        Schema::dropIfExists('gestiones');
+        }
 };
