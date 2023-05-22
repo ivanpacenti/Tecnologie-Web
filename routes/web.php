@@ -151,5 +151,11 @@ Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editS
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');*/
-
+//ROTTE PER IL CRUD DELLE PROMOZIONI
+Route::view('/staff/crudPromozioni', 'couponEdit')
+    ->name('crudPromozioni');
+Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupon'])->name('crudPromozioni');
+//Route::get('/staff/crudPromozioni', [StaffController::class, 'modifyCoupon'])->name('crudPromozioni');
+//Route::get('/staff/crudPromozioni', [StaffController::class, 'deleteCoupon'])->name('crudPromozioni');
+//Route::get('/staff/crudPromozioni', [StaffController::class, 'createCoupon'])->name('crudPromozioni');
 require __DIR__.'/auth.php';
