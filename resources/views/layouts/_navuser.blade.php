@@ -8,7 +8,7 @@
 </head>
 
 <div class="logo">
-    <img src="img/img_Logo.png" alt="Logo" id="logo">
+    <img src={{asset('img/img_Logo.png')}} alt="Logo" id="logo">
 </div>
 
 <nav>
