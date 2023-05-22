@@ -32,7 +32,7 @@ class PublicController
 
     public function visualizzaCatalogo()
     {
-        $offerte = Offerta::all();
+        $offerte = Offerta::paginate(2);
         $aziende=Azienda::all();
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
@@ -75,8 +75,9 @@ class PublicController
 
         $id_off=Emissione::whereIn('azienda',$aziendeSelezionate)->get('offerta');
         // Filtrare le offerte in base agli ID delle aziende selezionate
-        $offerte = Offerta::whereIn('id', $id_off)->get();
+        $offerte = Offerta::whereIn('id', $id_off)->paginate(2);
         $aziende=Azienda::all();
+
 
         // Passare le offerte alla vista o eseguire altre operazioni
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);

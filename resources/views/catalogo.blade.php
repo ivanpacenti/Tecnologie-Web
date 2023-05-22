@@ -7,8 +7,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
     <script src="{{asset('js/rigeneraVista.js')}}" async></script>
 
-
-
     @isset($aziende)
         <form action="{{ route('filtroOfferte') }}" method="POST" id="formCheckbox">
             <!--  csfr passa il token della richiesta al controller-->
@@ -45,6 +43,10 @@
                 @endforeach
             @else
             <h1>Ci dispiace non ci sono offerte al momento<h1>
+    @endisset
 
-            @endisset
+    @if(sizeof($offerte)>1)
+    @include('pagination.paginator', ['paginator' => $offerte])
+    @endif
+
 @endsection

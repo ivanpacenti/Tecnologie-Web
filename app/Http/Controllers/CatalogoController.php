@@ -11,7 +11,7 @@ class CatalogoController extends Controller
 {
     public function visualizzaCatalogo()
     {
-        $offerte = Offerta::all();
+        $offerte = Offerta::index();
         $aziende = Azienda::all();
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
@@ -21,6 +21,7 @@ class CatalogoController extends Controller
         $aziende = Azienda::all();
         return view('couponEdit')->with('offerte', $offerte)->with('aziende',$aziende);
     }
+
 
 }
 

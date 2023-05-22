@@ -36,8 +36,11 @@
             <div class="dataFine">
 
                 <h3> DATA FINE:{{ $offerta->dataFine }}</h3>
+
             </div>
         </div>
     </div>
+
 </body>
+<a href="{{ route('index') }}">COMPRA</a>
 @endsection('content')

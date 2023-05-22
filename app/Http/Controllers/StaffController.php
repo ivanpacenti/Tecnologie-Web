@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Azienda;
 use App\Models\Faq;
+use App\Models\Offerta;
 use App\Models\Resources\Product;
 use App\Http\Requests\NewProductRequest;
 use App\Models\Resources\Staff;
@@ -48,7 +50,9 @@ class StaffController extends Controller {
 
     public function index() {
         return view('couponEdit');
+        return view('editPromo');
     }
+
     public function deleteCoupon($id)
     {
         $offerta = Offerta::find($id);
@@ -58,8 +62,9 @@ class StaffController extends Controller {
     public function modifyCoupon($id)
     {
         $offerta = Offerta::find($id);
-        $offerta ->modify();
-        return redirect()->back()->with('success', 'Coupon modificato con successo');
+        //$offerta ->modify();
+        //return redirect()->back()->with('success', 'Coupon modificato con successo');
+        return view('editPromo',)->with('offerta', $offerta);
     }
     /*public function createCoupon($id)
     {

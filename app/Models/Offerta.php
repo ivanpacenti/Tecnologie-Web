@@ -23,5 +23,8 @@ class Offerta extends Model
     {
         return $this->hasOne(Emissione::class, 'offerta');
     }
-
+    public function index()
+    {
+        return $this->paginate(10);
+    }
 }
