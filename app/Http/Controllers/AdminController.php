@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Azienda;
+use App\Models\Emissione;
 use App\Models\Faq;
+use App\Models\Offerta;
 use App\Models\Resources\Product;
 use App\Http\Requests\NewProductRequest;
 use Illuminate\Http\Request;
@@ -108,10 +110,15 @@ class AdminController extends Controller {
 
 
     //SEZIONE RELATIVA AL CRUD DELLE AZIENDE
-    public function deleteAgency($id)
+
+    public function deleteAgency($id) //funzione che elimina un'azienda e la relativa offerta
     {
-        $azienda = Azienda::find($id);
-        $azienda->delete();
-        return redirect()->back()->with('success', 'Azienda eliminata con successo');
+        $azienda = Azienda::find($id); //trova l'id dell'azienda da eliminare
+        $offertaid = Emissione::where('azienda', $id)->value('offerta'); //trova l'id nella tabella emissione dell'offerta relativa da eliminare
+        $offerta = Offerta::find($offertaid); //trova l'offerta relativa all'id trovato
+        $azienda->delete(); //eliminazione dell'azienda
+        $offerta->delete(); //eliminazione dell'offerta
+        return redirect()->back()->with('success', 'Azienda eliminata con successo'); //ritorna alla pagina precedente
     }
+
 }
