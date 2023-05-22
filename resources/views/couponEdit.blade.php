@@ -45,12 +45,17 @@
                                 <div class="testocard">
                                     <p>
                                         <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}">{{$offerta->descrizione}}</a>
+                                        <a href="{{route('offerdetail',['id' => $offerta->id] )}}">{{$offerta->modalità}}</a>
+                                        <a href="{{route('offerdetail',['id' => $offerta->id] )}}">{{$offerta->luogoFruizione}}</a>
+                                        <a href="{{route('offerdetail',['id' => $offerta->id] )}}">{{$offerta->dataInizio}}</a>
+                                        <a href="{{route('offerdetail',['id' => $offerta->id] )}}">{{$offerta->dataFine}}</a>
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="buttonslot">
-                        <button class="buttonbar2">Modifica Promozione</button>
+                        <!-- <button class="buttonbar2">Modifica Promozione</button> -->
+
                             <button class="buttonbar2">Elimina Promozione</button>
                     </div>
 
@@ -59,6 +64,7 @@
 @endisset
 <div class="buttonslot">
      <button class="buttonbar2">Crea Promozione</div>
+
            </div>
 @endsection
 
