@@ -22,5 +22,6 @@ class CatalogoController extends Controller
         return view('couponEdit')->with('offerte', $offerte)->with('aziende',$aziende);
     }
 
+
 }
 

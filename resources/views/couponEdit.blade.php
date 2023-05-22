@@ -54,8 +54,7 @@
                             </div>
                         </div>
                         <div class="buttonslot">
-                        <!-- <button class="buttonbar2">Modifica Promozione</button> -->
-
+                        <button class="buttonbar2">Modifica Promozione</button>
                             <button class="buttonbar2">Elimina Promozione</button>
                     </div>
 
