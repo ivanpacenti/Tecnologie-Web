@@ -46,8 +46,8 @@
             <h1>Ci dispiace non ci sono offerte al momento<h1>
     @endisset
 
-
+    @if(sizeof($offerte)>1)
     @include('pagination.paginator', ['paginator' => $offerte])
-
+    @endif
 
 @endsection
