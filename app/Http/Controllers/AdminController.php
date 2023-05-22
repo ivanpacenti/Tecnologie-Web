@@ -10,6 +10,7 @@ use App\Models\Offerta;
 use App\Models\Resources\Product;
 use App\Http\Requests\NewProductRequest;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminController extends Controller {
 
@@ -113,7 +114,23 @@ class AdminController extends Controller {
         return redirect()->action([AdminController::class, 'index']);
         ;
     }
+    public function deleteUser($id)
+//  Questa è una funzione per eliminare le faq,
+    {
+        // Utilizza l'ID per eliminare la FAQ corrispondente
+        $faq = Faq::find($id);
+        $faq->delete();
 
+        return redirect()->back()->with('success', 'Faq eliminata con successo');
+    }
+
+    public function visualizzaUtente()
+//  Questa è una funzione per visualizzare le faq,
+    {
+        $Users = User::all();
+//        dd($User);
+        return view('adminView.visualizzaUtente')->with('Users', $Users);
+    }
 
     //SEZIONE RELATIVA AL CRUD DELLE AZIENDE
 

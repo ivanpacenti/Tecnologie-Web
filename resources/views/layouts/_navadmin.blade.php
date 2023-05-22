@@ -20,6 +20,7 @@
         <li><a href="{{ route('adminAziende') }}">Aziende</a></li>
         <li><a href="">Statistiche</a></li>
         <li><a href="{{route('adminFaqs')}}">GestioneFaq</a></li>
+        <li><a href="{{route('visualizzaUtente')}}">GestioneUtenti</a></li>
         <li><a href="">GestioneStaff</a></li>
         @auth
             <li><a href="" class="highlight" title="Logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
