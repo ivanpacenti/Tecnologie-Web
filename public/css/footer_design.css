@@ -13,6 +13,12 @@
 
 .section{
     display: flex;
-    border: 2px solid green;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(210, 210, 210);
 }
 

@@ -3,14 +3,13 @@
 @extends('layouts.pageLayout')
 
 @section('content')
-
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/faq_desing.css') }}" >
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/faq_desing.css') }}" >
 
     <div class="listaFaq_cont">
-        <div class="faq_title">
+       <!-- <div class="faq_title"> -->
         <h1>FAQ</h1>
-    </div>
-        <div class="contenitore">
+
+       <!-- <div class="contenitore"> -->
     @isset($faqs)
             @foreach($faqs as $faq)
                 @if(!empty($faq->domanda))
@@ -29,6 +28,6 @@
             <!-- <h1>Non ci sono Faq </h1> -->
             <button class="Visualizza altro">Visualizza altro</button>
         @endisset
-    </div>
+   <!-- </div> -->
     </div>
 @endsection('content')

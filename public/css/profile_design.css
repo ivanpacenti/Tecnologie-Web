@@ -36,9 +36,8 @@ h4{
     /* height: 600px; */
     /* width: 70%; */
     padding: 10px 100px;
-    border: 2px solid rgb(80, 80, 80);
     border-radius: 20px;
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.2);
     background-color: rgb(217, 217, 217);
     color: rgb(80, 80, 80);
 }
@@ -52,7 +51,6 @@ h4{
     width: 350px;
     height: 30px;
     background-color: rgb(235, 235, 235);
-    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
     border-radius: 10px;
 }
 
@@ -79,7 +77,7 @@ h4{
     margin-bottom: 30px;
     border-radius: 10px;
     background-color: whitesmoke;
-    color: darkred;
+    color: #762c2c;
     box-shadow: 0px 8px 10px 0px rgba(0,0,0,0.2);
     opacity: 0.2;
     transition: width 0.3s ease, height 0.7s ease, opacity 0.8s ease;
@@ -89,7 +87,7 @@ h4{
 .edit:hover{
     width:400px;
     height: 60px;
-    background-color: darkred;
+    background-color: #762c2c;
     color: whitesmoke;
     opacity: 1;
 }

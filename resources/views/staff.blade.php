@@ -4,7 +4,7 @@
 
 @section('content')
 
-<h1> benenuto nella sezione staff</h1>
+<h1> benvenuto nella sezione staff</h1>
 
 <link rel="stylesheet" type="text/css" href="{{ asset('css/profile_design.css') }}" >
 <!-- questo container contiene tutti i campi presenti nel pannello ed è di tipo felx in modo tale da organizzare meglio le cose
