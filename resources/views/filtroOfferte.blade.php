@@ -8,7 +8,7 @@
     @isset($aziende)
         <form action="{{ route('filtroOfferte') }}" method="POST">
             <div class="checkboxprincipal">
-                <div class="checktitle">Filtra per azienda</div>
+                <div class="checkboxprincipal">Filtra per azienda</div>
                 @foreach($aziende as $azienda)
                     <label class="containercheck">{{$azienda->nome}}
                         <input class ="check" type="checkbox" id="{{$azienda->nome}}" name="aziende_selezionate[]">
