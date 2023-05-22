@@ -46,7 +46,7 @@ Route::view('/index', 'home')
     ->name('index');
 
 Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
-Route::post('/filtroOfferte', [PublicController::class, 'filtroOfferte'])->name('filtroOfferte');
+Route::get('/filtroOfferte', [PublicController::class, 'filtroOfferte'])->name('filtroOfferte');
 Route::post('/filtraggioAziende_test', [PublicController::class, 'filtraggioAziende_test'])->name('filtraggioAziende_test');
 Route::post('/filtraggioAziende2_test', [PublicController::class, 'filtraggioAziende2_test'])->name('filtraggioAziende2_test');
 

@@ -74,6 +74,7 @@ class PublicController
         // Ottenere gli ID delle aziende selezionate dal database
 
         $id_off=Emissione::whereIn('azienda',$aziendeSelezionate)->get('offerta');
+
         // Filtrare le offerte in base agli ID delle aziende selezionate
         $offerte = Offerta::whereIn('id', $id_off)->paginate(2);
         $aziende=Azienda::all();

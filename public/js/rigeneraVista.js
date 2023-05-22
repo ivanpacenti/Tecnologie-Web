@@ -19,7 +19,7 @@ function checkClick()
     localStorage.setItem('checkbox_' + this.value, true);
 
     document.getElementById('formCheckbox').submit(); // Esempio di invio del modulo
-    // Salva lo stato selezionato nel localStorage
+
 
 }
 console.log(localStorage)

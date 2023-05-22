@@ -8,7 +8,7 @@
     <script src="{{asset('js/rigeneraVista.js')}}" async></script>
 
     @isset($aziende)
-        <form action="{{ route('filtroOfferte') }}" method="POST" id="formCheckbox">
+        <form action="{{ route('filtroOfferte') }}" method="GET" id="formCheckbox">
             <!--  csfr passa il token della richiesta al controller-->
             @csrf
             <div class="checkboxprincipal">
