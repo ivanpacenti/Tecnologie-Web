@@ -45,7 +45,11 @@ class userController extends Controller {
         //dd($User);
         $User->save();
 
-        return view('user');
+        return redirect()->action([userController::class, 'index']);
+    }
+
+    public function home() {
+        return view('index');
     }
 
 }
