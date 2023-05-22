@@ -123,8 +123,7 @@ Route::post('/editUser', [userController::class,'modificaUtente'])->name('editx'
 | ROTTE PER LO STAFF
 |--------------------------------------------------------------------------
 | la prima rotta serve per visualizzare la pagina privata dello staff
-|
-|
+|  la seconda rotta serve per modificare i propri dati |
 |
 |
 |
@@ -133,6 +132,10 @@ Route::post('/editUser', [userController::class,'modificaUtente'])->name('editx'
 
 Route::get('/staff', [StaffController::class, 'staff'])
     ->name('staff');
+
+Route::get('/editStaff/{id}', [StaffController::class,'Visualizza1Staff'])->name('editStaff');
+
+Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editStaffxx');
 
 
 // prima di arrivare al  controller
