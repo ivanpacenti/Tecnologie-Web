@@ -32,7 +32,7 @@ class PublicController
 
     public function visualizzaCatalogo()
     {
-        $offerte = Offerta::all();
+        $offerte = Offerta::paginate(2);
         $aziende=Azienda::all();
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
