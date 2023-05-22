@@ -14,27 +14,28 @@
         </div>
         <div class="rightcontainer">
             <div class="descrizione">
-                {{ $offerta->descrizione }}
+                <h3> DESCRIZIONE: {{ $offerta->descrizione }}</h3>
             </div>
 
             <div class="modalita">
-                {{ $offerta->modalità }}
+                <h3> MODALITA':   {{ $offerta->modalità }}</h3>
             </div>
 
-            <div class="id">
-                {{ $offerta->id }}
-            </div>
+{{--            <div class="id">--}}
+{{--                {{ $offerta->id }}--}}
+{{--            </div>--}}
 
             <div class="luogofruizione">
-                {{ $offerta->luogoFruizione }}
+                <h3> LUOGO DI FRUIZIONE:  {{ $offerta->luogoFruizione }}</h3>
             </div>
 
             <div class="dataInizio">
-                {{ $offerta->dataInizio }}
+                <h3> DATA INIZIO:  {{ $offerta->dataInizio }}</h3>
             </div>
 
             <div class="dataFine">
-                {{ $offerta->dataFine }}
+
+                <h3> DATA FINE:{{ $offerta->dataFine }}</h3>
             </div>
         </div>
     </div>
