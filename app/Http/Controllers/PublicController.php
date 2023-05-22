@@ -69,11 +69,12 @@ class PublicController
     public function filtroOfferte(Request $request)
     {
 
-        $aziendeSelezionate = $request->input('aziende_selezionate');
+        $aziendeSelezionate = $request->get('aziende_selezionate');
+
 
         // Ottenere gli ID delle aziende selezionate dal database
-
-        $id_off=Emissione::whereIn('azienda',$aziendeSelezionate)->get('offerta');
+        //$id_off=Emissione::find('azienda',$aziendeSelezionate);
+        $id_off=Emissione::where('azienda',$aziendeSelezionate)->pluck('offerta')->toArray();
 
         // Filtrare le offerte in base agli ID delle aziende selezionate
         $offerte = Offerta::whereIn('id', $id_off)->paginate(2);
