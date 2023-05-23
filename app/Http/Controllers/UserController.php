@@ -42,7 +42,7 @@ class userController extends Controller {
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'età' => ['required', 'integer', 'between:0,100'],
-
+            'username' => ['required', 'string', 'between:0,100'],
         ]);
 
         $User= User::find($req->id);
@@ -50,6 +50,7 @@ class userController extends Controller {
         $User->email=$req->email;
         $User->surname=$req->surname;
         $User->password=$req->password;
+        $User->username=$req->username;
         $User->età=$req->età;
 
         //dd($User);

@@ -4,17 +4,24 @@
 @section('title','Home')
 
 @section('content')
-    <h2>Campi del coupon</h2>
-    <p>ID univoco: {{ $stringa }}</p>
-    <p>ID del coupon: {{ $offertaa->id }}</p>
-    <p>Data di inizio: {{ $offertaa->dataInizio }}</p>
-    <p>Data di fine: {{ $offertaa->dataFine }}</p>
-    <p>Descrizione: {{ $offertaa->descrizione }}</p>
-    <h2>Campi dell'utente</h2>
-    <p> {{ Auth::user()->name }}</p>
-    <p>{{ Auth::user()->surname }}</p>
-    <p>{{ Auth::user()->email }}</p>
-    <p>{{ Auth::user()->telefono }}</p>
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
+    <div class="coupon-informations">
+        <div class="info-slot">
+            <h2>Dettagli del Coupon</h2>
+            <p>ID univoco: {{ $stringa }}</p>
+            <p>ID del coupon: {{ $offertaa->id }}</p>
+            <p>Data di inizio: {{ $offertaa->dataInizio }}</p>
+            <p>Data di fine: {{ $offertaa->dataFine }}</p>
+            <p>Descrizione: {{ $offertaa->descrizione }}</p>
+        </div>
+        <div class="info-slot">
+            <h2>Dettagli dell'utente</h2>
+            <p> {{ Auth::user()->name }}</p>
+            <p>{{ Auth::user()->surname }}</p>
+            <p>{{ Auth::user()->email }}</p>
+            <p>{{ Auth::user()->telefono }}</p>
+        </div>
+        <button onclick="location.href='{{ route('catalogo') }}'" class="form-button">Torna al catalogo</button>
+    </div>
 
 @endsection
