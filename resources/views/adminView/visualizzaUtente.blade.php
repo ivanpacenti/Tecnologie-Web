@@ -5,9 +5,10 @@
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
-    <h1> Benvenuto!</h1>
+
+    <h1> Benvenuto</h1>
     <div class="maincontainer">
-        <h1>Pagina per l'eliminazione degli utenti</h1>
+        <h1>Page per l'eliminazione degli utenti</h1>
         @isset($Users)
             @foreach($Users as $User)
                 @if(str_contains($User->role, 'user'))
