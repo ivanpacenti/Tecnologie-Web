@@ -15,6 +15,10 @@ h1{
     display: flex;
 }
 
+p{
+    font-size: 11px;
+}
+
 
 /*questa sezione si occupa dei rettangoli in cui verrano inseriti
 i coupon, viene impostato che oltre gli 850 px siano disposti per riga
@@ -221,4 +225,89 @@ al disotto per colonna*/
     transform: rotate(45deg);
   } */
 
+/*SEZIONE RELATIVA ALLA PAGINA DETTAGLIO OFFERTA*/
+
+.product-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 50px 200px;
+    /*border: 2px solid #dc4227;*/
+    border-radius: 20px;
+    gap: 30px;
+    background-color: #eeeeee;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.38);
+}
+
+.leftcontainer, .rightcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 20px;
+    /*border: 2px solid green;*/
+}
+
+.rightcontainer{
+    min-height: 500px;
+    gap: 5px;
+    background-color: #303030;
+    color: #eeeeee;
+}
+
+.scadenza{
+    display: flex;
+    align-self: center;
+}
+
+.descrizione, .modalita, .id, .luogofruizione, .dataFine, .dataInizio{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 300px;
+    /*border: 1px solid red;*/
+    text-align: left;
+}
+
+.dataFine, .dataInizio{
+    width: 150px;
+}
+
+.product-detailsimg img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-detailsimg{
+    min-width: 300px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.img_detail{
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+}
+
+.form-button{
+    width: 200px;
+    height: 40px;
+    border-radius: 15px;
+    font-family: 'Lexend', sans-serif;
+    transition: width 0.5s ease, height 0.7s ease, color 0.7s, background-color 0.7s;
+    background-color: #eeeeee;
+    color: #762c2c;
+    border: none;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+}
+
+.form-button:hover{
+    width: 300px;
+    height: 60px;
+    border-radius: 15px;
+    font-family: 'Lexend', sans-serif;
+    background-color: #762c2c;
+    color: #eeeeee;
+}
 
