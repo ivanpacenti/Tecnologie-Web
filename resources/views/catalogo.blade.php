@@ -41,12 +41,16 @@
                 </div>
 
                 @endforeach
-            @else
-            <h1>Ci dispiace non ci sono offerte al momento<h1>
-    @endisset
+            {{--@else
+            <h1>Ci dispiace non ci sono offerte al momento<h1>--}}
+            </div>
+            @endisset
+                @if(sizeof($offerte)>1)
+                    @include('pagination.paginator', ['paginator' => $offerte])
+                @endif
+        </div>
 
-    @if(sizeof($offerte)>1)
-    @include('pagination.paginator', ['paginator' => $offerte])
-    @endif
+
+
 
 @endsection
