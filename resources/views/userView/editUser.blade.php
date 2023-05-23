@@ -44,6 +44,17 @@
         @endif
     </div>
     <div class="form-group">
+        {!! Form::label('username', 'username', ['class' => 'form-label']) !!}
+        {!! Form::text('username', $User['username'], ['class' => 'form-input', 'placeholder' => 'username']) !!}
+        @if ($errors->first('username'))
+            <ul class="errors">
+                @foreach ($errors->get('username') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+    <div class="form-group">
         {!! Form::label('password', 'password', ['class' => 'form-label']) !!}
         {!! Form::text('password', $User['password'], ['class' => 'form-input', 'placeholder' => 'password']) !!}
     </div>
