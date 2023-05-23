@@ -68,16 +68,24 @@ class PublicController
     }
     public function filtroOfferte(Request $request)
     {
+        // con la paginazione va in conflitto il metodo submit nella funzione RigeneraVista, collegato alle checkbox.
+        //in pratica è come se ad ogni click sui link della paginazione avvenga una nuova submit, con conseguente nuova richiesta,
+        //e quindi valore sballato dell'id dell'azienda.
+        //la soluzione che ho trovato è quella seguente, che prevede di salvare in sessione il valore della prima richiesta e di
+        //recuperarlo in caso di valore nullo.
 
-        $aziendeSelezionate = $request->get('aziende_selezionate');
+        $aziendeSelezionate = $request->input('aziende_selezionate');
+        if (empty($aziendeSelezionate)) {
+            // Recupera il valore originale di aziende_selezionate dalla sessione
+            $aziendeSelezionate = session('aziende_selezionate');
+        } else session(['aziende_selezionate' => $aziendeSelezionate]);
+        $offerte = Azienda::whereIn('id', $aziendeSelezionate)->first()->offerte()->paginate(2);
 
 
-        // Ottenere gli ID delle aziende selezionate dal database
-        //$id_off=Emissione::find('azienda',$aziendeSelezionate);
-        $id_off=Emissione::where('azienda',$aziendeSelezionate)->pluck('offerta')->toArray();
+
 
         // Filtrare le offerte in base agli ID delle aziende selezionate
-        $offerte = Offerta::whereIn('id', $id_off)->paginate(2);
+        //$offerte = Offerta::whereIn('id', $aziendeSelezionate)->paginate(2);
         $aziende=Azienda::all();
 
 
