@@ -55,22 +55,39 @@ class userController extends Controller {
 
 
     }
+
     public function stampa(Request $request) {
         $couponId = $request->input('coupon_id');
         $userId = $request->input('user_id');
 
-        $userUs = User::where('id', $userId)->first(); // mi estrae solo una tupla
+        $user = User::find($userId);
 
+        if ($user) {
+            $existingCoupon = coupon_off::where('utente', $user->username)
+                ->where('offerta', $couponId)
+                ->first();
+
+            if ($existingCoupon) {
+                return redirect()->action([userController::class, 'index']);
+
+            } else {
+                $userUs = User::where('id', $userId)->first(); // mi estrae solo una tupla
+                $couponOff = new coupon_off();
+                $couponOff->offerta = $couponId;
+                $couponOff->utente = $userUs['username'];
+                $couponOff->save();
+                $stringa = $userUs['username'] . $couponId;
+                dd($stringa);
+                // La tupla non esiste
+                // Inserisci qui il codice da eseguire se la tupla non esiste
+            }
+        }
+
+        //if ()
         //dd($userId);
-        $couponOff = new coupon_off();
-        $couponOff->offerta = $couponId;
-        $couponOff->utente = $userUs['username'];
-        $couponOff->save();
-        $stringa = $userUs['username'] . $couponId;
-        dd($stringa);
 
         //return view('')->with(compact('couponId', 'userId'));
-
+        //else
 }
 
 
