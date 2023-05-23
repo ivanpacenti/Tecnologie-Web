@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\coupon_off;
 use App\Models\Faq;
+use App\Models\Offerta;
 use App\Models\User;
-use App\Models\Utente;
+
 use Illuminate\Http\Request;
-use app\Models\Offerta;
+
+use App\Models\Utente;
+
 
 class userController extends Controller {
 // non ha funzione costruttrice ma ha solo una funzione index che propone la vista user, sta di fatto che solo l'utente user può accedere a quella vista
@@ -15,6 +18,10 @@ class userController extends Controller {
     public function index() {
         return view('user');
     }
+    public function CouponComprato() {
+        return view('CouponComprato');
+    }
+
     public function __construct() {
         $this->middleware('can:isUser');
     }
@@ -25,6 +32,7 @@ class userController extends Controller {
         //dd($User);
         return view('UserView.editUser', ['User' => $User]);
     }
+
     public function modificaUtente(Request $req)
     {
 
@@ -59,7 +67,8 @@ class userController extends Controller {
     public function stampa(Request $request) {
         $couponId = $request->input('coupon_id');
         $userId = $request->input('user_id');
-
+        $offertA = Offerta::find($couponId);
+        //dd($offertA);
         $user = User::find($userId);
 
         if ($user) {
@@ -68,18 +77,18 @@ class userController extends Controller {
                 ->first();
 
             if ($existingCoupon) {
-                return redirect()->action([userController::class, 'index']);
+                return view('UserView.coupongiaComprato');
 
             } else {
+                // nel caso in cui il risultato della  La tupla non esiste
                 $userUs = User::where('id', $userId)->first(); // mi estrae solo una tupla
                 $couponOff = new coupon_off();
                 $couponOff->offerta = $couponId;
                 $couponOff->utente = $userUs['username'];
                 $couponOff->save();
                 $stringa = $userUs['username'] . $couponId;
-                dd($stringa);
-                // La tupla non esiste
-                // Inserisci qui il codice da eseguire se la tupla non esiste
+                return view('UserView.stampa', ['stringa' => $stringa, 'offertaa' => $offertA]);
+
             }
         }
 

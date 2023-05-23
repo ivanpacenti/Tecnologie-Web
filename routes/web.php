@@ -118,7 +118,10 @@ Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name(
 */
 
 Route::get('/user', [userController::class, 'index'])
-    ->name('user')->middleware('can:isUser');// controllo dell'autenticazione a livello di rotta, se non è l'user non parte la rotta
+    ->name('user')->middleware('can:isUser');
+
+Route::get('/couponComprato', [userController::class, 'CouponComprato'])
+    ->name('CouponComprato');
 
 Route::get('/editUser/{id}', [userController::class,'Visualizza1Utente'])->name('editUser');
 
