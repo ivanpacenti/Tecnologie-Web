@@ -42,6 +42,8 @@
     </div>
 
 </body>
-<a href="{{ route('stampa', ['coupon_id' => $offerta->id, 'user_id' => Auth::id()]) }}">COMPRA</a>
 
+@can('isUser')
+    <button onclick="location.href='{{ route('stampa', ['coupon_id' => $offerta->id, 'user_id' => Auth::id()]) }}'">COMPRA</button>
+@endcan
 @endsection('content')
