@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Models\Admin;
+use App\Models\coupon_off;
 use App\Models\Faq;
 use App\Models\User;
 use App\Models\Utente;
 use Illuminate\Http\Request;
+use app\Models\Offerta;
 
 class userController extends Controller {
 // non ha funzione costruttrice ma ha solo una funzione index che propone la vista user, sta di fatto che solo l'utente user può accedere a quella vista
@@ -50,6 +52,26 @@ class userController extends Controller {
 
     public function home() {
         return view('index');
+
+
     }
+    public function stampa(Request $request) {
+        $couponId = $request->input('coupon_id');
+        $userId = $request->input('user_id');
+
+        $userUs = User::where('id', $userId)->first();
+
+        //dd($userId);
+        $couponOff = new coupon_off();
+        $couponOff->offerta = $couponId;
+        $couponOff->utente = $userUs['username'];
+        $couponOff->save();
+        dd($couponOff);
+
+
+        //return view('')->with(compact('couponId', 'userId'));
+
+}
+
 
 }

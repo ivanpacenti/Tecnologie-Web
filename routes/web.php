@@ -124,6 +124,9 @@ Route::get('/editUser/{id}', [userController::class,'Visualizza1Utente'])->name(
 
 Route::post('/editUser', [userController::class,'modificaUtente'])->name('editx');
 
+// rotta in costruzione per stampa e controllo se coupon già comprato
+Route::get('stampa',[userController::class,'stampa'])->name('stampa');
+
     /*
 |--------------------------------------------------------------------------
 | ROTTE PER LO STAFF

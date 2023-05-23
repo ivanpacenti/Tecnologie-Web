@@ -42,5 +42,6 @@
     </div>
 
 </body>
-<a href="{{ route('index') }}">COMPRA</a>
+<a href="{{ route('stampa', ['coupon_id' => $offerta->id, 'user_id' => Auth::id()]) }}">COMPRA</a>
+
 @endsection('content')
