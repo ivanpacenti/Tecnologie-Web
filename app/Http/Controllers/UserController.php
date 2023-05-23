@@ -59,15 +59,15 @@ class userController extends Controller {
         $couponId = $request->input('coupon_id');
         $userId = $request->input('user_id');
 
-        $userUs = User::where('id', $userId)->first();
+        $userUs = User::where('id', $userId)->first(); // mi estrae solo una tupla
 
         //dd($userId);
         $couponOff = new coupon_off();
         $couponOff->offerta = $couponId;
         $couponOff->utente = $userUs['username'];
         $couponOff->save();
-        dd($couponOff);
-
+        $stringa = $userUs['username'] . $couponId;
+        dd($stringa);
 
         //return view('')->with(compact('couponId', 'userId'));
 
