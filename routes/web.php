@@ -42,7 +42,7 @@ Route::post('/admin/newproduct', [AdminController::class, 'storeProduct'])
         ->name('newproduct.store');
 */
 
-Route::view('/index', 'home')
+Route::view('/', 'home')
     ->name('index');
 
 Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
