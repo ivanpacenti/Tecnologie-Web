@@ -60,7 +60,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->action([UserController::class, 'index']);
-        /*return view(RouteServiceProvider::HOME);*/
+
+        return redirect('/');
     }
 }

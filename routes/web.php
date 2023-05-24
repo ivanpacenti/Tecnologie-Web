@@ -126,7 +126,7 @@ Route::get('/totaleCoupon',[AdminController::class,'NumeroCoupon'])->name('Numer
 */
 
 Route::get('/user', [UserController::class, 'index'])
-    ->name('user')->middleware('can:isUser');
+    ->name('user');
 
 Route::get('/couponComprato', [UserController::class, 'CouponComprato'])
     ->name('CouponComprato');
