@@ -100,13 +100,18 @@ Route::view('/amministratore', 'admin')
 Route::get('/visualizzaUtente', [AdminController::class,'visualizzaUtente'])->name('visualizzaUtente');
 Route::get('/deleteUser/{id}', [AdminController::class,'deleteUser'])->name('deleteUser');
 
-
 Route::get('/adminAziende', [AdminController::class, 'VisualizzaAziende'])->name('adminAziende');
 Route::get('/agencycreate', [AdminController::class, 'createAgency'])->name('agencycreate');
 Route::get('/agencyedit/{id}', [AdminController::class,'modifica1Azienda'])->name('agencyeditid');
 Route::post('/agencyedit', [AdminController::class,'modificaAzienda'])->name('agencyedit');
 Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name('elimina-azienda');
 
+
+// ROTTE PER LE STATISTICHE
+
+
+Route::view('/statistiche', 'adminView.statistiche')->name('statistiche');
+Route::get('/totaleCoupon',[AdminController::class,'NumeroCoupon'])->name('NumeroCoupon');
 /*
 |--------------------------------------------------------------------------
 | ROTTE PER L'USER

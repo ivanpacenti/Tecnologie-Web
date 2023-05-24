@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Azienda;
+use App\Models\coupon_off;
 use App\Models\Emissione;
 use App\Models\Faq;
 use App\Models\Offerta;
@@ -185,5 +186,13 @@ class AdminController extends Controller {
         $azienda->save();
         return redirect()->action([AdminController::class, 'VisualizzaAziende']);
     }
+    // CONTROLLER PER LE STATISTICHE
+    public function NumeroCoupon()
+    {
+        $numTotCoupon = coupon_off::count();
+
+        return view('adminView.numTotCoupon',['numTotCoupon'=>$numTotCoupon]);;
+    }
+
 
 }
