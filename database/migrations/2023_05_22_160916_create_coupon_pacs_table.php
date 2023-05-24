@@ -23,10 +23,11 @@ return new class extends Migration
 
         Schema::table('coupon_pacs', function (Blueprint $table) {
             $table->foreign('pacchetto')->references('id')
-                ->on('pacchettos');
+                ->on('pacchettos')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('utente')->references('username')
-                ->on('users');
+                ->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
+
     }
 
     /**
