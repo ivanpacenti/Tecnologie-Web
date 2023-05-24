@@ -85,13 +85,6 @@ class AdminController extends Controller {
         return view('adminView.faqsedit',['faq'=>$faq]);
     }
 
-    public function VisualizzaAziende()
-    {
-        $aziende= Azienda::all();
-        //dd($faqs);
-        return view('adminView.adminAziende')->with('aziende', $aziende);
-    }
-
     public function storeProduct(NewProductRequest $request) {
 
         if ($request->hasFile('image')) {
@@ -134,7 +127,14 @@ class AdminController extends Controller {
         return redirect()->back()->with('success', 'utente eliminato con successo');
     }
 
+
     //SEZIONE RELATIVA AL CRUD DELLE AZIENDE
+
+    public function VisualizzaAziende()
+    {
+        $aziende= Azienda::all();
+        return view('adminView.adminAziende')->with('aziende', $aziende);
+    }
 
     public function deleteAgency($id) //funzione che elimina un'azienda e la relativa offerta
     {
@@ -144,6 +144,46 @@ class AdminController extends Controller {
         $azienda->delete(); //eliminazione dell'azienda
         $offerta->delete(); //eliminazione dell'offerta
         return redirect()->back()->with('success', 'Azienda eliminata con successo'); //ritorna alla pagina precedente
+    }
+
+    public function createAgency(Request $req) //funzione che permette di creare ed aggiungere una nuova azienda nel db
+    {
+        $azienda = new Azienda();
+       /* $azienda->partitaIva = $req->partitaIva;*/
+        $azienda->nome = $req->nome;
+        $azienda->posizione = $req->posizione;
+        $azienda->descrizione = $req->descrizione;
+        $azienda->tipologia = $req->tipologia;
+        $azienda->logo = $req->logo;
+        $azienda->save();
+        return view('adminView.agencyedit',['azienda'=>$azienda]);
+    }
+
+    public function modifica1Azienda($id)
+    {
+        $azienda = Azienda::find($id);
+        return view('adminView.agencysedit',['azienda'=>$azienda]);
+    }
+
+    public function modificaAzienda(Request $req)
+    {
+        $req->validate([
+            'partitaIva' => ['required', 'string', 'max:255'],
+            'nome' => ['required', 'string', 'max:255'],
+            'posizione' => ['required', 'string', 'max:255'],
+            'descrizione' => ['required', 'string', 'max:255'],
+            'tipologia' => ['required', 'string', 'max:255'],
+            'logo' => ['required', 'string', 'max:255'],
+        ]);
+        $azienda= Azienda::find($req->id);
+        $azienda->partitaIva = $req->partitaIva;
+        $azienda->nome = $req->nome;
+        $azienda->posizione = $req->posizione;
+        $azienda->descrizione = $req->descrizione;
+        $azienda->tipologia = $req->tipologia;
+        $azienda->logo = $req->logo;
+        $azienda->save();
+        return redirect()->action([AdminController::class, 'VisualizzaAziende']);
     }
 
 }

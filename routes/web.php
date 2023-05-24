@@ -102,6 +102,9 @@ Route::get('/deleteUser/{id}', [AdminController::class,'deleteUser'])->name('del
 
 
 Route::get('/adminAziende', [AdminController::class, 'VisualizzaAziende'])->name('adminAziende');
+Route::get('/agencycreate', [AdminController::class, 'createAgency'])->name('agencycreate');
+Route::get('/agencyedit/{id}', [AdminController::class,'modifica1Azienda'])->name('agencyeditid');
+Route::post('/agencyedit', [AdminController::class,'modificaAzienda'])->name('agencyedit');
 Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name('elimina-azienda');
 
 /*

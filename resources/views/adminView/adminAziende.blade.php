@@ -10,7 +10,7 @@
     <h4> Da qui puoi gestire le aziende</h4>
 
     <div class="maincontainer">
-        <a {{--href="{{route("agencyCreate")}}"--}} class="buttonbar-add">Aggiungi un' azienda</a>
+        <a href="{{route("agencycreate")}}" class="buttonbar-add">Aggiungi un' azienda</a>
         @isset($aziende)
             @foreach($aziende as $azienda)
 
