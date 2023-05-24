@@ -8,6 +8,7 @@ use App\Models\Catalog;
 use App\Models\Faq;
 use App\Models\Offerta;
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
 class PublicController
 {
     // protected $_catalogModel;
@@ -32,9 +33,11 @@ class PublicController
 
     public function visualizzaCatalogo()
     {
+        $dataOggi = Carbon::today()->toDateString();
+        //dd($dataOggi);
         $offerte = Offerta::paginate(6);
         $aziende=Azienda::all();
-        return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
+        return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende)->with('dataOggi',$dataOggi);
     }
 
     public function visualizzaDettagliOfferta($id)
@@ -68,6 +71,8 @@ class PublicController
     }
     public function filtroOfferte(Request $request)
     {
+        $dataOggi = Carbon::today()->toDateString();
+
         // con la paginazione va in conflitto il metodo submit nella funzione RigeneraVista, collegato alle checkbox.
         //in pratica è come se ad ogni click sui link della paginazione avvenga una nuova submit, con conseguente nuova richiesta,
         //e quindi valore sballato dell'id dell'azienda.
@@ -90,7 +95,7 @@ class PublicController
 
 
         // Passare le offerte alla vista o eseguire altre operazioni
-        return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
+        return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende)->withwith('dataOggi',$dataOggi);
     }
 
 
