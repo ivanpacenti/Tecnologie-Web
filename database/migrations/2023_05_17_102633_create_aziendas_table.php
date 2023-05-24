@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('aziendas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('partitaIva',11);
-            $table->string('nome');
-            $table->string('posizione',);
-            $table->string('descrizione',);
-            $table->string('tipologia',);
-            $table->string('logo');
+            $table->string('partitaIva',11)->default('XXXXX-XXXXX');
+            $table->string('nome')->nullable();
+            $table->string('posizione',)->nullable();
+            $table->string('descrizione',)->nullable();
+            $table->string('tipologia',)->nullable();
+            $table->string('logo')->nullable();
         });
     }
 
