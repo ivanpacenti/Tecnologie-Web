@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder {
                 'modalità' => $faker->name(),
                 'luogoFruizione' => $faker->address(),
                 'dataInizio' => $faker->date(),
-                'dataFine' => '2023-05-22',
+                'dataFine' => '2023-05-29',
             ]);
             Pacchetto::create([
                 'descrizione' => $faker->sentence(),

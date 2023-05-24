@@ -30,7 +30,7 @@
            <div class="container2">
                @foreach($offerte as $offerta)
                    @if($offerta->dataFine >= $dataOggi)
-               <div class="product-card" id="{{$aziende->find($offerta->emissione->azienda)->nome}}">
+               <div class="product-card" >
                    <div class="image-container">
                        <img src="{{asset('img/lacoste_logo.jpeg')}}" alt="Immagine prodotto">
                        @auth

@@ -1,37 +1,45 @@
-var checkboxes = document.querySelectorAll('.check');
-var checkboxIds = [];
-if(false)
-// Memorizza gli ID dei checkbox selezionati
-for (var i = 0; i < checkboxes.length; i++) {
-    checkboxIds.push(checkboxes[i].value);
+var checkbox = document.querySelectorAll('#check');
+var ids = [];
 
-    // Aggiungi un evento di ascolto ai checkbox
+if(sessionStorage.getItem('firstSession')==null)
+{
+
+    sessionStorage.setItem('firstSession',true);
+    // Memorizza gli ID dei checkbox selezionati
+    for (var i = 0; i < checkbox.length; i++) {
+        ids.push(checkbox[i].value);
+    }
+        for (var i = 0; i < ids.length; i++) {
+            if (sessionStorage.getItem(ids[i].toString()) == null) sessionStorage.setItem(ids[i].toString(), false);
+        }
 
 }
-for (var i = 0; i < checkboxIds.length; i++) {
-    var stringa='checkbox_' + [i];
-    var check= localStorage.getItem(stringa);
-
-
-}
+console.log(sessionStorage);
 function checkClick()
 {
-    localStorage.setItem('checkbox_' + this.value, true);
+    var cb=document.getElementById('formCheckbox');
+    asd=document.querySelector('.check:checked');
+    sessionStorage.setItem(asd.value.toString(), true);
 
-    document.getElementById('formCheckbox').submit(); // Esempio di invio del modulo
 
+    cb.submit(); // Esempio di invio del modulo
+    sessionStorage.setItem('firstSession',false);
 
 }
-console.log(localStorage)
+window.onload = onPageLoad();
+
+function onPageLoad() {
+    var a=document.querySelectorAll('#check');
+    for (var i = 0; i < a.length; i++) {
+        var check= sessionStorage.getItem([i].toString());
+        if (check ==true) {
+            a[i].checked=true;
+        }
+        console.log(check)
+    }
+}
 // Ripristina lo stato dei checkbox al caricamento della pagina
 window.addEventListener('DOMContentLoaded', function() {
-    for (var i = 0; i < checkboxIds.length; i++) {
-        var stringa='checkbox_' + [i];
-        var check= localStorage.getItem(stringa);
 
-        if (check === 'true') {
-            checkboxes[i].checked=true;
-        }
-    }
 });
 

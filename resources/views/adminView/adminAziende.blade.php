@@ -10,7 +10,8 @@
     <h4> Da qui puoi gestire le aziende</h4>
 
     <div class="maincontainer">
-        <a href="{{route("agencycreate")}}" class="buttonbar-add">Aggiungi un' azienda</a>
+        //ho tolto dall'ancora il collegamento alla rotta agencyEdit, sennò non mi faceva entrare
+        <a href="a" class="buttonbar-add">Aggiungi un' azienda</a>
         @isset($aziende)
             @foreach($aziende as $azienda)
 

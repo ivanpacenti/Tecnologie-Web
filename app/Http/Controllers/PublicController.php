@@ -95,7 +95,7 @@ class PublicController
 
 
         // Passare le offerte alla vista o eseguire altre operazioni
-        return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende)->withwith('dataOggi',$dataOggi);
+        return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende)->with('dataOggi',$dataOggi);
     }
 
 
