@@ -46,7 +46,7 @@
             </div>
             @endisset
                 @if(sizeof($offerte)>1)
-                    @include('pagination.paginator', ['paginator' => $offerte])
+                    @include('Pagination.paginator', ['paginator' => $offerte])
                 @endif
         </div>
 

@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\Utente;
 
 
-class userController extends Controller {
+class UserController extends Controller {
 // non ha funzione costruttrice ma ha solo una funzione index che propone la vista user, sta di fatto che solo l'utente user può accedere a quella vista
 // in questo caso il proceosso di autenticazione sta nella rotta(nell''admin sta nell admin controller))
     public function index() {
@@ -30,14 +30,14 @@ class userController extends Controller {
     {
         $User = User::find($id);
         //dd($User);
-        return view('UserView.editUser', ['User' => $User]);
+        return view('userView.editUser', ['User' => $User]);
     }
 
     public function modificaUtente(Request $req)
     {
 
 // funzione che serve per modificare  UN UTENTE
-     $req->validate([
+        $req->validate([
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
@@ -56,7 +56,7 @@ class userController extends Controller {
         //dd($User);
         $User->save();
 
-        return redirect()->action([userController::class, 'index']);
+        return redirect()->action([UserController::class, 'index']);
     }
 
     public function home() {
@@ -78,7 +78,7 @@ class userController extends Controller {
                 ->first();
 
             if ($existingCoupon) {
-                return view('UserView.coupongiaComprato');
+                return view('userView.coupongiaComprato');
 
             } else {
                 // nel caso in cui il risultato della  La tupla non esiste
@@ -88,7 +88,7 @@ class userController extends Controller {
                 $couponOff->utente = $userUs['username'];
                 $couponOff->save();
                 $stringa = $userUs['username'] . $couponId;
-                return view('UserView.stampa', ['stringa' => $stringa, 'offertaa' => $offertA]);
+                return view('userView.stampa', ['stringa' => $stringa, 'offertaa' => $offertA]);
 
             }
         }
@@ -98,7 +98,7 @@ class userController extends Controller {
 
         //return view('')->with(compact('couponId', 'userId'));
         //else
-}
+    }
 
 
 }

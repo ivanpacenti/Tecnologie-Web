@@ -4,7 +4,7 @@ use App\Http\Controllers\CatalogoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\userController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OffertaController;
 use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\StaffController;
@@ -117,18 +117,18 @@ Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name(
 
 */
 
-Route::get('/user', [userController::class, 'index'])
+Route::get('/user', [UserController::class, 'index'])
     ->name('user')->middleware('can:isUser');
 
-Route::get('/couponComprato', [userController::class, 'CouponComprato'])
+Route::get('/couponComprato', [UserController::class, 'CouponComprato'])
     ->name('CouponComprato');
 
-Route::get('/editUser/{id}', [userController::class,'Visualizza1Utente'])->name('editUser');
+Route::get('/editUser/{id}', [UserController::class,'Visualizza1Utente'])->name('editUser');
 
-Route::post('/editUser', [userController::class,'modificaUtente'])->name('editx');
+Route::post('/editUser', [UserController::class,'modificaUtente'])->name('editx');
 
 // rotta in costruzione per stampa e controllo se coupon già comprato
-Route::get('stampa',[userController::class,'stampa'])->name('stampa');
+Route::get('stampa',[UserController::class,'stampa'])->name('stampa');
 
     /*
 |--------------------------------------------------------------------------
@@ -150,15 +150,6 @@ Route::get('/editStaff/{id}', [StaffController::class,'Visualizza1Staff'])->name
 Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editStaffxx');
 
 
-// prima di arrivare al  controller
-//  Rotte aggiunte da Breeze
-
-/*Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');*/
 //ROTTE PER IL CRUD DELLE PROMOZIONI
 Route::view('/staff/crudPromozioni', 'couponEdit')
     ->name('crudPromozioni');
