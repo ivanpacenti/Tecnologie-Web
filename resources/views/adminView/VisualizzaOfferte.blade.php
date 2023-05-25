@@ -3,7 +3,6 @@
 @section('title','PaginaAdminOfferte')
 
 @extends('layouts.pageLayout')
-{{--dobbiamo pensare come gestire le faq che sono vuote--}}
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
     <h1> elenco delle offerte!</h1>
@@ -21,9 +20,9 @@
                         <p> datafine: {{$offerta->dataFine}}</p>
                         <p>luogo fruizione: {{$offerta->luogoFruizione}}</p>
                         <p>Descrizione: {{$offerta->descrizione}}</p>
-{{--                        <p>--}}
-{{--                        <a href="{{ route('couponOfferta', ['offertaId' => $offerta->id]) }}">Coupon emessi</a>--}}
-{{--                        </p>--}}
+                        <p>
+                        <a href="{{ route('CouponOfferta', ['id' => $offerta->id]) }}">Coupon emessi</a>
+                        </p>
                     </div>
                 </div>
             @endforeach

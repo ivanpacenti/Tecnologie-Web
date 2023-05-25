@@ -13,26 +13,31 @@ use App\Http\Requests\NewProductRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class AdminController extends Controller {
+class AdminController extends Controller
+{
 
     protected $_adminModel;
 
 
 // questo costruttore mi fa il controllo sul fatto che quando apro queste rotte è solo l'admin ad aprirle
-    public function __construct() {
+    public function __construct()
+    {
         $this->_adminModel = new Admin;
         $this->middleware('can:isAdmin');
     }
 
-    public function index() {
+    public function index()
+    {
         return view('admin');
     }
 
-    public function addProduct() {
+    public function addProduct()
+    {
         $prodCats = $this->_adminModel->getProdsCats()->pluck('name', 'catId');
         return view('product.insert')
-                        ->with('cats', $prodCats);
+            ->with('cats', $prodCats);
     }
+
     // PARTE CHE FA IL CRUD DELLE FAQ
     public function VisualizzaFaq()
 //  Questa è una funzione per visualizzare le faq,
@@ -41,6 +46,7 @@ class AdminController extends Controller {
         //dd($faqs);
         return view('adminView.adminFaqs')->with('faqs', $faqs);
     }
+
     public function deleteFaq($id)
 //  Questa è una funzione per eliminare le faq,
     {
@@ -57,7 +63,7 @@ class AdminController extends Controller {
     {
         $faq = faq::find($id);
         //dd($faq);
-        return view('adminView.faqsedit',['faq'=>$faq]);
+        return view('adminView.faqsedit', ['faq' => $faq]);
     }
 
     public function modificaFaq(Request $req)
@@ -68,9 +74,9 @@ class AdminController extends Controller {
             'risposta' => ['required', 'string', 'max:255'],
         ]);
 
-        $faq= faq::find($req->id);
-        $faq->domanda=$req->domanda;
-        $faq->risposta=$req->risposta;
+        $faq = faq::find($req->id);
+        $faq->domanda = $req->domanda;
+        $faq->risposta = $req->risposta;
         $faq->save();
         return redirect()->action([AdminController::class, 'VisualizzaFaq']);
     }
@@ -83,10 +89,11 @@ class AdminController extends Controller {
         $faq->domanda = $req->domanda;
         $faq->risposta = $req->risposta;
         $faq->save();
-        return view('adminView.faqsedit',['faq'=>$faq]);
+        return view('adminView.faqsedit', ['faq' => $faq]);
     }
 
-    public function storeProduct(NewProductRequest $request) {
+    public function storeProduct(NewProductRequest $request)
+    {
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -105,8 +112,7 @@ class AdminController extends Controller {
             $image->move($destinationPath, $imageName);
         };
 
-        return redirect()->action([AdminController::class, 'index']);
-        ;
+        return redirect()->action([AdminController::class, 'index']);;
     }
 
 
@@ -133,7 +139,7 @@ class AdminController extends Controller {
 
     public function VisualizzaAziende()
     {
-        $aziende= Azienda::all();
+        $aziende = Azienda::all();
         return view('adminView.adminAziende')->with('aziende', $aziende);
     }
 
@@ -144,27 +150,27 @@ class AdminController extends Controller {
         $offerta = Offerta::find($offertaid); //trova l'offerta relativa all'id trovato
         $offerta->delete();
         $azienda->delete(); //eliminazione dell'azienda
-         //eliminazione dell'offerta
+        //eliminazione dell'offerta
         return redirect()->back()->with('success', 'Azienda eliminata con successo'); //ritorna alla pagina precedente
     }
 
     public function createAgency(Request $req) //funzione che permette di creare ed aggiungere una nuova azienda nel db
     {
         $azienda = new Azienda();
-       /* $azienda->partitaIva = $req->partitaIva;*/
+        /* $azienda->partitaIva = $req->partitaIva;*/
         $azienda->nome = $req->nome;
         $azienda->posizione = $req->posizione;
         $azienda->descrizione = $req->descrizione;
         $azienda->tipologia = $req->tipologia;
         $azienda->logo = $req->logo;
         $azienda->save();
-        return view('adminView.agencyedit',['azienda'=>$azienda]);
+        return view('adminView.agencyedit', ['azienda' => $azienda]);
     }
 
     public function modifica1Azienda($id)
     {
         $azienda = Azienda::find($id);
-        return view('adminView.agencysedit',['azienda'=>$azienda]);
+        return view('adminView.agencysedit', ['azienda' => $azienda]);
     }
 
     public function modificaAzienda(Request $req)
@@ -177,7 +183,7 @@ class AdminController extends Controller {
             'tipologia' => ['required', 'string', 'max:255'],
             'logo' => ['required', 'string', 'max:255'],
         ]);
-        $azienda= Azienda::find($req->id);
+        $azienda = Azienda::find($req->id);
         $azienda->partitaIva = $req->partitaIva;
         $azienda->nome = $req->nome;
         $azienda->posizione = $req->posizione;
@@ -187,13 +193,15 @@ class AdminController extends Controller {
         $azienda->save();
         return redirect()->action([AdminController::class, 'VisualizzaAziende']);
     }
+
     // CONTROLLER PER LE STATISTICHE
     public function NumeroCoupon()
     {
         $numTotCoupon = coupon_off::count();
 
-        return view('adminView.numTotCoupon',['numTotCoupon'=>$numTotCoupon]);;
+        return view('adminView.numTotCoupon', ['numTotCoupon' => $numTotCoupon]);;
     }
+
     public function VisualizzaOfferte()
     {
         $offerte = Offerta::all();
@@ -207,6 +215,16 @@ class AdminController extends Controller {
 //        dd($count);
 
         return view('adminView.VisualizzaOfferte', ['offerte' => $offerte]);
+
+
+    }
+
+    public function CouponOfferta($id)
+    {
+        $offerta = Offerta::find($id);
+        //dd($offerta);
+        $numTotCoupon = coupon_off::where('offerta',$id)->count();
+        return view('adminView.CouponOfferta', ['numTotCoupon' => $numTotCoupon,'offerta'=>$offerta]);
     }
 
 }

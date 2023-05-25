@@ -111,7 +111,7 @@ Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name(
 Route::view('/statistiche', 'adminView.statistiche')->name('statistiche');
 Route::get('/totaleCoupon',[AdminController::class,'NumeroCoupon'])->name('NumeroCoupon');
 Route::get('/VisualizzaOfferte',[AdminController::class,'VisualizzaOfferte'])->name('VisualizzaOfferte');
-
+Route::get('/CouponOfferta{id}',[AdminController::class,'CouponOfferta'])->name('CouponOfferta');
 
 
 /*
