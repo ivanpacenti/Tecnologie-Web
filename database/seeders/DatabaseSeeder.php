@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder {
                 'modalità' => $faker->name(),
                 'luogoFruizione' => $faker->address(),
             ]);
-            Azienda::create([
+            /*Azienda::create([
                 'partitaIva' => $faker->postcode(),
                 'nome' => $faker->company(),
                 'descrizione' => $faker->sentence(),
@@ -44,13 +44,14 @@ class DatabaseSeeder extends Seeder {
             ]);
 
         }
-        for($i=0;$i<10;$i++)
-        {
-            Emissione::create([
-                'azienda'=>1,
-                'offerta'=>$i+1,
-            ]);
-        }
+
+//        for($i=0;$i<10;$i++)
+//        {
+//            Emissione::create([
+//                'azienda'=>1,
+//                'offerta'=>$i+1,
+//            ]);
+//        }
 
         /*
         DB::table('category')->insert([

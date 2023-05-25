@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('posizione',)->nullable();
             $table->string('descrizione',)->nullable();
             $table->string('tipologia',)->nullable();
-            $table->string('logo')->nullable();
+            $table->string('logo')->default('img/img_Logo.png')->nullable();
         });
     }
 
