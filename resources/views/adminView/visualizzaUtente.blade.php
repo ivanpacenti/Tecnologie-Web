@@ -8,7 +8,8 @@
 
     <h1> Benvenuto</h1>
     <div class="maincontainer">
-        <h1>Page per l'eliminazione degli utenti</h1>
+        <h1>PAGINA PER LA VISUALIZZAZIONE DEGLI UTENTI</h1>
+        <h3>possibilità di vedere quanti coupon ha acqusitato</h3>
         @isset($Users)
             @foreach($Users as $User)
                 @if(str_contains($User->role, 'user'))
@@ -16,7 +17,9 @@
                         <h2> Utente numero: {{$User->id}} </h2>
                         <div class="buttons-container">
                             <a href="{{"deleteUser/".$User['id']}}" class="buttonbar">
-                                Elimina</a> {{--<button class="bottoneModifica">Modifica</button>--}}
+                                Elimina</a>
+                            <a href="{{"CouponUtente".$User['id']}}" class="buttonbar">
+                                coupon comprati</a>
                         </div>
                         <div class="upper-box">
                             <h2>nome utente:</h2>

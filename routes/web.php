@@ -22,26 +22,6 @@ use App\Models\Resources\Staff;
 */
 
 
-/*
-Route::get('/', [PublicController::class, 'showCatalog1'])
-        ->name('catalog1');
-
-Route::get('/selTopCat/{topCatId}', [PublicController::class, 'showCatalog2'])
-        ->name('catalog2');
-
-Route::get('/selTopCat/{topCatId}/selCat/{catId}', [PublicController::class, 'showCatalog3'])
-        ->name('catalog3');
-
-Route::get('/admin', [AdminController::class, 'index'])
-        ->name('admin');
-
-Route::get('/admin/newproduct', [AdminController::class, 'addProduct'])
-        ->name('newproduct');;
-
-Route::post('/admin/newproduct', [AdminController::class, 'storeProduct'])
-        ->name('newproduct.store');
-*/
-
 Route::view('/', 'home')
     ->name('index');
 
@@ -113,7 +93,7 @@ Route::view('/statistiche', 'adminView.statistiche')->name('statistiche');
 Route::get('/totaleCoupon',[AdminController::class,'NumeroCoupon'])->name('NumeroCoupon');
 Route::get('/VisualizzaOfferte',[AdminController::class,'VisualizzaOfferte'])->name('VisualizzaOfferte');
 Route::get('/CouponOfferta{id}',[AdminController::class,'CouponOfferta'])->name('CouponOfferta');
-
+Route::get('/CouponUtente{id}',[AdminController::class,'CouponUtente'])->name('CouponUtente');
 
 /*
 |--------------------------------------------------------------------------

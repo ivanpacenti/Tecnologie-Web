@@ -5,13 +5,14 @@
 
 @section('content')
 <h1>  qui siamo nelle sezioni delle statistiche </h1>
-<h3> quali statistiche ti interessano??</h3>
-<a href="{{route('NumeroCoupon')}}">numero totale di coupon emessi</a>
-
-<a href="{{route('VisualizzaOfferte')}}">coupon emessi per ogni azienda</a>
-
-<a href="{{route('index')}}">CCCCCCCCCC</a>
-
-
-
+<p>
+<a href="{{route('NumeroCoupon')}}" class="buttonbar">numero totale di coupon emessi</a>
+<p>
+<p>
+<a href="{{route('VisualizzaOfferte')}}"class="buttonbar">coupon emessi per ogni azienda</a>
+</p>
+<p>
+<a href="{{route("visualizzaUtente")}}" class="buttonbar">
+    coupon comprati per utente</a>
+<p>
 @endsection

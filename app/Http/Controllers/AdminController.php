@@ -201,35 +201,33 @@ class AdminController extends Controller
 
     // CONTROLLER PER LE STATISTICHE
     public function NumeroCoupon()
+        // restituisce il numero di coupon emessi in totale nel sito
     {
         $numTotCoupon = coupon_off::count();
-
         return view('adminView.numTotCoupon', ['numTotCoupon' => $numTotCoupon]);;
     }
 
     public function VisualizzaOfferte()
     {
         $offerte = Offerta::all();
-
-//        foreach ($offerte as $offerta) {
-//            $idOfferta = $offerta->id;
-//            $count = coupon_off::where('offerta', $idOfferta)->count();
-//            $offerta->count = $count;
-//
-//        }
-//        dd($count);
-
         return view('adminView.VisualizzaOfferte', ['offerte' => $offerte]);
-
-
     }
 
+
     public function CouponOfferta($id)
+        // restituisce il numero di coupon emessi per ogni offerta
     {
         $offerta = Offerta::find($id);
-        //dd($offerta);
         $numTotCoupon = coupon_off::where('offerta',$id)->count();
         return view('adminView.CouponOfferta', ['numTotCoupon' => $numTotCoupon,'offerta'=>$offerta]);
     }
 
+
+    public function CouponUtente($id)
+        //restituisce il numero totale di coupon emessi da un utente
+    {
+        $user= User::find($id);
+        $numTot = coupon_off::where('utente', $user->username)->count();
+        return view('adminView.CouponUtente', ['numTot' => $numTot,'user'=>$user]);
+    }
 }
