@@ -128,7 +128,7 @@ a.buttonbar, a.buttonbar-add, .formbutton{
     color: #eeeeee;
     background-color: #762c2c;
     height: 30px;
-    width: 100px;
+    width: 170px;
     transition: width 0.3s ease, height 0.7s ease, opacity 0.8s ease, background-color 1s, color 1s; /*transizione dei bottoni che avviene al passaggio del cursore*/
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
 }
@@ -223,5 +223,32 @@ a.buttonbar2:hover{
     color: #762c2c;
 }
 
+/*+----------------------------------+
+ | SEZIONE RELATIVA ALLE STATISTICHE |
+ +-----------------------------------+*/
 
+.buttonbarstats{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 15px;
+    color: #eeeeee;
+    background-color: #762c2c;
+    height: 40px;
+    width: 270px;
+    transition: width 0.5s ease, background-color 1s, color 1s; /*transizione dei bottoni che avviene al passaggio del cursore*/
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+}
+
+.buttonbarstats:hover{
+    width: 340px;
+    background-color: whitesmoke;
+    color: #762c2c;
+}
+
+.maincontainer  .upper-box{
+    background-color: #eeeeee;
+}
 
