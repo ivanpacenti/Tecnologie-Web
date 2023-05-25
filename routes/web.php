@@ -21,7 +21,6 @@ use App\Models\Resources\Staff;
 |
 */
 
-
 Route::view('/', 'home')
     ->name('index');
 
@@ -29,8 +28,6 @@ Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('
 Route::get('/filtroOfferte', [PublicController::class, 'filtroOfferte'])->name('filtroOfferte');
 Route::post('/filtraggioAziende_test', [PublicController::class, 'filtraggioAziende_test'])->name('filtraggioAziende_test');
 Route::post('/filtraggioAziende2_test', [PublicController::class, 'filtraggioAziende2_test'])->name('filtraggioAziende2_test');
-
-
 
 Route::view('/profilepage', 'profilepage')
     ->name('profilepage');
@@ -42,15 +39,6 @@ Route::view('/Faq', 'publicFaqs')
     ->name('Faq');
 Route::get('/Faq',[PublicController::class, 'vis'])->name('visualizza_listaFaq');
 
-//QUESTA è LA PARTE DELL'ADMIN( sono funzionalità a lui riservate), una volta fatta la aprte admin verranno implementate
-
-
-// possibilità di modificare le faq, in questa ne vedi solo una e scegli, nella rotta seguente modificherai la faq
-//Route::get('/edit/{id}', [PublicController::class,'visualizza1Faq'])->name('editid');
-//// in questa rotta avviene la vera e propria modifica
-//Route::post('/edit', [PublicController::class,'modificaFaq'])->name('edit');
-//// in questa rotta vai ad aggiungere una faq
-//Route::get('/faqsCreate', [PublicController::class, 'salvafaq'])->name('faqsCreate');
 //rotta che visualizza tutta la lista delle faq
 Route::get('/Faq', [PublicController::class, 'vis'])-> name('visualizza_listafaq');
 
