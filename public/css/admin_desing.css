@@ -252,3 +252,8 @@ a.buttonbar2:hover{
     background-color: #eeeeee;
 }
 
+.textslot p .coloredlink{
+    text-decoration: none;
+    color: #762c2c;
+}
+

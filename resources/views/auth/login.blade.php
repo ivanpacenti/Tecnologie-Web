@@ -36,7 +36,7 @@
     <div class="form-group">
         {{ Form::submit('Login', ['class' => 'form-button']) }}
     </div>
-    <p> Se non hai già un account <a  href="{{ route('register') }}">registrati</a></p>
+    <p> Se non hai già un account <a href="{{ route('register') }}" class="coloredlink">registrati</a></p>
 
     {{ Form::close() }}
 
