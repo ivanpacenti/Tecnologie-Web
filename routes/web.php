@@ -86,7 +86,6 @@ Route::get('/Faq', [PublicController::class, 'vis'])-> name('visualizza_listafaq
 |   QUARTA FA LA MODIFICA
 |   QUINTA FA IL SALVATAGGIO DI UNA NUOVA FAQ
 |   SESTA visualizzazione membri utenti
-
 */
 //
 
@@ -94,18 +93,16 @@ Route::get('/adminFaqs', [AdminController::class, 'VisualizzaFaq'])->name('admin
 Route::get('/delete/{id}', [AdminController::class,'deleteFaq'])->name('elimina-faq');
 Route::get('/edit/{id}', [AdminController::class,'visualizza1Faq'])->name('editid');
 Route::post('/edit', [AdminController::class,'modificaFaq'])->name('edit');
-
 Route::view('/faqsCreate','adminView.faqsCreate')->name('faqsCreate');
 Route::post('/faqsCreate', [AdminController::class, 'salvafaq'])->name('faqsCreate2');
 
-Route::view('/amministratore', 'admin')
-
-    ->name('admin')->middleware('can:isAdmin');
+Route::view('/amministratore', 'admin')->name('admin')->middleware('can:isAdmin');
 Route::get('/visualizzaUtente', [AdminController::class,'visualizzaUtente'])->name('visualizzaUtente');
 Route::get('/deleteUser/{id}', [AdminController::class,'deleteUser'])->name('deleteUser');
 
 Route::get('/adminAziende', [AdminController::class, 'VisualizzaAziende'])->name('adminAziende');
-Route::get('/agencycreate', [AdminController::class, 'createAgency'])->name('agencycreate');
+Route::view('/agencycreate', 'adminView.agencycreate')->name('agencycreate');
+Route::post('/agencycreate', [AdminController::class, 'createAgency'])->name('agencycreate2');
 Route::get('/agencyedit/{id}', [AdminController::class,'modifica1Azienda'])->name('agencyeditid');
 Route::post('/agencyedit', [AdminController::class,'modificaAzienda'])->name('agencyedit');
 Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name('elimina-azienda');

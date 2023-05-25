@@ -1,21 +1,22 @@
-@extends('layouts.pageLayout')
 
-@section('title','PaginaAdmin|Edit Azienda')
+@section('title','PaginaAdmin')
+
+@extends('layouts.pageLayout')
 
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/form_design.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/form_design.css')}}" >
 
-    {!! Form::model($azienda, ['route' => ['agencyedit', $azienda['id']], 'class' => 'form']) !!}
+    {!! Form::open(['route' => 'agencycreate2', 'class' => 'form']) !!}
     {!! Form::token() !!}
-    <h1>Modifica i dati dell'azienda {{$azienda['id']}}</h1>
+    <h1>Aggiungi una nuova azienda</h1>
     <div class="form-group">
         {!! Form::label('id', 'ID') !!}
-        {!! Form::text('id', $azienda['id'], ['class' => 'form-input', 'readonly']) !!}
+        {!! Form::text('id', null, ['class' => 'form-input', 'readonly']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('partitaIva', 'Partita Iva') !!}
-        {!! Form::text('partitaIva', $azienda['partitaIva'], ['class' => 'form-input','placeholder' => 'Inserisci partitaIva']) !!}
+        {!! Form::text('partitaIva', null, ['class' => 'form-input','placeholder' => 'Inserisci Partita IVA']) !!}
         @if ($errors->first('partitaIva'))
             <ul class="errors">
                 @foreach ($errors->get('partitaIva') as $message)
@@ -26,7 +27,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('nome', 'Nome') !!}
-        {!! Form::text('nome', $azienda['nome'], ['class' => 'form-input', 'placeholder' => 'Inserisci nome']) !!}
+        {!! Form::text('nome', null /*$azienda['nome']*/, ['class' => 'form-input', 'placeholder' => 'Inserisci nome']) !!}
         @if ($errors->first('nome'))
             <ul class="errors">
                 @foreach ($errors->get('nome') as $message)
@@ -37,7 +38,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('posizione', 'Posizione') !!}
-        {!! Form::text('posizione', $azienda['posizione'], ['class' => 'form-input','placeholder' => 'Inserisci posizione']) !!}
+        {!! Form::text('posizione', null, ['class' => 'form-input','placeholder' => 'Inserisci posizione']) !!}
         @if ($errors->first('posizione'))
             <ul class="errors">
                 @foreach ($errors->get('posizione') as $message)
@@ -48,7 +49,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('descrizione', 'Descrizione') !!}
-        {!! Form::text('descrizione', $azienda['descrizione'], ['class' => 'form-input','placeholder' => 'Inserisci descrizione']) !!}
+        {!! Form::text('descrizione', null, ['class' => 'form-input','placeholder' => 'Inserisci descrizione']) !!}
         @if ($errors->first('descrizione'))
             <ul class="errors">
                 @foreach ($errors->get('descrizione') as $message)
@@ -59,7 +60,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('tipologia', 'Tipologia') !!}
-        {!! Form::text('tipologia', $azienda['tipologia'], ['class' => 'form-input','placeholder' => 'Inserisci tipologia']) !!}
+        {!! Form::text('tipologia', null, ['class' => 'form-input','placeholder' => 'Inserisci tipologia']) !!}
         @if ($errors->first('tipologia'))
             <ul class="errors">
                 @foreach ($errors->get('tipologia') as $message)
@@ -70,7 +71,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('logo', 'Logo') !!}
-        {!! Form::text('logo', $azienda['logo'], ['class' => 'form-input','placeholder' => 'Inserisci logo']) !!}
+        {!! Form::text('logo', null, ['class' => 'form-input','placeholder' => 'Inserisci logo']) !!}
         @if ($errors->first('logo'))
             <ul class="errors">
                 @foreach ($errors->get('logo') as $message)
@@ -81,8 +82,8 @@
     </div>
 
     <div class="form-group">
-        {!! Form::submit('Aggiorna', ['class' => 'formbutton']) !!}
+        {!! Form::submit('Salva', ['class' => 'formbutton']) !!}
     </div>
     {!! Form::close() !!}
 
-@endsection('content')
+@endsection

@@ -152,7 +152,8 @@ class AdminController extends Controller
         $azienda = Azienda::find($id); //trova l'id dell'azienda da eliminare
         $offertaid = Emissione::where('azienda', $id)->value('offerta'); //trova l'id nella tabella emissione dell'offerta relativa da eliminare
         $offerta = Offerta::find($offertaid); //trova l'offerta relativa all'id trovato
-        $offerta->delete();
+        if($offerta)
+            $offerta->delete();
         $azienda->delete(); //eliminazione dell'azienda
         //eliminazione dell'offerta
         return redirect()->back()->with('success', 'Azienda eliminata con successo'); //ritorna alla pagina precedente
@@ -168,13 +169,13 @@ class AdminController extends Controller
         $azienda->tipologia = $req->tipologia;
         $azienda->logo = $req->logo;
         $azienda->save();
-        return view('adminView.agencyedit', ['azienda' => $azienda]);
+        return  redirect()->route('adminAziende');
     }
 
     public function modifica1Azienda($id)
     {
         $azienda = Azienda::find($id);
-        return view('adminView.agencysedit', ['azienda' => $azienda]);
+        return view('adminView.agencyedit', ['azienda' => $azienda]);
     }
 
     public function modificaAzienda(Request $req)

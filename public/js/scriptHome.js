@@ -1,11 +1,11 @@
 // restituisce la % di scorrimento da 1 a 99
-const progressBarEl = document.getElementById('progress-bar');
+/*const progressBarEl = document.getElementById('progress-bar');
 window.addEventListener('scroll',() => {
     let height=document.body.scrollHeight- window.innerHeight;
     let scrollPosition=document.documentElement.scrollTop;
     let width =(scrollPosition / height) * 99.6;
     progressBarEl.style.width = width + "%";
-});
+});*/
 
 let slideIndex = 0;
 showSlides();

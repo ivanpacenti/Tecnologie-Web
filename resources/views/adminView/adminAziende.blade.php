@@ -6,12 +6,11 @@
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
-    <h1> Benvenuto!</h1>
-    <h4> Da qui puoi gestire le aziende</h4>
 
     <div class="maincontainer">
-        //ho tolto dall'ancora il collegamento alla rotta agencyEdit, sennò non mi faceva entrare
-        <a href="a" class="buttonbar-add">Aggiungi un' azienda</a>
+        <h1>Benvenuto nella pagina di gestione delle aziende</h1>
+
+        <a href="{{asset('agencycreate')}}" class="buttonbar-add">Aggiungi un' azienda</a>
         @isset($aziende)
             @foreach($aziende as $azienda)
 
@@ -28,7 +27,7 @@
 
                     </div>
                     <div class="buttonslot"> {{--contenitore per i bottoni--}}
-                        <a {{--href="{{"edit/".$faq['id']}}"--}} class="buttonbar2">
+                        <a href="{{"agencyedit/".$azienda['id']}}" class="buttonbar2">
                             Modifica</a>
                         <a href="{{"deleteagency/".$azienda['id']}}" class="buttonbar2">
                             Elimina</a>
