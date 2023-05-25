@@ -20,9 +20,9 @@
                                     @isset($risultati->nome)
                                     <p>{{$risultati->nome}}</p>
                                     @endisset
-                                        @isset($risultati->descrizione)
-                                            <p>{{$risultati->descrizione}}</p>
-                                        @endisset
+                                    @isset($risultati->descrizione)
+                                    <p>{{$risultati->descrizione}}</p>
+                                    @endisset
                                 </div>
 
                             </div>
