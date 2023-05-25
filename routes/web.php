@@ -26,7 +26,7 @@ Route::view('/', 'home')
 
 Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 Route::get('/filtroOfferte', [PublicController::class, 'filtroOfferte'])->name('filtroOfferte');
-Route::post('/filtraggioAziende_test', [PublicController::class, 'filtraggioAziende_test'])->name('filtraggioAziende_test');
+Route::get('/ricerca', [PublicController::class, 'ricerca'])->name('ricerca');
 Route::post('/filtraggioAziende2_test', [PublicController::class, 'filtraggioAziende2_test'])->name('filtraggioAziende2_test');
 
 Route::view('/profilepage', 'profilepage')

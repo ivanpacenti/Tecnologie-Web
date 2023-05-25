@@ -11,7 +11,14 @@
         <img src={{asset('img/img_Logo.png')}} alt="Logo" id="logo">
     </div>
         <div class="searchbar" >
-            <input type="text"  id="cerca"  >
+            @csrf
+            <form action="{{route('ricerca')}}" method="GET" id="searchForm">
+                <select id="searchOption" name="searchOption">
+                    <option name="azienda">Azienda</option>
+                    <option name="coupon">Coupon</option>
+                </select>
+            <input type="text" id="cerca" name="cerca" onsubmit="ricerca()">
+            </form>
         </div>
         <div class="links">
             <li><a href="{{route('index')}}" title="Home del sito">Home</a></li>
@@ -39,6 +46,6 @@
             @endguest
         </div>
     </nav>
-    <script src="js/scriptHome.js" async></script>
+    <script src="js/scriptNav.js" async></script>
 </html>
 

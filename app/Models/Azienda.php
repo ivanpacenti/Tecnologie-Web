@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Emissione;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+
 class Azienda extends Model
 {
     protected $table='aziendas';
