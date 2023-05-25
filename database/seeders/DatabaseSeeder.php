@@ -41,8 +41,7 @@ class DatabaseSeeder extends Seeder {
                 'posizione' => $faker->streetAddress(),
                 'tipologia' => $faker->companySuffix(),
                 'logo' => $faker->imageUrl(),
-            ]);
-
+            ]);*/
         }
 
 //        for($i=0;$i<10;$i++)
@@ -135,17 +134,35 @@ class DatabaseSeeder extends Seeder {
                 ['domanda'=>'Cosa devo far vedere al commerciante','risposta'=>'il foglio stampato']]
         );
 
-            DB::table('users')->insert([
-                    ['name'=>'utente ','surname'=>'di prova','email'=>'emailutente@gmail.com','username'=>'useruser'
-                        ,'password'=>Hash::make('z4Yt6alv'),'role' => 'user','età'=>30
-                        ,'livelloAccesso'=>1,'genere'=>'femmina','telefono'=>'+39 02 1234567'],
-                    ['name'=>'staff ','surname'=>'DI PROVA','email'=>'emailstaff@gmail.com','username'=>'staffstaff'
-                        ,'password'=>Hash::make('z4Yt6alv'),'role'=>'staff','età'=>20
-                        ,'livelloAccesso'=>2,'genere'=>'maschio','telefono'=>'+391010109'],
-                    ['name'=>'admin','surname'=>'di prova','email'=>'emailadmin@gmail.com','username'=>'adminadmin'
-                        ,'password'=>Hash::make('z4Yt6alv'),'role'=>'admin','età'=>90
-                        ,'livelloAccesso'=>3,'genere'=>'femmina','telefono'=>'+39 2020201'],
-                    ]
+        DB::table('users')->insert([
+                ['name'=>'utente ','surname'=>'di prova','email'=>'emailutente@gmail.com','username'=>'useruser'
+                    ,'password'=>Hash::make('z4Yt6alv'),'role' => 'user','età'=>30
+                    ,'livelloAccesso'=>1,'genere'=>'femmina','telefono'=>'+39 02 1234567'],
+                ['name'=>'staff ','surname'=>'DI PROVA','email'=>'emailstaff@gmail.com','username'=>'staffstaff'
+                    ,'password'=>Hash::make('z4Yt6alv'),'role'=>'staff','età'=>20
+                    ,'livelloAccesso'=>2,'genere'=>'maschio','telefono'=>'+391010109'],
+                ['name'=>'admin','surname'=>'di prova','email'=>'emailadmin@gmail.com','username'=>'adminadmin'
+                    ,'password'=>Hash::make('z4Yt6alv'),'role'=>'admin','età'=>90
+                    ,'livelloAccesso'=>3,'genere'=>'femmina','telefono'=>'+39 2020201']]
         );
+
+        DB::table('aziendas')->insert([
+            ['partitaIva'=>'7593674937','nome'=>'Lacoste','posizione'=>'Piazza della Repubblica, 14, Ancona AN','descrizione'=>'Lacoste è un iconica marca di moda francese, nota per il suo stile sportivo ed elegante, caratterizzato dal coccodrillo verde ricamato, offrendo abbigliamento di alta qualità per uomini e donne'
+                ,'tipologia'=>'ONLINE','logo'=>'img/lacoste_logo.jpeg'],
+            ['partitaIva'=>'11111111111','nome'=>'Louis Vuitton','posizione'=>'Galleria Vittorio Emanuele II, Milano MI','descrizione'=>'Louis Vuitton è un rinomato marchio di moda francese famoso per i suoi lussuosi prodotti di pelletteria e accessori.'
+                ,'tipologia'=>'ONLINE','logo'=>'??'],
+            ['partitaIva'=>'15473823894','nome'=>'Yves Saint Laurent','posizione'=>'Via de Tornabuoni, 48, Firenze FI','descrizione'=>'Yves Saint Laurent è una rinomata casa di moda e profumi di lusso, conosciuta per il suo stile elegante e sofisticato.'
+                ,'tipologia'=>'ONLINE','logo'=>''],
+//            ['partitaIva'=>'09876543219','nome'=>'Adidas','posizione'=>'Località Santa Filomena nn, Chieti CH','descrizione'=>'Adidas è un rinomato marchio di abbigliamento sportivo di origine tedesca, noto per la sua vasta gamma di prodotti che comprendono scarpe, abbigliamento e accessori.'
+//                ,'tipologia'=>'ONLINE','logo'=>''],
+//            ['partitaIva'=>'56373829744','nome'=>'Nike','posizione'=>'Località Santa Filomena nn, Chieti CH','descrizione'=>'Nike è un celebre marchio di abbigliamento sportivo statunitense, specializzato in scarpe, abbigliamento e attrezzature sportive.'
+//                ,'tipologia'=>'ONLINE','logo'=>''],
+//            ['partitaIva'=>'45276849302','nome'=>'Gucci','posizione'=>'Via dei Condotti, 8, Roma RM','descrizione'=>'Gucci: Lusso italiano e stile sofisticato in un unica riga.'
+//                ,'tipologia'=>'ONLINE','logo'=>''],
+//            ['partitaIva'=>'12345678901','nome'=>'Amarcord','posizione'=>'Piazza della Repubblica, 1c, Ancona AN','descrizione'=>'La novità ad Ancona si chiama Amarcord: un bar ristorante che, dalla mattina alla sera, ti accoglierà con tante gustose specialità e la cortesia di uno staff professionale'
+//                ,'tipologia'=>'ONLINE'],
+//            ['partitaIva'=>'34526627980','nome'=>'Med Store','posizione'=>'Corso Stamira, 45, Ancona AN','descrizione'=>'MedStore si rinnova, dopo 40 anni di esperienza nel mondo dell’elettronica di consumo, 15 anni nel mondo del retail e 10 nel mondo dell’eCommerce è giunto il tempo di intraprendere una nuova strada.'
+//                ,'tipologia'=>'ONLINE','logo'=>''],
+        ]);
     }
 }
