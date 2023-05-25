@@ -5,9 +5,10 @@
 @extends('layouts.pageLayout')
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
-    <h1> elenco delle offerte!</h1>
-    <h4> premi sul bottone corrispondente per sapere quanti coupon sono stati emessi per ogni offerta</h4>
+
     <div class="maincontainer">
+        <h1> Elenco delle offerte!</h1>
+        <h3> Clicca sul link corrispondente per sapere quanti coupon sono stati emessi per ogni offerta</h3>
         @isset($offerte)
             @foreach($offerte as $offerta)
                 <div class="main-box-az"> {{--contenitore per ogni singola azienda--}}
@@ -16,18 +17,16 @@
                     </div>
                     <div class="textslot"> {{--contenitore per il testo--}}
                         <h3>ID: {{$offerta->id}}</h3>
-                        <p>modalità: {{$offerta->modalità}},</p>
-                        <p> datafine: {{$offerta->dataFine}}</p>
-                        <p>luogo fruizione: {{$offerta->luogoFruizione}}</p>
+                        <p>Modalità: {{$offerta->modalità}}</p>
+                        <p>Scadenza: {{$offerta->dataFine}}</p>
+                        <p>Luogo di fruizione: {{$offerta->luogoFruizione}}</p>
                         <p>Descrizione: {{$offerta->descrizione}}</p>
-                        <p>
-                        <a href="{{ route('CouponOfferta', ['id' => $offerta->id]) }}">Coupon emessi</a>
-                        </p>
+                        <p><a href="{{ route('CouponOfferta', ['id' => $offerta->id]) }}", class="coloredlink">Coupon emessi</a></p>
                     </div>
                 </div>
             @endforeach
         @else
-            <h1>NON CI SONO OFFERTE </h1>
+            <h1>Siamo spiacenti, non ci sono offerte!</h1>
         @endisset()
     </div>
 @endsection('content')
