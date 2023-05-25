@@ -84,12 +84,16 @@ class AdminController extends Controller
     public function salvafaq(Request $req)
         // funzione per salvare una faq all'interno del db
     {
+        $req->validate([
+            'domanda' => ['required', 'string', 'max:255'],
+            'risposta' => ['required', 'string', 'max:255'],
+        ]);
 
         $faq = new Faq();
-        $faq->domanda = $req->domanda;
-        $faq->risposta = $req->risposta;
+        $faq->domanda = $req->input('domanda');
+        $faq->risposta = $req->input('risposta');
         $faq->save();
-        return view('adminView.faqsedit', ['faq' => $faq]);
+        return  redirect()->route('adminFaqs');
     }
 
     public function storeProduct(NewProductRequest $request)

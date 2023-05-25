@@ -94,8 +94,12 @@ Route::get('/adminFaqs', [AdminController::class, 'VisualizzaFaq'])->name('admin
 Route::get('/delete/{id}', [AdminController::class,'deleteFaq'])->name('elimina-faq');
 Route::get('/edit/{id}', [AdminController::class,'visualizza1Faq'])->name('editid');
 Route::post('/edit', [AdminController::class,'modificaFaq'])->name('edit');
-Route::get('/faqsCreate', [AdminController::class, 'salvafaq'])->name('faqsCreate');
+
+Route::view('/faqsCreate','adminView.faqsCreate')->name('faqsCreate');
+Route::post('/faqsCreate', [AdminController::class, 'salvafaq'])->name('faqsCreate2');
+
 Route::view('/amministratore', 'admin')
+
     ->name('admin')->middleware('can:isAdmin');
 Route::get('/visualizzaUtente', [AdminController::class,'visualizzaUtente'])->name('visualizzaUtente');
 Route::get('/deleteUser/{id}', [AdminController::class,'deleteUser'])->name('deleteUser');
