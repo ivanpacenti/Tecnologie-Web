@@ -18,7 +18,7 @@ console.log(sessionStorage);
 function checkClick()
 {
     var cb=document.getElementById('formCheckbox');
-    asd=document.querySelector('.check:checked');
+    var asd=document.querySelector('.check:checked');
     sessionStorage.setItem(asd.value.toString(), true);
 
 
@@ -38,8 +38,5 @@ function onPageLoad() {
         console.log(check)
     }
 }
-// Ripristina lo stato dei checkbox al caricamento della pagina
-window.addEventListener('DOMContentLoaded', function() {
 
-});
 

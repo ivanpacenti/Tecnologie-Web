@@ -84,6 +84,7 @@ class PublicController
             // Recupera il valore originale di aziende_selezionate dalla sessione
             $aziendeSelezionate = session('aziende_selezionate');
         } else session(['aziende_selezionate' => $aziendeSelezionate]);
+
         $offerte = Azienda::whereIn('id', $aziendeSelezionate)->first()->offerte()->paginate(2);
 
 

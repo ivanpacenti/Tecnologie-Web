@@ -3,18 +3,16 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <html>
     <head>
-        <script src="js/scriptHome.js" async></script>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/nav_design.css') }}" >
     </head>
-
+    <nav>
     <div class="logo">
         <img src={{asset('img/img_Logo.png')}} alt="Logo" id="logo">
     </div>
-    <div class="searchbar">
-        <input type="text" placeholder="Cerca un coupon...">
-    </div>
-    <nav>
+        <div class="searchbar" >
+            <input type="text"  id="cerca"  >
+        </div>
         <div class="links">
             <li><a href="{{route('index')}}" title="Home del sito">Home</a></li>
             <li><a href="{{route('catalogo')}}" title="Catalogo delle offerte">Catalogo</a></li>
@@ -41,5 +39,6 @@
             @endguest
         </div>
     </nav>
+    <script src="js/scriptHome.js" async></script>
 </html>
 

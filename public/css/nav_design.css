@@ -60,7 +60,7 @@ nav{
 .searchbar{
     display: flex;
     flex-grow: 4;
-    justify-content: flex-end;
+    justify-content: center;
     /*border: 2px solid red;*/
 }
 
@@ -69,9 +69,10 @@ nav{
 */
 .searchbar input[type=text] {
     border-radius: 10rem;
+    width: 20rem;
     display: flex;
-    flex-direction: row;
-    padding: .3rem 10%;
+    flex-direction: column;
+    padding: .3rem ;
     font-size: .9rem;
 }
 
@@ -80,9 +81,10 @@ nav{
 */
 li{
     display: flex;
-    justify-content: space-between;
+    justify-content: c;
     align-items: center;
     border: 0px solid blue;
+
 }
 
 /*
