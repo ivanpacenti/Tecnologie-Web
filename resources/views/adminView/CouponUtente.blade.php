@@ -5,12 +5,17 @@
 @section('title','eliminazione utenti')
 
 @section('content')
-    <h1>  IL TOTALE DEI COUPON EMESSI  E'{{$numTot}}</h1>
-    <div class="textslot"> {{--contenitore per il testo--}}
-        <h3>ID: {{$user->id}}</h3>
-        <p>nome: {{$user->name}},</p>
-        <p> cognome: {{$user->surname}}</p>
-        <p> username: {{$user->username}}</p>
-        <p> telefono: {{$user->telefono}}</p>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
+    <div class="maincontainer">
+        <h1>Il totale dei coupon acquistati è: {{$numTot}}</h1>
+        <div class="upper-box"> {{--contenitore per il testo--}}
+            <h3>ID: {{$user->id}}</h3>
+            <p>Nome: {{$user->name}},</p>
+            <p>Cognome: {{$user->surname}}</p>
+            <p>Username: {{$user->username}}</p>
+            <p>Telefono: {{$user->telefono}}</p>
+        </div>
+        <a href="{{route('statistiche')}}" class="buttonbarstats">torna indietro</a>
+    </div>
 @endsection
 

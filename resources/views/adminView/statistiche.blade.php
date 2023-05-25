@@ -4,15 +4,11 @@
 @extends('layouts.pageLayout')
 
 @section('content')
-<h1>  qui siamo nelle sezioni delle statistiche </h1>
-<p>
-<a href="{{route('NumeroCoupon')}}" class="buttonbar">numero totale di coupon emessi</a>
-<p>
-<p>
-<a href="{{route('VisualizzaOfferte')}}"class="buttonbar">coupon emessi per ogni azienda</a>
-</p>
-<p>
-<a href="{{route("visualizzaUtente")}}" class="buttonbar">
-    coupon comprati per utente</a>
-<p>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
+    <div class="maincontainer">
+        <h1>Scegli quale statistica vuoi visualizzare:</h1>
+        <a href="{{route('NumeroCoupon')}}" class="buttonbarstats">numero totale di coupon emessi</a>
+        <a href="{{route('VisualizzaOfferte')}}"class="buttonbarstats">coupon emessi per ogni azienda</a>
+        <a href="{{route("visualizzaUtente")}}" class="buttonbarstats">coupon acquistati per utente</a>
+    </div>
 @endsection

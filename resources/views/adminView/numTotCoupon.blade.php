@@ -5,7 +5,9 @@
 @extends('layouts.pageLayout')
 
 @section('content')
-
-<h1> IL NUMERO TOTALE DEI COUPON EMESSI DEL NOSTRO SITO è {{$numTotCoupon}} </h1>
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
+    <div class="maincontainer">
+        <h1> Il numero totale di coupon emessi dal nostro sito è: {{$numTotCoupon}}</h1>
+        <a href="{{route('statistiche')}}" class="buttonbarstats">torna indietro</a>
+    </div>
 @endsection
