@@ -51,25 +51,24 @@ class PublicController
     {
         $opzione=$request->get('searchOption');
         $testo=$request->get('cerca');
-        $aziende=Azienda::all();
-        $offerte=Offerta::all();
+
         switch ($opzione)
         {
             case 'Azienda':
                 {
-                    $aziende=Azienda::where('nome','like','%'.$testo.'%')->get();
+                    $risultati=Azienda::where('nome','like','%'.$testo.'%')->get();
                 };break;
             case 'Coupon':
                 {
-                    $offerte=Offerta::where('descrizione','like','%'.$testo.'%')->get();
+                    $risultati=Offerta::where('descrizione','like','%'.$testo.'%')->get();
                 };break;
 
         }
 
-        $dataOggi = Carbon::today()->toDateString();
+
 
         //$aziende=Azienda::all();
-        return view('ricerca')->with('offerte', $offerte)->with('aziende', $aziende);
+        return view('ricerca')->with('risultati', $risultati);
     }
     public function filtroOfferte(Request $request)
     {

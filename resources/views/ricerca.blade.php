@@ -6,9 +6,9 @@
     @csrf
     <link rel="stylesheet" type="text/css" href="{{ asset('css/ricercaDesign.css') }}" >
     <div class="container">
-            @isset($offerte)
+            @isset($risultati)
                 <div class="container2">
-                    @foreach($offerte as $offerta)
+                    @foreach($risultati as $risultati)
                             <div class="product-card" >
                                 <div class="image-container">
                                     <img src="{{asset('img/lacoste_logo.jpeg')}}" alt="Immagine prodotto">
@@ -17,33 +17,17 @@
                                     @endauth
                                 </div>
                                 <div class="description">
-                                    <p>{{$offerta->descrizione}}</p>
+                                    @isset($risultati->nome)
+                                    <p>{{$risultati->nome}}</p>
+                                    @endisset
+                                        @isset($risultati->descrizione)
+                                            <p>{{$risultati->descrizione}}</p>
+                                        @endisset
                                 </div>
-                                <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}" class="btn">Visualizza</a>
-                            </div>
 
+                            </div>
                     @endforeach
                 </div>
             @endisset
-                @isset($aziende)
-                    <div class="container2">
-                        @foreach($aziende as $azienda)
-                            <div class="product-card" >
-                                <div class="image-container">
-                                    <img src="{{asset('img/Nike_logo.png')}}" alt="Immagine azienda">
-                                    @auth
-                                        <span class="discount">-30%</span>
-                                    @endauth
-                                </div>
-                                <div class="description">
-                                    <p>{{$azienda->nome}}</p>
-                                </div>
-                                <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}" class="btn">Visualizza</a>
-                            </div>
-
-                        @endforeach
-                    </div>
-                @endisset
-
         </div>
         @endsection
