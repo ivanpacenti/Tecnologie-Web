@@ -108,10 +108,12 @@ Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name(
 
 
 // ROTTE PER LE STATISTICHE
-
-
 Route::view('/statistiche', 'adminView.statistiche')->name('statistiche');
 Route::get('/totaleCoupon',[AdminController::class,'NumeroCoupon'])->name('NumeroCoupon');
+Route::get('/VisualizzaOfferte',[AdminController::class,'VisualizzaOfferte'])->name('VisualizzaOfferte');
+
+
+
 /*
 |--------------------------------------------------------------------------
 | ROTTE PER L'USER

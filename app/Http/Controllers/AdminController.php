@@ -194,6 +194,19 @@ class AdminController extends Controller {
 
         return view('adminView.numTotCoupon',['numTotCoupon'=>$numTotCoupon]);;
     }
+    public function VisualizzaOfferte()
+    {
+        $offerte = Offerta::all();
 
+//        foreach ($offerte as $offerta) {
+//            $idOfferta = $offerta->id;
+//            $count = coupon_off::where('offerta', $idOfferta)->count();
+//            $offerta->count = $count;
+//
+//        }
+//        dd($count);
+
+        return view('adminView.VisualizzaOfferte', ['offerte' => $offerte]);
+    }
 
 }
