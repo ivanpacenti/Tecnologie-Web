@@ -11,6 +11,7 @@ use App\Http\Requests\NewProductRequest;
 use App\Models\Resources\Staff;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class StaffController extends Controller {
    // protected $_staffModel;
@@ -39,7 +40,7 @@ class StaffController extends Controller {
         $User= User::find($req->id);
         $User->name=$req->name;
         $User->surname=$req->surname;
-        $User->password=$req->password;
+        $User->password = Hash::make($req->password);
 
         //dd($staff);
         $User->save();

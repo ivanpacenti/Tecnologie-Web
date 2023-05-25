@@ -8,7 +8,7 @@ use App\Models\Offerta;
 use App\Models\User;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 use App\Models\Utente;
 
 
@@ -49,7 +49,7 @@ class UserController extends Controller {
         $User->name=$req->name;
         $User->email=$req->email;
         $User->surname=$req->surname;
-        $User->password=$req->password;
+        $User->password = Hash::make($req->password);
         $User->username=$req->username;
         $User->età=$req->età;
 
