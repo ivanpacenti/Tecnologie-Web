@@ -51,7 +51,7 @@ class StaffController extends Controller {
 
     public function index() {
         return view('couponEdit');
-        return view('editPromo');
+        //return view('editPromo');
     }
 
     public function deleteCoupon($id)
@@ -60,12 +60,29 @@ class StaffController extends Controller {
         $offerta->delete();
         return redirect()->back()->with('success', 'Coupon eliminato con successo');
     }
-    public function modifyCoupon($id)
+    public function modifyCoupon(Request $request)
     {
-        $offerta = Offerta::find($id);
-        //$offerta ->modify();
+        //$offerta = Offerta::find($id);
+        /*$offerta = Offerta::all();
+        $offerta ->modify();
         //return redirect()->back()->with('success', 'Coupon modificato con successo');
-        return view('editPromo',)->with('offerta', $offerta);
+        return view('editPromo',)->with('offerta', $offerta);*/
+
+        $request->validate([
+            'id' => ['required'],
+            'descrizione' => ['required'],
+            'modalita'=> ['required'],
+            'luogoFruizione'=> ['required']
+        ]);
+
+        $offerta= Offerta::find($request->id);
+        $offerta->descrizione=$request->descrizione;
+        $offerta->modalita=$request->modalita;
+        $offerta->luogoFruizione=$request->luogoFruizione;
+
+        $offerta->save();
+
+        return view('editPromo');
     }
     /*public function createCoupon($id)
     {
