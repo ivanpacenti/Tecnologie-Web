@@ -187,6 +187,20 @@ class DatabaseSeeder extends Seeder {
                 ,'dataInizio'=>'2023-05-21','dataFine' => '2023-12-29']
         ]);
 
+        //per adesso la creazione è statica, deve essere implementata dinamicamente
+        DB::table('emissiones')->insert([
+            ['azienda' => '1', 'offerta'=>'1'],
+            ['azienda' => '1', 'offerta'=>'2'],
+            ['azienda' => '2', 'offerta'=>'3'],
+            ['azienda' => '3', 'offerta'=>'4'],
+            ['azienda' => '4', 'offerta'=>'5'],
+            ['azienda' => '5', 'offerta'=>'6'],
+            ['azienda' => '6', 'offerta'=>'7'],
+            ['azienda' => '7', 'offerta'=>'8'],
+            ['azienda' => '8', 'offerta'=>'9'],
+            ['azienda' => '8', 'offerta'=>'10']
+        ]);
+
     }
 }
 
