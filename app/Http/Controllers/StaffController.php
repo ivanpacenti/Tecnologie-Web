@@ -49,57 +49,7 @@ class StaffController extends Controller {
     }
 //INSERITE DA VALERIA
 
-    public function index() {
-        return view('couponEdit');
-        //return view('editPromo');
-    }
 
-    public function deleteCoupon($id)
-    {
-        $offerta = Offerta::find($id);
-        $offerta->delete();
-        return redirect()->back()->with('success', 'Coupon eliminato con successo');
-    }
-    public function modifyCoupon(Request $request)
-    {
-        //$offerta = Offerta::find($id);
-        /*$offerta = Offerta::all();
-        $offerta ->modify();
-        //return redirect()->back()->with('success', 'Coupon modificato con successo');
-        return view('editPromo',)->with('offerta', $offerta);*/
-
-        $request->validate([
-            'id' => ['required'],
-            'descrizione' => ['required'],
-            'modalita'=> ['required'],
-            'luogoFruizione'=> ['required']
-        ]);
-
-        $offerta= Offerta::find($request->id);
-        $offerta->descrizione=$request->descrizione;
-        $offerta->modalita=$request->modalita;
-        $offerta->luogoFruizione=$request->luogoFruizione;
-
-        $offerta->save();
-
-        return view('editPromo');
-    }
-    /*public function createCoupon($id)
-    {
-        $offerta = Offerta::find($id);
-        $offerta ->create();
-        return redirect()->back()->with('success', 'Coupon creato con successo');
-    }*/
-    /*public function createCoupon(Request $request)
-    {
-        $coupon = new Coupon();
-        $coupon->id = $request->input('id');
-        $coupon->offerta = $request->input('offerta');
-        $coupon->expiry_date = $request->input('Data inizio');
-        $coupon->save();
-
-        return response()->json(['message' => 'Coupon creato con successo'], 200);
-    }*/
     public function VisualizzaAziende_STAFF()
     {
         $aziende= Azienda::all();

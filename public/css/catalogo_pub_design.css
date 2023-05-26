@@ -279,8 +279,10 @@ al disotto per colonna*/
 }
 
 .product-detailsimg img {
+    object-fit: cover;
     max-width: 100%;
     height: auto;
+    max-height: 500px;
 }
 
 .product-detailsimg{

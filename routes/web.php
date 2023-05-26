@@ -94,14 +94,15 @@ Route::get('/CouponOfferta{id}',[AdminController::class,'CouponOfferta'])->name(
 Route::get('/CouponUtente{id}',[AdminController::class,'CouponUtente'])->name('CouponUtente');
 
 
-// CRUD DELLOS sTAFF
+// CRUD DELLO STAFF
 //*valeria
 // creo la rotta per la visualizzazione, li chiamo uguale cosi non faccio confusione, quindi vado sull'admin controller e creo la funzione, questa rotta è da richiamare dalla navbar
 Route::get('/VisualizzaStaff',[AdminController::class,'VisualizzaStaff'])->name('VisualizzaStaff');
 //Route::get('/eliminastaff/{id}', [AdminController::class,'EliminaStaff'])->name('EliminaStaff'); IO UTILIZZO UNA ROTTA FATTA IN PASSATO, VALERIA LA DEVI FARE SIMILE
 Route::get('/ModificaStaff/{id}', [AdminController::class,'ModificaStaff1'])->name('ModificaStaff1');
 Route::post('/ModificaStaff', [AdminController::class,'ModificaStaff'])->name('ModificaStaff');
-
+Route::view('/staffcreate','adminView.staffcreate')->name('staffcreate'); // prima rotta di sola visualizzazione
+Route::post('/staffcreate', [AdminController::class, 'staffcreate'])->name('staffcreate');// prima rotta di sola visualizzazione
 /*
 |--------------------------------------------------------------------------
 | ROTTE PER L'USER
@@ -149,8 +150,8 @@ Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editS
 
 
 //ROTTE PER IL CRUD DELLE PROMOZIONI
-//Route::view('/staff/crudPromozioni', 'couponEdit')
-//    ->name('crudPromozioni');
+/*Route::view('/staff/crudPromozioni', 'couponEdit')
+    ->name('crudPromozioni');*/
 Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupon'])->name('crudPromozioni');
 
 
@@ -159,10 +160,10 @@ Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupo
 //Route::get('/staff/crudPromozioni', [StaffController::class, 'createCoupon'])->name('crudPromozioni');
 
 //DA CAMBIARE PERCHè NON FA FUNZIONARE LE ROTTE
-/*Route::view('/staff/modify', 'editPromo')
-    -> name('editPromo');*/
-/*Route::get('/modify/{id}', [CatalogoController::class, 'visualizzaCoupon']) ->name('modificaid');
-Route::post('/modify', [StaffController::class, 'modifyCoupon']) ->name('modificaP');*/
+Route::view('/staff/modify','staffView.editPromo')->name('modificaCoupon');
+Route::post('/staff/modify', [PromoController::class, 'modCoupon'])->name('modificaCoupon2');
+Route::get('/modify', [PromoController::class, 'VisualizzaCoupon'])->name('couponEdit');
+Route::get('/edit', [PromoController::class,'modificaCoupon'])->name('edit');
 
 Route::get('/staff/modify', [\App\Http\Controllers\PromoController::class, 'editPromo'])
     ->name('editPromo');
