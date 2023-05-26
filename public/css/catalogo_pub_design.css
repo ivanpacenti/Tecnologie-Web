@@ -100,12 +100,14 @@ al disotto per colonna*/
     background-color: #4b4b4b;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    padding: 5px;
+    padding: 0;
 }
 
 .description p {
-    text-align: center;
-    font-size: 12px;
+    margin-top: .3rem;
+
+    text-align:center;
+    font-size: .7rem;
 }
 
 .price {

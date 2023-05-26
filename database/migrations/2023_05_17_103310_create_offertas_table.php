@@ -18,7 +18,7 @@ return new class extends Migration
                 $table->string('modalità',100);
                 $table->string('immagine',100);
                 $table->string('luogoFruizione',100);
-                $table->string('descrizione',100);
+                $table->string('descrizione',250);
                 $table->date('dataInizio');
                 $table->date('dataFine');
         });

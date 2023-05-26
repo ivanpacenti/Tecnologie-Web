@@ -117,8 +117,8 @@ class DatabaseSeeder extends Seeder {
                 ,'tipologia'=>'ONLINE','logo'=>'img/MedStore_logo.png'],
         ]);
         DB::table('offertas')->insert([
-            ['modalità'=>'20','immagine'=>'img/polo.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>' 65% di sconto su due polo a scelta
-                ','dataInizio'=>'2023-05-11','dataFine' => '2023-09-29'],
+            ['modalità'=>'20','immagine'=>'img/polo.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>' 65% di sconto su due polo a scelta'
+                ,'dataInizio'=>'2023-05-11','dataFine' => '2023-09-29'],
             ['modalità'=>'30','immagine'=>'img/pantaloni.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'30% di sconto su tutti i pantaloni felpati'
                 ,'dataInizio'=>'2023-04-29','dataFine' => '2023-07-29'],
             ['modalità'=>'40','immagine'=>'img/cintura.png','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su una cintura di pelle scelta dallo staff'
@@ -136,7 +136,27 @@ class DatabaseSeeder extends Seeder {
             ['modalità'=>'40','immagine'=>'img/macbook.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su tutti i MacBook Air'
                 ,'dataInizio'=>'2023-05-20','dataFine' => '2023-05-21'],
             ['modalità'=>'15','immagine'=>'img/watch.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutti i modelli di Apple Watch'
-                ,'dataInizio'=>'2023-05-21','dataFine' => '2023-12-29']
+                ,'dataInizio'=>'2023-05-21','dataFine' => '2023-12-29'],
+            ['modalità'=>'20','immagine'=>'img/polo.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutte le polo Nike della nuova collezione estiva',
+                'dataInizio'=>'2023-05-11','dataFine' => '2023-09-29'],
+            ['modalità'=>'30','immagine'=>'img/pantaloni.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'30% di sconto su tutti i pantaloni sportivi Adidas per l\'allenamento',
+                'dataInizio'=>'2023-04-29','dataFine' => '2023-07-29'],
+['modalità'=>'40','immagine'=>'img/cintura.png','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su una cintura di pelle Lacoste da uomo o da donna',
+    'dataInizio'=>'2023-05-23','dataFine' => '2023-05-29'],
+['modalità'=>'10','immagine'=>'img/profumo.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su tutti i profumi Yves Saint Laurent delle linee fragranze femminili',
+    'dataInizio'=>'2023-05-11','dataFine' => '2023-05-29'],
+['modalità'=>'60','immagine'=>'img/tuta.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'60% di sconto su tute e felpe Adidas originali per un look sportivo di tendenza',
+    'dataInizio'=>'2023-05-10','dataFine' => '2023-06-29'],
+['modalità'=>'10','immagine'=>'img/dunk.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su Nike Dunk Low Panda, le sneaker iconiche per gli amanti del comfort e dello stile',
+    'dataInizio'=>'2023-05-03','dataFine' => '2023-05-29'],
+['modalità'=>'20','immagine'=>'img/prodotti_coop.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutti i prodotti alimentari Coop delle migliori marche, per una spesa conveniente e di qualità',
+    'dataInizio'=>'2023-05-14','dataFine' => '2023-05-30'],
+['modalità'=>'5','immagine'=>'img/portatile.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'5% di sconto su tutti i portatili delle principali marche disponibili su MediaWorld, per lavorare o divertirti ovunque tu sia',
+    'dataInizio'=>'2023-05-18','dataFine' => '2023-08-29'],
+['modalità'=>'40','immagine'=>'img/macbook.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su tutti i MacBook Air, il notebook leggero e potente per studenti e professionisti',
+    'dataInizio'=>'2023-05-20','dataFine' => '2023-05-21'],
+['modalità'=>'15','immagine'=>'img/watch.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'15% di sconto su tutti i modelli di Apple Watch, il compagno perfetto per monitorare la tua attività e rimanere connesso',
+    'dataInizio'=>'2023-05-21','dataFine' => '2023-12-29'],
         ]);
 
         //per adesso la creazione è statica, deve essere implementata dinamicamente
@@ -150,7 +170,17 @@ class DatabaseSeeder extends Seeder {
             ['azienda' => '6', 'offerta'=>'7'],
             ['azienda' => '7', 'offerta'=>'8'],
             ['azienda' => '8', 'offerta'=>'9'],
-            ['azienda' => '8', 'offerta'=>'10']
+            ['azienda' => '8', 'offerta'=>'10'],
+            ['azienda' => '5', 'offerta'=>'11'],//ok
+            ['azienda' => '4', 'offerta'=>'12'],
+            ['azienda' => '1', 'offerta'=>'13'],
+            ['azienda' => '3', 'offerta'=>'14'],//ok
+            ['azienda' => '4', 'offerta'=>'15'],
+            ['azienda' => '5', 'offerta'=>'16'],
+            ['azienda' => '6', 'offerta'=>'17'],
+            ['azienda' => '7', 'offerta'=>'18'],
+            ['azienda' => '8', 'offerta'=>'19'],
+            ['azienda' => '8', 'offerta'=>'20']
         ]);
 
     }
