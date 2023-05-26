@@ -16,6 +16,7 @@
         <li><a href="{{ route('index') }}" title="Home del sito">Home</a></li>
         <li><a href="{{ route('user') }}" title="Home di User">Profilo</a></li>
         <li><a href="{{ route('catalogo') }}" title="Visualizza il Catalogo Prodotti">Catalogo</a></li>
+        <li><a href="{{route('homeAziende')}}" title="le nostre aziende">Le nostre aziende</a></li>
         @auth
             <li><a href="" class="highlight" title="Logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

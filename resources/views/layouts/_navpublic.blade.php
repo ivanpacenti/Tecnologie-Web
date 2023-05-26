@@ -23,7 +23,7 @@
         <div class="links">
             <li><a href="{{route('index')}}" title="Home del sito">Home</a></li>
             <li><a href="{{route('catalogo')}}" title="Catalogo delle offerte">Catalogo</a></li>
-
+            <li><a href="{{route('homeAziende')}}" title="le nostre aziende">Le nostre aziende</a></li>
             {{-- si attiva quando l'utente è loggato--}}
             @can('isUser')
                 <li><a href="{{ route('user') }}" class="highlight" title="Profilo">Profilo</a></li>
@@ -41,6 +41,7 @@
 
             {{-- si attiva solamente quando l'utente non è loggato--}}
             @guest
+
                 <li><a href="{{ route('register') }}" title="Resgistrati al sito">Registrati</a></li>
                 <li><a href="{{ route('login') }}" class="highlight" title="Accedi all'area riservata del sito">Login</a></li>
             @endguest

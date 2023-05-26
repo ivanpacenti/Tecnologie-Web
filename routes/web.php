@@ -93,6 +93,15 @@ Route::get('/VisualizzaOfferte',[AdminController::class,'VisualizzaOfferte'])->n
 Route::get('/CouponOfferta{id}',[AdminController::class,'CouponOfferta'])->name('CouponOfferta');
 Route::get('/CouponUtente{id}',[AdminController::class,'CouponUtente'])->name('CouponUtente');
 
+
+// CRUD DELLOS sTAFF
+//*valeria
+// creo la rotta per la visualizzazione, li chiamo uguale cosi non faccio confusione, quindi vado sull'admin controller e creo la funzione, questa rotta è da richiamare dalla navbar
+Route::get('/VisualizzaStaff',[AdminController::class,'VisualizzaStaff'])->name('VisualizzaStaff');
+//Route::get('/eliminastaff/{id}', [AdminController::class,'EliminaStaff'])->name('EliminaStaff'); IO UTILIZZO UNA ROTTA FATTA IN PASSATO, VALERIA LA DEVI FARE SIMILE
+Route::get('/ModificaStaff/{id}', [AdminController::class,'ModificaStaff1'])->name('ModificaStaff1');
+
+
 /*
 |--------------------------------------------------------------------------
 | ROTTE PER L'USER

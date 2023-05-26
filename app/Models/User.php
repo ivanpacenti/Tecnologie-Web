@@ -61,5 +61,9 @@ class User extends Authenticatable
     public function getUtentebyID($id){
         return User::find($id);
     }
+    public function getStaff(){
+        return User::where('role', 'LIKE', '%staff%')->get();
+    }
+
 
 }

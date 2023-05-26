@@ -20,6 +20,7 @@ class AdminController extends Controller
     protected $_adminUsers;
     protected $_adminAziende;
     protected $_adminOfferte;
+    protected $_adminStaff; // per valeria seguire qua per creare l'istanza poi aggiungerla al costruttore
 
 
 // questo costruttore mi fa il controllo sul fatto che quando apro queste rotte è solo l'admin ad aprirle
@@ -219,5 +220,47 @@ class AdminController extends Controller
         $user= $this->_adminUsers->getUtentebyID($id);
         $numTot = coupon_off::where('utente', $user->username)->count();
         return view('adminView.CouponUtente', ['numTot' => $numTot,'user'=>$user]);
+    }
+
+    //crud dello staff *valeria
+    //ora faccio al funzione che me la visualizza richiamando il metodo dellos taff
+    public function VisualizzaStaff()
+    {
+        $staffs = $this->_adminUsers->getStaff();
+     //   dd($staffs);
+        return view('adminView.VisualizzaStaff', ['staffs' => $staffs]);
+    }
+    // fatto il visualizza facciamo la rotta per l'eliminazione(uso una rotta vecchi) guarda dal codice quale è
+
+
+    // questo mi visualizza un membro dello staff, quello che identifico
+    public function ModificaStaff1($id)
+    {
+        $staff = $this->_adminUsers->getUtentebyID($id);
+        dd($staff);
+        return view('adminView.ModificaStaff', ['staff' => $staff]);
+    }
+
+    // dopop che trovo identifico quale membro dello staff voglio modificare, richiamando sopra
+    // la vista con i form di modifica mi attingo a slavarlo nella funzione qui sotto
+    public function ModificaStaff(Request $req)
+    {
+        $req->validate([
+            'partitaIva' => ['required', 'string', 'max:255'],
+            'nome' => ['required', 'string', 'max:255'],
+            'posizione' => ['required', 'string', 'max:255'],
+            'descrizione' => ['required', 'string', 'max:255'],
+            'tipologia' => ['required', 'string', 'max:255'],
+            'logo' => ['required', 'string', 'max:255'],
+        ]);
+        $azienda = $this->_adminAziende->getAziendabyID($req->id);
+        $azienda->partitaIva = $req->partitaIva;
+        $azienda->nome = $req->nome;
+        $azienda->posizione = $req->posizione;
+        $azienda->descrizione = $req->descrizione;
+        $azienda->tipologia = $req->tipologia;
+        $azienda->logo = $req->logo;
+        $azienda->save();
+        return redirect()->action([AdminController::class, 'VisualizzaAziende']);
     }
 }

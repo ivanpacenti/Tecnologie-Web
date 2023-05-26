@@ -7,8 +7,6 @@
 
     <div class="maincontainer">
         <h1>ECCO TUTTE LE AZINDE DEL NOSTRO SITO</h1>
-
-        <a href="{{asset('agencycreate')}}" class="buttonbar-add">Aggiungi un' azienda</a>
         @isset($aziende)
             @foreach($aziende as $azienda)
 
@@ -17,10 +15,11 @@
                         <img src="{{$azienda->logo}}" width=100% height=auto>
                     </div>
                     <div class="textslot"> {{--contenitore per il testo--}}
-                        <p>Partita Iva: {{$azienda->partitaIva}}</p>
-                        <p>Nome: {{$azienda->nome}}, Tipologia: {{$azienda->tipologia}}</p>
-                        <p>Posizione: {{$azienda->posizione}}</p>
-                        <p>Descrizione: {{$azienda->descrizione}}</p>
+                        <h3>Partita Iva: {{$azienda->partitaIva}}</h3>
+                        <h2>Nome: {{$azienda->nome}}</h2>
+                        <h3>  Tipologia: {{$azienda->tipologia}}</h3>
+                        <h3>Posizione: {{$azienda->posizione}}</h3>
+                        <h4>Descrizione: {{$azienda->descrizione}}</h4>
                     </div>
                 </div>
 
