@@ -96,7 +96,7 @@ class AdminController extends Controller
         return  redirect()->route('adminFaqs');
     }
 
-    public function storeProduct(NewProductRequest $request)
+   /* public function storeProduct(NewProductRequest $request)
     {
 
         if ($request->hasFile('image')) {
@@ -117,8 +117,7 @@ class AdminController extends Controller
         };
 
         return redirect()->action([AdminController::class, 'index']);;
-    }
-
+    }*/
 
     public function visualizzaUtente() //  Questa è una funzione per visualizzazione degli utenti
     {

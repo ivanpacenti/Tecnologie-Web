@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('coupon_offs', function (Blueprint $table) {
-            $table->string('utente');
+            $table->string('utente')->nullable();
             $table->integer('offerta')->unsigned();
             $table->increments('id');
             $table->timestamps(null);
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreign('offerta')->references('id')
                 ->on('offertas')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('utente')->references('username')
-                ->on('users')->onUpdate('cascade')->onDelete('cascade');
+                ->on('users')->onUpdate('cascade')->onDelete('set null');
         });
     }
 
