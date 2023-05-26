@@ -12,6 +12,7 @@ use App\Models\Resources\Product;
 use App\Http\Requests\NewProductRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -237,7 +238,7 @@ class AdminController extends Controller
     public function ModificaStaff1($id)
     {
         $staff = $this->_adminUsers->getUtentebyID($id);
-        dd($staff);
+      //  dd($staff);
         return view('adminView.ModificaStaff', ['staff' => $staff]);
     }
 
@@ -246,21 +247,23 @@ class AdminController extends Controller
     public function ModificaStaff(Request $req)
     {
         $req->validate([
-            'partitaIva' => ['required', 'string', 'max:255'],
-            'nome' => ['required', 'string', 'max:255'],
-            'posizione' => ['required', 'string', 'max:255'],
-            'descrizione' => ['required', 'string', 'max:255'],
-            'tipologia' => ['required', 'string', 'max:255'],
-            'logo' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'età' => ['required', 'integer', 'between:0,100'],
+            'username' => ['required', 'string', 'between:0,100'],
         ]);
-        $azienda = $this->_adminAziende->getAziendabyID($req->id);
-        $azienda->partitaIva = $req->partitaIva;
-        $azienda->nome = $req->nome;
-        $azienda->posizione = $req->posizione;
-        $azienda->descrizione = $req->descrizione;
-        $azienda->tipologia = $req->tipologia;
-        $azienda->logo = $req->logo;
-        $azienda->save();
-        return redirect()->action([AdminController::class, 'VisualizzaAziende']);
+
+        $User = $this->_adminUsers->getUtentebyID($req->id);
+        $User->name=$req->name;
+        $User->email=$req->email;
+        $User->surname=$req->surname;
+        $User->password = Hash::make($req->password);
+        $User->username=$req->username;
+        $User->età=$req->età;
+        //dd($User);
+        $User->save();
+
+        return redirect()->action([AdminController::class, 'VisualizzaStaff']);
     }
 }

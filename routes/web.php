@@ -100,7 +100,7 @@ Route::get('/CouponUtente{id}',[AdminController::class,'CouponUtente'])->name('C
 Route::get('/VisualizzaStaff',[AdminController::class,'VisualizzaStaff'])->name('VisualizzaStaff');
 //Route::get('/eliminastaff/{id}', [AdminController::class,'EliminaStaff'])->name('EliminaStaff'); IO UTILIZZO UNA ROTTA FATTA IN PASSATO, VALERIA LA DEVI FARE SIMILE
 Route::get('/ModificaStaff/{id}', [AdminController::class,'ModificaStaff1'])->name('ModificaStaff1');
-
+Route::post('/ModificaStaff', [AdminController::class,'ModificaStaff'])->name('ModificaStaff');
 
 /*
 |--------------------------------------------------------------------------
