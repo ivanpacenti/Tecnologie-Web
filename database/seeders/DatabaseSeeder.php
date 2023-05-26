@@ -62,58 +62,10 @@ class DatabaseSeeder extends Seeder {
             ['catId' => 6, 'name' => 'HardDisk', 'parId' => 2, 'desc' => 'Descrizione dei Dischi Rigidi'],
         ]);
 
-        DB::table('product')->insert([
-            ['name' => 'NetBook Modello2', 'catId' => 5,
-                'descShort' => 'Caratteristiche NetBook2', 'descLong' => self::DESCPROD,
-                'price' => 219.34, 'discountPerc' => 12, 'discounted' => 0, 'image' => ''],
-            ['name' => 'HardDisk Modello2', 'catId' => 6,
-                'descShort' => 'Caratteristiche HardDisk2', 'descLong' => self::DESCPROD,
-                'price' => 86.37, 'discountPerc' => 15, 'discounted' => 1, 'image' => 'Italy.gif'],
-            ['name' => 'Desktop Modello1', 'catId' => 3,
-                'descShort' => 'Caratteristiche Desktop1', 'descLong' => self::DESCPROD,
-                'price' => 1230.49, 'discountPerc' => 25, 'discounted' => 1, 'image' => 'Brazil.gif'],
-            ['name' => 'Laptop Modello1', 'catId' => 4,
-                'descShort' => 'Caratteristiche Laptop1', 'descLong' => self::DESCPROD,
-                'price' => 455.37, 'discountPerc' => 17, 'discounted' => 1, 'image' => ''],
-            ['name' => 'Laptop Modello2', 'catId' => 4,
-                'descShort' => 'Caratteristiche Laptop1', 'descLong' => self::DESCPROD,
-                'price' => 1889.67, 'discountPerc' => 15, 'discounted' => 1, 'image' => 'Argentina.gif'],
-            ['name' => 'Netbook Modello3', 'catId' => 5,
-                'descShort' => 'Caratteristiche NetBook3', 'descLong' => self::DESCPROD,
-                'price' => 259.99, 'discountPerc' => 17, 'discounted' => 0, 'image' => 'Red Apple.gif'],
-            ['name' => 'Laptop Modello3', 'catId' => 4,
-                'descShort' => 'Caratteristiche Laptop3', 'descLong' => self::DESCPROD,
-                'price' => 998.99, 'discountPerc' => 23, 'discounted' => 1, 'image' => 'UK.gif'],
-            ['name' => 'HardDisk Modello1', 'catId' => 6,
-                'descShort' => 'Caratteristiche HardDisk1', 'descLong' => self::DESCPROD,
-                'price' => 88.93, 'discountPerc' => 5, 'discounted' => 0, 'image' => 'USA.gif'],
-            ['name' => 'HardDisk Modello4', 'catId' => 6,
-                'descShort' => 'Caratteristiche HardDisk4', 'descLong' => self::DESCPROD,
-                'price' => 78.66, 'discountPerc' => 7, 'discounted' => 01, 'image' => 'Ukraine.gif']
-        ]);
 
-        DB::table('users')->insert([
-            ['name' => 'Alex', 'surname' => 'Verdi', 'email' => 'alex@verdi.it', 'username' => 'alexalex',
-                'password' => Hash::make('alexalex'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")],
-            ['name' => 'Marco', 'surname' => 'Bianchi', 'email' => 'marco@bianchi.it', 'username' => 'useruser',
-                'password' => Hash::make('useruser'), 'role' => 'user', 'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")],
-            ['name' => 'Mario', 'surname' => 'Rossi', 'email' => 'mario@rossi.it', 'username' => 'adminadmin',
-                'password' => Hash::make('adminadmin'), 'role' => 'admin', 'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")]
-        ]);
-        DB::table('aziendas')->insert([
-            ['partitaIva'=>'0101010101','posizione'=>'baraccola',
-            'nome'=>'Aethra','descrizione'=>'Telecommunications',
-            'tipologia'=>'Informatica','logo'=>'img/aethra.jpg'],
-            ['partitaIva'=>'02020202','posizione'=>'baraccola',
-            'nome'=>'Gimboldi','descrizione'=>'Telecommunications',
-            'tipologia'=>'Panificio','logo'=>'img/gimbo.jpg'],
-            ['partitaIva'=>'03030303','posizione'=>'senigallia',
-            'nome'=>'Ipercoop','descrizione'=>'il Maestrale',
-            'tipologia'=>'Cibo e tanta roba','logo'=>'img/iper.jpg']]
-        );
+
+
+
         /* CI SONO ABILITATE LE OFFERTE FAKE
         DB::table('offertas')->insert([
             ['modalità'=>'online','immagine'=>'img/immagine_1.jpeg',
@@ -165,34 +117,34 @@ class DatabaseSeeder extends Seeder {
                 ,'tipologia'=>'ONLINE','logo'=>'img/MedStore_logo.png'],
         ]);
         DB::table('offertas')->insert([
-            ['modalità'=>'20','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>' 20% di sconto su tutti i prodotti fino a un max di 100 euro di spesa
+            ['modalità'=>'20','immagine'=>'img/polo.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>' 65% di sconto su due polo a scelta
                 ','dataInizio'=>'2023-05-11','dataFine' => '2023-09-29'],
-            ['modalità'=>'30','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'30% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+            ['modalità'=>'30','immagine'=>'img/pantaloni.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'30% di sconto su tutti i pantaloni felpati'
                 ,'dataInizio'=>'2023-04-29','dataFine' => '2023-07-29'],
-            ['modalità'=>'40','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+            ['modalità'=>'40','immagine'=>'img/cintura.png','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su una cintura di pelle scelta dallo staff'
                 ,'dataInizio'=>'2023-05-23','dataFine' => '2023-05-29'],
-            ['modalità'=>'10','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+            ['modalità'=>'10','immagine'=>'img/profumo.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su tutti i profumi'
                 ,'dataInizio'=>'2023-05-11','dataFine' => '2023-05-29'],
-            ['modalità'=>'60','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'60% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+            ['modalità'=>'60','immagine'=>'img/tuta.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'60% di sconto su tute e felpe a marchio Adidas'
                 ,'dataInizio'=>'2023-05-10','dataFine' => '2023-06-29'],
-            ['modalità'=>'10','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+            ['modalità'=>'10','immagine'=>'img/dunk.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su Nike Dunk Low Panda'
                 ,'dataInizio'=>'2023-05-3','dataFine' => '2023-05-29'],
-            ['modalità'=>'20','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+            ['modalità'=>'20','immagine'=>'img/prodotti_coop.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutti i marchi Coop'
                 ,'dataInizio'=>'2023-05-14','dataFine' => '2023-05-30'],
-            ['modalità'=>'5','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'5% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+            ['modalità'=>'5','immagine'=>'img/portatile.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'5% di sconto su tutti portatili'
                 ,'dataInizio'=>'2023-05-18','dataFine' => '2023-08-29'],
-            ['modalità'=>'40','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+            ['modalità'=>'40','immagine'=>'img/macbook.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su tutti i MacBook Air'
                 ,'dataInizio'=>'2023-05-20','dataFine' => '2023-05-21'],
-            ['modalità'=>'15','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'15% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+            ['modalità'=>'15','immagine'=>'img/watch.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutti i modelli di Apple Watch'
                 ,'dataInizio'=>'2023-05-21','dataFine' => '2023-12-29']
         ]);
 
         //per adesso la creazione è statica, deve essere implementata dinamicamente
         DB::table('emissiones')->insert([
-            ['azienda' => '1', 'offerta'=>'1'],
+            ['azienda' => '1', 'offerta'=>'1'],//ok
             ['azienda' => '1', 'offerta'=>'2'],
             ['azienda' => '2', 'offerta'=>'3'],
-            ['azienda' => '3', 'offerta'=>'4'],
+            ['azienda' => '3', 'offerta'=>'4'],//ok
             ['azienda' => '4', 'offerta'=>'5'],
             ['azienda' => '5', 'offerta'=>'6'],
             ['azienda' => '6', 'offerta'=>'7'],
