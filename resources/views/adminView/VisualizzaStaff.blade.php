@@ -25,6 +25,7 @@
                         <a href="{{"deleteUser/".$staff['id']}}" class="buttonbar">
                             Elimina</a>
                     </div>
+                </div>
             @endforeach
         @else
             <h1>Non ci membri dello staff </h1>

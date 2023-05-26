@@ -274,6 +274,7 @@ class AdminController extends Controller
 //            'risposta' => ['required', 'string', 'max:255'],
 //        ]);
 
+// da rifinire
         $User = new User();
         $User->name=$req->name;
         $User->email=$req->email;
