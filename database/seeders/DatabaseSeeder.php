@@ -137,7 +137,7 @@ class DatabaseSeeder extends Seeder {
                 ,'dataInizio'=>'2023-05-20','dataFine' => '2023-05-21'],
             ['modalità'=>'15','immagine'=>'img/watch.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutti i modelli di Apple Watch'
                 ,'dataInizio'=>'2023-05-21','dataFine' => '2023-12-29'],
-            ['modalità'=>'20','immagine'=>'img/polo.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutte le polo Nike della nuova collezione estiva',
+            ['modalità'=>'20','immagine'=>'img/felpa.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutte le felpe Nike della nuova collezione estiva',
                 'dataInizio'=>'2023-05-11','dataFine' => '2023-09-29'],
             ['modalità'=>'30','immagine'=>'img/pantaloni.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'30% di sconto su tutti i pantaloni sportivi Adidas per l\'allenamento',
                 'dataInizio'=>'2023-04-29','dataFine' => '2023-07-29'],
