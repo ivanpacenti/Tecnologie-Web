@@ -244,8 +244,9 @@ class AdminController extends Controller
 
     // dopop che trovo identifico quale membro dello staff voglio modificare, richiamando sopra
     // la vista con i form di modifica mi attingo a slavarlo nella funzione qui sotto
+
     public function ModificaStaff(Request $req)
-    {
+    { // validifico tutti i campi
         $req->validate([
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
@@ -261,9 +262,28 @@ class AdminController extends Controller
         $User->password = Hash::make($req->password);
         $User->username=$req->username;
         $User->età=$req->età;
-        //dd($User);
-        $User->save();
 
+        $User->save();
         return redirect()->action([AdminController::class, 'VisualizzaStaff']);
     }
+    // ora vado a fare la creazione, devo creare 2 viste, una che mi fa vedere il form per la registrazione, uno che me lo salva
+    // di conseguenza si farà una vista semplice(non in get) e una in post
+    public function staffcreate(Request $req) // funzione per salvare una faq all'interno del db
+    {
+//        $req->validate([
+//            'domanda' => ['required', 'string', 'max:255'],
+//            'risposta' => ['required', 'string', 'max:255'],
+//        ]);
+
+        $User = new User();
+        $User->name=$req->name;
+        $User->email=$req->email;
+        $User->surname=$req->surname;
+        $User->password = Hash::make($req->password);
+        $User->username=$req->username;
+        $User->età=$req->età;
+        $User->save();
+        return redirect()->action([AdminController::class, 'VisualizzaStaff']);
+    }
+
 }

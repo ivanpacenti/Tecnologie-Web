@@ -94,14 +94,15 @@ Route::get('/CouponOfferta{id}',[AdminController::class,'CouponOfferta'])->name(
 Route::get('/CouponUtente{id}',[AdminController::class,'CouponUtente'])->name('CouponUtente');
 
 
-// CRUD DELLOS sTAFF
+// CRUD DELLO STAFF
 //*valeria
 // creo la rotta per la visualizzazione, li chiamo uguale cosi non faccio confusione, quindi vado sull'admin controller e creo la funzione, questa rotta è da richiamare dalla navbar
 Route::get('/VisualizzaStaff',[AdminController::class,'VisualizzaStaff'])->name('VisualizzaStaff');
 //Route::get('/eliminastaff/{id}', [AdminController::class,'EliminaStaff'])->name('EliminaStaff'); IO UTILIZZO UNA ROTTA FATTA IN PASSATO, VALERIA LA DEVI FARE SIMILE
 Route::get('/ModificaStaff/{id}', [AdminController::class,'ModificaStaff1'])->name('ModificaStaff1');
 Route::post('/ModificaStaff', [AdminController::class,'ModificaStaff'])->name('ModificaStaff');
-
+Route::view('/staffcreate','adminView.staffcreate')->name('staffcreate'); // prima rotta di sola visualizzazione
+Route::post('/staffcreate', [AdminController::class, 'staffcreate'])->name('staffcreate');// prima rotta di sola visualizzazione
 /*
 |--------------------------------------------------------------------------
 | ROTTE PER L'USER

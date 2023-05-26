@@ -8,7 +8,7 @@
 
     <div class="maincontainer">
         <h1>Benvenuto nella pagina di gestione STAFF</h1>
-        <a href="{{route("faqsCreate")}}" class="buttonbar-add"> Aggiungi un membro dello staff</a>
+        <a href="{{route("staffcreate")}}" class="buttonbar-add"> Aggiungi un membro dello staff</a>
         @isset($staffs)
             @foreach($staffs as $staff)
                 <div class="main-box">
