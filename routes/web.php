@@ -150,27 +150,23 @@ Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editS
 
 
 //ROTTE PER IL CRUD DELLE PROMOZIONI
-/*Route::view('/staff/crudPromozioni', 'couponEdit')
-    ->name('crudPromozioni');*/
 Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupon'])->name('crudPromozioni');
 
 
-//Route::get('/staff/crudPromozioni', [StaffController::class, 'modifyCoupon'])->name('crudPromozioni');
-//Route::get('/staff/crudPromozioni', [StaffController::class, 'deleteCoupon'])->name('crudPromozioni');
-//Route::get('/staff/crudPromozioni', [StaffController::class, 'createCoupon'])->name('crudPromozioni');
+
 
 //DA CAMBIARE PERCHè NON FA FUNZIONARE LE ROTTE
-Route::view('/staff/modify','staffView.editPromo')->name('modificaCoupon');
-Route::post('/staff/modify', [PromoController::class, 'modCoupon'])->name('modificaCoupon2');
+// prima rotta per la visualizzazione
+Route::get('/VisualizzaOfferte', [StaffController::class, 'visualizzaOfferte'])->name('visualizzaOfferte');
+Route::get('/EliminaOfferta/{id}', [StaffController::class,'EliminaOfferta'])->name('EliminaOfferta');
+
+
+Route::view('/modify','staffView.editPromo')->name('modificaCoupon');
+Route::post('/modify', [PromoController::class, 'modCoupon'])->name('modificaCoupon2');
 Route::get('/modify', [PromoController::class, 'VisualizzaCoupon'])->name('couponEdit');
 Route::get('/edit', [PromoController::class,'modificaCoupon'])->name('edit');
 
-Route::get('/staff/modify', [\App\Http\Controllers\PromoController::class, 'editPromo'])
-    ->name('editPromo');
 
-Route::get('/modify/{id}', [\App\Http\Controllers\PromoController::class,'VisualizzaCoupon2'])->name('editCoupon');
-
-Route::post('/modify', [\App\Http\Controllers\PromoController::class,'update'])->name('editCoupon2');
 
 
 require __DIR__.'/auth.php';

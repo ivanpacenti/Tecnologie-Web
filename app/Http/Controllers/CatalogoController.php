@@ -15,12 +15,7 @@ class CatalogoController extends Controller
         $aziende = Azienda::all();
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende);
     }
-    public function visualizzaCoupon()
-    {
-        $offerte = Offerta::all();
-        $aziende = Azienda::all();
-        return view('couponEdit')->with('offerte', $offerte)->with('aziende',$aziende);
-    }
+
 
 
 }

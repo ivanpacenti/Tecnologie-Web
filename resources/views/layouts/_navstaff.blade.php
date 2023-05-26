@@ -21,7 +21,7 @@
 {{--        @can('isMembroSenior')--}}
 {{--            <li><a href="{{route('')}}">crudPacchetti</a></li>--}}
 {{--        @endcan--}}
-        <li><a href="{{route('crudPromozioni')}}">crudPromozioni</a></li>
+        <li><a href="{{route('visualizzaOfferte')}}">crudPromozioni</a></li>
 
         @auth
             <li><a href="" class="highlight" title="Logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
