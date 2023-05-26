@@ -10,7 +10,7 @@
     {!! Form::token() !!}
     <div class="form-group">
         {!! Form::label('id', 'ID') !!}
-        {!! Form::text('id', $offerta['id'], ['class' => 'form-input', 'readonly']) !!}
+        {!! Form::text('id', $offerta['id'], ['class' => 'form-input', 'readonly']) !!}<<<<
     </div>
     <div class="form-group">
         {!! Form::label('modalita', 'Modalita') !!}

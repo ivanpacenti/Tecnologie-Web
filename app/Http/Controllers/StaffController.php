@@ -14,11 +14,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class StaffController extends Controller {
-   // protected $_staffModel;
+  //  protected $_staffModel;
+    protected $_staffOfferte;
     public function __construct() {
        // $this->_staffModel = new Staff();
+        $this->_staffOfferte = new Offerta();
         $this->middleware('can:isStaff');
     }
+
     public function staff() {
         return view('staff');
     }
@@ -55,5 +58,16 @@ class StaffController extends Controller {
         $aziende= Azienda::all();
         //dd($faqs);
         return view('layouts.couponEdit')->with('aziende', $aziende);
+    }
+    public function VisualizzaOfferte()
+    {
+        $offerte = $this->_staffOfferte->getOfferte();
+        return view('staffView.VisualizzaOfferte')->with('offerte', $offerte);
+    }
+    public function EliminaOfferta($id) //  Questa è una funzione per eliminare le faq,
+    {
+        $offerta = $this->_staffOfferte->getOffertabyID($id);
+        $offerta->delete();
+        return redirect()->back()->with('success', 'offerta eliminata con successo');
     }
 }
