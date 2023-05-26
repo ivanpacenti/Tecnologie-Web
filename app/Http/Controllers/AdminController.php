@@ -282,6 +282,7 @@ class AdminController extends Controller
         $User->password = Hash::make($req->password);
         $User->username=$req->username;
         $User->età=$req->età;
+        $User->role=$req->role;
         $User->save();
         return redirect()->action([AdminController::class, 'VisualizzaStaff']);
     }
