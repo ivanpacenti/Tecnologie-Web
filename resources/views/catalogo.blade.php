@@ -32,9 +32,9 @@
                    @if($offerta->dataFine >= $dataOggi)
                <div class="product-card" >
                    <div class="image-container">
-                       <img src="{{asset('img/lacoste_logo.jpeg')}}" alt="Immagine prodotto">
+                       <img src="{{$offerta->immagine}}" alt="Immagine prodotto">
                        @auth
-                       <span class="discount">-30%</span>
+                       <span class="discount">-{{$offerta->modalità}}%</span>
                        @endauth
                    </div>
                    <div class="description">
