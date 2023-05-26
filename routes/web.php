@@ -150,8 +150,8 @@ Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editS
 
 
 //ROTTE PER IL CRUD DELLE PROMOZIONI
-//Route::view('/staff/crudPromozioni', 'couponEdit')
-//    ->name('crudPromozioni');
+/*Route::view('/staff/crudPromozioni', 'couponEdit')
+    ->name('crudPromozioni');*/
 Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupon'])->name('crudPromozioni');
 
 
@@ -160,10 +160,10 @@ Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupo
 //Route::get('/staff/crudPromozioni', [StaffController::class, 'createCoupon'])->name('crudPromozioni');
 
 //DA CAMBIARE PERCHè NON FA FUNZIONARE LE ROTTE
-/*Route::view('/staff/modify', 'editPromo')
-    -> name('editPromo');*/
-/*Route::get('/modify/{id}', [CatalogoController::class, 'visualizzaCoupon']) ->name('modificaid');
-Route::post('/modify', [StaffController::class, 'modifyCoupon']) ->name('modificaP');*/
+Route::view('/staff/modify','staffView.editPromo')->name('modificaCoupon');
+Route::post('/staff/modify', [PromoController::class, 'modCoupon'])->name('modificaCoupon2');
+Route::get('/modify', [PromoController::class, 'VisualizzaCoupon'])->name('couponEdit');
+Route::get('/edit', [PromoController::class,'modificaCoupon'])->name('edit');
 
 Route::get('/staff/modify', [\App\Http\Controllers\PromoController::class, 'editPromo'])
     ->name('editPromo');
