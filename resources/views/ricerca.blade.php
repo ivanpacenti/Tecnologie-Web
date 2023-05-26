@@ -11,10 +11,15 @@
                     @foreach($risultati as $risultati)
                             <div class="product-card" >
                                 <div class="image-container">
-                                    <img src="{{asset('img/lacoste_logo.jpeg')}}" alt="Immagine prodotto">
-                                    @auth
+                                    @isset($risultati->logo)
+                                    <img src="{{$risultati->logo}}" alt="Immagine prodotto">
+                                    @endif
+                                    @isset($risultati->immagine)
+                                        <img src="{{$risultati->immagine}}" alt="Immagine prodotto">
+                                            @auth
                                         <span class="discount">-30%</span>
                                     @endauth
+                                        @endif
                                 </div>
                                 <div class="description">
                                     @isset($risultati->nome)
