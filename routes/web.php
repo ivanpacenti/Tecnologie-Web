@@ -130,9 +130,11 @@ Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editS
 
 
 //ROTTE PER IL CRUD DELLE PROMOZIONI
-Route::view('/staff/crudPromozioni', 'couponEdit')
-    ->name('crudPromozioni');
+//Route::view('/staff/crudPromozioni', 'couponEdit')
+//    ->name('crudPromozioni');
 Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupon'])->name('crudPromozioni');
+
+
 //Route::get('/staff/crudPromozioni', [StaffController::class, 'modifyCoupon'])->name('crudPromozioni');
 //Route::get('/staff/crudPromozioni', [StaffController::class, 'deleteCoupon'])->name('crudPromozioni');
 //Route::get('/staff/crudPromozioni', [StaffController::class, 'createCoupon'])->name('crudPromozioni');
@@ -142,11 +144,14 @@ Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupo
     -> name('editPromo');*/
 /*Route::get('/modify/{id}', [CatalogoController::class, 'visualizzaCoupon']) ->name('modificaid');
 Route::post('/modify', [StaffController::class, 'modifyCoupon']) ->name('modificaP');*/
+
 Route::get('/staff/modify', [\App\Http\Controllers\PromoController::class, 'editPromo'])
     ->name('editPromo');
 
 Route::get('/modify/{id}', [\App\Http\Controllers\PromoController::class,'VisualizzaCoupon2'])->name('editCoupon');
 
 Route::post('/modify', [\App\Http\Controllers\PromoController::class,'update'])->name('editCoupon2');
+
+
 require __DIR__.'/auth.php';
 

@@ -12,8 +12,8 @@
 
         @isset($offerte)
                 @foreach($offerte as $offerta)
-                   <!-- <div class="imgslot">{{$aziende->find($offerta->emissione->azienda)->nome}} -->
-                        <div class="main-box-az" id="{{$aziende->find($offerta->emissione->azienda)->nome}}">
+{{--                   <!-- <div class="imgslot">{{$aziende->find($offerta->emissione->azienda)->nome}} -->--}}
+{{--                        <div class="main-box-az" id="{{$aziende->find($offerta->emissione->azienda)->nome}}">--}}
                             <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px" width=40% height=40%>
                                 <div class="description">
                                     <div class="testocard">

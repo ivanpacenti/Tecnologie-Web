@@ -20,14 +20,14 @@ class DatabaseSeeder extends Seeder {
         /* generatore offerte fake*/
         $faker = Faker::create();
         for ($i = 0; $i < 10; $i++) {
-            Offerta::create([
-                'descrizione' => $faker->sentence(),
-                'immagine' => $faker->imageUrl(),
-                'modalità' => $faker->name(),
-                'luogoFruizione' => $faker->address(),
-                'dataInizio' => $faker->date(),
-                'dataFine' => '2023-05-29',
-            ]);
+//            Offerta::create([
+//                'descrizione' => $faker->sentence(),
+//                'immagine' => $faker->imageUrl(),
+//                'modalità' => $faker->name(),
+//                'luogoFruizione' => $faker->address(),
+//                'dataInizio' => $faker->date(),
+//                'dataFine' => '2023-05-29',
+//            ]);
             Pacchetto::create([
                 'descrizione' => $faker->sentence(),
                 'immagine' => $faker->imageUrl(),
@@ -164,6 +164,29 @@ class DatabaseSeeder extends Seeder {
             ['partitaIva'=>'34526627980','nome'=>'Med Store','posizione'=>'Corso Stamira, 45, Ancona AN','descrizione'=>'MedStore si rinnova, dopo 40 anni di esperienza nel mondo dell’elettronica di consumo, 15 anni nel mondo del retail e 10 nel mondo dell’eCommerce è giunto il tempo di intraprendere una nuova strada.'
                 ,'tipologia'=>'ONLINE','logo'=>'img/MedStore_logo.png'],
         ]);
+        DB::table('offertas')->insert([
+            ['modalità'=>'20','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>' 20% di sconto su tutti i prodotti fino a un max di 100 euro di spesa
+                ','dataInizio'=>'2023-05-11','dataFine' => '2023-09-29'],
+            ['modalità'=>'30','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'30% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+                ,'dataInizio'=>'2023-04-29','dataFine' => '2023-07-29'],
+            ['modalità'=>'40','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+                ,'dataInizio'=>'2023-05-23','dataFine' => '2023-05-29'],
+            ['modalità'=>'10','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+                ,'dataInizio'=>'2023-05-11','dataFine' => '2023-05-29'],
+            ['modalità'=>'60','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'60% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+                ,'dataInizio'=>'2023-05-10','dataFine' => '2023-06-29'],
+            ['modalità'=>'10','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+                ,'dataInizio'=>'2023-05-3','dataFine' => '2023-05-29'],
+            ['modalità'=>'20','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+                ,'dataInizio'=>'2023-05-14','dataFine' => '2023-05-30'],
+            ['modalità'=>'5','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'5% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+                ,'dataInizio'=>'2023-05-18','dataFine' => '2023-08-29'],
+            ['modalità'=>'40','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+                ,'dataInizio'=>'2023-05-20','dataFine' => '2023-05-21'],
+            ['modalità'=>'15','immagine'=>'img/immagine_1.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'15% di sconto su tutti i prodotti fino a un max di 100 euro di spesa'
+                ,'dataInizio'=>'2023-05-21','dataFine' => '2023-12-29']
+        ]);
+
     }
 }
 
