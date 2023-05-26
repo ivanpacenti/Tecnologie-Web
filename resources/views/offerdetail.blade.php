@@ -9,7 +9,7 @@
     <div class="product-details">
         <div class="leftcontainer">
             <div class="product-detailsimg">
-                <img src="{{asset('img/lacoste_logo.jpeg')}}{{--{{ $offerta->immagine }}--}}" class="img_detail">
+                <img src="{{asset($offerta->immagine)}}" class="img_detail">
             </div>
         </div>
         <div class="rightcontainer">
