@@ -14,7 +14,7 @@ body {
     gap: 1rem;
     align-items: center;
     justify-content: center;
-    border-style: solid;
+
 }
 
 @media (max-width: 850px) {
@@ -53,14 +53,16 @@ body {
 }
 
 .container-slide{
-    border-color: red;
-    border-style: solid;
+    width:80rem;
+    text-align: center;
+    overflow: hidden;
 }
 
 .slide img{
 
-    width: 50rem;
-    height: 25rem;
+    width: auto;
+    max-width: 99%;
+    height: 30rem;
 }
 
 .carousel{

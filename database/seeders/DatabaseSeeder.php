@@ -112,7 +112,7 @@ class DatabaseSeeder extends Seeder {
             ['partitaIva'=>'45276849302','nome'=>'Coop','posizione'=>'Via Carlo Maratta, 30, Ancona AN','descrizione'=>'Coop: Una catena di supermercati e ipermercati molto diffusa, offrendo una vasta gamma di prodotti alimentari, prodotti per la casa, articoli per la cura personale e altro ancora.'
                 ,'tipologia'=>'ONLINE','logo'=>'img/Coop_logo.png'],
             ['partitaIva'=>'12345678901','nome'=>'Mediaworld','posizione'=>'Via 1º Maggio, 25 Freestand, Ancona AN','descrizione'=>'Mediaworld: Un rinomato rivenditore di elettronica e prodotti tecnologici, offrendo una vasta selezione di dispositivi, elettrodomestici, prodotti audio e video, computer, telefoni cellulari e accessori.'
-                ,'tipologia'=>'ONLINE', 'logo'=>'img/Mediaworld_logo.png'],
+                ,'tipologia'=>'ONLINE', 'logo'=>'img/mediaworld.png'],
             ['partitaIva'=>'34526627980','nome'=>'Med Store','posizione'=>'Corso Stamira, 45, Ancona AN','descrizione'=>'MedStore si rinnova, dopo 40 anni di esperienza nel mondo dell’elettronica di consumo, 15 anni nel mondo del retail e 10 nel mondo dell’eCommerce è giunto il tempo di intraprendere una nuova strada.'
                 ,'tipologia'=>'ONLINE','logo'=>'img/MedStore_logo.png'],
         ]);

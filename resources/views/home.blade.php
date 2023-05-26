@@ -6,9 +6,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/home_pub_design.css') }}" >
     <div class="wrapper">
         <div class="container1">
-            <div class="imgchisiamo">
-                <img src="img/istockphoto-1346304276-612x612.jpg" alt="immagine coupon" class="imgcs">
-            </div>
             <div class="chisiamo">
                 <h1 class="h1">Chi siamo?</h1>
                 <div class="testochisiamo">
@@ -28,17 +25,17 @@
 
         <div class="wrapper">
             <div class="container-slide">
+                <?php
+                    $aziende=(new \App\Models\Azienda)->getAziende();
+                    ?>
+                @foreach($aziende as $azienda)
                 <div class="slide fade">
-                    <img src="./img/lv_logo.jpeg" alt="LV">
+                    <img src="{{$azienda->logo}}" alt="{{$azienda->nome}}">
                 </div>
-                <div class="slide fade">
-                    <img src="./img/lacoste_logo.jpeg" alt="LV">
-                </div>
-                <div class="slide fade">
-                    <img src="./img/pngwing.com.png" alt="ysl">
-                </div>
+                @endforeach
             </div>
         </div>
+
     <div class="wrapper">
         <div>
         <h3> Siamo lieti di annunciare che abbiamo selezionato alcune aziende di eccellenza per la nostra collaborazione. Abbiamo dedicato tempo ed energie per identificare partner di alta qualità, che rispecchiano i nostri valori e obiettivi.
@@ -50,6 +47,6 @@
             <h3>Inoltre , se desideri conoscere la nostra posizione attuale, puoi trovarla facendo clic sul seguente bottone: </h3>
             <div> <a href="{{asset('homeAziende')}}" class="buttonbar-add">VEDI LE NOSTRE AZIENDE</a> </div>
         </div>
-
+<script src="js/scriptHome.js" async></script>
     </div>
 @endsection('content')
