@@ -43,7 +43,7 @@ nav{
 /*
     .logo è un flexbox che contiene il logo del sito
 */
-.logo{
+.logo {
     padding: 5px 0;
     display: flex;
     flex-grow: 1;
@@ -53,7 +53,11 @@ nav{
     float:left;
     /*border: 2px solid red;*/
 }
-
+.logo img
+{
+    width: auto;
+    height: 2rem;
+}
 /*
    .searchbar è un flexbox che contiene il la searchbar del sito
 */
