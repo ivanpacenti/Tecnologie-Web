@@ -24,7 +24,6 @@
                                     <p>{{$risultati->descrizione}}</p>
                                     @endisset
                                 </div>
-
                             </div>
                     @endforeach
                 </div>

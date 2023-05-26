@@ -13,11 +13,25 @@
         <div class="searchbar" >
             @csrf
             <form action="{{route('ricerca')}}" method="GET" id="searchForm">
-                <select id="searchOption" name="searchOption">
-                    <option name="azienda">Azienda</option>
-                    <option name="coupon">Coupon</option>
-                </select>
-            <input type="text" id="cerca" name="cerca" onsubmit="ricerca()">
+                <input type="text" id="cercaCoupon" name="cercaCoupon" list="coupon" >
+                <input type="text" id="cercaAzienda" name="cercaAzienda" list="aziende">
+                <datalist id="coupon">
+                    <?php
+                    $offerte=(new \App\Models\Offerta)->getOfferte();
+                    ?>
+                        @foreach($offerte as $offerta)
+                    <option value="{{$offerta->descrizione}}">
+                        @endforeach
+                </datalist>
+                <datalist id="aziende">
+                    <?php
+                    $aziende=(new \App\Models\Azienda)->getAziende();
+                    ?>
+                        @foreach($aziende as $azienda)
+                            <option value="{{$azienda->nome}}">
+                        @endforeach
+                </datalist>
+                <input type="submit" hidden />
             </form>
         </div>
         <div class="links">

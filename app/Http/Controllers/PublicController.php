@@ -38,25 +38,22 @@ class PublicController
 
     public function ricerca(Request $request)
     {
-        $opzione=$request->get('searchOption');
-        $testo=$request->get('cerca');
-
-        switch ($opzione)
+        $stringaOfferta=$request->get('cercaCoupon');
+        $stringaAzienda=$request->get('cercaAzienda');
+        if(empty($stringaOfferta))
         {
-            case 'Azienda':
-                {
-                    $risultati=Azienda::where('nome','like','%'.$testo.'%')->get();
-                };break;
-            case 'Coupon':
-                {
-                    $risultati=Offerta::where('descrizione','like','%'.$testo.'%')->get();
-                };break;
-
+            $risultati=Azienda::where('nome','like','%'.$stringaAzienda.'%')->get();
+        }
+        elseif (empty($stringaAzienda))
+        {
+            $risultati=Offerta::where('descrizione','like','%'.$stringaOfferta.'%')->get();
+        }
+        elseif(!empty($stringaOfferta)&&!empty($stringaAzienda))
+        {
+            $id_azienda=Azienda::where('nome','like','%'.$stringaAzienda.'%')->pluck('id');
+            $risultati=Azienda::whereIn('id', $id_azienda)->first()->offerte();
         }
 
-
-
-        //$aziende=Azienda::all();
         return view('ricerca')->with('risultati', $risultati);
     }
     public function filtroOfferte(Request $request)
