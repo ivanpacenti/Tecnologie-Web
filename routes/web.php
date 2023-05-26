@@ -20,9 +20,19 @@ use App\Models\Resources\Staff;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
+|--------------------------------------------------------------------------
+| ROTTE PUBBLICHE
+|--------------------------------------------------------------------------
+|
+|
+|
+|
+|
+*/
 Route::view('/', 'home')
     ->name('index');
+Route::get('/homeAziende',[PublicController::class, 'visualizzaAziende'])->name('homeAziende');
 
 Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 Route::get('/filtroOfferte', [PublicController::class, 'filtroOfferte'])->name('filtroOfferte');

@@ -11,25 +11,15 @@ use Illuminate\Support\Facades\Route;
 use Carbon\Carbon;
 class PublicController
 {
-    // protected $_catalogModel;
+     protected $_aziendeModel;
 
-    // public function __construct() {
-    //     $this->_catalogModel = new Catalog;
-    // }
-    // public function showCatalog1() {
-
-    //     //Categorie Top
-    //     $topCats = $this->_catalogModel->getTopCats();
-
-    //     return view('catalog')
-    //         ->with('topCategories', $topCats);
-
-    // }*/
-
-    // public function showCatalog() {
-    //     $offerte = Offerta::all();
-    //      return view('catalogo', ['offerta' => $offerte]);
-    //  }
+     public function __construct() {
+         $this->_aziendeModel = new Azienda();
+     }
+     public function visualizzaAziende(){
+         $aziende = $this->_aziendeModel->getAziende();
+         return view('homeAziende')->with('aziende', $aziende);
+     }
 
     public function visualizzaCatalogo()
     {
