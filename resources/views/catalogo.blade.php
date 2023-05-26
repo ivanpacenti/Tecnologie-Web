@@ -29,21 +29,19 @@
 
            <div class="container2">
                @foreach($offerte as $offerta)
-                   @if($offerta->dataFine >= $dataOggi)
-               <div class="product-card" >
-                   <div class="image-container">
-                       <img src="{{$offerta->immagine}}" alt="Immagine prodotto">
-                       @auth
-                       <span class="discount">-{{$offerta->modalità}}%</span>
-                       @endauth
+                   <div class="product-card" >
+                       <div class="image-container">
+                           <img src="{{$offerta->immagine}}" alt="Immagine prodotto">
+                           @auth
+                           <span class="discount">-{{$offerta->modalità}}%</span>
+                           @endauth
+                       </div>
+                       <div class="description">
+                           <p>{{$offerta->descrizione}}</p>
+                       </div>
+                       <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}" class="btn">Visualizza</a>
                    </div>
-                   <div class="description">
-                       <p>{{$offerta->descrizione}}</p>
-                   </div>
-                   <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}" class="btn">Visualizza</a>
-               </div>
-                   @endif
-               @endforeach
+           @endforeach
 
            {{--@else
            <h1>Ci dispiace non ci sono offerte al momento<h1>--}}
