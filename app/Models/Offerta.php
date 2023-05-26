@@ -27,4 +27,12 @@ class Offerta extends Model
     {
         return $this->paginate(10);
     }*/
+
+    public function getOfferte(){
+        return Offerta::all();
+    }
+
+    public function getOffertabyID($id){
+        return Offerta::find($id);
+    }
 }

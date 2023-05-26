@@ -54,4 +54,12 @@ class User extends Authenticatable
         return in_array($this->role, $role);
     }
 
+    public function getUtenti(){
+        return User::all();
+    }
+
+    public function getUtentebyID($id){
+        return User::find($id);
+    }
+
 }

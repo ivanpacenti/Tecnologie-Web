@@ -13,5 +13,11 @@ class Faq extends Model
     public $timestamps = false; // per poter modificare
     protected $fillable = ['domanda', 'risposta'];
 
+    public function getFaqs(){
+        return Faq::all();
+    }
 
+    public function getFaqbyID($id){
+        return Faq::find($id);
+    }
 }

@@ -24,4 +24,12 @@ class Azienda extends Model
         return $this->hasManyThrough(Offerta::class, Emissione::class, 'azienda', 'id', 'id', 'offerta'); // Imposta un'istanza vuota di Offerta se non ci sono offerte associate
     }
 
+    public function getAziende(){
+        return Azienda::all();
+    }
+
+    public function getAziendabyID($id){
+        return Azienda::find($id);
+    }
+
 }
