@@ -67,43 +67,42 @@ Route::get('/Faq', [PublicController::class, 'vis'])-> name('visualizza_listafaq
 |   SESTA visualizzazione membri utenti
 */
 //
+    Route::get('/adminFaqs', [AdminController::class, 'VisualizzaFaq'])->name('adminFaqs')->middleware('can:isAdmin');
+    Route::get('/delete/{id}', [AdminController::class,'deleteFaq'])->name('elimina-faq')->middleware('can:isAdmin');
+    Route::get('/edit/{id}', [AdminController::class,'visualizza1Faq'])->name('editid')->middleware('can:isAdmin');
+    Route::post('/edit', [AdminController::class,'modificaFaq'])->name('edit')->middleware('can:isAdmin');
+    Route::view('/faqsCreate','adminView.faqsCreate')->name('faqsCreate')->middleware('can:isAdmin');
+    Route::post('/faqsCreate', [AdminController::class, 'salvafaq'])->name('faqsCreate2')->middleware('can:isAdmin');
 
-Route::get('/adminFaqs', [AdminController::class, 'VisualizzaFaq'])->name('adminFaqs');
-Route::get('/delete/{id}', [AdminController::class,'deleteFaq'])->name('elimina-faq');
-Route::get('/edit/{id}', [AdminController::class,'visualizza1Faq'])->name('editid');
-Route::post('/edit', [AdminController::class,'modificaFaq'])->name('edit');
-Route::view('/faqsCreate','adminView.faqsCreate')->name('faqsCreate');
-Route::post('/faqsCreate', [AdminController::class, 'salvafaq'])->name('faqsCreate2');
+    Route::view('/amministratore', 'admin')->name('admin')->middleware('can:isAdmin');
+    Route::get('/visualizzaUtente', [AdminController::class,'visualizzaUtente'])->name('visualizzaUtente')->middleware('can:isAdmin');
+    Route::get('/deleteUser/{id}', [AdminController::class,'deleteUser'])->name('deleteUser')->middleware('can:isAdmin');
 
-Route::view('/amministratore', 'admin')->name('admin')->middleware('can:isAdmin');
-Route::get('/visualizzaUtente', [AdminController::class,'visualizzaUtente'])->name('visualizzaUtente');
-Route::get('/deleteUser/{id}', [AdminController::class,'deleteUser'])->name('deleteUser');
-
-Route::get('/adminAziende', [AdminController::class, 'VisualizzaAziende'])->name('adminAziende');
-Route::view('/agencycreate', 'adminView.agencycreate')->name('agencycreate');
-Route::post('/agencycreate', [AdminController::class, 'createAgency'])->name('agencycreate2');
-Route::get('/agencyedit/{id}', [AdminController::class,'modifica1Azienda'])->name('agencyeditid');
-Route::post('/agencyedit', [AdminController::class,'modificaAzienda'])->name('agencyedit');
-Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name('elimina-azienda');
+    Route::get('/adminAziende', [AdminController::class, 'VisualizzaAziende'])->name('adminAziende')->middleware('can:isAdmin');
+    Route::view('/agencycreate', 'adminView.agencycreate')->name('agencycreate')->middleware('can:isAdmin');
+    Route::post('/agencycreate', [AdminController::class, 'createAgency'])->name('agencycreate2')->middleware('can:isAdmin');
+    Route::get('/agencyedit/{id}', [AdminController::class,'modifica1Azienda'])->name('agencyeditid')->middleware('can:isAdmin');
+    Route::post('/agencyedit', [AdminController::class,'modificaAzienda'])->name('agencyedit')->middleware('can:isAdmin');
+    Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name('elimina-azienda')->middleware('can:isAdmin');
 
 
 // ROTTE PER LE STATISTICHE
-Route::view('/statistiche', 'adminView.statistiche')->name('statistiche');
-Route::get('/totaleCoupon',[AdminController::class,'NumeroCoupon'])->name('NumeroCoupon');
-Route::get('/VisualizzaOfferte',[AdminController::class,'VisualizzaOfferte'])->name('VisualizzaOfferte');
-Route::get('/CouponOfferta{id}',[AdminController::class,'CouponOfferta'])->name('CouponOfferta');
-Route::get('/CouponUtente{id}',[AdminController::class,'CouponUtente'])->name('CouponUtente');
+Route::view('/statistiche', 'adminView.statistiche')->name('statistiche')->middleware('can:isAdmin');
+Route::get('/totaleCoupon',[AdminController::class,'NumeroCoupon'])->name('NumeroCoupon')->middleware('can:isAdmin');
+Route::get('/VisualizzaOfferte',[AdminController::class,'VisualizzaOfferte'])->name('VisualizzaOfferte')->middleware('can:isAdmin');
+Route::get('/CouponOfferta{id}',[AdminController::class,'CouponOfferta'])->name('CouponOfferta')->middleware('can:isAdmin');
+Route::get('/CouponUtente{id}',[AdminController::class,'CouponUtente'])->name('CouponUtente')->middleware('can:isAdmin');
 
 
 // CRUD DELLO STAFF
 //*valeria
 // creo la rotta per la visualizzazione, li chiamo uguale cosi non faccio confusione, quindi vado sull'admin controller e creo la funzione, questa rotta è da richiamare dalla navbar
-Route::get('/VisualizzaStaff',[AdminController::class,'VisualizzaStaff'])->name('VisualizzaStaff');
+Route::get('/VisualizzaStaff',[AdminController::class,'VisualizzaStaff'])->name('VisualizzaStaff')->middleware('can:isAdmin');
 //Route::get('/eliminastaff/{id}', [AdminController::class,'EliminaStaff'])->name('EliminaStaff'); IO UTILIZZO UNA ROTTA FATTA IN PASSATO, VALERIA LA DEVI FARE SIMILE
-Route::get('/ModificaStaff/{id}', [AdminController::class,'ModificaStaff1'])->name('ModificaStaff1');
-Route::post('/ModificaStaff', [AdminController::class,'ModificaStaff'])->name('ModificaStaff');
-Route::view('/staffcreate','adminView.staffcreate')->name('staffcreate'); // prima rotta di sola visualizzazione
-Route::post('/staffcreate', [AdminController::class, 'staffcreate'])->name('staffcreate');// prima rotta di sola visualizzazione
+Route::get('/ModificaStaff/{id}', [AdminController::class,'ModificaStaff1'])->name('ModificaStaff1')->middleware('can:isAdmin');
+Route::post('/ModificaStaff', [AdminController::class,'ModificaStaff'])->name('ModificaStaff')->middleware('can:isAdmin');
+Route::view('/staffcreate','adminView.staffcreate')->name('staffcreate')->middleware('can:isAdmin'); // prima rotta di sola visualizzazione
+Route::post('/staffcreate', [AdminController::class, 'staffcreate'])->name('staffcreate')->middleware('can:isAdmin');// prima rotta di sola visualizzazione
 /*
 |--------------------------------------------------------------------------
 | ROTTE PER L'USER
@@ -118,17 +117,17 @@ Route::post('/staffcreate', [AdminController::class, 'staffcreate'])->name('staf
 */
 
 Route::get('/user', [UserController::class, 'index'])
-    ->name('user');
+    ->name('user')->middleware('can:isUser');
 
 Route::get('/couponComprato', [UserController::class, 'CouponComprato'])
-    ->name('CouponComprato');
+    ->name('CouponComprato')->middleware('can:isUser');
 
-Route::get('/editUser/{id}', [UserController::class,'Visualizza1Utente'])->name('editUser');
+Route::get('/editUser/{id}', [UserController::class,'Visualizza1Utente'])->name('editUser')->middleware('can:isUser');
 
-Route::post('/editUser', [UserController::class,'modificaUtente'])->name('editx');
+Route::post('/editUser', [UserController::class,'modificaUtente'])->name('editx')->middleware('can:isUser');
 
 // rotta in costruzione per stampa e controllo se coupon già comprato
-Route::get('stampa',[UserController::class,'stampa'])->name('stampa');
+Route::get('stampa',[UserController::class,'stampa'])->name('stampa')->middleware('can:isUser');
 
     /*
 |--------------------------------------------------------------------------
@@ -143,29 +142,29 @@ Route::get('stampa',[UserController::class,'stampa'])->name('stampa');
 */
 
 Route::get('/staff', [StaffController::class, 'staff'])
-    ->name('staff');
+    ->name('staff')->middleware('can:isStaff');
 
-Route::get('/editStaff/{id}', [StaffController::class,'Visualizza1Staff'])->name('editStaff');
+Route::get('/editStaff/{id}', [StaffController::class,'Visualizza1Staff'])->name('editStaff')->middleware('can:isStaff');
 
-Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editStaffxx');
+Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editStaffxx')->middleware('can:isStaff');
 
 
 //ROTTE PER IL CRUD DELLE PROMOZIONI
-Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupon'])->name('crudPromozioni');
+Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupon'])->name('crudPromozioni')->middleware('can:isStaff');
 
 
 
 
 //DA CAMBIARE PERCHè NON FA FUNZIONARE LE ROTTE
 // prima rotta per la visualizzazione
-Route::get('/VisualizzaOfferte', [StaffController::class, 'visualizzaOfferte'])->name('visualizzaOfferte');
-Route::get('/EliminaOfferta/{id}', [StaffController::class,'EliminaOfferta'])->name('EliminaOfferta');
+Route::get('/VisualizzaOfferte', [StaffController::class, 'visualizzaOfferte'])->name('visualizzaOfferte')->middleware('can:isStaff');
+Route::get('/EliminaOfferta/{id}', [StaffController::class,'EliminaOfferta'])->name('EliminaOfferta')->middleware('can:isStaff');
 
 
-Route::view('/modify','staffView.editPromo')->name('modificaCoupon');
-Route::post('/modify', [PromoController::class, 'modCoupon'])->name('modificaCoupon2');
-Route::get('/modify', [PromoController::class, 'VisualizzaCoupon'])->name('couponEdit');
-Route::get('/edit', [PromoController::class,'modificaCoupon'])->name('edit');
+Route::view('/modify','staffView.editPromo')->name('modificaCoupon')->middleware('can:isStaff');
+Route::post('/modify', [PromoController::class, 'modCoupon'])->name('modificaCoupon2')->middleware('can:isStaff');
+Route::get('/modify', [PromoController::class, 'VisualizzaCoupon'])->name('couponEdit')->middleware('can:isStaff');
+Route::get('/edit', [PromoController::class,'modificaCoupon'])->name('edit')->middleware('can:isStaff');
 
 
 
