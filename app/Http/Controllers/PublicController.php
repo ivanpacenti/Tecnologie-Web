@@ -38,24 +38,32 @@ class PublicController
 
     public function ricerca(Request $request)
     {
-        $stringaOfferta=$request->get('cercaCoupon');
-        $stringaAzienda=$request->get('cercaAzienda');
-        if(empty($stringaOfferta))
-        {
-            $risultati=Azienda::where('nome','like','%'.$stringaAzienda.'%')->get();
-        }
-        elseif (empty($stringaAzienda))
-        {
-            $risultati=Offerta::where('descrizione','like','%'.$stringaOfferta.'%')->get();
-        }
-        elseif(!empty($stringaOfferta)&&!empty($stringaAzienda))
-        {
-            $id_azienda=Azienda::where('nome','like','%'.$stringaAzienda.'%')->pluck('id');
-            $risultati=Azienda::whereIn('id', $id_azienda)->first()->offerte();
+        $stringaOfferta = $request->get('cercaCoupon');
+        $stringaAzienda = $request->get('cercaAzienda');
+
+        if (!empty($stringaOfferta) && empty($stringaAzienda)) {
+            // Cerca solo nelle offerte
+            $risultati = Offerta::where('descrizione', 'like', '%' . $stringaOfferta . '%')->get();
+        } elseif (empty($stringaOfferta) && !empty($stringaAzienda)) {
+            // Cerca solo tra le aziende
+            $risultati = Azienda::where('nome', 'like', '%' . $stringaAzienda . '%')->get();
+        } elseif (!empty($stringaOfferta) && !empty($stringaAzienda)) {
+            $risultati = Offerta::where('descrizione', 'like', '%' . $stringaOfferta . '%')
+                ->with('azienda') //carico la relazione 'azienda' per ciascuna offerta corrispondente alla ricerca (nel modello c'è HasManyThrough)
+                ->whereHas('azienda', function ($query) use ($stringaAzienda) {
+                    $query->where('nome', 'like', '%' . $stringaAzienda . '%');
+                }) //filtro le offerte sulla relazione 'azienda'.
+                // Applico un filtro per selezionare solo le offerte che hanno un'azienda il cui nome corrisponde alla
+                // stringa di ricerca delle aziende ($stringaAzienda).
+                ->get();
+        } else {
+            // Se non scrivo niente n'è su coupon nè su azienda
+            $risultati = [];
         }
 
         return view('ricerca')->with('risultati', $risultati);
     }
+
     public function filtroOfferte(Request $request)
     {
         $dataOggi = Carbon::today()->toDateString();

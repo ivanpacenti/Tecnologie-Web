@@ -6,6 +6,9 @@
     @csrf
     <link rel="stylesheet" type="text/css" href="{{ asset('css/ricercaDesign.css') }}" >
     <div class="container">
+        @isset($id_azienda)
+        <p>{{$id_azienda}}</p>
+        @endif
             @isset($risultati)
                 <div class="container2">
                     @foreach($risultati as $risultati)

@@ -27,7 +27,10 @@ class Offerta extends Model
     {
         return $this->paginate(10);
     }*/
+    public function offerteInAziende()
+    {
 
+    }
     public function getOfferte(){
         return Offerta::all();
     }

@@ -12,9 +12,9 @@
     </div>
         <div class="searchbar" >
             @csrf
-            <form action="{{route('ricerca')}}" method="GET" id="searchForm">
-                <input type="text" id="cercaCoupon" name="cercaCoupon" list="coupon" >
-                <input type="text" id="cercaAzienda" name="cercaAzienda" list="aziende">
+            <form action="{{route('ricerca')}}" method="GET" id="searchForm" autocomplete="off">
+                <input type="text" id="cercaCoupon" name="cercaCoupon" list="coupon" placeholder="Cerca Coupon..." >
+                <input type="text" id="cercaAzienda" name="cercaAzienda" list="aziende" placeholder="Cerca Azienda...">
                 <datalist id="coupon">
                     <?php
                     $offerte=(new \App\Models\Offerta)->getOfferte();
