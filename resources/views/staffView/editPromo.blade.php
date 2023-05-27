@@ -6,40 +6,41 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/form_design.css') }}">
 
-    {!! Form::model($offerta, ['route' => ['edit', $offerta['id']], 'class' => 'form']) !!}
+    {!! Form::model($offerta, ['route' => ['ModificaOffertaxx', $offerta['id']], 'class' => 'form']) !!}
     {!! Form::token() !!}
+    <h1>Modifica un'offerta</h1>
     <div class="form-group">
-        {!! Form::label('id', 'ID') !!}
-        {!! Form::text('id', $offerta['id'], ['class' => 'form-input', 'readonly']) !!}<<<<
-    </div>
-    <div class="form-group">
-        {!! Form::label('modalita', 'Modalita') !!}
-        {!! Form::text('modalita', $offerta['modalita'], ['class' => 'form-input', 'placeholder' => 'Inserisci modalita']) !!}
-        @if ($errors->first('modalita'))
-            <ul class="errors">
-                @foreach ($errors->get('domanda') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
-    </div>
-    <div class="form-group">
-        {!! Form::label('luogoFruizione', 'luogoFruizione') !!}
-        {!! Form::text('luogoFruizione', $offerta['luogoFruizione'], ['class' => 'form-input','placeholder' => 'Inserisci luogo di fruizione']) !!}
-        @if ($errors->first('luogoFruizione'))
-            <ul class="errors">
-                @foreach ($errors->get('luogoFruizione') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
-    </div>
+        {!! Form::label('id', 'id', ['class' => 'form-label']) !!}
+        {!! Form::text('id', $offerta['id'], ['class' => 'form-input','readonly']) !!}
 
+    </div>
     <div class="form-group">
-        {!! Form::submit('Modifica', ['class' => 'formbutton']) !!}
+        {!! Form::label('modalita', 'modalita', ['class' => 'form-label']) !!}
+        {!! Form::text('modalita', $offerta['modalita'], ['class' => 'form-input', 'placeholder' => 'cambia la modalita']) !!}
+
+    </div>
+    <div class="form-group">
+        {!! Form::label('descrizione', 'descrizione', ['class' => 'form-label']) !!}
+        {!! Form::text('descrizione', $offerta['descrizione'], ['class' => 'form-input', 'placeholder' => 'Descrizione']) !!}
+    </div>
+    <!-- manca immagine -->
+    <div class="form-group">
+        {!! Form::label('luogoFruizione', 'luogoFruizione', ['class' => 'form-label']) !!}
+        {!! Form::text('luogoFruizione', $offerta['luogoFruizione'], ['class' => 'form-input', 'placeholder' => 'Inserisci luogo di fruizione']) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('dataInizio', 'dataInizio', ['class' => 'form-label']) !!}
+        {!! Form::text('dataInizio', $offerta['dataInizio'], ['class' => 'form-input', 'placeholder' => 'Inserisci data di inizio validazione']) !!}
+
+    </div>
+    <div class="form-group">
+        {!! Form::label('dataFine', 'dataFine', ['class' => 'form-label']) !!}
+        {!! Form::text('dataFine', $offerta['dataFine'], ['class' => 'form-input', 'placeholder' => 'Inserisci data di fine validazione']) !!}
+
+    </div>
+    <div class="form-group">
+        {!! Form::submit('Aggiorna', ['class' => 'formbutton']) !!}
     </div>
     {!! Form::close() !!}
 
 @endsection('content')
-
-

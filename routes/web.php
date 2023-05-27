@@ -160,13 +160,8 @@ Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupo
 Route::get('/VisualizzaOfferte', [StaffController::class, 'visualizzaOfferte'])->name('visualizzaOfferte')->middleware('can:isStaff');
 Route::get('/EliminaOfferta/{id}', [StaffController::class,'EliminaOfferta'])->name('EliminaOfferta')->middleware('can:isStaff');
 
-
-Route::view('/modify','staffView.editPromo')->name('modificaCoupon')->middleware('can:isStaff');
-Route::post('/modify', [PromoController::class, 'modCoupon'])->name('modificaCoupon2')->middleware('can:isStaff');
-Route::get('/modify', [PromoController::class, 'VisualizzaCoupon'])->name('couponEdit')->middleware('can:isStaff');
-Route::get('/edit', [PromoController::class,'modificaCoupon'])->name('edit')->middleware('can:isStaff');
-
-
+Route::get('/ModificaOfferta/{id}', [StaffController::class, 'Modifica1Offerta'])->name('ModificaOfferta')->middleware('can:isStaff');
+Route::post('/ModificaOfferta', [StaffController::class, 'ModificaOfferta'])->name('ModificaOffertaxx')->middleware('can:isStaff');
 
 
 require __DIR__.'/auth.php';
