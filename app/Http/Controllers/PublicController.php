@@ -45,8 +45,9 @@ class PublicController
             // Cerca solo nelle offerte
             $risultati = Offerta::where('descrizione', 'like', '%' . $stringaOfferta . '%')->get();
         } elseif (empty($stringaOfferta) && !empty($stringaAzienda)) {
-            // Cerca solo tra le aziende
-            $risultati = Azienda::where('nome', 'like', '%' . $stringaAzienda . '%')->get();
+            $risultati = Offerta::whereHas('azienda', function ($query) use ($stringaAzienda) {
+                $query->where('nome', 'like', '%' . $stringaAzienda . '%');
+            })->get();
         } elseif (!empty($stringaOfferta) && !empty($stringaAzienda)) {
             $risultati = Offerta::where('descrizione', 'like', '%' . $stringaOfferta . '%')
                 ->with('azienda') //carico la relazione 'azienda' per ciascuna offerta corrispondente alla ricerca (nel modello c'è HasManyThrough)
