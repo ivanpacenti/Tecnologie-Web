@@ -30,9 +30,10 @@ use App\Models\Resources\Staff;
 |
 |
 */
-Route::view('/', 'home')
-    ->name('index');
+Route::view('/', 'home')->name('index');
+Route::view('/dovesiamo', 'dovesiamo')->name('dovesiamo');
 Route::get('/homeAziende',[PublicController::class, 'visualizzaAziende'])->name('homeAziende');
+
 
 Route::get('/catalogo', [PublicController::class, 'visualizzaCatalogo'])->name('catalogo'); //funzionante
 Route::get('/filtroOfferte', [PublicController::class, 'filtroOfferte'])->name('filtroOfferte');

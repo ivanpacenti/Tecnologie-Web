@@ -24,7 +24,7 @@ class PublicController
     public function visualizzaCatalogo()
     {
         $dataOggi = Carbon::today()->toDateString();
-        $offerte = Offerta::where('dataFine', '>=', $dataOggi)->paginate(5);
+        $offerte = Offerta::where('dataFine', '>=', $dataOggi)->paginate(6);
         $aziende = $this->_aziendeModel->getAziende();;
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende)->with('dataOggi',$dataOggi);
     }
