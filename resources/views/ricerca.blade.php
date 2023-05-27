@@ -8,7 +8,8 @@
     <div class="container">
             @isset($risultati)
                 <div class="container2">
-                    @empty($risultati)
+                    @if(count($risultati)===0) //anche se la ricerca non dà risultati, l'array esiste.
+                                                //quindi per stampare il messaggio controllo che dentro sia vuoto
                     <p style="font-size: 1.8rem;">Spiacenti, la ricerca non ha prodotto alcun risultato.</p>
                     @endempty
                     @foreach($risultati as $risultati)
