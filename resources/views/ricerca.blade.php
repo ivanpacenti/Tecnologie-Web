@@ -11,7 +11,7 @@
                     @if(count($risultati)===0) //anche se la ricerca non dà risultati, l'array esiste.
                                                 //quindi per stampare il messaggio controllo che dentro sia vuoto
                     <p style="font-size: 1.8rem;">Spiacenti, la ricerca non ha prodotto alcun risultato.</p>
-                    @endempty
+                    @endif
                     @foreach($risultati as $risultati)
                             <div class="product-card" >
                                 <div class="image-container">
