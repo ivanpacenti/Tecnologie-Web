@@ -8,7 +8,7 @@
 
     <div class="maincontainer">
         <h1> PROMOZIONI</h1>
-        <button class="buttonbar2">Aggiungi Promozioni</button>
+        <a href="{{route("creaOfferta")}}" class="buttonbar"> Aggiungi Promozioni</a>
 
         @isset($offerte)
                 @foreach($offerte as $offerta)
@@ -26,9 +26,8 @@
                                             <a href="{{route('offerdetail',['id' => $offerta->id] )}}">Data Fine: {{$offerta->dataFine}}</a>
                                         </p>
                                         <div class="buttonslot">
-                                             <a href="{{"ModificaOfferta"}}" class="buttonbar">Modifica </a>
-                                            <a href="{{"EliminaOfferta/".$offerta['id']}}" class="buttonbar">
-                                                Elimina</a>
+                                             <a href="{{"ModificaOfferta/".$offerta['id']}}" class="buttonbar">Modifica </a>
+                                            <a href="{{"EliminaOfferta/".$offerta['id']}}" class="buttonbar">Elimina</a>
                                         </div>
                                     </div>
                                 </div>

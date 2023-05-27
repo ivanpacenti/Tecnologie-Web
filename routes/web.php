@@ -163,6 +163,10 @@ Route::get('/EliminaOfferta/{id}', [StaffController::class,'EliminaOfferta'])->n
 Route::get('/ModificaOfferta/{id}', [StaffController::class, 'Modifica1Offerta'])->name('ModificaOfferta')->middleware('can:isStaff');
 Route::post('/ModificaOfferta', [StaffController::class, 'ModificaOfferta'])->name('ModificaOffertaxx')->middleware('can:isStaff');
 
+Route::view('/createOfferta','staffView.creaOfferta')->name('creaOfferta')->middleware('can:isStaff');
+Route::post('/createOfferta', [StaffController::class, 'creaofferta'])->name('creaOfferta')->middleware('can:isStaff');
+
+
 
 require __DIR__.'/auth.php';
 
