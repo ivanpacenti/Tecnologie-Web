@@ -152,19 +152,16 @@ Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editS
 //ROTTE PER IL CRUD DELLE PROMOZIONI
 Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupon'])->name('crudPromozioni')->middleware('can:isStaff');
 
-
-
-
-//DA CAMBIARE PERCHè NON FA FUNZIONARE LE ROTTE
-// prima rotta per la visualizzazione
+// prima rotta per la visualizzazione delle offerte
 Route::get('/VisualizzaOfferte', [StaffController::class, 'visualizzaOfferte'])->name('visualizzaOfferte')->middleware('can:isStaff');
+//rotta per eliminare un'offerta
 Route::get('/EliminaOfferta/{id}', [StaffController::class,'EliminaOfferta'])->name('EliminaOfferta')->middleware('can:isStaff');
-
+//rotta per modificare un'offerta
 Route::get('/ModificaOfferta/{id}', [StaffController::class, 'Modifica1Offerta'])->name('ModificaOfferta')->middleware('can:isStaff');
 Route::post('/ModificaOfferta', [StaffController::class, 'ModificaOfferta'])->name('ModificaOffertaxx')->middleware('can:isStaff');
-
-Route::view('/createOfferta','staffView.creaOfferta')->name('creaOfferta')->middleware('can:isStaff');
-Route::post('/createOfferta', [StaffController::class, 'creaofferta'])->name('creaOfferta')->middleware('can:isStaff');
+//rotta per creare/aggiungere una nuova offerta
+Route::view('/createOfferta','staffView.CreaOfferta')->name('CreaOfferta')->middleware('can:isStaff');
+Route::post('/createOfferta', [StaffController::class, 'Creaofferta'])->name('CreaOfferta')->middleware('can:isStaff');
 
 
 

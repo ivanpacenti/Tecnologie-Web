@@ -14,11 +14,5 @@ class FaqController extends Controller
         return view('publicFaqs');
     }
 
-    public function VisualizzaFaq()
-//  Questa è una funzione per visualizzare le faq,
-    {
-        $faqs = faq::all();
-        //dd($faqs);
-        return view('layouts.publicFaqs')->with('faqs', $faqs);
-    }
+
 }

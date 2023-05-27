@@ -5,8 +5,7 @@
 @section('content')
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/form_design.css') }}">
-    {!! Form::open(['route' => 'ModificaOffertaxx', 'class' => 'form']) !!}
-    {!! Form::model($offerta, ['route' => ['ModificaOffertaxx', $offerta['id']], 'class' => 'form']) !!}
+    {!! Form::model($offerta, ['route' => ['ModificaOffertaxx', $offerta['id']], 'class' => 'form'])!!}
     {!! Form::token() !!}
     <h1>Modifica un'offerta</h1>
     <div class="form-group">
@@ -72,7 +71,7 @@
     </div>
     <div class="form-group">
         {!! Form::submit('Aggiorna', ['class' => 'formbutton']) !!}
+
     </div>
     {!! Form::close() !!}
-
 @endsection('content')

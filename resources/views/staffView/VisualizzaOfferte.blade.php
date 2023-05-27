@@ -8,7 +8,7 @@
 
     <div class="maincontainer">
         <h1> PROMOZIONI</h1>
-        <a href="{{route("creaOfferta")}}" class="buttonbar"> Aggiungi Promozioni</a>
+        <a href="{{route("CreaOfferta")}}" class="buttonbar"> Aggiungi Promozioni</a>
 
         @isset($offerte)
                 @foreach($offerte as $offerta)
@@ -35,13 +35,9 @@
                         @endforeach
                         @else
                         @endisset
-    </div>    </div>
-                        <div class="buttonslot">
-                            <button class="buttonbar2">Crea Promozione</button>
-                        </div>
-
-
-                    </div>
+    </div>
+    </div>
+    </div>
 @endsection
 
 

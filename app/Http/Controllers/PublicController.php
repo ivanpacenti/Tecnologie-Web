@@ -96,15 +96,11 @@ class PublicController
     }
 
 
-
-
-
+//funzione che visualizza le faq
     public function vis(){
+
         $faqs = Faq::all();
-        //dd($faqs);
-        //return view('publicView.publicFaqs')->with('faqs', $faqs);
-        //return view('layouts.publicFaqs')->with('faqs', $faqs);
-        //return view('Faq', compact('faqs'));
+
         return view('layouts.publicFaqs', ['faqs' => $faqs]);
     }
 }
