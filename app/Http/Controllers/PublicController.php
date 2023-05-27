@@ -38,8 +38,8 @@ class PublicController
 
     public function ricerca(Request $request)
     {
-        $stringaOfferta = $request->get('cercaCoupon');
-        $stringaAzienda = $request->get('cercaAzienda');
+        $stringaOfferta = addslashes($request->get('cercaCoupon'));
+        $stringaAzienda = addslashes($request->get('cercaAzienda'));
 
         if (!empty($stringaOfferta) && empty($stringaAzienda)) {
             // Cerca solo nelle offerte

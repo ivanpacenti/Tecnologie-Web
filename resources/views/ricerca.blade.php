@@ -6,11 +6,11 @@
     @csrf
     <link rel="stylesheet" type="text/css" href="{{ asset('css/ricercaDesign.css') }}" >
     <div class="container">
-        @isset($id_azienda)
-        <p>{{$id_azienda}}</p>
-        @endif
             @isset($risultati)
                 <div class="container2">
+                    @empty($risultati)
+                    <p style="font-size: 1.8rem;">Spiacenti, la ricerca non ha prodotto alcun risultato.</p>
+                    @endempty
                     @foreach($risultati as $risultati)
                             <div class="product-card" >
                                 <div class="image-container">
@@ -36,5 +36,6 @@
                     @endforeach
                 </div>
             @endisset
+
         </div>
         @endsection
