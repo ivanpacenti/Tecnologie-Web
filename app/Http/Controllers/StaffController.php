@@ -70,4 +70,35 @@ class StaffController extends Controller {
         $offerta->delete();
         return redirect()->back()->with('success', 'offerta eliminata con successo');
     }
+    public function Modifica1Offerta($id)
+    {
+        $offerta = $this->_staffOfferte->getOffertabyID($id);
+        return view('staffView.editPromo', ['offerta' => $offerta]);
+    }
+    public function ModificaOfferta(Request $req) // funzione che serve per modificare  un coupon
+    {
+        $req->validate([
+            'id' => ['required', 'string', 'max:10'],
+            'modalita' => ['required', 'varchar', 'max:100'],
+            'descrizione'=> ['required', 'varchar', 'max:250'],
+            'immagine'=> ['required','varchar', 'max:100'],
+            'dataInizio' => ['required', 'date'],
+            'dataFine'=> ['required', 'date'],
+            'luogoFruizione' => ['required', 'varchar', 'max:100']
+        ]);
+        $offerta =$this->_staffOfferte->getOffertabyID($req->id);
+        //$offerta= Offerta::find($req->id);
+        $offerta->id=$req->id;
+        $offerta->modalita=$req->modalita;
+        $offerta->descrizione=$req->descrizione;
+        $offerta->immagine=$req->immagine;
+        $offerta->luogoFruizione=$req->luogoFruzione;
+        $offerta->dataInizio=$req->dataInizio;
+        $offerta->dataFine=$req->dataFine;
+
+        //$offerta->save();
+
+        //return view('staffView.editPromo');
+        return redirect()->action([StaffController::class, 'VisualizzaOfferte']);
+    }
 }

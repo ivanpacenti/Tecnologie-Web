@@ -12,11 +12,11 @@
 
         @isset($offerte)
                 @foreach($offerte as $offerta)
-{{--                   <!-- <div class="imgslot">{{$aziende->find($offerta->emissione->azienda)->nome}} -->--}}
-{{--                       <div class="main-box-az" id="{{$aziende->find($offerta->emissione->azienda)->nome}}">--}}
-                <div>
-                            <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px" width=40% height=40%>
-                                <div class="description">
+               <div class="main-box-az">
+                    <div class="imgslot">
+                            <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px" width=auto height=40%>
+                    </div>
+                        <div class="description">
                                     <div class="testocard">
                                         <p>
                                             <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}">Descrizione: {{$offerta->descrizione}}</a> <br>
@@ -26,18 +26,17 @@
                                             <a href="{{route('offerdetail',['id' => $offerta->id] )}}">Data Fine: {{$offerta->dataFine}}</a>
                                         </p>
                                         <div class="buttonslot">
-                                            <a href="{{'modify'}}" class="buttonbar">Modifica </a>
+                                             <a href="{{"ModificaOfferta"}}" class="buttonbar">Modifica </a>
                                             <a href="{{"EliminaOfferta/".$offerta['id']}}" class="buttonbar">
                                                 Elimina</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                <!-- .$offerta['id']-->
                         @endforeach
                         @else
                         @endisset
-    </div>
+    </div>    </div>
                         <div class="buttonslot">
                             <button class="buttonbar2">Crea Promozione</button>
                         </div>
