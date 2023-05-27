@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/form_design.css')}}" >
 
-    {!! Form::open(['route' => 'agencycreate2', 'class' => 'form']) !!}
+    {!! Form::open(['route' => 'agencycreate2', 'class' => 'form', 'files' => true]) !!}
     {!! Form::token() !!}
     <h1>Aggiungi una nuova azienda</h1>
     <div class="form-group">
@@ -71,15 +71,18 @@
     </div>
     <div class="form-group">
         {!! Form::label('logo', 'Logo') !!}
-        {!! Form::text('logo', null, ['class' => 'form-input','placeholder' => 'Inserisci logo']) !!}
-        @if ($errors->first('logo'))
-            <ul class="errors">
-                @foreach ($errors->get('logo') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
+        <div class="form-group-2">
+            {!! Form::file('logo', null, ['class' => 'custom-file-input']) !!}
+            @if ($errors->first('logo'))
+                <ul class="errors">
+                    @foreach ($errors->get('logo') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
     </div>
+
 
     <div class="form-group">
         {!! Form::submit('Salva', ['class' => 'formbutton']) !!}
