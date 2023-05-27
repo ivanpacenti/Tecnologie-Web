@@ -15,9 +15,7 @@
             </div>
 
             <div class="section">
-                DOVE SIAMO <br>
-                Via Brecce Bianche, 12 <br>
-                60131 Ancona AN
+                <a href="{{route("dovesiamo")}}">DOVE SIAMO?</a>
             </div>
 
             <div class="section">
