@@ -25,13 +25,13 @@ class PublicController
     {
         $dataOggi = Carbon::today()->toDateString();
         $offerte = Offerta::where('dataFine', '>=', $dataOggi)->paginate(5);
-        $aziende=Azienda::all();
+        $aziende = $this->_aziendeModel->getAziende();;
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende)->with('dataOggi',$dataOggi);
     }
 
     public function visualizzaDettagliOfferta($id)
     {
-        $offerta = Offerta::find($id);
+        $offerta = $this->_offerteModel->getOffertabyID($id);;
         return view('offerdetail',['offerta'=>$offerta]);
     }
 
@@ -79,7 +79,7 @@ class PublicController
 
         // Filtrare le offerte in base agli ID delle aziende selezionate
         //$offerte = Offerta::whereIn('id', $aziendeSelezionate)->paginate(2);
-        $aziende=Azienda::all();
+        $aziende=$this->_aziendeModel->getAziende();
 
 
         // Passare le offerte alla vista o eseguire altre operazioni

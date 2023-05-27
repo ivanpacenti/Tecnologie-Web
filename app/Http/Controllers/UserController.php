@@ -15,6 +15,9 @@ use App\Models\Utente;
 class UserController extends Controller {
 // non ha funzione costruttrice ma ha solo una funzione index che propone la vista user, sta di fatto che solo l'utente user può accedere a quella vista
 // in questo caso il proceosso di autenticazione sta nella rotta(nell''admin sta nell admin controller))
+    protected User $Utente;
+    protected Offerta $Offerta;
+
     public function index() {
         return view('user');
     }
@@ -23,13 +26,14 @@ class UserController extends Controller {
     }
 
     public function __construct() {
+        $this->Utente = new User();
+        $this->Offerta = new Offerta();
         $this->middleware('can:isUser');
     }
 
     public function Visualizza1Utente($id)
     {
-        $User = User::find($id);
-        //dd($User);
+        $User = $this->Utente->getUtentebyID($id);
         return view('userView.editUser', ['User' => $User]);
     }
 
@@ -45,7 +49,7 @@ class UserController extends Controller {
             'username' => ['required', 'string', 'between:0,100'],
         ]);
 
-        $User= User::find($req->id);
+        $User= $this->Utente->getUtentebyID($req->id);
         $User->name=$req->name;
         $User->email=$req->email;
         $User->surname=$req->surname;
@@ -53,7 +57,6 @@ class UserController extends Controller {
         $User->username=$req->username;
         $User->età=$req->età;
 
-        //dd($User);
         $User->save();
 
         return redirect()->action([UserController::class, 'index']);
@@ -61,16 +64,14 @@ class UserController extends Controller {
 
     public function home() {
         return view('index');
-
-
     }
 
     public function stampa(Request $request) {
         $couponId = $request->input('coupon_id');
         $userId = $request->input('user_id');
-        $offertA = Offerta::find($couponId);
+        $offertA = $this->Offerta->getOffertabyID($couponId);
         //dd($offertA);
-        $user = User::find($userId);
+        $user = $this->Utente->getUtentebyID($userId);
 
         if ($user) {
             $existingCoupon = coupon_off::where('utente', $user->username)
@@ -80,7 +81,8 @@ class UserController extends Controller {
             if ($existingCoupon) {
                 return view('userView.coupongiaComprato');
 
-            } else {
+            }
+            else {
                 // nel caso in cui il risultato della  La tupla non esiste
                 $userUs = User::where('id', $userId)->first(); // mi estrae solo una tupla
                 $couponOff = new coupon_off();
@@ -93,11 +95,6 @@ class UserController extends Controller {
             }
         }
 
-        //if ()
-        //dd($userId);
-
-        //return view('')->with(compact('couponId', 'userId'));
-        //else
     }
 
 
