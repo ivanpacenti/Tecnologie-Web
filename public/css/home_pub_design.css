@@ -164,3 +164,12 @@ body {
     text-decoration: none;
     color: #762c2c;
 }
+
+/*definizione della mappa nella pagina 'dovesiamo'*/
+#map {
+    width: 90%;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+}
+

@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
 
     <div class="maincontainer">
-        <h1>ECCO TUTTE LE AZINDE DEL NOSTRO SITO</h1>
+        <h1>LE NOSTRE AZIENDE</h1>
         @isset($aziende)
             @foreach($aziende as $azienda)
 
@@ -15,11 +15,11 @@
                         <img src="{{$azienda->logo}}" width=100% height=auto>
                     </div>
                     <div class="textslot"> {{--contenitore per il testo--}}
-                        <h3>Partita Iva: {{$azienda->partitaIva}}</h3>
-                        <h2>Nome: {{$azienda->nome}}</h2>
-                        <h3>  Tipologia: {{$azienda->tipologia}}</h3>
-                        <h3>Posizione: {{$azienda->posizione}}</h3>
-                        <h4>Descrizione: {{$azienda->descrizione}}</h4>
+                        <h3>ID: {{$azienda->id}}</h3>
+                        <p>Partita Iva: {{$azienda->partitaIva}}</p>
+                        <p>Nome: {{$azienda->nome}}, Tipologia: {{$azienda->tipologia}}</p>
+                        <p>Posizione: {{$azienda->posizione}}</p>
+                        <p>Descrizione: {{$azienda->descrizione}}</p>
                     </div>
                 </div>
 
