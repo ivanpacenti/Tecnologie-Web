@@ -283,12 +283,7 @@ class AdminController extends Controller
     // di conseguenza si farà una vista semplice(non in get) e una in post
     public function staffcreate(Request $req) // funzione per salvare una faq all'interno del db
     {
-//        $req->validate([
-//            'domanda' => ['required', 'string', 'max:255'],
-//            'risposta' => ['required', 'string', 'max:255'],
-//        ]);
 
-// da rifinire
         $User = new User();
         $User->name=$req->name;
         $User->email=$req->email;
@@ -297,7 +292,10 @@ class AdminController extends Controller
         $User->username=$req->username;
         $User->età=$req->età;
         $User->role=$req->role;
+        $User->genere=$req->genere;
+        $User->telefono=$req->telefono;
         $User->save();
+
         return redirect()->action([AdminController::class, 'VisualizzaStaff']);
     }
 

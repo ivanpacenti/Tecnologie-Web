@@ -89,7 +89,7 @@ Route::get('/Faq', [PublicController::class, 'vis'])-> name('visualizza_listafaq
 // ROTTE PER LE STATISTICHE
 Route::view('/statistiche', 'adminView.statistiche')->name('statistiche')->middleware('can:isAdmin');
 Route::get('/totaleCoupon',[AdminController::class,'NumeroCoupon'])->name('NumeroCoupon')->middleware('can:isAdmin');
-Route::get('/VisualizzaOfferte',[AdminController::class,'VisualizzaOfferte'])->name('VisualizzaOfferte')->middleware('can:isAdmin');
+Route::get('/VisualizzaOfferteS',[AdminController::class,'VisualizzaOfferte'])->name('VisualizzaOfferteS')->middleware('can:isAdmin');
 Route::get('/CouponOfferta{id}',[AdminController::class,'CouponOfferta'])->name('CouponOfferta')->middleware('can:isAdmin');
 Route::get('/CouponUtente{id}',[AdminController::class,'CouponUtente'])->name('CouponUtente')->middleware('can:isAdmin');
 
