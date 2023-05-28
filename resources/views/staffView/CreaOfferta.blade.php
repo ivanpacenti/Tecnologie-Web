@@ -5,7 +5,7 @@
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{asset('css/form_design.css')}}" >
 
-    {!! Form::open(['route' => 'CreaOfferta', 'class' => 'form']) !!}
+    {!! Form::open(['route' => 'CreaOfferta', 'class' => 'form', 'files' => true]) !!}
     <h1>Aggiungi nuova promozione</h1>
          <div class="form-group">
              {!! Form::label('immagine', 'Immagine:') !!}
@@ -21,10 +21,6 @@
              </div>
          </div>
      </div>
-    <div class="form-group">
-        {!! Form::label('id', 'Id:') !!}
-        {!! Form::text('id', null, ['class' => 'form-input', 'required']) !!}
-    </div>
     <div class="form-group">
         {!! Form::label('modalita', 'Modalità:') !!}
         {!! Form::text('modalita', null, ['class' => 'form-input', 'required']) !!}

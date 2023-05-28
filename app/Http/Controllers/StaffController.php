@@ -99,7 +99,7 @@ class StaffController extends Controller {
         //$offerta->save();
 
         //return view('staffView.editPromo');
-        return redirect()->action([StaffController::class, 'VisualizzaOfferte']);
+        return redirect()->action([StaffController::class, 'visualizzaOfferte']);
     }
     public function CreaOfferta(Request $req) //funzione che permette di creare ed aggiungere una nuova azienda nel db
     {
@@ -119,13 +119,13 @@ class StaffController extends Controller {
         $offerta = new Offerta();
         $offerta->immagine = $imageName;
         $offerta->id = $req->id;
-        $offerta->modalità = $req->modalità;
+        $offerta->modalita = $req->modalita;
         $offerta->descrizione = $req->descrizione;
         $offerta->dataInizio = $req->dataInizio;
         $offerta->dataFine= $req->dataFine;
         $offerta->luogoFruizione=$req->luogoFruizione;
         $offerta->save();
 
-        return  redirect()->route('VisualizzaOfferte');
+        return  redirect()->route('visualizzaOfferte');
     }
 }
