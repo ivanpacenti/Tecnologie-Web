@@ -5,10 +5,23 @@
 @section('content')
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/form_design.css') }}">
+    <!--{!! Form::open(['route' => 'ModificaOffertaxx', 'class' => 'form', 'files' => true]) !!} -->
     {!! Form::model($offerta, ['route' => ['ModificaOffertaxx', $offerta['id']], 'class' => 'form'])!!}
     {!! Form::token() !!}
     <h1>Modifica un'offerta</h1>
     <div class="form-group">
+        {!! Form::label('immagine', 'Immagine:') !!}
+        <div class="form-group-2">
+            {!! Form::file('immagine', ['class' => 'custom-file-input']) !!}
+            @if ($errors->first('immagine'))
+                <ul class="errors">
+                    @foreach ($errors->get('immagine') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+    </div><div class="form-group">
         {!! Form::label('id', 'id', ['class' => 'form-label']) !!}
         {!! Form::text('id', $offerta['id'], ['class' => 'form-input','readonly']) !!}
 
@@ -35,7 +48,7 @@
             </ul>
         @endif
     </div>
-    <!-- manca immagine -->
+
     <div class="form-group">
         {!! Form::label('luogoFruizione', 'luogoFruizione', ['class' => 'form-label']) !!}
         {!! Form::text('luogoFruizione', $offerta['luogoFruizione'], ['class' => 'form-input', 'placeholder' => 'Inserisci luogo di fruizione']) !!}
