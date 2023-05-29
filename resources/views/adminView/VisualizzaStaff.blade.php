@@ -7,18 +7,18 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
 
     <div class="maincontainer">
-        <h1>Benvenuto nella pagina di gestione STAFF</h1>
-        <a href="{{route("staffcreate")}}" class="buttonbar-add"> Aggiungi un membro dello staff</a>
+        <h1>Di seguito ci sono tutti i membri STAFF</h1>
+        <a href="{{route("staffcreate")}}" class="buttonbar-add"> Aggiungi un membro</a>
         @isset($staffs)
             @foreach($staffs as $staff)
                 <div class="main-box">
-                    <h2>id utente staff : {{$staff->id}} </h2>
-                    <h2>nome: {{$staff->name}} </h2>
-                    <h2>cognome: {{$staff->surname}} </h2>
-                    <h2>email: {{$staff->email}} </h2>
-                    <h2>genere: {{$staff->genere}} </h2>
-                    <h2>telefono: {{$staff->telefono}} </h2>
-                    <h2>Ruolo: {{$staff->role}} </h2>
+                    <h2>ID membro staff: {{$staff->id}} </h2>
+                    <div class="upper-box">
+                        <p>Nome: {{$staff->name}} </p>
+                        <p>Cognome: {{$staff->surname}} </p>
+                        <p>Username: {{$staff->username}} </p>
+                        <p>Email: {{$staff->email}} </p>
+                    </div>
                     <div class="buttons-container">
                         <a href="{{"ModificaStaff/".$staff['id']}}" class="buttonbar">
                             Modifica</a>

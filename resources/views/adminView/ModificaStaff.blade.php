@@ -8,7 +8,7 @@
 
     {!! Form::model($staff, ['route' => ['ModificaStaff', $staff['id']], 'class' => 'form']) !!}
     {!! Form::token() !!}
-    <h1>Modifica i tuoi dati personali</h1>
+    <h1>Modifica i dati di {{$staff['username']}}</h1>
     <div class="form-group">
         {!! Form::label('id', 'id', ['class' => 'form-label']) !!}
         {!! Form::text('id', $staff['id'], ['class' => 'form-input','readonly']) !!}

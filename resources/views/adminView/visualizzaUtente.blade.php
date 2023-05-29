@@ -11,22 +11,16 @@
             @foreach($Users as $User)
                 @if(str_contains($User->role, 'user'))
                     <div class="main-box"> {{--contenitore per ogni singolo utente--}}
-                        <h2> Utente numero: {{$User->id}} </h2>
+                        <h2> ID Utente: {{$User->id}} </h2>
+                        <div class="upper-box">
+                            <p>Nome: {{$User->name}}</p>
+                            <p>Cognome: {{$User->surname}}</p>
+                            <p>Username: {{$User->username}}</p>
+                            <p>Email: {{$User->email}}</p>
+                        </div>
                         <div class="buttons-container">
                             <a href="{{"deleteUser/".$User['id']}}" class="buttonbar">Elimina</a>
                             <a href="{{"CouponUtente".$User['id']}}" class="buttonbar">Coupon acquistati</a>
-                        </div>
-                        <div class="upper-box">
-                            <h2>nome utente:</h2>
-                            <h4>{{$User->name}}</h4>
-                        </div>
-                        <div class="inner-box">
-                            <h2>cognome utente:</h2>
-                            <h4>{{$User->surname}}</h4>
-                        </div>
-                        <div class="inner-box">
-                            <h2>Username Utente:</h2>
-                            <h4>{{$User->username}}</h4>
                         </div>
                     </div>
                 @endif
