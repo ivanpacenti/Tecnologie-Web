@@ -78,11 +78,11 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('aziende', 'aziende da associare') !!}
-        {!! Form::select('aziende', $aziende, null, ['class' => 'form-input', 'required']) !!}
-        @if ($errors->first('aziende'))
+        {!! Form::label('azienda', 'Luogo azienda fruizione:') !!}
+        {!! Form::select('azienda', $aziende, null, ['class' => 'form-input', 'required']) !!}
+        @if ($errors->first('azienda'))
             <ul class="errors">
-                @foreach ($errors->get('aziende') as $message)
+                @foreach ($errors->get('azienda') as $message)
                     <li>{{ $message }}</li>
                 @endforeach
             </ul>

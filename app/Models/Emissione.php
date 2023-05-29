@@ -9,6 +9,7 @@ class Emissione extends Model
 {
     protected $table='emissiones';
     public $timestamps = false;
+    protected $fillable = ['azienda', 'offerta'];
     /*
     public function azienda()
     {

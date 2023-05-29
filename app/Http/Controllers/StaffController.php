@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Azienda;
+use App\Models\Emissione;
 use App\Models\Faq;
 use App\Models\Offerta;
 use App\Models\Resources\Product;
@@ -77,7 +78,8 @@ class StaffController extends Controller {
     public function Modifica1Offerta($id)
     {
         $offerta = $this->_staffOfferte->getOffertabyID($id);
-        $aziende =$this->_staffAzienda->getAziende();
+        $aziende =$this->_staffAzienda->getAziendeId_Nome();
+        //dd($aziende);
         return view('staffView.editPromo', ['offerta' => $offerta, 'aziende' => $aziende]);
     }
     public function ModificaOfferta(Request $req) // funzione che serve per modificare  un coupon
@@ -106,6 +108,10 @@ class StaffController extends Controller {
         //return $offerta;
         //dd($offerta);
         $offerta->save();
+//        $emissione = new Emissione();
+//        $emissione ->azienda = $req->azienda;
+//        $emissione ->offerta = $offerta->id;
+//        $emissione->save();
 //        return view('staffView.editPromo');
         return redirect()->action([StaffController::class, 'visualizzaOfferte']);
     }
@@ -123,7 +129,7 @@ class StaffController extends Controller {
             $image->move($destinationPath, $imageName);
             $imageName = 'img/' . $image->getClientOriginalName();
         }
-
+        //dd($req);
         $offerta = new Offerta();
         $offerta->immagine = $imageName;
         $offerta->id = $req->id;
@@ -132,8 +138,18 @@ class StaffController extends Controller {
         $offerta->dataInizio = $req->dataInizio;
         $offerta->dataFine= $req->dataFine;
         $offerta->luogoFruizione=$req->luogoFruizione;
-       // dd($offerta);
         $offerta->save();
-        return  redirect()->route('visualizzaOfferte');
+        $emissione = new Emissione();
+        $emissione ->azienda = $req->azienda;
+        $emissione ->offerta = $offerta->id;
+        $emissione->save();
+        return redirect()->route('visualizzaOfferte');
     }
+
+    public function creaoffertaxx()
+    {
+        $aziende = $this->_staffAzienda->getAziendeId_Nome();
+        return view('staffView.CreaOfferta',['aziende' => $aziende]);
+    }
+
 }

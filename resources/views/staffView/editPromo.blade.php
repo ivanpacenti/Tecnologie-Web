@@ -5,7 +5,6 @@
 @section('content')
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/form_design.css') }}">
-{{--    <!--{!! Form::open(['route' => 'ModificaOffertaxx', 'class' => 'form', 'files' => true]) !!} -->--}}
     {!! Form::model($offerta, ['route' => ['ModificaOffertaxx', $offerta['id']],'files' => true, 'class' => 'form'])!!}
     {!! Form::token() !!}
 

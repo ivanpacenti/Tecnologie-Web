@@ -160,7 +160,8 @@ Route::get('/EliminaOfferta/{id}', [StaffController::class,'EliminaOfferta'])->n
 Route::get('/ModificaOfferta/{id}', [StaffController::class, 'Modifica1Offerta'])->name('ModificaOfferta')->middleware('can:isStaff');
 Route::post('/ModificaOfferta', [StaffController::class, 'ModificaOfferta'])->name('ModificaOffertaxx')->middleware('can:isStaff');
 //rotta per creare/aggiungere una nuova offerta
-Route::view('/createOfferta','staffView.CreaOfferta')->name('CreaOfferta')->middleware('can:isStaff');
+//Route::view('/createOfferta','staffView.CreaOfferta')->name('CreaOfferta')->middleware('can:isStaff');
+Route::get('/createOfferta',[StaffController::class, 'creaoffertaxx'])->name('CreaOfferta');
 Route::post('/createOfferta', [StaffController::class, 'Creaofferta'])->name('CreaOfferta')->middleware('can:isStaff');
 
 

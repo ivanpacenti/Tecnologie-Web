@@ -31,5 +31,9 @@ class Azienda extends Model
     public function getAziendabyID($id){
         return Azienda::find($id);
     }
+    public function getAziendeId_Nome(){
+        return Azienda::pluck('nome', 'id')->toArray();
+
+    }
 
 }
