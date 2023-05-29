@@ -1,6 +1,6 @@
 @extends('layouts.pageLayout')
 
-@section('title','PaginaStaff|CrudPromozioni')
+@section('title','Staff | Offers')
 
 @section('content')
 

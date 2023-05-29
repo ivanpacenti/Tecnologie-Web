@@ -1,6 +1,6 @@
 @extends('layouts.pageLayout')
 
-@section('title','Ricerca')
+@section('title','Catalogo | Ricerca')
 
 @section('content')
     @csrf

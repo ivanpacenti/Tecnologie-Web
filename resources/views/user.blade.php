@@ -1,6 +1,6 @@
 @extends('layouts.pageLayout')
 
-@section('title','Profile Page')
+@section('title','User | Profile')
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/profile_design.css') }}" >
@@ -27,7 +27,7 @@
                     {{ Auth::user()->email }}
                 </div>
                 <div class="containerfield">
-                    password
+                    {{ str_repeat('•', 20) }}
                 </div>
             </div>
             <div class="rightcontainer">

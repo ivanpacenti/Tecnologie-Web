@@ -1,4 +1,4 @@
-@section('title','Dove Siamo?')
+@section('title','Home | Where')
 
 @extends('layouts.pageLayout')
 

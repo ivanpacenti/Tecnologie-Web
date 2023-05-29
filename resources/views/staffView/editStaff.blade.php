@@ -1,7 +1,7 @@
 {{--questa pagina modifica le area riservate--}}
 @extends('layouts.pageLayout')
 
-@section('title','Pagina modifca dati staff')
+@section('title','Staff | Edit Profile')
 
 @section('content')
 
@@ -44,7 +44,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('password', 'password', ['class' => 'form-label']) !!}
-        {!! Form::text('password', $User['password'], ['class' => 'form-input', 'placeholder' => 'password']) !!}
+        {!! Form::password('password',['value' => $User['password'], 'class' => 'form-input', 'placeholder' => 'password']) !!}
     </div>
 
     <div class="form-group">

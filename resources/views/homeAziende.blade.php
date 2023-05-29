@@ -1,4 +1,4 @@
-@section('title','Aziende')
+@section('title','Home | Agencies')
 
 @extends('layouts.pageLayout')
 

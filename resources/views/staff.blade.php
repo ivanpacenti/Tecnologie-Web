@@ -1,6 +1,6 @@
 @extends('layouts.pageLayout')
 
-@section('title','Catalogo')
+@section('title','Staff | Profilw')
 
 @section('content')
 
@@ -30,7 +30,7 @@
                 {{ Auth::user()->email }}
             </div>
             <div class="containerfield">
-                password
+                {{ str_repeat('•', 20) }}
             </div>
         </div>
         <div class="rightcontainer">

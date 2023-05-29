@@ -1,5 +1,5 @@
 {{-- pagina admin--}}
-@section('title','PaginaAdmin')
+@section('title','Admin | Profile')
 
 @extends('layouts.pageLayout')
 

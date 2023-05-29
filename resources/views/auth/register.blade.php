@@ -2,7 +2,7 @@
 
 @extends('layouts.pageLayout')
 
-@section('title', 'Registrazione')
+@section('title', 'Sign In')
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home_pub_design.css') }}">
