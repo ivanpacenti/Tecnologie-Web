@@ -105,14 +105,10 @@ class StaffController extends Controller {
         $offerta->luogoFruizione=$req->luogoFruizione;
         $offerta->dataInizio=$req->dataInizio;
         $offerta->dataFine=$req->dataFine;
-        //return $offerta;
-        //dd($offerta);
         $offerta->save();
-//        $emissione = new Emissione();
-//        $emissione ->azienda = $req->azienda;
-//        $emissione ->offerta = $offerta->id;
-//        $emissione->save();
-//        return view('staffView.editPromo');
+
+        Emissione::where('offerta', $offerta->id)->update(['azienda' => $req->azienda]);
+
         return redirect()->action([StaffController::class, 'visualizzaOfferte']);
     }
     public function CreaOfferta(Request $req) //funzione che permette di creare ed aggiungere una nuova azienda nel db
