@@ -149,9 +149,9 @@ Route::get('/editStaff/{id}', [StaffController::class,'Visualizza1Staff'])->name
 Route::post('/editStaff', [StaffController::class,'modificaStaff'])->name('editStaffxx')->middleware('can:isStaff');
 
 
+
 //ROTTE PER IL CRUD DELLE PROMOZIONI
 Route::get('/staff/crudPromozioni', [CatalogoController::class, 'visualizzaCoupon'])->name('crudPromozioni')->middleware('can:isStaff');
-
 // prima rotta per la visualizzazione delle offerte
 Route::get('/VisualizzaOfferte', [StaffController::class, 'visualizzaOfferte'])->name('visualizzaOfferte')->middleware('can:isStaff');
 //rotta per eliminare un'offerta

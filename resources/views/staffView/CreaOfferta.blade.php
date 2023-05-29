@@ -22,11 +22,11 @@
          </div>
      </div>
     <div class="form-group">
-        {!! Form::label('modalita', 'Modalità:') !!}
-        {!! Form::text('modalita', null, ['class' => 'form-input', 'required']) !!}
-        @if ($errors->first('modalita'))
+        {!! Form::label('modalità', 'modalità:') !!}
+        {!! Form::text('modalità', null, ['class' => 'form-input', 'required']) !!}
+        @if ($errors->first('modalità'))
             <ul class="errors">
-                @foreach ($errors->get('modalita') as $message)
+                @foreach ($errors->get('modalità') as $message)
                     <li>{{ $message }}</li>
                 @endforeach
             </ul>

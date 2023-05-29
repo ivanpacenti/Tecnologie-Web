@@ -13,7 +13,7 @@ class Offerta extends Model
     //protected $guarded = ['id']; // prodId non modificabile da un HTTP Request (Mass Assignment)
     public $timestamps = false; //Laravel non aggiorna i campi created_at e updated_at nel database
 
-    protected $fillable = ['descrizione', 'immagine']; // Campi della tabella che possono essere assegnati in modo massivo
+    protected $fillable = ['descrizione', 'immagine','luogoFruizione']; // Campi della tabella che possono essere assegnati in modo massivo
 
     public function azienda()
     {

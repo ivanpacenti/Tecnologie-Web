@@ -77,29 +77,32 @@ class StaffController extends Controller {
     }
     public function ModificaOfferta(Request $req) // funzione che serve per modificare  un coupon
     {
-        $req->validate([
-            'id' => ['required', 'string', 'max:10'],
-            'modalita' => ['required', 'string', 'max:100'],
-            'descrizione'=> ['required', 'string', 'max:250'],
-            'immagine'=> ['required','string', 'max:100'],
-            'dataInizio' => ['required', 'date'],
-            'dataFine'=> ['required', 'date'],
-            'luogoFruizione' => ['required', 'string', 'max:100']
-        ]);
+        if ($req->hasFile('immagine')) {
+            $image = $req->file('immagine');
+            $imageName = $image->getClientOriginalName();
+        } else {
+            $imageName = NULL;
+        }
+
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() .'/img/';
+            $image->move($destinationPath, $imageName);
+            $imageName = 'img/' . $image->getClientOriginalName();
+        }
+        //dd($req);
+
         $offerta =$this->_staffOfferte->getOffertabyID($req->id);
-        //$offerta= Offerta::find($req->id);
-        $offerta->id=$req->id;
         $offerta->modalità=$req->modalità;
         $offerta->descrizione=$req->descrizione;
-        $offerta->immagine=$req->immagine;
-        $offerta->luogoFruizione=$req->luogoFruzione;
+        $offerta->immagine=$imageName;
+        $offerta->luogoFruizione=$req->luogoFruizione;
         $offerta->dataInizio=$req->dataInizio;
         $offerta->dataFine=$req->dataFine;
-
+        //return $offerta;
+        //dd($offerta);
         $offerta->save();
-
-        return view('staffView.editPromo');
-        //return redirect()->action([StaffController::class, 'visualizzaOfferte']);
+//        return view('staffView.editPromo');
+        return redirect()->action([StaffController::class, 'visualizzaOfferte']);
     }
     public function CreaOfferta(Request $req) //funzione che permette di creare ed aggiungere una nuova azienda nel db
     {
@@ -119,13 +122,13 @@ class StaffController extends Controller {
         $offerta = new Offerta();
         $offerta->immagine = $imageName;
         $offerta->id = $req->id;
-        $offerta->modalita = $req->modalita;
+        $offerta->modalità = $req->modalità;
         $offerta->descrizione = $req->descrizione;
         $offerta->dataInizio = $req->dataInizio;
         $offerta->dataFine= $req->dataFine;
         $offerta->luogoFruizione=$req->luogoFruizione;
+       // dd($offerta);
         $offerta->save();
-
         return  redirect()->route('visualizzaOfferte');
     }
 }

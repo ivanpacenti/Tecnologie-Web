@@ -15,7 +15,7 @@ return new class extends Migration
     {
             Schema::create('offertas', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('modalita',100);
+                $table->string('modalità',100);
                 $table->string('immagine',100)->nullable();
                 $table->string('luogoFruizione',100);
                 $table->string('descrizione',250);

@@ -5,12 +5,13 @@
 @section('content')
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/form_design.css') }}">
-    <!--{!! Form::open(['route' => 'ModificaOffertaxx', 'class' => 'form', 'files' => true]) !!} -->
-    {!! Form::model($offerta, ['route' => ['ModificaOffertaxx', $offerta['id']], 'class' => 'form'])!!}
+{{--    <!--{!! Form::open(['route' => 'ModificaOffertaxx', 'class' => 'form', 'files' => true]) !!} -->--}}
+    {!! Form::model($offerta, ['route' => ['ModificaOffertaxx', $offerta['id']],'files' => true, 'class' => 'form'])!!}
     {!! Form::token() !!}
+
     <h1>Modifica un'offerta</h1>
     <div class="form-group">
-        {!! Form::label('immagine', 'Immagine:') !!}
+        {!! Form::label('immagine', 'immagine:') !!}
         <div class="form-group-2">
             {!! Form::file('immagine', ['class' => 'custom-file-input']) !!}
             @if ($errors->first('immagine'))
@@ -27,11 +28,11 @@
 
     </div>
     <div class="form-group">
-        {!! Form::label('modalita', 'modalita', ['class' => 'form-label']) !!}
-        {!! Form::text('modalita', $offerta['modalita'], ['class' => 'form-input', 'placeholder' => 'cambia la modalita']) !!}
-        @if ($errors->first('modalita'))
+        {!! Form::label('modalità', 'modalità', ['class' => 'form-label']) !!}
+        {!! Form::text('modalità', $offerta['modalità'], ['class' => 'form-input', 'placeholder' => 'cambia la modalita']) !!}
+        @if ($errors->first('modalità'))
             <ul class="errors">
-                @foreach ($errors->get('modalita') as $message)
+                @foreach ($errors->get('modalità') as $message)
                     <li>{{ $message }}</li>
                 @endforeach
             </ul>
