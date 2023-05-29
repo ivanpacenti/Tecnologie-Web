@@ -67,21 +67,27 @@ nav{
     flex-grow: 4;
     justify-content: center;
     margin: .5rem;
+    gap: 20px;
     align-items: center;
     horiz-align: center;
-
-
     /*border: 2px solid red;*/
 }
+
+/*.searchslot{
+    widt
+}*/
 
 /*
    .searchbar input[] è la searchbar del sito effettiva
 */
 .searchbar input[type=text] {
-    border-radius: 10rem;
-    width: 20rem;
-
-    padding: .3rem ;
+    font-family: 'Lexend', sans-serif;
+    border-radius: 20px;
+    border: none;
+    margin: 5px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
+    width: 10rem;
+    padding: 5px ;
     font-size: .9rem;
     float: right;
 }
@@ -89,17 +95,14 @@ nav{
 {
     float: left;
     margin-top:.3rem;
-
-
-
-
 }
+
 /*
     li definisce gli elementi della lista di links
 */
 li{
     display: flex;
-    justify-content: c;
+    justify-content: center;
     align-items: center;
     border: 0px solid blue;
 

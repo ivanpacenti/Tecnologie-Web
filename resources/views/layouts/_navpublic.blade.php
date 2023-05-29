@@ -10,30 +10,32 @@
     <div class="logo">
         <a href="{{route('index')}}"><img src={{asset('img/img_Logo.png')}} alt="Logo" ></a>
     </div>
-        <div class="searchbar" >
-            @csrf
-            <form action="{{route('ricerca')}}" method="GET" id="searchForm" autocomplete="off">
-                <input type="text" id="cercaCoupon" name="cercaCoupon" list="coupon" placeholder="Cerca Coupon..." >
-                <input type="text" id="cercaAzienda" name="cercaAzienda" list="aziende" placeholder="Cerca Azienda...">
-                <datalist id="coupon">
-                    <?php
-                    $offerte=(new \App\Models\Offerta)->getOfferte();
-                    ?>
-                        @foreach($offerte as $offerta)
-                    <option value="{{$offerta->descrizione}}">
-                        @endforeach
-                </datalist>
-                <datalist id="aziende">
-                    <?php
-                    $aziende=(new \App\Models\Azienda)->getAziende();
-                    ?>
-                        @foreach($aziende as $azienda)
-                            <option value="{{$azienda->nome}}">
-                        @endforeach
-                </datalist>
-                <input type="submit" hidden />
-            </form>
-        </div>
+        @if (request()->is('catalogo'))
+            <div class="searchbar" >
+                @csrf
+                <form action="{{route('ricerca')}}" method="GET" id="searchForm" autocomplete="off">
+                    <input type="text" id="cercaCoupon" name="cercaCoupon" list="coupon" placeholder="Cerca Coupon..." class="searchslot">
+                    <input type="text" id="cercaAzienda" name="cercaAzienda" list="aziende" placeholder="Cerca Azienda..."class="searchslot">
+                    <datalist id="coupon">
+                        <?php
+                        $offerte=(new \App\Models\Offerta)->getOfferte();
+                        ?>
+                            @foreach($offerte as $offerta)
+                        <option value="{{$offerta->descrizione}}">
+                            @endforeach
+                    </datalist>
+                    <datalist id="aziende">
+                        <?php
+                        $aziende=(new \App\Models\Azienda)->getAziende();
+                        ?>
+                            @foreach($aziende as $azienda)
+                                <option value="{{$azienda->nome}}">
+                            @endforeach
+                    </datalist>
+                    <input type="submit" hidden />
+                </form>
+            </div>
+        @endif
         <div class="links">
             <li><a href="{{route('index')}}" title="Home del sito">Home</a></li>
             <li><a href="{{route('catalogo')}}" title="Catalogo delle offerte">Catalogo</a></li>
