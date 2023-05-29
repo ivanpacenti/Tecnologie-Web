@@ -12,9 +12,11 @@ use Carbon\Carbon;
 class PublicController
 {
      protected $_aziendeModel;
+     protected $_offerteModel;
 
      public function __construct() {
          $this->_aziendeModel = new Azienda();
+         $this->_offerteModel = new Offerta();
      }
      public function visualizzaAziende(){
          $aziende = $this->_aziendeModel->getAziende();
