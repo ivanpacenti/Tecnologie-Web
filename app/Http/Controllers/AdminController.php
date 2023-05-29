@@ -9,7 +9,7 @@ use App\Models\Emissione;
 use App\Models\Faq;
 use App\Models\Offerta;
 use App\Models\Resources\Product;
-use App\Http\Requests\NewProductRequest;
+use App\Http\Requests\NewOffertatRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -96,7 +96,7 @@ class AdminController extends Controller
         return  redirect()->route('adminFaqs');
     }
 
-   /* public function storeProduct(NewProductRequest $request)
+   /* public function storeProduct(NewOffertatRequest $request)
     {
 
         if ($request->hasFile('image')) {

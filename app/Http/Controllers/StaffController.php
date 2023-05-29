@@ -8,7 +8,7 @@ use App\Models\Emissione;
 use App\Models\Faq;
 use App\Models\Offerta;
 use App\Models\Resources\Product;
-use App\Http\Requests\NewProductRequest;
+use App\Http\Requests\NewOffertatRequest;
 use App\Models\Resources\Staff;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -111,10 +111,10 @@ class StaffController extends Controller {
 
         return redirect()->action([StaffController::class, 'visualizzaOfferte']);
     }
-    public function CreaOfferta(Request $req) //funzione che permette di creare ed aggiungere una nuova azienda nel db
+    public function CreaOfferta(NewOffertatRequest $request) //funzione che permette di creare ed aggiungere una nuova azienda nel db
     {
-        if ($req->hasFile('immagine')) {
-            $image = $req->file('immagine');
+        if ($request->hasFile('immagine')) {
+            $image = $request->file('immagine');
             $imageName = $image->getClientOriginalName();
         } else {
             $imageName = NULL;
@@ -128,18 +128,18 @@ class StaffController extends Controller {
         //dd($req);
         $offerta = new Offerta();
         $offerta->immagine = $imageName;
-        $offerta->id = $req->id;
-        $offerta->modalità = $req->modalità;
-        $offerta->descrizione = $req->descrizione;
-        $offerta->dataInizio = $req->dataInizio;
-        $offerta->dataFine= $req->dataFine;
-        $offerta->luogoFruizione=$req->luogoFruizione;
+        $offerta->id = $request->id;
+        $offerta->modalità = $request->modalità;
+        $offerta->descrizione = $request->descrizione;
+        $offerta->dataInizio = $request->dataInizio;
+        $offerta->dataFine= $request->dataFine;
+        $offerta->luogoFruizione=$request->luogoFruizione;
         $offerta->save();
         $emissione = new Emissione();
-        $emissione ->azienda = $req->azienda;
+        $emissione ->azienda = $request->azienda;
         $emissione ->offerta = $offerta->id;
         $emissione->save();
-        return redirect()->route('visualizzaOfferte');
+        return redirect()->json(['redirect' => route('visualizzaOfferte')]);
     }
 
     public function creaoffertaxx()
