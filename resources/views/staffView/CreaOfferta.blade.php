@@ -1,6 +1,6 @@
 @extends('layouts.pageLayout')
 
-@section('title', 'Saff | Create Offer')
+@section('title', 'Staff | Create Offer')
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{asset('css/form_design.css')}}" >

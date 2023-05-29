@@ -9,12 +9,11 @@
     <div class="logo">
         <a href="{{route('index')}}"><img src={{asset('img/img_Logo.png')}} alt="Logo" id="logo"></a>
     </div>
-        @if (request()->is('catalogo'))
-            <div class="searchbar" >
+                    <div class="searchbar" >
                 @csrf
                 <form action="{{route('ricerca')}}" method="GET" id="searchForm" autocomplete="off">
-                    <input type="text" id="cercaCoupon" name="cercaCoupon" list="coupon" placeholder="Cerca Coupon..." class="searchslot">
-                    <input type="text" id="cercaAzienda" name="cercaAzienda" list="aziende" placeholder="Cerca Azienda..."class="searchslot">
+                    <input type="text" id="cercaCoupon" name="cercaCoupon" list="coupon" placeholder="Cerca Coupon..." >
+                    <input type="text" id="cercaAzienda" name="cercaAzienda" list="aziende" placeholder="Cerca Azienda...">
                     <datalist id="coupon">
                         <?php
                         $offerte=(new \App\Models\Offerta)->getOfferte();
@@ -34,7 +33,7 @@
                     <input type="submit" hidden />
                 </form>
             </div>
-        @endif
+
     <nav>
         <div class="links">
             <li><a href="{{route('index')}}" title="Home del sito">Home</a></li>

@@ -6,7 +6,6 @@
     @csrf
     <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
     <script src="{{asset('js/rigeneraVista.js')}}" async></script>
-
     @isset($aziende)
        <form action="{{ route('filtroOfferte') }}" method="GET" id="formCheckbox">
            <!--  csfr passa il token della richiesta al controller-->
@@ -23,10 +22,8 @@
                @endisset
            </div>
        </form>
-
        <div class="container">
            @isset($offerte)
-
            <div class="container2">
                @foreach($offerte as $offerta)
                    <div class="product-card" >
@@ -42,16 +39,10 @@
                        <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}" class="btn">Visualizza</a>
                    </div>
            @endforeach
-
-           {{--@else
-           <h1>Ci dispiace non ci sono offerte al momento<h1>--}}
            </div>
            @endisset
-               @if(sizeof($offerte)>1)
+
                    @include('Pagination.paginator', ['paginator' => $offerte])
-               @endif
+
        </div>
-
-
-
 @endsection

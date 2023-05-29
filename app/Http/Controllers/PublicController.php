@@ -27,7 +27,7 @@ class PublicController
     {
         $dataOggi = Carbon::today()->toDateString();
         $offerte = Offerta::where('dataFine', '>=', $dataOggi)->paginate(6);
-        $aziende = $this->_aziendeModel->getAziende();;
+        $aziende = (new Azienda)->getAziende();;
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende)->with('dataOggi',$dataOggi);
     }
 
