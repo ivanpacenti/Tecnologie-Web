@@ -7,37 +7,34 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
 
     <div class="maincontainer">
-        <h1> PROMOZIONI</h1>
-        <a href="{{route("CreaOfferta")}}" class="buttonbar"> Aggiungi Promozioni</a>
+        <h1>Promozioni</h1>
+        <a href="{{route("CreaOfferta")}}" class="buttonbar-add"> Aggiungi Promozioni</a>
 
         @isset($offerte)
-                @foreach($offerte as $offerta)
-               <div class="main-box-az">
+            @foreach($offerte as $offerta)
+                <div class="main-box-az">
                     <div class="imgslot">
-                            <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px" width=auto height=40%>
+                        <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px" width=auto height=40%>
                     </div>
-                        <div class="description">
-                                    <div class="testocard">
-                                        <p>
-                                            <a href="{{ route('offerdetail', ['id' => $offerta->id]) }}">Descrizione: {{$offerta->descrizione}}</a> <br>
-                                            <a href="{{route('offerdetail',['id' => $offerta->id] )}}">Modalità: {{$offerta->modalità}}</a> <br>
-                                            <a href="{{route('offerdetail',['id' => $offerta->id] )}}">Luogo di fruizione: {{$offerta->luogoFruizione}}</a> <br>
-                                            <a href="{{route('offerdetail',['id' => $offerta->id] )}}"> Data Inizio: {{$offerta->dataInizio}}</a> <br>
-                                            <a href="{{route('offerdetail',['id' => $offerta->id] )}}">Data Fine: {{$offerta->dataFine}}</a>
-                                        </p>
-                                        <div class="buttonslot">
-                                             <a href="{{"ModificaOfferta/".$offerta['id']}}" class="buttonbar">Modifica </a>
-                                            <a href="{{"EliminaOfferta/".$offerta['id']}}" class="buttonbar">Elimina</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        @else
-                        @endisset
+                    <div class="description">
+                        <div class="textslot">
+                            <h3>ID: {{$offerta->id}}</h3>
+                            <p>Descrizione: {{$offerta->descrizione}}</p>
+                            <p>Modalità: {{$offerta->modalità}}</p>
+                            <p>Luogo di fruizione: {{$offerta->luogoFruizione}}</p>
+                            <p> Data Inizio: {{$offerta->dataInizio}}</p>
+                            <p>Data Fine: {{$offerta->dataFine}}</p>
+                        </div>
+                    </div>
+                    <div class="buttonslot">
+                        <a href="{{"ModificaOfferta/".$offerta['id']}}" class="buttonbar2">Modifica </a>
+                        <a href="{{"EliminaOfferta/".$offerta['id']}}" class="buttonbar2">Elimina</a>
+                    </div>
+                </div>
+            @endforeach
+        @endisset
     </div>
-    </div>
-    </div>
+
 @endsection
 
 
