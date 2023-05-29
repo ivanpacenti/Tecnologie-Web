@@ -1,4 +1,4 @@
-@section('title','Catalogo | Offer Details')
+@section('title','Catalog | Offer Details')
 
 @extends('layouts.pageLayout')
 

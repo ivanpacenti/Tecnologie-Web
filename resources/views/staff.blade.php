@@ -1,6 +1,6 @@
 @extends('layouts.pageLayout')
 
-@section('title','Staff | Profilw')
+@section('title','Staff | Profile')
 
 @section('content')
 

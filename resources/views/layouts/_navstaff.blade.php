@@ -44,11 +44,7 @@
         <li><a href="{{route('index')}}">Home</a></li>
         <li><a href="{{route('catalogo')}}">Catalogo</a></li>
         <li><a href="{{ route('staff') }}" class="highlight" title="Profilo">Profilo</a></li>
-
-{{--        @can('isMembroSenior')--}}
-{{--            <li><a href="{{route('')}}">crudPacchetti</a></li>--}}
-{{--        @endcan--}}
-        <li><a href="{{route('visualizzaOfferte')}}">crudPromozioni</a></li>
+        <li><a href="{{route('visualizzaOfferte')}}">Promozioni</a></li>
 
         @auth
             <li><a href="" class="highlight" title="Logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
