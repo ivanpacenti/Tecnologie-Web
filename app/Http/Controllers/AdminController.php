@@ -193,15 +193,27 @@ class AdminController extends Controller
             'posizione' => ['required', 'string', 'max:255'],
             'descrizione' => ['required', 'string', 'max:255'],
             'tipologia' => ['required', 'string', 'max:255'],
-            'logo' => ['required', 'string', 'max:255'],
         ]);
+
+        if ($req->hasFile('logo')) {
+            $image = $req->file('logo');
+            $imageName = $image->getClientOriginalName();
+        } else {
+            $imageName = NULL;
+        }
+
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() .'/img/';
+            $image->move($destinationPath, $imageName);
+            $imageName = 'img/' . $image->getClientOriginalName();
+        }
         $azienda = $this->_adminAziende->getAziendabyID($req->id);
         $azienda->partitaIva = $req->partitaIva;
         $azienda->nome = $req->nome;
         $azienda->posizione = $req->posizione;
         $azienda->descrizione = $req->descrizione;
         $azienda->tipologia = $req->tipologia;
-        $azienda->logo = $req->logo;
+        $azienda->logo = $imageName;
         $azienda->save();
         return redirect()->action([AdminController::class, 'VisualizzaAziende']);
     }

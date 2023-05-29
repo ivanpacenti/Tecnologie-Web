@@ -6,9 +6,9 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/form_design.css') }}">
 
-    {!! Form::model($azienda, ['route' => ['agencyedit', $azienda['id']], 'class' => 'form']) !!}
+    {!! Form::model($azienda, ['route' => ['agencyedit', $azienda['id']],'files' => true, 'class' => 'form']) !!}
     {!! Form::token() !!}
-    <h1>Modifica i dati dell'azienda {{$azienda['id']}}</h1>
+    <h1>Modifica i dati dell'azienda: {{$azienda['id']}}</h1>
     <div class="form-group">
         {!! Form::label('id', 'ID') !!}
         {!! Form::text('id', $azienda['id'], ['class' => 'form-input', 'readonly']) !!}
@@ -70,14 +70,16 @@
     </div>
     <div class="form-group">
         {!! Form::label('logo', 'Logo') !!}
-        {!! Form::text('logo', $azienda['logo'], ['class' => 'form-input','placeholder' => 'Inserisci logo']) !!}
-        @if ($errors->first('logo'))
-            <ul class="errors">
-                @foreach ($errors->get('logo') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
+        <div class="form-group-2">
+            {!! Form::file('logo', null, ['class' => 'custom-file-input']) !!}
+            @if ($errors->first('logo'))
+                <ul class="errors">
+                    @foreach ($errors->get('logo') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
     </div>
 
     <div class="form-group">
