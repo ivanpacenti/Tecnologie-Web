@@ -45,7 +45,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('dataInizio', 'Inizio validità:') !!}
-        {!! Form::text('dataInizio', null, ['class' => 'form-input', 'required']) !!}
+        {!! Form::date('dataInizio', null, ['class' => 'form-input', 'required']) !!}
         @if ($errors->first('dataInizio'))
             <ul class="errors">
                 @foreach ($errors->get('dataInizio') as $message)
@@ -56,7 +56,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('dataFine', 'Fine validità:') !!}
-        {!! Form::text('dataFine', null, ['class' => 'form-input', 'required']) !!}
+        {!! Form::date('dataFine', null, ['class' => 'form-input', 'required']) !!}
         @if ($errors->first('dataFine'))
             <ul class="errors">
                 @foreach ($errors->get('dataFine') as $message)
@@ -71,6 +71,18 @@
         @if ($errors->first('luogoFruizione'))
             <ul class="errors">
                 @foreach ($errors->get('luogoFruizione') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('aziende', 'aziende da associare') !!}
+        {!! Form::select('aziende', $aziende, null, ['class' => 'form-input', 'required']) !!}
+        @if ($errors->first('aziende'))
+            <ul class="errors">
+                @foreach ($errors->get('aziende') as $message)
                     <li>{{ $message }}</li>
                 @endforeach
             </ul>

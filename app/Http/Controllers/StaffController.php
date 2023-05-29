@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Hash;
 class StaffController extends Controller {
     protected $_staffOfferte;
     protected $_staffUtente;
+
+    protected $_staffAzienda;
+
     public function __construct() {
         $this->_staffOfferte = new Offerta();
         $this->_staffUtente = new User();
+        $this->_staffAzienda=new Azienda();
         $this->middleware('can:isStaff');
     }
 
@@ -73,7 +77,8 @@ class StaffController extends Controller {
     public function Modifica1Offerta($id)
     {
         $offerta = $this->_staffOfferte->getOffertabyID($id);
-        return view('staffView.editPromo', ['offerta' => $offerta]);
+        $aziende =$this->_staffAzienda->getAziende();
+        return view('staffView.editPromo', ['offerta' => $offerta, 'aziende' => $aziende]);
     }
     public function ModificaOfferta(Request $req) // funzione che serve per modificare  un coupon
     {

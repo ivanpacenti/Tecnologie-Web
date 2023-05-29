@@ -63,10 +63,21 @@
     </div>
     <div class="form-group">
         {!! Form::label('dataInizio', 'dataInizio', ['class' => 'form-label']) !!}
-        {!! Form::text('dataInizio', $offerta['dataInizio'], ['class' => 'form-input', 'placeholder' => 'Inserisci data di inizio validazione']) !!}
+        {!! Form::date('dataInizio', $offerta['dataInizio'], ['class' => 'form-input', 'placeholder' => 'Inserisci data di inizio validazione']) !!}
         @if ($errors->first('dataInizio'))
             <ul class="errors">
                 @foreach ($errors->get('dataInizio') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+    <div class="form-group">
+        {!! Form::label('dataFine', 'dataFine', ['class' => 'form-label']) !!}
+        {!! Form::date('dataFine', $offerta['dataFine'], ['class' => 'form-input', 'placeholder' => 'Inserisci data di fine validazione']) !!}
+        @if ($errors->first('dataFine'))
+            <ul class="errors">
+                @foreach ($errors->get('dataFine') as $message)
                     <li>{{ $message }}</li>
                 @endforeach
             </ul>
@@ -83,6 +94,19 @@
             </ul>
         @endif
     </div>
+
+    <div class="form-group">
+        {!! Form::label('azienda', 'Luogo azienda fruizione:') !!}
+        {!! Form::select('azienda', $aziende, null, ['class' => 'form-input', 'required']) !!}
+        @if ($errors->first('azienda'))
+            <ul class="errors">
+                @foreach ($errors->get('azienda') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+
     <div class="form-group">
         {!! Form::submit('Aggiorna', ['class' => 'formbutton']) !!}
 
