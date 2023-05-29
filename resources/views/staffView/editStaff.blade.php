@@ -10,7 +10,7 @@
     {!! Form::token() !!}
     <h1>Modifica i tuoi dati personali</h1>
     <div class="form-group">
-        {!! Form::label('id', 'id', ['class' => 'form-label']) !!}
+        {!! Form::label('id', 'ID', ['class' => 'form-label']) !!}
         {!! Form::text('id', $User['id'], ['class' => 'form-input','readonly']) !!}
         @if ($errors->first('id'))
             <ul class="errors">
@@ -21,7 +21,7 @@
         @endif
     </div>
     <div class="form-group">
-        {!! Form::label('name', 'name', ['class' => 'form-label']) !!}
+        {!! Form::label('name', 'Nome', ['class' => 'form-label']) !!}
         {!! Form::text('name', $User['name'], ['class' => 'form-input', 'placeholder' => 'cambia il tuo nome']) !!}
         @if ($errors->first('name'))
             <ul class="errors">
@@ -32,7 +32,7 @@
         @endif
     </div>
     <div class="form-group">
-        {!! Form::label('surname', 'surname', ['class' => 'form-label']) !!}
+        {!! Form::label('surname', 'Cognome', ['class' => 'form-label']) !!}
         {!! Form::text('surname', $User['surname'], ['class' => 'form-input', 'placeholder' => 'cognome']) !!}
         @if ($errors->first('surname'))
             <ul class="errors">
@@ -43,7 +43,7 @@
         @endif
     </div>
     <div class="form-group">
-        {!! Form::label('password', 'password', ['class' => 'form-label']) !!}
+        {!! Form::label('password', 'Password', ['class' => 'form-label']) !!}
         {!! Form::password('password',['value' => $User['password'], 'class' => 'form-input', 'placeholder' => 'password']) !!}
     </div>
 

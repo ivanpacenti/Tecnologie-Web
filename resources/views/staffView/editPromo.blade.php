@@ -9,25 +9,14 @@
     {!! Form::token() !!}
 
     <h1>Modifica un'offerta</h1>
-    <div class="form-group">
-        {!! Form::label('immagine', 'immagine:') !!}
-        <div class="form-group-2">
-            {!! Form::file('immagine', ['class' => 'custom-file-input']) !!}
-            @if ($errors->first('immagine'))
-                <ul class="errors">
-                    @foreach ($errors->get('immagine') as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-            @endif
-        </div>
-    </div><div class="form-group">
-        {!! Form::label('id', 'id', ['class' => 'form-label']) !!}
-        {!! Form::text('id', $offerta['id'], ['class' => 'form-input','readonly']) !!}
 
-    </div>
     <div class="form-group">
-        {!! Form::label('modalità', 'modalità', ['class' => 'form-label']) !!}
+        {!! Form::label('id', 'ID', ['class' => 'form-label']) !!}
+        {!! Form::text('id', $offerta['id'], ['class' => 'form-input','readonly']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('modalità', 'Modalità', ['class' => 'form-label']) !!}
         {!! Form::text('modalità', $offerta['modalità'], ['class' => 'form-input', 'placeholder' => 'cambia la modalita']) !!}
         @if ($errors->first('modalità'))
             <ul class="errors">
@@ -38,7 +27,7 @@
         @endif
     </div>
     <div class="form-group">
-        {!! Form::label('descrizione', 'descrizione', ['class' => 'form-label']) !!}
+        {!! Form::label('descrizione', 'Descrizione', ['class' => 'form-label']) !!}
         {!! Form::text('descrizione', $offerta['descrizione'], ['class' => 'form-input', 'placeholder' => 'Descrizione']) !!}
         @if ($errors->first('descrizione'))
             <ul class="errors">
@@ -50,7 +39,7 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('luogoFruizione', 'luogoFruizione', ['class' => 'form-label']) !!}
+        {!! Form::label('luogoFruizione', 'Luoog di fruizione', ['class' => 'form-label']) !!}
         {!! Form::text('luogoFruizione', $offerta['luogoFruizione'], ['class' => 'form-input', 'placeholder' => 'Inserisci luogo di fruizione']) !!}
         @if ($errors->first('luogoFruizione'))
             <ul class="errors">
@@ -61,7 +50,7 @@
         @endif
     </div>
     <div class="form-group">
-        {!! Form::label('dataInizio', 'dataInizio', ['class' => 'form-label']) !!}
+        {!! Form::label('dataInizio', 'Inizio', ['class' => 'form-label']) !!}
         {!! Form::date('dataInizio', $offerta['dataInizio'], ['class' => 'form-input', 'placeholder' => 'Inserisci data di inizio validazione']) !!}
         @if ($errors->first('dataInizio'))
             <ul class="errors">
@@ -72,19 +61,8 @@
         @endif
     </div>
     <div class="form-group">
-        {!! Form::label('dataFine', 'dataFine', ['class' => 'form-label']) !!}
+        {!! Form::label('dataFine', 'Scadenza', ['class' => 'form-label']) !!}
         {!! Form::date('dataFine', $offerta['dataFine'], ['class' => 'form-input', 'placeholder' => 'Inserisci data di fine validazione']) !!}
-        @if ($errors->first('dataFine'))
-            <ul class="errors">
-                @foreach ($errors->get('dataFine') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
-    </div>
-    <div class="form-group">
-        {!! Form::label('dataFine', 'dataFine', ['class' => 'form-label']) !!}
-        {!! Form::text('dataFine', $offerta['dataFine'], ['class' => 'form-input', 'placeholder' => 'Inserisci data di fine validazione']) !!}
         @if ($errors->first('dataFine'))
             <ul class="errors">
                 @foreach ($errors->get('dataFine') as $message)
@@ -95,7 +73,7 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('azienda', 'Luogo azienda fruizione:') !!}
+        {!! Form::label('azienda', 'Azienda relativa') !!}
         {!! Form::select('azienda', $aziende, null, ['class' => 'form-input', 'required']) !!}
         @if ($errors->first('azienda'))
             <ul class="errors">
@@ -104,6 +82,20 @@
                 @endforeach
             </ul>
         @endif
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('immagine', 'Immagine') !!}
+        <div class="form-group-2">
+            {!! Form::file('immagine', ['class' => 'custom-file-input']) !!}
+            @if ($errors->first('immagine'))
+                <ul class="errors">
+                    @foreach ($errors->get('immagine') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
     </div>
 
     <div class="form-group">
