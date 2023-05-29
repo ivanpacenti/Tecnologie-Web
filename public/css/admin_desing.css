@@ -181,6 +181,11 @@ a.buttonbar-add:hover{
     border-radius: 15px;
 }
 
+#img-offerta{
+    max-height: 100%;
+    max-width: 100%;
+}
+
 /*box nel quale vengono inserite tutte le informazioni di una determinata azienda*/
 .textslot{
     flex-grow: 2;

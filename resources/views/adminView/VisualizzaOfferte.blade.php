@@ -13,7 +13,7 @@
             @foreach($offerte as $offerta)
                 <div class="main-box-az"> {{--contenitore per ogni singola azienda--}}
                     <div class="imgslot"> {{--contenitore per l'immagine--}}
-                        <img src="{{$offerta->immagine}}" width=100% height=auto>
+                        <img src="{{$offerta->immagine}}" id="img-offerta">
                     </div>
                     <div class="textslot"> {{--contenitore per il testo--}}
                         <h3>ID: {{$offerta->id}}</h3>
