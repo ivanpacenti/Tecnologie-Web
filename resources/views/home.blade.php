@@ -39,9 +39,9 @@
 
     <div class="wrapper">
         <div>
-        <h3> Siamo lieti di annunciare che abbiamo selezionato alcune aziende di eccellenza per la nostra collaborazione. Abbiamo dedicato tempo ed energie per identificare partner di alta qualità, che rispecchiano i nostri valori e obiettivi.
+        <p> Siamo lieti di annunciare che abbiamo selezionato alcune aziende di eccellenza per la nostra collaborazione. Abbiamo dedicato tempo ed energie per identificare partner di alta qualità, che rispecchiano i nostri valori e obiettivi.
             Siamo fiduciosi che queste aziende saranno in grado di offrire prodotti e servizi di livello superiore.
-            Per scoprire quali aziende abbiamo selezionato, ti invitiamo a fare clic <a href="{{asset('homeAziende')}}" class="buttonbar-add">qui</a>.</h3>
+            Per scoprire quali aziende abbiamo selezionato, ti invitiamo a fare clic <a href="{{asset('homeAziende')}}" class="buttonbar-add">qui</a>.</p>
         </div>
         <script src="js/scriptHome.js" async></script>
     </div>

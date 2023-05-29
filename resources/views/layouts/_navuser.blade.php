@@ -8,8 +8,9 @@
 </head>
 
 <div class="logo">
-    <img src={{asset('img/img_Logo.png')}} alt="Logo" id="logo">
+    <a href="{{route('index')}}"><img src={{asset('img/img_Logo.png')}} alt="Logo" id="logo"></a>
 </div>
+
 @if (request()->is('catalogo'))
     <div class="searchbar" >
         @csrf
