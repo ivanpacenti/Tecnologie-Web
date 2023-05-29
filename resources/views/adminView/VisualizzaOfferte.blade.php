@@ -1,6 +1,6 @@
 {{--visualizza tutti i coupon e vedi quanti ne soono stati emessi per ognuno--}}
 {{-- pagina admin--}}
-@section('title','PaginaAdminOfferte')
+@section('title','Admin | Offers')
 
 @extends('layouts.pageLayout')
 @section('content')

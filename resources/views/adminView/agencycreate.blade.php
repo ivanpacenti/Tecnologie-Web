@@ -1,5 +1,5 @@
 
-@section('title','PaginaAdmin')
+@section('title','Admin | Create Agency')
 
 @extends('layouts.pageLayout')
 

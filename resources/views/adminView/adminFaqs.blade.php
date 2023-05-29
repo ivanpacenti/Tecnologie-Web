@@ -1,5 +1,5 @@
 {{-- pagina admin--}}
-@section('title','PaginaAdmin')
+@section('title','Admin | FAQs')
 
 @extends('layouts.pageLayout')
 {{--dobbiamo pensare come gestire le faq che sono vuote--}}

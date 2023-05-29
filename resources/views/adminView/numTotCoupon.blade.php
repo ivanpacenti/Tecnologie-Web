@@ -1,6 +1,6 @@
 {{--numero totale di coupon emessi dalla azienda--}}
 
-@section('title','PaginaAdmin')
+@section('title','Admin | Stats Coupon')
 
 @extends('layouts.pageLayout')
 

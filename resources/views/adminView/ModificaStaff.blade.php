@@ -1,6 +1,6 @@
 @extends('layouts.pageLayout')
 
-@section('title','Pagina modifca dati user')
+@section('title','Admin | Edit User')
 
 @section('content')
 
@@ -30,7 +30,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('password', 'password', ['class' => 'form-label']) !!}
-        {!! Form::text('password', $staff['password'], ['class' => 'form-input', 'placeholder' => 'password']) !!}
+        {!! Form::password('password',['value' => $staff['password'], 'class' => 'form-input', 'placeholder' => 'password']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('email', 'email', ['class' => 'form-label']) !!}

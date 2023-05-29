@@ -1,5 +1,5 @@
 
-@section('title','PaginaAdmin')
+@section('title','Admin | Stats')
 
 @extends('layouts.pageLayout')
 

@@ -1,6 +1,6 @@
 {{--parte di crud per le aziende riservata all'amministratore--}}
 
-@section('title','PaginaAdmin')
+@section('title','Admin | Aziende')
 
 @extends('layouts.pageLayout')
 

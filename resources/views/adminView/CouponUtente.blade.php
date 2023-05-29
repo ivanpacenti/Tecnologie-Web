@@ -2,7 +2,7 @@
 
 @extends('layouts.pageLayout')
 
-@section('title','eliminazione utenti')
+@section('title','Admin | Stats Coupon User')
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >

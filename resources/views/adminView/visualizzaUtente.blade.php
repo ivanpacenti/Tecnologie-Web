@@ -1,7 +1,7 @@
 {{--eliminazione utenti di livello 1--}}
 @extends('layouts.pageLayout')
 
-@section('title','eliminazione utenti')
+@section('title','Admin | Users')
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >

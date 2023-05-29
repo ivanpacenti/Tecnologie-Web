@@ -1,6 +1,6 @@
 @extends('layouts.pageLayout')
 
-@section('title','PaginaAdmin|Edit Azienda')
+@section('title','Admin | Edit Agency')
 
 @section('content')
 

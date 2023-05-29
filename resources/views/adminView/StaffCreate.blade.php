@@ -2,7 +2,7 @@
 
 @extends('layouts.pageLayout')
 
-@section('title', 'Registrazione staff')
+@section('title', 'Admin | Create Staff')
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{asset('css/form_design.css')}}" >

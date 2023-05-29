@@ -1,7 +1,7 @@
-@section('title','PaginaAdminOfferte')
+@section('title','Admin | Stats Coupon Offerta ')
 
 @extends('layouts.pageLayout')
-{{--dobbiamo pensare come gestire le faq che sono vuote--}}
+
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
     <div class="maincontainer">
