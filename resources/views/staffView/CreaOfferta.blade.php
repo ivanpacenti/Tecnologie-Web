@@ -1,6 +1,6 @@
 @extends('layouts.pageLayout')
 
-@section('title', 'Saff | Create Offer')
+@section('title', 'Staff | Create Offer')
 
 @section('scripts')
 @parent
