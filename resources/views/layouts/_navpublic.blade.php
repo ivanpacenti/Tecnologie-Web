@@ -6,10 +6,9 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/nav_design.css') }}" >
     </head>
-    <nav>
-    <div class="logo">
-        <a href="{{route('index')}}"><img src={{asset('img/img_Logo.png')}} alt="Logo" ></a>
-    </div>
+        <div class="logo">
+            <img src={{asset('img/img_Logo.png')}} alt="Logo" id="logo">
+        </div>
         @if (request()->is('catalogo'))
             <div class="searchbar" >
                 @csrf
@@ -62,7 +61,6 @@
                 <li><a href="{{ route('login') }}" class="highlight" title="Accedi all'area riservata del sito">Login</a></li>
             @endguest
         </div>
-    </nav>
     <script src="js/scriptNav.js" async></script>
 </html>
 
