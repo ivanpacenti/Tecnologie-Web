@@ -8,10 +8,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
 
     <div class="listaFaq_cont">
-        <div class="faq_title">
+{{--        <div class="faq_title">
             <h1>FAQ</h1>
-        </div>
+        </div>--}}
         <div class="maincontainer">
+            <h1>FAQs</h1>
             @isset($faqs)
                 @foreach($faqs as $faq)
                     @if(!empty($faq->domanda))
@@ -22,7 +23,6 @@
                             <div class="inner-box">
                                 <h4>{{$faq->risposta}}</h4>
                             </div>
-                            <br>
                         </div>
                     @endif
                 @endforeach
