@@ -96,12 +96,13 @@ nav{
     float: left;
     margin-top:.3rem;
 }
+
 /*
     li definisce gli elementi della lista di links
 */
 li{
     display: flex;
-    justify-content: c;
+    justify-content: center;
     align-items: center;
     border: 0px solid blue;
 
