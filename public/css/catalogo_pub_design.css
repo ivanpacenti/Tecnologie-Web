@@ -11,7 +11,6 @@ body {
 
 h1{
     font-size: 3rem;
-    border: .1rem solid rgb(51, 255, 0);
     display: flex;
     color: #303030;
 }
