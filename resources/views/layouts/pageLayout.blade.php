@@ -3,6 +3,10 @@
     <head>
          <meta charset="utf-8">
         <title>TecnoWeb | @yield('title')</title>
+
+        @show
+        @section('scripts')
+        @show
     </head>
 
     <body>
