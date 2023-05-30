@@ -74,6 +74,7 @@ class StaffController extends Controller {
         $offerta->delete();
         return redirect()->back()->with('success', 'offerta eliminata con successo');
     }
+
     public function Modifica1Offerta($id)
     {
         $offerta = $this->_staffOfferte->getOffertabyID($id);
@@ -81,6 +82,7 @@ class StaffController extends Controller {
         //dd($aziende);
         return view('staffView.editPromo', ['offerta' => $offerta, 'aziende' => $aziende]);
     }
+
     public function ModificaOfferta(Request $req) // funzione che serve per modificare  un coupon
     {
         if ($req->hasFile('immagine')) {
@@ -95,7 +97,6 @@ class StaffController extends Controller {
             $image->move($destinationPath, $imageName);
             $imageName = 'img/' . $image->getClientOriginalName();
         }
-        //dd($req);
 
         $offerta =$this->_staffOfferte->getOffertabyID($req->id);
         $offerta->modalità=$req->modalità;
@@ -111,9 +112,7 @@ class StaffController extends Controller {
         return redirect()->action([StaffController::class, 'visualizzaOfferte']);
     }
     public function CreaOfferta(NewOffertatRequest $request) //funzione che permette di creare ed aggiungere una nuova azienda nel db
-
     {
-
         if ($request->hasFile('immagine')) {
             $image = $request->file('immagine');
             $imageName = $image->getClientOriginalName();
@@ -126,7 +125,7 @@ class StaffController extends Controller {
             $image->move($destinationPath, $imageName);
             $imageName = 'img/' . $image->getClientOriginalName();
         }
-        //dd($req);
+
         $offerta = new Offerta();
         $offerta->fill($request->validated());
         $offerta->immagine = $imageName;
@@ -137,11 +136,12 @@ class StaffController extends Controller {
         $offerta->dataFine= $request->dataFine;
         $offerta->luogoFruizione=$request->luogoFruizione;
         $offerta->save();
+
         $emissione = new Emissione();
         $emissione ->azienda = $request->azienda;
         $emissione ->offerta = $offerta->id;
         $emissione->save();
-        /*return redirect()->json(['redirect' => route('visualizzaOfferte')]);*/
+
         return response()->json(['redirect' => route('visualizzaOfferte')]);
     }
 

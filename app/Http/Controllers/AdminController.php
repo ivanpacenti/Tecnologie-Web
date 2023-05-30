@@ -40,14 +40,8 @@ class AdminController extends Controller
         return view('admin');
     }
 
-    /*public function addProduct()
-    {
-        $prodCats = $this->_adminModel->getProdsCats()->pluck('name', 'catId');
-        return view('product.insert')
-            ->with('cats', $prodCats);
-    }*/
+    // SEZIONE RELATIVA AL CRUD DELLE FAQ
 
-    // PARTE CHE FA IL CRUD DELLE FAQ
     public function VisualizzaFaq() //  Questa è una funzione per visualizzare tutte le faq
     {
         $faqs = $this->_adminFaqs->getFaqs();
@@ -96,28 +90,7 @@ class AdminController extends Controller
         return  redirect()->route('adminFaqs');
     }
 
-   /* public function storeProduct(NewOffertatRequest $request)
-    {
-
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = $image->getClientOriginalName();
-        } else {
-            $imageName = NULL;
-        }
-
-        $product = new Product;
-        $product->fill($request->validated());
-        $product->image = $imageName;
-        $product->save();
-
-        if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images/products';
-            $image->move($destinationPath, $imageName);
-        };
-
-        return redirect()->action([AdminController::class, 'index']);;
-    }*/
+    //SEZIONE RELATIVA AGLI UTENTI
 
     public function visualizzaUtente() //  Questa è una funzione per visualizzazione degli utenti
     {
@@ -232,14 +205,12 @@ class AdminController extends Controller
         return view('adminView.VisualizzaOfferte', ['offerte' => $offerte]);
     }
 
-
     public function CouponOfferta($id)// restituisce il numero di coupon emessi per ogni offerta
     {
         $offerta = $this->_adminOfferte->getOffertabyID($id);
         $numTotCoupon = coupon_off::where('offerta',$id)->count();
         return view('adminView.CouponOfferta', ['numTotCoupon' => $numTotCoupon,'offerta'=>$offerta]);
     }
-
 
     public function CouponUtente($id)//restituisce il numero totale di coupon emessi da un utente
     {
@@ -248,30 +219,21 @@ class AdminController extends Controller
         return view('adminView.CouponUtente', ['numTot' => $numTot,'user'=>$user]);
     }
 
-    //crud dello staff *valeria
-    //ora faccio al funzione che me la visualizza richiamando il metodo dellos taff
+    //SEZIONE RELATIVA ALLO STAFF
     public function VisualizzaStaff()
     {
         $staffs = $this->_adminUsers->getStaff();
-     //   dd($staffs);
         return view('adminView.VisualizzaStaff', ['staffs' => $staffs]);
     }
-    // fatto il visualizza facciamo la rotta per l'eliminazione(uso una rotta vecchi) guarda dal codice quale è
 
-
-    // questo mi visualizza un membro dello staff, quello che identifico
     public function ModificaStaff1($id)
     {
         $staff = $this->_adminUsers->getUtentebyID($id);
-      //  dd($staff);
         return view('adminView.ModificaStaff', ['staff' => $staff]);
     }
 
-    // dopop che trovo identifico quale membro dello staff voglio modificare, richiamando sopra
-    // la vista con i form di modifica mi attingo a slavarlo nella funzione qui sotto
-
     public function ModificaStaff(Request $req)
-    { // validifico tutti i campi
+    {
         $req->validate([
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
@@ -291,11 +253,9 @@ class AdminController extends Controller
         $User->save();
         return redirect()->action([AdminController::class, 'VisualizzaStaff']);
     }
-    // ora vado a fare la creazione, devo creare 2 viste, una che mi fa vedere il form per la registrazione, uno che me lo salva
-    // di conseguenza si farà una vista semplice(non in get) e una in post
+
     public function staffcreate(Request $req) // funzione per salvare una faq all'interno del db
     {
-
         $User = new User();
         $User->name=$req->name;
         $User->email=$req->email;
