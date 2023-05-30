@@ -5,6 +5,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/nav_design.css') }}" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <div class="logo">
         <a href="{{route('index')}}"><img src={{asset('img/img_Logo.png')}} alt="Logo" id="logo"></a>
@@ -62,6 +63,6 @@
             @endguest
         </div>
     </nav>
-    <script src="js/scriptNav.js" async></script>
+
 </html>
 

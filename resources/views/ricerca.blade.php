@@ -32,6 +32,7 @@
                                     @endisset
                                     @isset($risultati->descrizione)
                                     <p>{{$risultati->descrizione}}</p>
+                                    <a href="{{ route('offerdetail', ['id' => $risultati->id]) }}" class="btn">Visualizza</a>
                                     @endisset
                                 </div>
                             </div>
