@@ -15,6 +15,7 @@
             <p>Username: {{$user->username}}</p>
             <p>Telefono: {{$user->telefono}}</p>
         </div>
+
         <a href="{{route('statistiche')}}" class="buttonbarstats">torna indietro</a>
     </div>
 @endsection

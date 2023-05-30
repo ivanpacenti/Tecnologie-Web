@@ -8,7 +8,7 @@
     <div class="maincontainer">
         <h1>Scegli quale statistica vuoi visualizzare:</h1>
         <a href="{{route('NumeroCoupon')}}" class="buttonbarstats">numero totale di coupon emessi</a>
-        <a href="{{route('VisualizzaOfferteS')}}"class="buttonbarstats">coupon emessi per ogni azienda</a>
-        <a href="{{route("visualizzaUtente")}}" class="buttonbarstats">coupon acquistati per utente</a>
+        <a href="{{route('VisualizzaOfferteS')}}"class="buttonbarstats">coupon emessi per ogni promozione</a>
+        <a href="{{route("visualizzaUtente")}}" class="buttonbarstats">coupon emessi per utente</a>
     </div>
 @endsection

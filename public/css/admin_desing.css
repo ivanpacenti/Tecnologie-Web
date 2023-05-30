@@ -242,7 +242,7 @@ a.buttonbar2:hover{
     color: #eeeeee;
     background-color: #762c2c;
     height: 40px;
-    width: 270px;
+    width: 290px;
     transition: width 0.5s ease, background-color 1s, color 1s; /*transizione dei bottoni che avviene al passaggio del cursore*/
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
 }
