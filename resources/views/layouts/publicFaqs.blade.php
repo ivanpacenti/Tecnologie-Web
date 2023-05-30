@@ -5,31 +5,41 @@
 
 @section('content')
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}">
 
-    <div class="listaFaq_cont">
-{{--        <div class="faq_title">
-            <h1>FAQ</h1>
-        </div>--}}
-        <div class="maincontainer">
-            <h1>FAQs</h1>
-            @isset($faqs)
-                @foreach($faqs as $faq)
-                    @if(!empty($faq->domanda))
-                        <div class="main-box"> {{--contenitore per ogni singola faq--}}
-                            <div class="upper-box">
-                                <h4>{{$faq->domanda}}</h4>
+            <div class="maincontainer">
+                <h1>FAQs</h1>
+                @isset($faqs)
+                    @foreach($faqs as $faq)
+                        @if(!empty($faq->domanda))
+                            <div class="main-box">
+                                <div class="upper-box">
+                                    <h4>{{$faq->id}}.{{$faq->domanda}}</h4>
+                                </div>
+                                <div class="inner-box">
+                                    <h4 style="display: none;">{{$faq->risposta}}</h4>
+                                </div>
                             </div>
-                            <div class="inner-box">
-                                <h4>{{$faq->risposta}}</h4>
-                            </div>
-                        </div>
-                    @endif
-                @endforeach
-            @else
-                <!-- <h1>Non ci sono Faq </h1> -->
-                <button class="Visualizza altro">Visualizza altro</button>
-            @endisset
-        </div>
-    </div>
-@endsection('content')
+                        @endif
+                    @endforeach
+                @else
+                    <button class="Visualizza-altro">Visualizza altro</button>
+                @endisset
+            </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.upper-box').click(function () {
+                    $(this).siblings('.inner-box').children('h4').toggle();
+                });
+            });
+
+
+                /*$('.Visualizza-altro').click(function() {
+                    // Implement your logic to display more FAQs here
+                });
+            }); */
+        </script>
+
+
