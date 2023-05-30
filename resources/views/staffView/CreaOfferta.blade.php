@@ -8,7 +8,6 @@
 <script src="{{ asset('js/functions.js') }}" ></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
 <script>
     $(function () {
         var actionUrl = "{{ route('CreaOfferta') }}";// definisce url a cui la richiesta di validazione va inviata

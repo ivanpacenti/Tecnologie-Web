@@ -112,7 +112,9 @@ class StaffController extends Controller {
         return redirect()->action([StaffController::class, 'visualizzaOfferte']);
     }
     public function CreaOfferta(NewOffertatRequest $request) //funzione che permette di creare ed aggiungere una nuova azienda nel db
+
     {
+
         if ($request->hasFile('immagine')) {
             $image = $request->file('immagine');
             $imageName = $image->getClientOriginalName();
@@ -127,6 +129,7 @@ class StaffController extends Controller {
         }
         //dd($req);
         $offerta = new Offerta();
+        $offerta->fill($request->validated());
         $offerta->immagine = $imageName;
         $offerta->id = $request->id;
         $offerta->modalità = $request->modalità;
