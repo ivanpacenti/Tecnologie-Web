@@ -54,7 +54,6 @@ class StaffController extends Controller {
 
         return view('staff');
     }
-//INSERITE DA VALERIA
 
     public function VisualizzaAziende_STAFF()
     {
@@ -139,7 +138,8 @@ class StaffController extends Controller {
         $emissione ->azienda = $request->azienda;
         $emissione ->offerta = $offerta->id;
         $emissione->save();
-        return redirect()->json(['redirect' => route('visualizzaOfferte')]);
+        /*return redirect()->json(['redirect' => route('visualizzaOfferte')]);*/
+        return response()->json(['redirect' => route('visualizzaOfferte')]);
     }
 
     public function creaoffertaxx()

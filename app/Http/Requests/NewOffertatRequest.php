@@ -2,16 +2,14 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
-namespace App\Http\Requests;
-
 // Aggiunti per response JSON, sono necessari i pacchetti per ottenere validazione lato server
-
 
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
 class NewOffertatRequest extends FormRequest {
 
     /**
@@ -38,8 +36,7 @@ class NewOffertatRequest extends FormRequest {
             'immagine' => 'image|max:1024',
             'azienda' => 'required',
             'modalità' => 'required|integer|min:0|max:100',
-            'descrizione' => 'required|max:2500',
-
+            'descrizione' => 'required|min:0|max:2500',
         ];
     }
     /**

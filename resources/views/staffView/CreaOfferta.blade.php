@@ -37,27 +37,26 @@
     <div class="form-group">
         {!! Form::label('modalità', 'Modalità') !!}
         {!! Form::text('modalità', null, ['class' => 'form-input', 'id' => 'modalità']) !!}
-
     </div>
+
     <div class="form-group">
-        {!! Form::label('', 'Descrizione') !!}
-        {!! Form::text('', null, ['class' => 'form-input', 'id' => 'descrizione']) !!}
-
+        {!! Form::label('descrizione', 'Descrizione') !!}
+        {!! Form::text('descrizione', null, ['class' => 'form-input', 'id' => 'descrizione']) !!}
     </div>
+
     <div class="form-group">
         {!! Form::label('dataInizio', 'Inizio') !!}
         {!! Form::date('dataInizio', null, ['class' => 'form-input-date', 'id' => 'dataInizio']) !!}
-
     </div>
+
     <div class="form-group">
         {!! Form::label('dataFine', 'Scadenza') !!}
         {!! Form::date('dataFine', null, ['class' => 'form-input-date','id' => 'dataFine' ]) !!}
-
     </div>
+
     <div class="form-group">
         {!! Form::label('luogoFruizione', 'Luogo di fruizione') !!}
         {!! Form::text('luogoFruizione', null, ['class' => 'form-input','id' => 'luogoFruizione' ]) !!}
-
     </div>
 
     <div class="form-group">
