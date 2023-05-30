@@ -42,7 +42,7 @@ Route::get('/offerta/{id}', [PublicController::class,'visualizzaDettagliOfferta'
 
 //ROTTE PER LA VISUALIZZAZIONE DELLE FAQ
 Route::view('/Faq', 'publicFaqs')->name('Faq');
-Route::get('/Faq',[PublicController::class, 'vis'])->name('visualizza_listaFaq');
+Route::get('/Faq',[PublicController::class, 'vis'])->name('visualizza_listafaq');
 
 
 /*
