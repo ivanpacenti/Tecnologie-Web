@@ -46,7 +46,7 @@ class UserController extends Controller {
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'età' => ['required', 'integer', 'between:0,100'],
-            'username' => ['required', 'string', 'between:0,100'],
+            'password'=> ['required', 'string', 'min:8'],
         ]);
 
         $User= $this->Utente->getUtentebyID($req->id);
@@ -54,7 +54,6 @@ class UserController extends Controller {
         $User->email=$req->email;
         $User->surname=$req->surname;
         $User->password = Hash::make($req->password);
-        $User->username=$req->username;
         $User->età=$req->età;
 
         $User->save();

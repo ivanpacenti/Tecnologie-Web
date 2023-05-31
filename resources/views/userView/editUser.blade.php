@@ -45,18 +45,18 @@
     </div>
     <div class="form-group">
         {!! Form::label('username', 'username', ['class' => 'form-label']) !!}
-        {!! Form::text('username', $User['username'], ['class' => 'form-input', 'placeholder' => 'username']) !!}
-        @if ($errors->first('username'))
+        {!! Form::text('username', $User['username'], ['class' => 'form-input', 'placeholder' => 'username', 'readonly' => 'readonly']) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('password', 'password', ['class' => 'form-label']) !!}
+        {!! Form::password('password', ['class' => 'form-input', 'placeholder' => 'password', 'value' => $User['password']]) !!}
+        @if ($errors->first('password'))
             <ul class="errors">
-                @foreach ($errors->get('username') as $message)
+                @foreach ($errors->get('password') as $message)
                     <li>{{ $message }}</li>
                 @endforeach
             </ul>
         @endif
-    </div>
-    <div class="form-group">
-        {!! Form::label('password', 'password', ['class' => 'form-label']) !!}
-        {!! Form::text('password', $User['password'], ['class' => 'form-input', 'placeholder' => 'password']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('email', 'email', ['class' => 'form-label']) !!}
