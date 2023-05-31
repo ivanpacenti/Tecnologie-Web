@@ -1,5 +1,5 @@
 <!-- PAGINA CHE CONTIENE TUTTE LE FAQ -->
-@section('title','Faq')
+@section('title','FAQs')
 
 @extends('layouts.pageLayout')
 
@@ -34,12 +34,7 @@
                     $(this).siblings('.inner-box').children('h4').toggle();
                 });
             });
-
-
-                /*$('.Visualizza-altro').click(function() {
-                    // Implement your logic to display more FAQs here
-                });
-            }); */
         </script>
+@endsection
 
 
