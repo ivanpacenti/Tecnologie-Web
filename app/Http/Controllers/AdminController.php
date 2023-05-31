@@ -189,6 +189,8 @@ class AdminController extends Controller
             $destinationPath = public_path() .'/img/';
             $image->move($destinationPath, $imageName);
             $imageName = 'img/' . $image->getClientOriginalName();
+        } else {
+            $imageName = Azienda::where('id', $req->id)->value('logo');
         }
         $azienda = $this->_adminAziende->getAziendabyID($req->id);
         $azienda->partitaIva = $req->partitaIva;
