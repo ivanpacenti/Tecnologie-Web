@@ -175,7 +175,6 @@ class AdminController extends Controller
             'posizione' => ['required', 'string', 'max:255'],
             'descrizione' => ['required', 'string', 'max:255'],
             'tipologia' => ['required', 'string', 'max:255'],
-            'logo' => ['required'],
         ]);
 
 
