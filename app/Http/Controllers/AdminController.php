@@ -252,6 +252,8 @@ class AdminController extends Controller
             'email' => ['required', 'string', 'email', 'max:255'],
             'età' => ['required', 'integer', 'between:0,100'],
             'username' => ['required', 'string', 'between:0,100'],
+            'telefono' => ['required', 'string', 'regex:/^\+?[0-9]+$/i', 'min:8', 'max:255'],
+            'password'=> ['required', 'string', 'min:8'],
         ]);
 
         $User = $this->_adminUsers->getUtentebyID($req->id);
@@ -268,6 +270,16 @@ class AdminController extends Controller
 
     public function staffcreate(Request $req) // funzione per salvare una faq all'interno del db
     {
+        $req->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'età' => ['required', 'integer', 'between:0,100'],
+            'username' => ['required', 'string', 'between:0,100'],
+            'telefono' => ['required', 'string', 'regex:/^\+?[0-9]+$/i', 'min:8', 'max:255'],
+            'password'=> ['required', 'string', 'min:8'],
+        ]);
+
         $User = new User();
         $User->name=$req->name;
         $User->email=$req->email;
@@ -278,6 +290,7 @@ class AdminController extends Controller
         $User->role=$req->role;
         $User->genere=$req->genere;
         $User->telefono=$req->telefono;
+
         $User->save();
 
         return redirect()->action([AdminController::class, 'VisualizzaStaff']);

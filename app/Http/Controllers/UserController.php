@@ -39,8 +39,6 @@ class UserController extends Controller {
 
     public function modificaUtente(Request $req)
     {
-
-// funzione che serve per modificare  UN UTENTE
         $req->validate([
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],

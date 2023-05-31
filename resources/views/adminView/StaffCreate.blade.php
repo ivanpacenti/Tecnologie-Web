@@ -10,45 +10,104 @@
     {!! Form::open(['route' => 'staffcreate', 'class' => 'form']) !!}
     <h1>Aggiungi un nuovo membro staff</h1>
     <div class="form-group">
-        {!! Form::label('name', 'name:') !!}
-        {!! Form::text('name', null, ['class' => 'form-input', 'required']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('surname', 'surname:') !!}
-        {!! Form::text('surname', null, ['class' => 'form-input', 'required']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('email', 'email:') !!}
-        {!! Form::text('email', null, ['class' => 'form-input', 'required']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('username', 'username:') !!}
-        {!! Form::text('username', null, ['class' => 'form-input', 'required']) !!}
-    </div>
-    <div class="form-group">
-        <label for="role" class="form-label">Genere</label>
-        <select id="role" name="role" class="form-input">
-            <option value="staff">staff</option>
-        </select>
-    </div>
-    <div class="form-group">
-        {!! Form::label('genere', 'genere:') !!}
-        {!! Form::text('genere', null, ['class' => 'form-input', 'required']) !!}
+        {!! Form::label('name', 'Nome') !!}
+        {!! Form::text('name', null, ['class' => 'form-input']) !!}
+        @if ($errors->first('name'))
+            <ul class="errors">
+                @foreach ($errors->get('name') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
     </div>
 
     <div class="form-group">
-        {!! Form::label('telefono', 'telefono:') !!}
-        {!! Form::text('telefono', null, ['class' => 'form-input', 'required']) !!}
+        {!! Form::label('surname', 'Cognome') !!}
+        {!! Form::text('surname', null, ['class' => 'form-input']) !!}
+        @if ($errors->first('surname'))
+            <ul class="errors">
+                @foreach ($errors->get('surname') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
     </div>
+
+    <div class="form-group">
+        {!! Form::label('età', 'età', ['class' => 'form-label']) !!}
+        {!! Form::text('età', $staff['età'], ['class' => 'form-input', 'placeholder' => 'Inserisci la tua età']) !!}
+        @if ($errors->first('età'))
+            <ul class="errors">
+                @foreach ($errors->get('età') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('email', 'Email') !!}
+        {!! Form::email('email', null, ['class' => 'form-input']) !!}
+        @if ($errors->first('email'))
+            <ul class="errors">
+                @foreach ($errors->get('email') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('username', 'Username') !!}
+        {!! Form::text('username', null, ['class' => 'form-input']) !!}
+        @if ($errors->first('username'))
+            <ul class="errors">
+                @foreach ($errors->get('username') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('role', 'Ruolo', ['class' => 'form-label']) }}
+        {{ Form::select('role', ['staff' => 'Staff'], null, ['id' => 'role', 'class' => 'form-input'])}}
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('genere', 'Genere', ['class' => 'form-label']) }}
+        {{ Form::select('genere', ['maschio' => 'Maschio', 'femmina' => 'Femmina'], null, ['id' => 'genere', 'class' => 'form-input'])}}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('telefono', 'Telefono') !!}
+        {!! Form::text('telefono', null, ['class' => 'form-input']) !!}
+        @if ($errors->first('telefono'))
+            <ul class="errors">
+                @foreach ($errors->get('telefono') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+
     <div  class="form-group">
         {{ Form::label('password', 'Password', ['class' => 'form-label']) }}
         {{ Form::password('password', ['class' => 'form-input', 'id' => 'password']) }}
-
+        @if ($errors->first('password'))
+            <ul class="errors">
+                @foreach ($errors->get('password') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
     </div>
+
     <div  class="form-group">
         {{ Form::label('password-confirm', 'Conferma password', ['class' => 'form-label']) }}
         {{ Form::password('password_confirmation', ['class' => 'form-input', 'id' => 'password-confirm']) }}
     </div>
+
     <div class="form-group">
         {!! Form::submit('Salva', ['class' => 'formbutton']) !!}
     </div>

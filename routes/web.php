@@ -78,8 +78,8 @@ Route::get('/deleteagency/{id}', [AdminController::class,'deleteAgency'])->name(
 Route::get('/VisualizzaStaff',[AdminController::class,'VisualizzaStaff'])->name('VisualizzaStaff')->middleware('can:isAdmin');
 Route::get('/ModificaStaff/{id}', [AdminController::class,'ModificaStaff1'])->name('ModificaStaff1')->middleware('can:isAdmin');
 Route::post('/ModificaStaff', [AdminController::class,'ModificaStaff'])->name('ModificaStaff')->middleware('can:isAdmin');
-Route::view('/staffcreate','adminView.staffcreate')->name('staffcreate')->middleware('can:isAdmin'); // prima rotta di sola visualizzazione
-Route::post('/staffcreate', [AdminController::class, 'staffcreate'])->name('staffcreate')->middleware('can:isAdmin');// prima rotta di sola visualizzazione
+Route::view('/staffcreate','adminView.staffcreate')->name('staffcreate')->middleware('can:isAdmin');
+Route::post('/staffcreate', [AdminController::class, 'staffcreate'])->name('staffcreate')->middleware('can:isAdmin');
 
 
 /*
