@@ -22,7 +22,7 @@
                                     @isset($risultati->immagine)
                                         <img src="{{$risultati->immagine}}" alt="Immagine prodotto">
                                             @auth
-                                        <span class="discount">-30%</span>
+                                        <span class="discount">-{{$risultati->modalità}}%</span>
                                     @endauth
                                         @endif
                                 </div>

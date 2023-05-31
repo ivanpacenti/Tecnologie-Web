@@ -62,13 +62,6 @@ class StaffController extends Controller {
         return redirect()->action([StaffController::class, 'staff']);
     }
 
-    public function VisualizzaAziende_STAFF()
-    {
-        $aziende= Azienda::all();
-        //dd($faqs);
-        return view('layouts.couponEdit')->with('aziende', $aziende);
-    }
-
     public function VisualizzaOfferte()
     {
         $offerte = $this->_staffOfferte->getOfferte();
@@ -92,6 +85,14 @@ class StaffController extends Controller {
 
     public function ModificaOfferta(Request $req) // funzione che serve per modificare  un coupon
     {
+        $req->validate([
+            'modalità' => ['required', 'int', 'between:0,100'],
+            'descrizione' => ['required', 'string', 'max:2500'],
+            'dataInizio' => ['required'],
+            'dataFine' => ['required'],
+            'luogoFruizione' => ['required', 'string', 'max:255'],
+        ]);
+
         if ($req->hasFile('immagine')) {
             $image = $req->file('immagine');
             $imageName = $image->getClientOriginalName();
@@ -103,6 +104,8 @@ class StaffController extends Controller {
             $destinationPath = public_path() .'/img/';
             $image->move($destinationPath, $imageName);
             $imageName = 'img/' . $image->getClientOriginalName();
+        } else{
+            $imageName = Offerta::where('id', $req->id)->value('immagine');
         }
 
         $offerta =$this->_staffOfferte->getOffertabyID($req->id);
@@ -118,6 +121,7 @@ class StaffController extends Controller {
 
         return redirect()->action([StaffController::class, 'visualizzaOfferte']);
     }
+
     public function CreaOfferta(NewOffertatRequest $request) //funzione che permette di creare ed aggiungere una nuova azienda nel db
     {
         if ($request->hasFile('immagine')) {
@@ -131,6 +135,8 @@ class StaffController extends Controller {
             $destinationPath = public_path() .'/img/';
             $image->move($destinationPath, $imageName);
             $imageName = 'img/' . $image->getClientOriginalName();
+        } else {
+            $imageName = 'img/shop.jpg';
         }
 
         $offerta = new Offerta();

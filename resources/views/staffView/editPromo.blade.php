@@ -17,7 +17,7 @@
 
     <div class="form-group">
         {!! Form::label('modalità', 'Modalità', ['class' => 'form-label']) !!}
-        {!! Form::text('modalità', $offerta['modalità'], ['class' => 'form-input', 'placeholder' => 'cambia la modalita']) !!}
+        {!! Form::text('modalità', $offerta['modalità'], ['class' => 'form-input', 'placeholder' => 'cambia la modalità']) !!}
         @if ($errors->first('modalità'))
             <ul class="errors">
                 @foreach ($errors->get('modalità') as $message)
@@ -39,7 +39,7 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('luogoFruizione', 'Luoog di fruizione', ['class' => 'form-label']) !!}
+        {!! Form::label('luogoFruizione', 'Luogo di fruizione', ['class' => 'form-label']) !!}
         {!! Form::text('luogoFruizione', $offerta['luogoFruizione'], ['class' => 'form-input', 'placeholder' => 'Inserisci luogo di fruizione']) !!}
         @if ($errors->first('luogoFruizione'))
             <ul class="errors">
