@@ -19,9 +19,11 @@
             </div>
 
             <div class="section">
-                CONTATTACI
-                <br><a href="mailto:coupon@gmail.com">coupon@gmail.com</a>
-                <br>+39 335 89308426
+                <ul>
+                    <li>CONTATTACI</li>
+                <li><a href="mailto:coupon@gmail.com">coupon@gmail.com</a></li>
+                <li>+39 335 89308426</li>
+                </ul>
             </div>
             <div class="section">
                 <a href="{{route("visualizza_listafaq")}}"> FAQ</a>
