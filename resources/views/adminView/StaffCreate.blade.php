@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/form_design.css')}}" >
 
     {!! Form::open(['route' => 'staffcreate', 'class' => 'form']) !!}
+    {!! Form::token() !!}
     <h1>Aggiungi un nuovo membro staff</h1>
     <div class="form-group">
         {!! Form::label('name', 'Nome') !!}

@@ -78,6 +78,7 @@
             </ul>
         @endif
     </div>
+
     <div class="form-group">
         {!! Form::label('password', 'Password', ['class' => 'form-label']) !!}
         {!! Form::password('password',['value' => $staff['password'], 'class' => 'form-input', 'placeholder' => 'password']) !!}
