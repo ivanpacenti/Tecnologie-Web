@@ -10,7 +10,7 @@
     <br>
         <div class="footercontainer1">
             <div class="section">
-                CHI SIAMO
+                <a href="{{route("index")}}">CHI SIAMO</a>
 
             </div>
 
@@ -20,7 +20,7 @@
 
             <div class="section">
                 CONTATTACI
-                <br>coupon@gmail.com
+                <br><a href="mailto:coupon@gmail.com">coupon@gmail.com</a>
                 <br>+39 335 89308426
             </div>
             <div class="section">
