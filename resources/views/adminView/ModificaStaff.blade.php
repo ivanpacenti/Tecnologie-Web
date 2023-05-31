@@ -12,8 +12,8 @@
     <div class="form-group">
         {!! Form::label('id', 'ID', ['class' => 'form-label']) !!}
         {!! Form::text('id', $staff['id'], ['class' => 'form-input','readonly']) !!}
-
     </div>
+
     <div class="form-group">
         {!! Form::label('name', 'Nome', ['class' => 'form-label']) !!}
         {!! Form::text('name', $staff['name'], ['class' => 'form-input', 'placeholder' => 'cambia il tuo nome']) !!}
@@ -25,6 +25,7 @@
             </ul>
         @endif
     </div>
+
     <div class="form-group">
         {!! Form::label('cognome', 'Cognome', ['class' => 'form-label']) !!}
         {!! Form::text('surname', $staff['surname'], ['class' => 'form-input', 'placeholder' => 'cognome']) !!}
@@ -36,6 +37,7 @@
             </ul>
         @endif
     </div>
+
     <div class="form-group">
         {!! Form::label('età', 'Età', ['class' => 'form-label']) !!}
         {!! Form::text('età', $staff['età'], ['class' => 'form-input', 'placeholder' => 'Inserisci la tua età']) !!}
@@ -49,10 +51,22 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('username', 'Username', ['class' => 'form-label']) !!}
-        {!! Form::text('username', $staff['username'], ['class' => 'form-input', 'placeholder' => 'username']) !!}
-
+        {!! Form::label('email', 'Email', ['class' => 'form-label']) !!}
+        {!! Form::email('email', $staff['email'], ['class' => 'form-input', 'placeholder' => 'Inserisci la tua email']) !!}
+        @if ($errors->first('email'))
+            <ul class="errors">
+                @foreach ($errors->get('email') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
     </div>
+
+    <div class="form-group">
+        {!! Form::label('username', 'Username', ['class' => 'form-label']) !!}
+        {!! Form::text('username', $staff['username'], ['class' => 'form-input', 'placeholder' => 'username', 'readonly'=>'readonly']) !!}
+    </div>
+
     <div class="form-group">
         {!! Form::label('telefono', 'Telefono') !!}
         {!! Form::text('telefono', null, ['class' => 'form-input']) !!}
@@ -70,17 +84,6 @@
         @if ($errors->first('password'))
             <ul class="errors">
                 @foreach ($errors->get('password') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
-    </div>
-    <div class="form-group">
-        {!! Form::label('email', 'Email', ['class' => 'form-label']) !!}
-        {!! Form::email('email', $staff['email'], ['class' => 'form-input', 'placeholder' => 'Inserisci la tua email']) !!}
-        @if ($errors->first('email'))
-            <ul class="errors">
-                @foreach ($errors->get('email') as $message)
                     <li>{{ $message }}</li>
                 @endforeach
             </ul>

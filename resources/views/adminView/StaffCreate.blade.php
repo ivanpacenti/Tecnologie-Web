@@ -34,8 +34,8 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('età', 'età', ['class' => 'form-label']) !!}
-        {!! Form::text('età', $staff['età'], ['class' => 'form-input', 'placeholder' => 'Inserisci la tua età']) !!}
+        {!! Form::label('età', 'Età', ['class' => 'form-label']) !!}
+        {!! Form::text('età', null, ['class' => 'form-input', 'placeholder' => 'Inserisci la tua età']) !!}
         @if ($errors->first('età'))
             <ul class="errors">
                 @foreach ($errors->get('età') as $message)
