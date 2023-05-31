@@ -133,7 +133,7 @@ class AdminController extends Controller
             'posizione' => ['required', 'string', 'max:255'],
             'descrizione' => ['required', 'string', 'max:255'],
             'tipologia' => ['required', 'string', 'max:255'],
-            'immagine'
+            'logo' => ['required'],
         ]);
 
         if ($req->hasFile('logo')) {
@@ -170,12 +170,14 @@ class AdminController extends Controller
     public function modificaAzienda(Request $req)
     {
         $req->validate([
-            'partitaIva' => ['required', 'string', 'max:255'],
+            'partitaIva' => ['required', 'integer', 'digits:11'],
             'nome' => ['required', 'string', 'max:255'],
             'posizione' => ['required', 'string', 'max:255'],
             'descrizione' => ['required', 'string', 'max:255'],
             'tipologia' => ['required', 'string', 'max:255'],
+            'logo' => ['required'],
         ]);
+
 
         if ($req->hasFile('logo')) {
             $image = $req->file('logo');
