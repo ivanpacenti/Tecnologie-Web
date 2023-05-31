@@ -5,7 +5,6 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/nav_design.css') }}" >
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <div class="logo">
         <a href="{{route('index')}}"><img src={{asset('img/img_Logo.png')}} alt="Logo" id="logo"></a>
@@ -58,11 +57,10 @@
             {{-- si attiva solamente quando l'utente non è loggato--}}
             @guest
 
-                <li><a href="{{ route('register') }}" title="Resgistrati al sito">Registrati</a></li>
+                <li><a href="{{ route('register') }}" title="Registrati al sito">Registrati</a></li>
                 <li><a href="{{ route('login') }}" class="highlight" title="Accedi all'area riservata del sito">Login</a></li>
             @endguest
         </div>
     </nav>
-
 </html>
 

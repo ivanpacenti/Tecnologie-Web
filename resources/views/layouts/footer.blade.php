@@ -20,7 +20,7 @@
 
             <div class="section">
                 <ul>
-                <li><a class="boh" href="mailto:coupon@gmail.com">coupon@gmail.com</a></li>
+                <li><a  href="mailto:coupon@gmail.com">coupon@gmail.com</a></li>
                 <li>+39 335 89308426</li>
                 </ul>
             </div>
