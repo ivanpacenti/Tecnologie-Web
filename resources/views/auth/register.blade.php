@@ -69,8 +69,11 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('genere', 'Genere', ['class' => 'form-label']) }}
-        {{ Form::select('genere', ['maschio' => 'Maschio', 'femmina' => 'Femmina'], null, ['id' => 'genere', 'class' => 'form-input'])}}
+        <label for="genere" class="form-label">Genere</label>
+        <select id="genere" name="genere" class="form-input">
+            <option value="maschio">Maschio</option>
+            <option value="femmina">Femmina</option>
+        </select>
     </div>
 
 
