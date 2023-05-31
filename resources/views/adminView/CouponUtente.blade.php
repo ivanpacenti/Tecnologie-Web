@@ -16,7 +16,8 @@
             <p>Telefono: {{$user->telefono}}</p>
         </div>
 
-        <a href="{{route('statistiche')}}" class="buttonbarstats">torna indietro</a>
+        <a href="{{route('statistiche')}}" class="buttonbarstats">vedi altre statistiche</a>
+        <a href="{{route('visualizzaUtente')}}" class="buttonbarstats">Visualizzazione utenti </a>
     </div>
 @endsection
 
