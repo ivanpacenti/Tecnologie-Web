@@ -127,6 +127,15 @@ class AdminController extends Controller
 
     public function createAgency(Request $req) //funzione che permette di creare ed aggiungere una nuova azienda nel db
     {
+        $req->validate([
+            'partitaIva' => ['required', 'integer', 'digits:11'],
+            'nome' => ['required', 'string', 'max:255'],
+            'posizione' => ['required', 'string', 'max:255'],
+            'descrizione' => ['required', 'string', 'max:255'],
+            'tipologia' => ['required', 'string', 'max:255'],
+            'immagine'
+        ]);
+
         if ($req->hasFile('logo')) {
             $image = $req->file('logo');
             $imageName = $image->getClientOriginalName();
