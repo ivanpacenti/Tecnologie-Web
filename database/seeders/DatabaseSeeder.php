@@ -17,67 +17,6 @@ class DatabaseSeeder extends Seeder {
 
 
     public function run() {
-        /* generatore offerte fake*/
-        $faker = Faker::create();
-        for ($i = 0; $i < 10; $i++) {
-//            Offerta::create([
-//                'descrizione' => $faker->sentence(),
-//                'immagine' => $faker->imageUrl(),
-//                'modalità' => $faker->name(),
-//                'luogoFruizione' => $faker->address(),
-//                'dataInizio' => $faker->date(),
-//                'dataFine' => '2023-05-29',
-//            ]);
-            Pacchetto::create([
-                'descrizione' => $faker->sentence(),
-                'immagine' => $faker->imageUrl(),
-                'modalità' => $faker->name(),
-                'luogoFruizione' => $faker->address(),
-            ]);
-            /*Azienda::create([
-                'partitaIva' => $faker->postcode(),
-                'nome' => $faker->company(),
-                'descrizione' => $faker->sentence(),
-                'posizione' => $faker->streetAddress(),
-                'tipologia' => $faker->companySuffix(),
-                'logo' => $faker->imageUrl(),
-            ]);*/
-        }
-
-//        for($i=0;$i<10;$i++)
-//        {
-//            Emissione::create([
-//                'azienda'=>1,
-//                'offerta'=>$i+1,
-//            ]);
-//        }
-
-        /*
-        DB::table('category')->insert([
-            ['catId' => 1, 'name' => 'Computer', 'parId' => 0, 'desc' => 'Desktop, Laptop, Netbook'],
-            ['catId' => 2, 'name' => 'Periferiche', 'parId' => 0, 'desc' => 'Hard Disk, Tastiere, Mouse'],
-            ['catId' => 3, 'name' => 'Desktop', 'parId' => 1, 'desc' => 'Descrizione dei Prodotti Desktop'],
-            ['catId' => 4, 'name' => 'Laptop', 'parId' => 1, 'desc' => 'Descrizione dei Prodotti Laptop'],
-            ['catId' => 5, 'name' => 'NetBook', 'parId' => 1, 'desc' => 'Descrizione dei Prodotti Netbook'],
-            ['catId' => 6, 'name' => 'HardDisk', 'parId' => 2, 'desc' => 'Descrizione dei Dischi Rigidi'],
-        ]);
-
-
-
-
-
-        /* CI SONO ABILITATE LE OFFERTE FAKE
-        DB::table('offertas')->insert([
-            ['modalità'=>'online','immagine'=>'img/immagine_1.jpeg',
-                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica1',
-                'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16'],
-            ['modalità'=>'online','immagine'=>'img/immagine_2.jpg',
-                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica2',
-                'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16'],
-            ['modalità'=>'online','immagine'=>'img/immagine_3.jpg',
-                'luogoFruizione'=>'Ancona','descrizione'=>'offerta generica3',
-                'dataInizio'=>'2023-05-16','dataFine'=>'2023-12-16']]
-        );*/
 
         DB::table('faqs')->insert([
                 ['domanda'=>'Posso comperare un coupon senza registrarmi al sito?','risposta'=>'No, è necessario prima registrarsi al nostro sito,e poi accedere tramite il login'],
@@ -117,11 +56,11 @@ class DatabaseSeeder extends Seeder {
                 ,'tipologia'=>'s.a.s','logo'=>'img/MedStore_logo.png'],
         ]);
         DB::table('offertas')->insert([
-            ['modalità'=>'20','immagine'=>'img/polo.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>' 65% di sconto su due polo a scelta'
+            ['modalità'=>'20','immagine'=>'img/polo.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>' 20% di sconto su due polo a scelta'
                 ,'dataInizio'=>'2023-05-11','dataFine' => '2023-09-29'],
             ['modalità'=>'30','immagine'=>'img/pantaloni.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'30% di sconto su tutti i pantaloni felpati'
                 ,'dataInizio'=>'2023-04-29','dataFine' => '2023-07-29'],
-            ['modalità'=>'40','immagine'=>'img/cintura.png','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su una cintura di pelle scelta dallo staff'
+            ['modalità'=>'40','immagine'=>'img/cintura.png','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su una cintura di pelle scelta dallo staff'
                 ,'dataInizio'=>'2023-05-23','dataFine' => '2023-05-29'],
             ['modalità'=>'10','immagine'=>'img/profumo.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su tutti i profumi'
                 ,'dataInizio'=>'2023-05-11','dataFine' => '2023-05-29'],
@@ -135,45 +74,45 @@ class DatabaseSeeder extends Seeder {
                 ,'dataInizio'=>'2023-05-18','dataFine' => '2023-08-29'],
             ['modalità'=>'40','immagine'=>'img/macbook.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su tutti i MacBook Air'
                 ,'dataInizio'=>'2023-05-20','dataFine' => '2023-05-21'],
-            ['modalità'=>'15','immagine'=>'img/watch.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su tutti i modelli di Apple Watch'
+            ['modalità'=>'15','immagine'=>'img/watch.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'15% di sconto su tutti i modelli di Apple Watch'
                 ,'dataInizio'=>'2023-05-21','dataFine' => '2023-12-29'],
-            ['modalità'=>'20','immagine'=>'img/dunk_ow.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'5% di sconto su Nike Dunk Low Off-White Lot 42',
+            ['modalità'=>'20','immagine'=>'img/dunk_ow.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'20% di sconto su Nike Dunk Low Off-White Lot 42',
                 'dataInizio'=>'2023-05-11','dataFine' => '2023-09-29'],
-            ['modalità'=>'30','immagine'=>'img/cappello.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'Proteggiti dal sole della calda estate con un cappello! per te subito il 10% di sconto!',
+            ['modalità'=>'30','immagine'=>'img/cappello.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'Proteggiti dal sole della calda estate con un cappello! per te subito il 30% di sconto!',
                 'dataInizio'=>'2023-04-29','dataFine' => '2023-07-29'],
-['modalità'=>'40','immagine'=>'img/scarpe_lc.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su un paio di sneakers Lacoste',
-    'dataInizio'=>'2023-05-23','dataFine' => '2023-05-29'],
-['modalità'=>'10','immagine'=>'img/borsa.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su una borsa a scelta tra la collezione dei Classici YSL',
-    'dataInizio'=>'2023-05-11','dataFine' => '2023-05-29'],
-['modalità'=>'60','immagine'=>'img/costume.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'Acquistando un costume da nuoto Adidas, avrai in omaggio un paio di occhialini!',
-    'dataInizio'=>'2023-05-10','dataFine' => '2023-06-29'],
-['modalità'=>'10','immagine'=>'img/dunk_diamond.jpg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su Nike SB Dunk Low Diamond Supply Co Yellow',
-    'dataInizio'=>'2023-05-03','dataFine' => '2023-05-29'],
-['modalità'=>'20','immagine'=>'img/pizza.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'Acquistando 3 pizze a marchio Coop, ne riceverai 1 omaggio! ',
-    'dataInizio'=>'2023-05-14','dataFine' => '2023-05-30'],
-['modalità'=>'5','immagine'=>'img/vivobook.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'5% di sconto su tutti gli Asus VivoBook 14',
-    'dataInizio'=>'2023-05-18','dataFine' => '2023-08-29'],
-['modalità'=>'40','immagine'=>'img/ipad.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su tutti gli iPad ricondizionati',
-    'dataInizio'=>'2023-05-20','dataFine' => '2023-05-21'],
-['modalità'=>'15','immagine'=>'img/ultra.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'15% di sconto su tutti i modelli di Apple Watch Ultra, il compagno perfetto per monitorare la tua attività',
-    'dataInizio'=>'2023-05-21','dataFine' => '2023-12-29'],
+            ['modalità'=>'40','immagine'=>'img/scarpe_lc.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su un paio di sneakers Lacoste',
+                 'dataInizio'=>'2023-05-23','dataFine' => '2023-05-29'],
+            ['modalità'=>'10','immagine'=>'img/borsa.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su una borsa a scelta tra la collezione dei Classici YSL',
+                 'dataInizio'=>'2023-05-11','dataFine' => '2023-05-29'],
+            ['modalità'=>'60','immagine'=>'img/costume.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'Acquistando un costume da nuoto Adidas, avrai uno sconto del 60% sul costume!',
+                'dataInizio'=>'2023-05-10','dataFine' => '2023-06-29'],
+            ['modalità'=>'10','immagine'=>'img/dunk_diamond.jpg','luogoFruizione'=>'ONLINE','descrizione'=>'10% di sconto su Nike SB Dunk Low Diamond Supply Co Yellow',
+                'dataInizio'=>'2023-05-03','dataFine' => '2023-05-29'],
+            ['modalità'=>'20','immagine'=>'img/pizza.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'sconto del 20% su tutte le pizze!! ',
+                'dataInizio'=>'2023-05-14','dataFine' => '2023-05-30'],
+            ['modalità'=>'5','immagine'=>'img/vivobook.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'5% di sconto su tutti gli Asus VivoBook 14',
+                'dataInizio'=>'2023-05-18','dataFine' => '2023-08-29'],
+            ['modalità'=>'40','immagine'=>'img/ipad.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'40% di sconto su tutti gli iPad ricondizionati',
+                'dataInizio'=>'2023-05-20','dataFine' => '2023-05-21'],
+            ['modalità'=>'15','immagine'=>'img/ultra.jpeg','luogoFruizione'=>'ONLINE','descrizione'=>'15% di sconto su tutti i modelli di Apple Watch Ultra, il compagno perfetto per monitorare la tua attività',
+                'dataInizio'=>'2023-05-21','dataFine' => '2023-12-29'],
         ]);
 
         DB::table('emissiones')->insert([
-            ['azienda' => '1', 'offerta'=>'1'],//ok
+            ['azienda' => '1', 'offerta'=>'1'],
             ['azienda' => '1', 'offerta'=>'2'],
             ['azienda' => '2', 'offerta'=>'3'],
-            ['azienda' => '3', 'offerta'=>'4'],//ok
+            ['azienda' => '3', 'offerta'=>'4'],
             ['azienda' => '4', 'offerta'=>'5'],
             ['azienda' => '5', 'offerta'=>'6'],
             ['azienda' => '6', 'offerta'=>'7'],
             ['azienda' => '7', 'offerta'=>'8'],
             ['azienda' => '8', 'offerta'=>'9'],
             ['azienda' => '8', 'offerta'=>'10'],
-            ['azienda' => '5', 'offerta'=>'11'],//ok
+            ['azienda' => '5', 'offerta'=>'11'],
             ['azienda' => '4', 'offerta'=>'12'],
             ['azienda' => '1', 'offerta'=>'13'],
-            ['azienda' => '3', 'offerta'=>'14'],//ok
+            ['azienda' => '3', 'offerta'=>'14'],
             ['azienda' => '4', 'offerta'=>'15'],
             ['azienda' => '5', 'offerta'=>'16'],
             ['azienda' => '6', 'offerta'=>'17'],
