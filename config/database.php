@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+require( __DIR__ . '/../../include/connect.php');
+
 return [
 
     /*
@@ -38,11 +40,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => $HOST,
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', ''),
-            'username' => env('DB_USERNAME', ''),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => $DB,
+            'username' => $USER,
+            'password' => $PASSWORD,
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -54,7 +56,6 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-
     ],
 
     /*
@@ -69,7 +70,5 @@ return [
     */
 
     'migrations' => 'migrations',
-
-    
 
 ];
