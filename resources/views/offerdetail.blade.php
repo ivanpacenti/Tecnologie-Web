@@ -27,6 +27,11 @@
             <div class="luogofruizione">
                 <p> LUOGO DI FRUIZIONE: {{ $offerta->luogoFruizione }}</p>
             </div>
+
+            <div class="azienda">
+                <p> AZIENDA: {{ $azienda->nome }}</p>
+            </div>
+
             <div class="scadenza">
                 <div class="dataInizio">
                     <p> DATA INIZIO: {{ $offerta->dataInizio }}</p>

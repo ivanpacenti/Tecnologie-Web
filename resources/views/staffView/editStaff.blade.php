@@ -46,47 +46,6 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('età', 'Età', ['class' => 'form-label']) !!}
-        {!! Form::text('età', $User['età'], ['class' => 'form-input', 'placeholder' => 'Inserisci la tua età']) !!}
-        @if ($errors->first('età'))
-            <ul class="errors">
-                @foreach ($errors->get('età') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
-    </div>
-
-    <div class="form-group">
-        {!! Form::label('email', 'Email', ['class' => 'form-label']) !!}
-        {!! Form::email('email', $User['email'], ['class' => 'form-input', 'placeholder' => 'Inserisci la tua email']) !!}
-        @if ($errors->first('email'))
-            <ul class="errors">
-                @foreach ($errors->get('email') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
-    </div>
-
-    <div class="form-group">
-        {!! Form::label('username', 'Username', ['class' => 'form-label']) !!}
-        {!! Form::text('username', $User['username'], ['class' => 'form-input', 'placeholder' => 'username', 'readonly'=>'readonly']) !!}
-    </div>
-
-    <div class="form-group">
-        {!! Form::label('telefono', 'Telefono') !!}
-        {!! Form::text('telefono', $User['telefono'], ['class' => 'form-input']) !!}
-        @if ($errors->first('telefono'))
-            <ul class="errors">
-                @foreach ($errors->get('telefono') as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
-    </div>
-
-    <div class="form-group">
         {!! Form::label('password', 'Password', ['class' => 'form-label']) !!}
         {!! Form::password('password',['value' => $User['password'], 'class' => 'form-input', 'placeholder' => 'password']) !!}
         @if ($errors->first('password'))

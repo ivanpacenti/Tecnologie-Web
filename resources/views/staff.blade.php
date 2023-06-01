@@ -28,7 +28,7 @@
                     {{ Auth::user()->email }}
                 </div>
                 <div class="containerfield">
-                    {{ str_repeat('•', 20) }}
+                    {{ str_repeat('•', 8) }}
                 </div>
             </div>
             <div class="rightcontainer">

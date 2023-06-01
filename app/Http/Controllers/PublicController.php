@@ -33,8 +33,10 @@ class PublicController
 
     public function visualizzaDettagliOfferta($id)
     {
-        $offerta = $this->_offerteModel->getOffertabyID($id);;
-        return view('offerdetail',['offerta'=>$offerta]);
+        $offerta = $this->_offerteModel->getOffertabyID($id);
+        $azienda = $this->_aziendeModel->getAziendabyID(Emissione::where('offerta', $offerta->id)->value('azienda'));
+
+        return view('offerdetail',['offerta'=>$offerta, 'azienda'=>$azienda]);
     }
 
 

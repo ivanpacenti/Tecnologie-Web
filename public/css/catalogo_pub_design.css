@@ -264,7 +264,7 @@ al disotto per colonna*/
     align-self: center;
 }
 
-.descrizione, .modalita, .id, .luogofruizione, .dataFine, .dataInizio{
+.descrizione, .modalita, .id, .luogofruizione, .azienda, .dataFine, .dataInizio{
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -342,7 +342,7 @@ al disotto per colonna*/
     border-radius: 20px;
     background-color: #eeeeee;
     padding: 15px;
-    height: 300px;
+    height: 450px;
     width: 350px;
 }
 

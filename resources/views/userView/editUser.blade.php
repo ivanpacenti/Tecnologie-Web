@@ -80,6 +80,24 @@
             </ul>
         @endif
     </div>
+
+    <div  class="form-group">
+        {{ Form::label('telefono', 'telefono', ['class' => 'form-label']) }}
+        {{ Form::text('telefono', $User['telefono'], ['class' => 'form-input','id' => 'telefono']) }}
+        @if ($errors->first('telefono'))
+            <ul class="errors">
+                @foreach ($errors->get('telefono') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @endif
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('genere', 'Genere', ['class' => 'form-label']) }}
+        {{ Form::select('genere', ['maschio' => 'Maschio', 'femmina' => 'Femmina'], null, ['id' => 'genere', 'class' => 'form-input'])}}
+    </div>
+
     <div class="form-group">
         {!! Form::submit('Aggiorna', ['class' => 'formbutton']) !!}
     </div>

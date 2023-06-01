@@ -42,19 +42,12 @@ class StaffController extends Controller {
         $req->validate([
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'età' => ['required', 'integer', 'between:0,100'],
-            'username' => ['required', 'string', 'between:0,100'],
-            'telefono' => ['required', 'string', 'regex:/^\+?[0-9]+$/i', 'min:8', 'max:255'],
             'password'=> ['required', 'string', 'min:8'],
         ]);
 
         $User = $this->_staffUtente->getUtentebyID($req->id);
         $User->name=$req->name;
         $User->surname=$req->surname;
-        $User->età=$req->età;
-        $User->email=$req->email;
-        $User->telefono=$req->telefono;
         $User->password = Hash::make($req->password);
 
         $User->save();

@@ -5,6 +5,8 @@ use App\Models\Admin;
 use App\Models\coupon_off;
 use App\Models\Faq;
 use App\Models\Offerta;
+use App\Models\Azienda;
+use App\Models\Emissione;
 use App\Models\User;
 
 use Illuminate\Http\Request;
@@ -17,6 +19,7 @@ class UserController extends Controller {
 // in questo caso il proceosso di autenticazione sta nella rotta(nell''admin sta nell admin controller))
     protected User $Utente;
     protected Offerta $Offerta;
+    protected Azienda $Azienda;
 
     public function index() {
         return view('user');
@@ -28,6 +31,7 @@ class UserController extends Controller {
     public function __construct() {
         $this->Utente = new User();
         $this->Offerta = new Offerta();
+        $this->Azienda = new Azienda();
         $this->middleware('can:isUser');
     }
 
@@ -54,6 +58,8 @@ class UserController extends Controller {
         $User->surname=$req->surname;
         $User->password = Hash::make($req->password);
         $User->età=$req->età;
+        $User->telefono=$req->telefono;
+        $User->genere=$req->genere;
 
         $User->save();
 
@@ -88,7 +94,8 @@ class UserController extends Controller {
                 $couponOff->utente = $userUs['username'];
                 $couponOff->save();
                 $stringa = $userUs['username'] . $couponId;
-                return view('userView.stampa', ['stringa' => $stringa, 'offertaa' => $offertA]);
+                $azienda = $this->Azienda->getAziendabyID(Emissione::where('offerta', $offertA->id)->value('azienda'));
+                return view('userView.stampa', ['stringa' => $stringa, 'offertaa' => $offertA, 'azienda'=>$azienda]);
 
             }
         }
