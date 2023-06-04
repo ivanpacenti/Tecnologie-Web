@@ -13,6 +13,6 @@
             <p>Luogo di fruizione: {{$offerta->luogoFruizione}}</p>
             <p>Descrizione: {{$offerta->descrizione}}</p>
         </div>
-        <a href="{{route('statistiche')}}" class="buttonbarstats">torna indietro</a>
+        <a href="{{route('VisualizzaOfferteS')}}" class="buttonbarstats">torna indietro</a>
     </div>
 @endsection

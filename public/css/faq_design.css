@@ -1,16 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-html, body {
-    margin: 0;
+body {
+    background: #ffffff;
+    margin:0;
     font-family: 'Lexend', sans-serif;
-    color: rgb(210, 210, 210);
 }
-
-/* Stile per il contenitore principale della pagina */
-/*.container {
-    color: rgb(210, 210, 210);
-    text-align: center;
-}*/
 
 /* Stile per l'intestazione della pagina */
 header {
@@ -29,43 +23,60 @@ header {
     padding: 0;
     background-color: #762c2c;
 }
-
-/* Stile per il contenuto principale della pagina */
-/*.main-content {
-    margin-top: 10px;
+/*.faqcontainer{
+    display: inline-block;
+    overflow: auto;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    width: 100%;
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.2);
 }*/
 
-/* Stile per il piè di pagina della pagina */
-/*.maincontainer2{
-    background-color: rgb(50, 50, 50);
+/* Stile contenitore per domanda e risposta */
+.main-box_faq{
+    position:relative;
+    display: block;
+    border-top: 1px solid darkred;
+    margin-bottom: 3px;
+    background-color: transparent;
+}
+
+/* Linea rossa decorativa sotto l'ultima FAQ*/
+.main-box_faq:last-child{
+    border-bottom: 1px solid darkred;
+}
+/* stile contenitore titolo*/
+h1 {
+    text-align: center;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    font-family: 'Lexend', sans-serif;
-    color: rgb(210, 210, 210);
-    height: 10rem;
-}*/
-.faq_cont{
-    background-color: rgb(50, 50, 50);
+}
+/* Stile contenitore risposta*/
+.inner-box2{
+    padding: 7px 25px 10px 25px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: 'Lexend', sans-serif;
-    color: rgb(94, 24, 37);
-    height: 10rem;
+    margin: -7px 0 6px;
+    color: #ffffff;
+    background-color: #762c2c;
+}
+/* Stile contenitore domanda */
+.upper-box2{
+    display: flex;
+    padding: 10px 10px 3px;
+    color: #303030;
+}
+/* puntatore per cliccare sulla domanda */
+.upper-box2{
+    cursor:pointer;
 }
 
-.questions-box{
 
-}
-.answers-box{
 
-}
 
-.listaFaq_cont{
-
-}
-.contenitore{
-
-}
 
