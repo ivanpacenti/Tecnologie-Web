@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_desing.css') }}" >
 
     <div class="maincontainer">
-        <h1>Promozioni</h1>
-        <a href="{{route("CreaOfferta")}}" class="buttonbar-add"> Aggiungi Promozioni</a>
+        <h1>Offerte</h1>
+        <a href="{{route("CreaOfferta")}}" class="buttonbar-add"> Aggiungi un offerta</a>
 
         @isset($offerte)
             @foreach($offerte as $offerta)
