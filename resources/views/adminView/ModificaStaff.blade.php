@@ -130,7 +130,7 @@
             });
         }
 
-        // Esempio di utilizzo
+        // funzione da eseguire quando la apgina è pronta
         $(document).ready(function() {
             // prende l'array di numeri dal PHP e lo converte in JavaScript
             var arrayNumeri = {{$aziende_abilitate}};
