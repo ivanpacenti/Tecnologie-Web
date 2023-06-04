@@ -4,7 +4,7 @@
 
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     @isset($aziende)
 
         <form action="{{ route('filtroOfferte') }}" method="POST">
@@ -28,8 +28,27 @@
                         <div class="containerCoupon" id="{{$aziende->find($offerta->emissione->azienda)->nome}}">
                             <div class="image">
                                 <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px" width=90% height=90%>
+                                <?php
+                                    $id_azienda_filtrata=$aziende->find($offerta->emissione->azienda)->nome;
+                                    ?>
                             </div>
                         </div>
                     @endforeach
                     @endisset
+                        <script>
+                            function abilitaCheckboxDaArray(numeri) {
+                                numeri.forEach(function(numero) {
+                                    //abilita le checkbox in base alle aziende per cui lo staff è abilitato
+                                    var checkbox = $('#' + numero);
+                                    checkbox.prop('checked', true);
+                                });
+                            }
+
+                            // funzione da eseguire quando la apgina è pronta
+                            $(document).ready(function() {
+                                // prende l'array di numeri dal PHP e lo converte in JavaScript
+
+                                abilitaCheckboxDaArray({{$id_azienda_filtrata}});
+                            });
+                        </script>
 @endsection('content')
