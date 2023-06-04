@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/catalogo_pub_design.css') }}" >
 
     @isset($aziende)
+
         <form action="{{ route('filtroOfferte') }}" method="POST">
             <div class="checkboxprincipal">
                 <div class="checkboxprincipal">Filtra per azienda</div>
@@ -14,7 +15,6 @@
                         <input class ="check" type="checkbox" id="{{$azienda->nome}}" name="aziende_selezionate[]">
                         <span class="checkmark">
                     </span>
-
                     </label>
                 @endforeach
                 <button type="submit">Filtra</button>
@@ -26,151 +26,10 @@
                 <div class="container2">
                     @foreach($offerte as $offerta)
                         <div class="containerCoupon" id="{{$aziende->find($offerta->emissione->azienda)->nome}}">
-                            <div class="image">{{$aziende->find($offerta->emissione->azienda)->nome}}
+                            <div class="image">
                                 <img src="{{ $offerta->immagine }}" alt="Imagine1" style="border-radius: 20px" width=90% height=90%>
-                            </div>
-                            <div class="containerCoupon2">
-                                <div class="description">
-                                    <div class="testocard">
-
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     @endforeach
-                    @else
-                        <h1>supa di più<h1>
-                                @endisset
-
-                                <!-- <div class="containerCoupon">
-                    <div class="image">
-                        <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
-                    </div>
-                    <div class="containerCoupon2">
-                        <div class="description">
-                            Coupon 2*3
-
-                        </div>
-
-                        <div class="price">
-                            prezzo scontato
-                        </div>
-                    </div>
-                </div>
-
-                <div class="containerCoupon">
-                    <div class="image">
-                        <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
-                    </div>
-                    <div class="containerCoupon2">
-                        <div class="description">
-                            Coupon 2*3
-
-                        </div>
-
-                        <div class="price">
-                            prezzo scontato
-                        </div>
-                    </div>
-                </div>
-
-                <div class="containerCoupon">
-                    <div class="image">
-                        <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
-                    </div>
-                    <div class="containerCoupon2">
-                        <div class="description">
-                            Coupon 2*3
-
-                        </div>
-
-                        <div class="price">
-                            prezzo scontato
-                        </div>
-                    </div>
-                </div>
-
-                <div class="containerCoupon">
-                    <div class="image">
-                        <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
-                    </div>
-                    <div class="containerCoupon2">
-                        <div class="description">
-                            Coupon 2*3
-
-                        </div>
-
-                        <div class="price">
-                            prezzo scontato
-                        </div>
-                    </div>
-                </div>
-
-                <div class="containerCoupon">
-                    <div class="image">
-                        <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
-                    </div>
-                    <div class="containerCoupon2">
-                        <div class="description">
-                            Coupon 2*3
-
-                        </div>
-
-                        <div class="price">
-                            prezzo scontato
-                        </div>
-                    </div>
-                </div>
-
-                <div class="containerCoupon">
-                    <div class="image">
-                        <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
-                    </div>
-                    <div class="containerCoupon2">
-                        <div class="description">
-                            Coupon 2*3
-
-                        </div>
-
-                        <div class="price">
-                            prezzo scontato
-                        </div>
-                    </div>
-                </div>
-
-                <div class="containerCoupon">
-                    <div class="image">
-                        <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
-                    </div>
-                    <div class="containerCoupon2">
-                        <div class="description">
-                            Coupon 2*3
-
-                        </div>
-
-                        <div class="price">
-                            prezzo scontato
-                        </div>
-                    </div>
-                </div>
-
-                <div class="containerCoupon">
-                    <div class="image">
-                        <img src="{{ asset('img/immagine_2.jpg') }}" alt="Imagine1" style="border-radius: 20px;" width=90% height=90%;>
-                    </div>
-                    <div class="containerCoupon2">
-                        <div class="description">
-                            Coupon 2*3
-
-                        </div>
-
-                        <div class="price">
-                            prezzo scontato
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
-
-        @endsection('content')
+                    @endisset
+@endsection('content')
