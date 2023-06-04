@@ -26,22 +26,25 @@ h4{
 }
 
 details{
-    background-color: #303030;
-    color: #fff;
-    font-size: 2.5rem;
+    color: rgb(80, 80, 80);
+    font-size: 30px;
+    width: 90%;
+    border: 3px solid rgb(80, 80, 80);
+    border-radius: 15px;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.2);
 }
 
 summary {
-    padding: .5em 1.3rem;
+    padding: 10px 20px;
     list-style: none;
     display: flex;
     justify-content: space-between;
     transition: height 1s ease;
 }
 
-summary::-webkit-details-marker {
+/*summary::-webkit-details-marker {
     display: none;
-}
+}*/
 
 summary:after{
     content: "\002B";
@@ -49,7 +52,6 @@ summary:after{
 
 details[open] summary {
     border-bottom: 10px solid white;
-    margin-bottom: .5em;
 }
 
 details[open] summary:after{
@@ -57,7 +59,8 @@ details[open] summary:after{
 }
 
 details[open] div{
-    padding: .5em 2em;
+    padding: 10px 100px;
+    font-size: 20px;
 }
 
 /*+---------------------------------------------------+
