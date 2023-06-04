@@ -20,9 +20,9 @@ return new class extends Migration
 
         Schema::table('assegnaziones', function (Blueprint $table) {
             $table->foreign('azienda')->references('id')
-                ->on('aziendas');
+                ->on('aziendas')->onUpdate('cascade')->onDelete('CASCADE');
             $table->foreign('utente')->references('username')
-                ->on('users');
+                ->on('users')->onUpdate('cascade')->onDelete('CASCADE');
         });
     }
 

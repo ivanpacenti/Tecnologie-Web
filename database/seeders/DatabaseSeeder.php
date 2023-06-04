@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder {
                 ['domanda'=>'Posso comperare un coupon senza registrarmi al sito?','risposta'=>'No, è necessario prima registrarsi al nostro sito,e poi accedere tramite il login'],
                 ['domanda'=>'Posso comprare più volte lo stesso Coupon??','risposta'=>'No, è possibile comprare solamente una volta lo stesso coupon'],
                 ['domanda'=>'Serve il kyc per prendere un coupon?','risposta'=>'No, servirà solo registrarsi al sito'],
-                ['domanda'=>'Cosa devo far vedere al commerciante','risposta'=>'il foglio stampato']]
+                ['domanda'=>'Cosa devo far vedere al commerciante','risposta'=>'La stampa del coupon']]
         );
 
         DB::table('users')->insert([

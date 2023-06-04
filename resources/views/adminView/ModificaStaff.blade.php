@@ -5,7 +5,7 @@
 @section('content')
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/form_design.css') }}">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     {!! Form::model($staff, ['route' => ['ModificaStaff', $staff['id']], 'class' => 'form']) !!}
     {!! Form::token() !!}
     <h1>Modifica i dati di {{$staff['username']}}</h1>
@@ -93,6 +93,7 @@
 
     <?php
     $aziende=(new \App\Models\Azienda)->getAziende();
+    $aziende_abilitate=(new \App\Models\Assegnazione)->getAssegnazioneByUtente($staff['username'])->pluck('azienda');
     ?>
     @csrf
     <div class="form-group">
@@ -119,5 +120,20 @@
         {!! Form::submit('Aggiorna', ['class' => 'formbutton']) !!}
     </div>
     {!! Form::close() !!}
+    <script>
+        function abilitaCheckboxDaArray(numeri) {
+            numeri.forEach(function(numero) {
+                //abilita le checkbox in base alle aziende per cui lo staff è abilitato
+                var checkbox = $('#' + numero);
+                checkbox.prop('checked', true);
+            });
+        }
 
+        // funzione da eseguire quando la apgina è pronta
+        $(document).ready(function() {
+            // prende l'array di numeri dal PHP e lo converte in JavaScript
+            var arrayNumeri = {{$aziende_abilitate}};
+            abilitaCheckboxDaArray(arrayNumeri);
+        });
+    </script>
 @endsection('content')

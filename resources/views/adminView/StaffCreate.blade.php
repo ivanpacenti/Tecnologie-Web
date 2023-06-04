@@ -7,7 +7,7 @@
 @section('content')
     <link rel="stylesheet" type="text/css" href="{{asset('css/form_design.css')}}" >
 
-    {!! Form::open(['route' => 'staffcreate', 'class' => 'form']) !!}
+    {!! Form::open(['route' => 'staffcreate2', 'class' => 'form']) !!}
     {!! Form::token() !!}
     <h1>Aggiungi un nuovo membro staff</h1>
     <div class="form-group">
