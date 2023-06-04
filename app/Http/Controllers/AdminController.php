@@ -281,7 +281,7 @@ class AdminController extends Controller
         return redirect()->action([AdminController::class, 'VisualizzaStaff']);
     }
 
-    public function staffcreate(Request $req) // funzione per salvare una faq all'interno del db
+    public function staffcreate2(Request $req) // funzione per salvare una faq all'interno del db
     {
 
         $req->validate([
