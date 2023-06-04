@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/form_design.css')}}" >
 
     {!! Form::open(['route' => 'CreaOfferta','id' => 'CreaOfferta', 'class' => 'form', 'files' => true]) !!}
-    <h1>Aggiungi una nuova promozione</h1>
+    <h1>Aggiungi una nuova offerta</h1>
 
     <div class="form-group">
         {!! Form::label('modalità', 'Modalità') !!}

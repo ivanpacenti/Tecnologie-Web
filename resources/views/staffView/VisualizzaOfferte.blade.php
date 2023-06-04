@@ -8,7 +8,7 @@
 
     <div class="maincontainer">
         <h1>Offerte</h1>
-        <a href="{{route("CreaOfferta")}}" class="buttonbar-add"> Aggiungi un offerta</a>
+        <a href="{{route("CreaOfferta")}}" class="buttonbar-add"> Aggiungi un'offerta</a>
 
         @isset($offerte)
             @foreach($offerte as $offerta)
