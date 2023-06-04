@@ -10,10 +10,10 @@
         <h1>Il totale dei coupon acquistati è: {{$numTot}}</h1>
         <div class="upper-box"> {{--contenitore per il testo--}}
             <h3>ID: {{$user->id}}</h3>
-            <p>Nome: {{$user->name}},</p>
-            <p>Cognome: {{$user->surname}}</p>
-            <p>Username: {{$user->username}}</p>
-            <p>Telefono: {{$user->telefono}}</p>
+            <p><b>Nome:</b> {{$user->name}},</p>
+            <p><b>Cognome:</b> {{$user->surname}}</p>
+            <p><b>Username:</b> {{$user->username}}</p>
+            <p><b>Telefono:</b> {{$user->telefono}}</p>
         </div>
 
         <a href="{{route('statistiche')}}" class="buttonbarstats">vedi altre statistiche</a>

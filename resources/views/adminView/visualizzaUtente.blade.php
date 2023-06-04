@@ -13,10 +13,10 @@
                     <div class="main-box"> {{--contenitore per ogni singolo utente--}}
                         <h2> ID Utente: {{$User->id}} </h2>
                         <div class="upper-box">
-                            <p>Nome: {{$User->name}}</p>
-                            <p>Cognome: {{$User->surname}}</p>
-                            <p>Username: {{$User->username}}</p>
-                            <p>Email: {{$User->email}}</p>
+                            <p><b>Nome:</b> {{$User->name}}</p>
+                            <p><b>Cognome:</b> {{$User->surname}}</p>
+                            <p><b>Username:</b> {{$User->username}}</p>
+                            <p><b>Email:</b> {{$User->email}}</p>
                         </div>
                         <div class="buttons-container">
                             <a href="{{"deleteUser/".$User['id']}}" class="buttonbar">Elimina</a>
