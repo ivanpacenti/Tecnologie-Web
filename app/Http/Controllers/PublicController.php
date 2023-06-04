@@ -52,9 +52,9 @@ class PublicController
         } elseif (empty($stringaOfferta) && !empty($stringaAzienda)) {
             $risultati = Offerta::whereHas('azienda', function ($query) use ($stringaAzienda) {
                 $query->where('nome', 'like', '%' . $stringaAzienda . '%');
-            })->get();
+            })->where('dataFine', '>=', $dataOggi)->get();
         } elseif (!empty($stringaOfferta) && !empty($stringaAzienda)) {
-            $risultati = Offerta::where('descrizione', 'like', '%' . $stringaOfferta . '%')
+            $risultati = Offerta::where('descrizione', 'like', '%' . $stringaOfferta . '%')->where('dataFine', '>=', $dataOggi)
                 ->with('azienda') //carico la relazione 'azienda' per ciascuna offerta corrispondente alla ricerca (nel modello c'è HasManyThrough)
                 ->whereHas('azienda', function ($query) use ($stringaAzienda) {
                     $query->where('nome', 'like', '%' . $stringaAzienda . '%');
@@ -85,8 +85,9 @@ class PublicController
             // Recupera il valore originale di aziende_selezionate dalla sessione
             $aziendeSelezionate = session('aziende_selezionate');
         } else session(['aziende_selezionate' => $aziendeSelezionate]);
-
-        $offerte = Azienda::whereIn('id', $aziendeSelezionate)->first()->offerte()->paginate(2);
+        $id_offerte=Emissione::whereIn('azienda',$aziendeSelezionate)->pluck('offerta');
+        $offerte=Offerta::WhereIn('id',$id_offerte)->where('dataFine', '>=', $dataOggi)->paginate(2);
+        //$offerte = Azienda::whereIn('id', $aziendeSelezionate)->first()->offerte()->paginate(2);
 
 
 
