@@ -209,7 +209,6 @@ al disotto per colonna*/
     display: none;
   }
 
-  /* Show the checkmark when checked */
   .containercheck input:checked ~ .checkmark:after {
     display: block;
   }

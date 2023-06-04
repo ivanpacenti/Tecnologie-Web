@@ -109,8 +109,35 @@
         {{ Form::password('password_confirmation', ['class' => 'form-input', 'id' => 'password-confirm']) }}
     </div>
 
+    <?php
+    $aziende=(new \App\Models\Azienda)->getAziende();
+    ?>
+    @csrf
+    <label>Aziende da gestire:</label><br/>
+    @foreach($aziende as $azienda)
+        <label class="containercheck">{{$azienda->nome}}
+            <input class ="aziendeCheck" type="checkbox" value="{{ $azienda->id }}" id="{{ $azienda->id }}" name="aziende[]" >
+            <span class="checkmark">
+            </span>
+        </label>
+    @endforeach
+    @if ($errors->first('aziende'))
+        <ul class="errors">
+            @foreach ($errors->get('aziende') as $message)
+                <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+    @endif
+
     <div class="form-group">
         {!! Form::submit('Salva', ['class' => 'formbutton']) !!}
     </div>
     {!! Form::close() !!}
+
+
+
+
+
+
 @endsection
+

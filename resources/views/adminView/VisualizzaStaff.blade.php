@@ -14,10 +14,17 @@
                 <div class="main-box">
                     <h2>ID membro staff: {{$staff->id}} </h2>
                     <div class="upper-box">
-                        <p>Nome: {{$staff->name}} </p>
-                        <p>Cognome: {{$staff->surname}} </p>
-                        <p>Username: {{$staff->username}} </p>
-                        <p>Email: {{$staff->email}} </p>
+                        <p><b>Nome:</b> {{$staff->name}} </p>
+                        <p><b>Cognome:</b> {{$staff->surname}} </p>
+                        <p><b>Username:</b> {{$staff->username}} </p>
+                        <p><b>Email:</b> {{$staff->email}} </p>
+                        <?php
+                            $id_azienda=(new App\Models\Assegnazione)->getAziendaByUtente($staff->username);
+                            $aziende=(new App\Models\Azienda)->getAziendabyID($id_azienda);
+                            ?>
+
+                        <p><b>Aziende gestite:</b><br> @foreach($aziende as $azienda) {{$azienda->nome}} <br>@endforeach</p>
+
                     </div>
                     <div class="buttons-container">
                         <a href="{{"ModificaStaff/".$staff['id']}}" class="buttonbar">
@@ -28,7 +35,7 @@
                 </div>
             @endforeach
         @else
-            <h1>Non ci membri dello staff </h1>
+            <h1>Non ci sono membri dello staff </h1>
         @endisset()
     </div>
 @endsection('content')

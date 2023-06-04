@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Assegnazione;
 use App\Models\Azienda;
 use App\Models\coupon_off;
 use App\Models\Emissione;
@@ -21,6 +22,7 @@ class AdminController extends Controller
     protected $_adminUsers;
     protected $_adminAziende;
     protected $_adminOfferte;
+    protected $_adminAssegnazione;
     protected $_adminStaff; // per valeria seguire qua per creare l'istanza poi aggiungerla al costruttore
 
 
@@ -31,6 +33,7 @@ class AdminController extends Controller
         $this->_adminModel = new Admin;
         $this->_adminUsers = new User();
         $this->_adminAziende = new Azienda();
+        $this->_adminAssegnazione=new Assegnazione();
         $this->_adminOfferte = new Offerta();
         $this->middleware('can:isAdmin');
     }
@@ -235,13 +238,15 @@ class AdminController extends Controller
     public function VisualizzaStaff()
     {
         $staffs = $this->_adminUsers->getStaff();
-        return view('adminView.VisualizzaStaff', ['staffs' => $staffs]);
+        $aziende=$this->_adminAziende->getAziende();
+        return view('adminView.VisualizzaStaff', ['staffs' => $staffs],['aziende'=>$aziende]);
     }
 
     public function ModificaStaff1($id)
     {
         $staff = $this->_adminUsers->getUtentebyID($id);
-        return view('adminView.ModificaStaff', ['staff' => $staff]);
+        $aziende = $this->_adminAziende->getAziendeId_Nome();
+        return view('adminView.ModificaStaff', ['staff' => $staff],['aziende'=>$aziende]);
     }
 
     public function ModificaStaff(Request $req)
@@ -254,6 +259,7 @@ class AdminController extends Controller
             'username' => ['required', 'string', 'between:0,100'],
             'telefono' => ['required', 'string', 'regex:/^\+?[0-9]+$/i', 'min:8', 'max:255'],
             'password'=> ['required', 'string', 'min:8'],
+            "aziende"    => ["required","array","min:1"],
         ]);
 
         $User = $this->_adminUsers->getUtentebyID($req->id);
@@ -263,13 +269,21 @@ class AdminController extends Controller
         $User->password = Hash::make($req->password);
         $User->username=$req->username;
         $User->età=$req->età;
-
         $User->save();
+        Assegnazione::where('utente', $req->username)->delete();
+        for($i=0;$i<sizeof($req->aziende);$i++)
+        {
+            $assegnazione=array('azienda'=>$req->aziende[$i],'utente'=>$req->username);
+            Assegnazione::create($assegnazione);
+
+        }
+
         return redirect()->action([AdminController::class, 'VisualizzaStaff']);
     }
 
     public function staffcreate(Request $req) // funzione per salvare una faq all'interno del db
     {
+
         $req->validate([
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
@@ -278,6 +292,7 @@ class AdminController extends Controller
             'username' => ['required', 'string', 'between:0,100'],
             'telefono' => ['required', 'string', 'regex:/^\+?[0-9]+$/i', 'min:8', 'max:255'],
             'password'=> ['required', 'string', 'min:8'],
+            "aziende"    => ["required","array","min:1"],
         ]);
 
         $User = new User();
@@ -290,9 +305,12 @@ class AdminController extends Controller
         $User->role=$req->role;
         $User->genere=$req->genere;
         $User->telefono=$req->telefono;
-
         $User->save();
-
+        for($i=0;$i<sizeof($req->aziende);$i++)
+        {
+            $assegnazione=array('azienda'=>$req->aziende[$i],'utente'=>$req->username);
+            Assegnazione::create($assegnazione);
+        }
         return redirect()->action([AdminController::class, 'VisualizzaStaff']);
     }
 

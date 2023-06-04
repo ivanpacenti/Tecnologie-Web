@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Assegnazione;
 use App\Models\Azienda;
 use App\Models\Emissione;
 use App\Models\Faq;
@@ -19,11 +20,13 @@ class StaffController extends Controller {
     protected $_staffUtente;
 
     protected $_staffAzienda;
+    protected $_staffAssegnazione;
 
     public function __construct() {
         $this->_staffOfferte = new Offerta();
         $this->_staffUtente = new User();
         $this->_staffAzienda=new Azienda();
+        $this->_staffAssegnazione=new Assegnazione();
         $this->middleware('can:isStaff');
     }
 
@@ -57,7 +60,9 @@ class StaffController extends Controller {
 
     public function VisualizzaOfferte()
     {
-        $offerte = $this->_staffOfferte->getOfferte();
+        $id_aziende=$this->_staffAssegnazione->getAssegnazioneByUtente(auth()->user()->username)->pluck('azienda');
+        $id_offerte=Emissione::whereIn('azienda',$id_aziende)->pluck('offerta');
+        $offerte=Offerta::whereIn('id',$id_offerte)->get();
         return view('staffView.VisualizzaOfferte')->with('offerte', $offerte);
     }
 
@@ -71,7 +76,9 @@ class StaffController extends Controller {
     public function Modifica1Offerta($id)
     {
         $offerta = $this->_staffOfferte->getOffertabyID($id);
-        $aziende =$this->_staffAzienda->getAziendeId_Nome();
+        //$aziende =$this->_staffAzienda->getAziendeId_Nome();
+        $id_aziende=$this->_staffAssegnazione->getAssegnazioneByUtente(auth()->user()->username)->pluck('azienda');
+        $aziende =Azienda::whereIn('id',$id_aziende)->pluck('nome', 'id')->toArray();
         //dd($aziende);
         return view('staffView.editPromo', ['offerta' => $offerta, 'aziende' => $aziende]);
     }
@@ -153,7 +160,8 @@ class StaffController extends Controller {
 
     public function creaoffertaxx()
     {
-        $aziende = $this->_staffAzienda->getAziendeId_Nome();
+        $id_aziende=$this->_staffAssegnazione->getAssegnazioneByUtente(auth()->user()->username)->pluck('azienda');
+        $aziende =Azienda::whereIn('id',$id_aziende)->pluck('nome', 'id')->toArray();
         return view('staffView.CreaOfferta',['aziende' => $aziende]);
     }
 

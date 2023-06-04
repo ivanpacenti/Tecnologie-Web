@@ -27,7 +27,7 @@ class PublicController
     {
         $dataOggi = Carbon::today()->toDateString();
         $offerte = Offerta::where('dataFine', '>=', $dataOggi)->paginate(6);
-        $aziende = (new Azienda)->getAziende();;
+        $aziende = (new Azienda)->getAziende();
         return view('catalogo')->with('offerte', $offerte)->with('aziende',$aziende)->with('dataOggi',$dataOggi);
     }
 
@@ -42,12 +42,13 @@ class PublicController
 
     public function ricerca(Request $request)
     {
+        $dataOggi = Carbon::today()->toDateString();
         $stringaOfferta = addslashes($request->get('cercaCoupon'));
         $stringaAzienda = addslashes($request->get('cercaAzienda'));
 
         if (!empty($stringaOfferta) && empty($stringaAzienda)) {
             // Cerca solo nelle offerte
-            $risultati = Offerta::where('descrizione', 'like', '%' . $stringaOfferta . '%')->get();
+            $risultati = Offerta::where('descrizione', 'like', '%' . $stringaOfferta . '%')->where('dataFine', '>=', $dataOggi)->get();
         } elseif (empty($stringaOfferta) && !empty($stringaAzienda)) {
             $risultati = Offerta::whereHas('azienda', function ($query) use ($stringaAzienda) {
                 $query->where('nome', 'like', '%' . $stringaAzienda . '%');

@@ -36,4 +36,5 @@ class Azienda extends Model
 
     }
 
+
 }
