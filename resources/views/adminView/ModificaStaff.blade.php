@@ -126,7 +126,6 @@
                 //abilita le checkbox in base alle aziende per cui lo staff è abilitato
                 var checkbox = $('#' + numero);
                 checkbox.prop('checked', true);
-                checkbox.prop('disabled', false);
             });
         }
 
