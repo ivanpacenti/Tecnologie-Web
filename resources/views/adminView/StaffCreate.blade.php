@@ -113,21 +113,25 @@
     $aziende=(new \App\Models\Azienda)->getAziende();
     ?>
     @csrf
-    <label>Aziende da gestire:</label><br/>
-    @foreach($aziende as $azienda)
-        <label class="containercheck">{{$azienda->nome}}
-            <input class ="aziendeCheck" type="checkbox" value="{{ $azienda->id }}" id="{{ $azienda->id }}" name="aziende[]" >
-            <span class="checkmark">
-            </span>
-        </label>
-    @endforeach
-    @if ($errors->first('aziende'))
-        <ul class="errors">
-            @foreach ($errors->get('aziende') as $message)
-                <li>{{ $message }}</li>
+    <div class="form-group">
+        {!! Form::label('aziende', 'Aziende da gestire:') !!}
+        <div class="form-group-3">
+            @foreach($aziende as $azienda)
+                <label class="containercheck">
+                    {!! Form::checkbox('aziende[]', $azienda->id, null, ['id' => $azienda->id, 'class' => 'form-check']) !!}
+                    {{ $azienda->nome }}
+                    <span class="checkmark"></span>
+                </label>
             @endforeach
-        </ul>
-    @endif
+            @if ($errors->has('aziende'))
+                <ul class="errors">
+                    @foreach ($errors->get('aziende') as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            @endif
+        </div>
+    </div>
 
     <div class="form-group">
         {!! Form::submit('Salva', ['class' => 'formbutton']) !!}
