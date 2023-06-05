@@ -107,6 +107,6 @@ class PublicController
 
         $faqs = Faq::all();
 
-        return view('layouts.publicFaqs', ['faqs' => $faqs]);
+        return view('publicFaqs', ['faqs' => $faqs]);
     }
 }
