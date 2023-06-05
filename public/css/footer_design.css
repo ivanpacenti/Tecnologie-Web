@@ -11,7 +11,7 @@
     height: 12rem;
 }
 
-.section{
+.section-footer{
     height: 50px;
     margin-top: 5px;
     display: flex;
@@ -20,18 +20,18 @@
     flex-direction: column;
 }
 
-a{
+.section-footer a{
     margin-top: 5px;
     text-decoration: none;
     color: rgb(210, 210, 210);
 }
 
-.section p{
+.section-footer p{
     margin-top: 5px;
     font-size: 10px;
 }
 
-.section p a{
+.section-footer p a{
     font-size: 10px;
     color: #762c2c;
 }
