@@ -26,12 +26,12 @@ a{
     color: rgb(210, 210, 210);
 }
 
-p{
+.section p{
     margin-top: 5px;
     font-size: 10px;
 }
 
-p a{
+.section p a{
     font-size: 10px;
     color: #762c2c;
 }
