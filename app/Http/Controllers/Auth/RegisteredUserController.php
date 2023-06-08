@@ -43,7 +43,12 @@ class RegisteredUserController extends Controller
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'username' => ['required', 'string', 'min:8', 'unique:users'],
-            'telefono' => ['required', 'string', 'regex:/^[+\s0-9]+$/i', 'min:8', 'max:255'],
+            'telefono' => ['required', 'string', 'regex:/^[+\s0-9]+$/i', 'min:8', 'max:255', function ($attribute, $value, $fail) {
+                $plusCount = substr_count($value, '+');
+                if ($plusCount > 1) {
+                    $fail('Il campo :attribute può contenere al massimo un carattere "+"');
+                }
+            }],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'età' => ['required', 'integer', 'between:0,100'],
 

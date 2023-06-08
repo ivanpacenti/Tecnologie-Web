@@ -47,7 +47,12 @@ class UserController extends Controller {
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'telefono' => ['required', 'string', 'regex:/^[+\s0-9]+$/i', 'min:8', 'max:255'],
+            'telefono' => ['required', 'string', 'regex:/^[+\s0-9]+$/i', 'min:8', 'max:255', function ($attribute, $value, $fail) {
+                $plusCount = substr_count($value, '+');
+                if ($plusCount > 1) {
+                    $fail('Il campo :attribute può contenere al massimo un carattere "+"');
+                }
+            }],
             'età' => ['required', 'integer', 'between:0,100'],
             'password'=> ['required', 'string', 'min:8'],
         ]);
