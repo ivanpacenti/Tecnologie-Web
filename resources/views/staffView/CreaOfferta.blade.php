@@ -9,17 +9,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
+
     $(function () {
         var actionUrl = "{{ route('CreaOfferta') }}";// definisce url a cui la richiesta di validazione va inviata
         var formId = 'CreaOfferta';
         // associa un endlear, appena l'utente sposta il cursone, blur è l'evento
         $(":input").on('blur', function (event) {
             var formElementId = $(this).attr('id');// identifica l'id e poi attiva la funzione due elementi validation,
-            doElemValidation(formElementId, actionUrl, formId);// gli passo l'id, l'url, e id form
+            doElemValidation(formElementId, actionUrl, formId);// gli passo l'id, l'url, e id form funzione js
         });
         // un altro endler
         $("#CreaOfferta").on('submit', function (event) {
-            event.preventDefault();
+            event.preventDefault(); // impedisce chiamata normale
             doFormValidation(actionUrl, formId);
         });
     });

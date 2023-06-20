@@ -1,17 +1,18 @@
-let slideIndex = 0;
+let slideIndex = 0; // tiene conto slide show
 showSlides();
 
 function showSlides() {
-    let i;
+    let i; // var appogggio
     let slides = document.getElementsByClassName("slide");
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
+    slideIndex++; // per passare prox slide
+    if (slideIndex > slides.length) {slideIndex = 1}// check lunghezza
     slides[slideIndex-1].style.display = "block";
     setTimeout(showSlides, 2000);
 }
+
 
 function initMap() {
     var latLng = { lat: 43.58690331062659, lng: 13.516659369608051 }; // Posizione specifica sulla mappa

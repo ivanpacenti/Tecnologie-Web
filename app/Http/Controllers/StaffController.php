@@ -22,12 +22,12 @@ class StaffController extends Controller {
     protected $_staffAzienda;
     protected $_staffAssegnazione;
 
-    public function __construct() {
+    public function __construct() { // costruttore
         $this->_staffOfferte = new Offerta();
         $this->_staffUtente = new User();
         $this->_staffAzienda=new Azienda();
         $this->_staffAssegnazione=new Assegnazione();
-        $this->middleware('can:isStaff');
+        $this->middleware('can:isStaff'); // middleware per autenticazione
     }
 
     public function staff() {
@@ -35,13 +35,13 @@ class StaffController extends Controller {
     }
 
     public function Visualizza1Staff($id)
-    {
+    {// visualizza solo un memrbo dello staff
         $User = $this->_staffUtente->getUtentebyID($id);
         return view('staffView.editStaff', ['User' => $User]);
     }
 
-    public function modificaStaff(Request $req) // funzione che serve per modificare  UN UTENTE
-    {
+    public function modificaStaff(Request $req) // funzione che serve per modificare  UN UTENTE staff
+    {//
         $req->validate([
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
@@ -51,7 +51,7 @@ class StaffController extends Controller {
         $User = $this->_staffUtente->getUtentebyID($req->id);
         $User->name=$req->name;
         $User->surname=$req->surname;
-        $User->password = Hash::make($req->password);
+        $User->password = Hash::make($req->password); // crittografo la psw
 
         $User->save();
 
@@ -60,8 +60,8 @@ class StaffController extends Controller {
 
     public function VisualizzaOfferte()
     {
-        $id_aziende=$this->_staffAssegnazione->getAssegnazioneByUtente(auth()->user()->username)->pluck('azienda');
-        $id_offerte=Emissione::whereIn('azienda',$id_aziende)->pluck('offerta');
+        $id_aziende=$this->_staffAssegnazione->getAssegnazioneByUtente(auth()->user()->username)->pluck('azienda');// mi trova le offerte che solo lo staff può vedere
+        $id_offerte=Emissione::whereIn('azienda',$id_aziende)->pluck('offerta'); // pluck collezioni di oggetti offerta
         $offerte=Offerta::whereIn('id',$id_offerte)->get();
         return view('staffView.VisualizzaOfferte')->with('offerte', $offerte);
     }
@@ -93,19 +93,19 @@ class StaffController extends Controller {
             'luogoFruizione' => ['required', 'string', 'max:255'],
         ]);
 
-        if ($req->hasFile('immagine')) {
-            $image = $req->file('immagine');
-            $imageName = $image->getClientOriginalName();
+        if ($req->hasFile('immagine')) { // verifico la presenza di un file con il nome immagine
+            $image = $req->file('immagine');// se è gia presente  viene associato all'oggetto image
+            $imageName = $image->getClientOriginalName(); // metodo per estrarre il nome originale
         } else {
             $imageName = NULL;
         }
-
-        if (!is_null($imageName)) {
+        // qui creo il path
+        if (!is_null($imageName)) { //se  imageName è nulla viene creato un percorso di destinazione utilizzando la funzione li sotto
             $destinationPath = public_path() .'/img/';
-            $image->move($destinationPath, $imageName);
-            $imageName = 'img/' . $image->getClientOriginalName();
+            $image->move($destinationPath, $imageName); // quindi l'immagine viene spostata nella cartella di destinazione usando il metodo move
+            $imageName = 'img/' . $image->getClientOriginalName(); // e il nome dell'immagine viene aggiornato con il percorso relativo alla cartella img
         } else{
-            $imageName = Offerta::where('id', $req->id)->value('immagine');
+            $imageName = Offerta::where('id', $req->id)->value('immagine'); // immagine vecchia
         }
 
         $offerta =$this->_staffOfferte->getOffertabyID($req->id);
@@ -136,11 +136,11 @@ class StaffController extends Controller {
             $image->move($destinationPath, $imageName);
             $imageName = 'img/' . $image->getClientOriginalName();
         } else {
-            $imageName = 'img/shop.jpg';
+            $imageName = 'img/shop.jpg';// IMMAGINE DI DEFAULT perchè la creo
         }
 
         $offerta = new Offerta();
-        $offerta->fill($request->validated());
+        $offerta->fill($request->validated()); // ajax
         $offerta->immagine = $imageName;
         $offerta->id = $request->id;
         $offerta->modalità = $request->modalità;
@@ -159,8 +159,9 @@ class StaffController extends Controller {
     }
 
     public function creaoffertaxx()
+        // prende quello che mi serve
     {
-        $id_aziende=$this->_staffAssegnazione->getAssegnazioneByUtente(auth()->user()->username)->pluck('azienda');
+        $id_aziende=$this->_staffAssegnazione->getAssegnazioneByUtente(auth()->user()->username)->pluck('azienda');// ottengo l'id delle aziende dove lo staff è autenticato
         $aziende =Azienda::whereIn('id',$id_aziende)->pluck('nome', 'id')->toArray();
         return view('staffView.CreaOfferta',['aziende' => $aziende]);
     }

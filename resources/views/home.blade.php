@@ -26,6 +26,7 @@
         <h1>LE NOSTRE AZIENDE</h1>
         <div class="wrapper">
             <div class="container-slide">
+{{--                si prende il logo di tutte le aziende--}}
                 <?php
                     $aziende=(new \App\Models\Azienda)->getAziende();
                     ?>

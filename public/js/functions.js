@@ -14,12 +14,13 @@ function doElemValidation(id, actionUrl, formId) {
     var formElems;
 
     function addFormToken() {
-        var tokenVal = $("#" + formId + " input[name=_token]").val();
+        var tokenVal = $("#" + formId + " input[name=_token]").val(); // prendo il token di valizazione form
         formElems.append('_token', tokenVal);
     }
 
     function sendAjaxReq() {
-        $.ajax({
+
+        $.ajax({ // utility function
             type: 'POST',
             url: actionUrl,
             data: formElems,
@@ -36,7 +37,7 @@ function doElemValidation(id, actionUrl, formId) {
         });
     }
 
-    var elem = $("#" + id);
+    var elem = $("#" + id); // id singolo elemento
     if (elem.attr('type') === 'file') {
         // elemento di input type=file valorizzato
         if (elem.val() !== '') {
@@ -73,7 +74,7 @@ function doFormValidation(actionUrl, formId) {
             }
         },
         success: function (data) {
-            window.location.replace(data.redirect);
+            window.location.replace(data.redirect); // ok funziona, controllo sulla form
         },
         contentType: false,
         processData: false
